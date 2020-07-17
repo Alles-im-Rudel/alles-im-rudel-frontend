@@ -3,6 +3,10 @@ module.exports = {
     "vuetify"
   ],
 
+  devServer: {
+    host: 'frontend.alles-im-rudel-backend.test'
+  },
+
   pluginOptions: {
     i18n: {
       locale: 'en',
