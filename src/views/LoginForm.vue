@@ -52,6 +52,7 @@
                     .then(response => {
                         this.$root.$snackbar.open(response.data.message);
                         this.$router.push({name: 'dashboard'});
+                        this.getUser();
                     })
                     .catch(error => {
                         this.syncErrors(error);
@@ -60,6 +61,9 @@
                         }
                     })
                     .finally(() => (this.isLoading = false));
+            },
+            getUser() {
+
             }
         }
     }
