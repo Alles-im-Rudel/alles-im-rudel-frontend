@@ -10,6 +10,7 @@
         <confirm-modal ref="confirm" />
         <alert-modal ref="alert" />
         <snackbar-component ref="snackbar" />
+        <social-footer />
     </v-app>
 </template>
 <script>
@@ -17,6 +18,7 @@
     import AlertModal from './components/dialogs/AlertModal';
     import Snackbar from './components/dialogs/Snackbar';
     import Navigation from "./components/navigation/Navigation";
+    import SocialFooter from './components/footer/SocialFooter'
 
     export default {
         name: 'App',
@@ -24,7 +26,8 @@
             'alert-modal': AlertModal,
             'confirm-modal': ConfirmModal,
             'snackbar-component': Snackbar,
-            'navigation': Navigation
+            'navigation': Navigation,
+            'social-footer': SocialFooter
         },
         data() {
             return {

@@ -38,33 +38,34 @@ const actions = {
     login({commit}, loginForm) {
         this.isLoading = true;
         axios.get('/sanctum/csrf-cookie').then(() => {
-            return new Promise((resolve, reject) => {
                 axios.post('login', loginForm)
-                    .then(response => {
-                        commit('SET_USER', response.data.user);
-                        commit('SET_PERMISSIONS', response.data.permissions);
-                        commit('SET_NAVIGATION_ITEMS', response.data.navigation_items);
-                        commit('SET_IS_AUTH', true);
-                        resolve(response);
+                    .then(() => {
+                            axios.get('api/auth')
+                                .then(response => {
+                                    commit('SET_USER', response.data.data);
+                                    /*commit('SET_PERMISSIONS', response.data.permissions);
+                                    commit('SET_NAVIGATION_ITEMS', response.data.navigation_items);*/
+                                    commit('SET_IS_AUTH', true);
+                                })
                     })
                     .catch(error => {
-                        reject(error);
+                        console.log(error)
                     });
-            });
         });
     },
     logout({commit}) {
-        commit('UNSET_AUTH');
-        window.location.reload();
+        axios.post('/logout').then(() => {
+            commit('UNSET_AUTH');
+            window.location.reload();
+        })
     },
     getUser({commit}) {
         return new Promise((resolve, reject) => {
-            axios
-                .get('auth')
+            axios.get('api/auth')
                 .then(response => {
-                    commit('SET_USER', response.data.user);
-                    commit('SET_PERMISSIONS', response.data.permissions);
-                    commit('SET_NAVIGATION_ITEMS', response.data.navigation_items);
+                    commit('SET_USER', response.data.data);
+                   /* commit('SET_PERMISSIONS', response.data.permissions);
+                    commit('SET_NAVIGATION_ITEMS', response.data.navigation_items);*/
                     resolve(response);
                 })
                 .catch(error => {

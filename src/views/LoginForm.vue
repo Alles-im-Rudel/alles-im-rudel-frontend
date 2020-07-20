@@ -14,6 +14,7 @@
                             <v-text-field
                                     v-model="form.password"
                                     required
+                                    type="password"
                                     label="Passwort"
                             />
                         </form>
