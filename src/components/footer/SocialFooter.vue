@@ -29,8 +29,11 @@
                 </v-btn>
             </v-card-title>
 
-            <v-card-text class="py-2 white--text text-center primary">
+            <v-card-text class="py-2 white--text text-center">
                 {{ new Date().getFullYear() }} — <strong>Alles Im Rudel</strong>
+            </v-card-text>
+            <v-card-text class="py-2 white--text text-center">
+                <v-btn text small @click="impressum">Impressum</v-btn>
             </v-card-text>
         </v-card>
     </v-footer>
@@ -47,6 +50,9 @@
             },
             instagram() {
                 window.open("https://www.instagram.com/allesimrudel/?hl=de", "_blank");
+            },
+            impressum() {
+                this.$router.push({name: 'impressum'})
             }
         }
     }

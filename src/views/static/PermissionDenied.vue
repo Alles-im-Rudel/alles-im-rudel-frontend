@@ -3,7 +3,7 @@
         <v-container fluid>
             <v-row justify="center" align="center">
                 <v-col cols="12" lg="5">
-                    <v-card>
+                    <v-card color="rgb(255, 255, 255, 0.9)">
                         <v-card-title>
                             <v-icon color="error" left>fa-user-times</v-icon>
                             403 - Error

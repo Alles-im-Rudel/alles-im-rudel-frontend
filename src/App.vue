@@ -1,10 +1,12 @@
 <template>
     <v-app>
-        <navigation />
+        <span class="bg" />
+        <navigation @user-navigation-changed="setUserNavigation" />
         <v-content>
             <v-slide-y-transition mode="out-in">
                 <router-view />
             </v-slide-y-transition>
+            <user-navigation :user-navigation="userNavigation" />
         </v-content>
         <!-- GLOBAL COMPONENTS -->
         <confirm-modal ref="confirm" />
@@ -19,6 +21,7 @@
     import Snackbar from './components/dialogs/Snackbar';
     import Navigation from "./components/navigation/Navigation";
     import SocialFooter from './components/footer/SocialFooter'
+    import UserNavigation from "./components/navigation/UserNavigation";
 
     export default {
         name: 'App',
@@ -27,19 +30,23 @@
             'confirm-modal': ConfirmModal,
             'snackbar-component': Snackbar,
             'navigation': Navigation,
+            'user-navigation': UserNavigation,
             'social-footer': SocialFooter
         },
         data() {
             return {
-                refreshing: false,
-                serviceWorker: null,
-                updateExists: false
+                userNavigation: false
             };
         },
         mounted() {
             this.$root.$confirm = this.$refs.confirm;
             this.$root.$alert = this.$refs.alert;
             this.$root.$snackbar = this.$refs.snackbar;
+        },
+        methods: {
+            setUserNavigation() {
+                this.userNavigation = !this.userNavigation;
+            }
         }
     };
 </script>
@@ -51,6 +58,16 @@
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
         color: #2c3e50;
+    }
+
+    .bg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: url('./assets/background.jpeg') no-repeat center center;
+        background-size: cover;
     }
 
     #nav {

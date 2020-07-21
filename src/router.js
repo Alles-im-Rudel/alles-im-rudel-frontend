@@ -13,6 +13,12 @@ const router = new Router({
             component: () => import('./views/HomeIndex')
         },
         {
+            path: '/impressum',
+            name: 'impressum',
+            meta: {auth: false, permission: null},
+            component: () => import('./views/impressum')
+        },
+        {
             path: '/dashboard',
             name: 'dashboard',
             meta: {auth: true, permission: null},

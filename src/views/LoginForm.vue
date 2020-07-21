@@ -2,7 +2,7 @@
     <v-container>
         <v-row align="center" justify="center">
             <v-col cols="12" md="5">
-                <v-card>
+                <v-card color="rgb(255, 255, 255, 0.9)">
                     <v-card-title>Login</v-card-title>
                     <v-card-text>
                         <form>

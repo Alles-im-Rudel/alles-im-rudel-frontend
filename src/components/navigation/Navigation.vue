@@ -21,39 +21,20 @@
                 <v-icon>mdi-login</v-icon>
             </v-btn>
 
-            <v-menu
+            <v-btn
                     v-if="isAuth"
-                    left
-                    bottom
+                    class="mx-4"
+                    dark
+                    icon
+                    @click="$emit('user-navigation-changed')"
             >
-                <template v-slot:activator="{ on, attrs }">
-                    <v-btn
-                            icon
-                            v-bind="attrs"
-                            v-on="on"
-                    >
-                        <v-icon>mdi-dots-vertical</v-icon>
-                    </v-btn>
-                </template>
-
-                <v-list>
-                    <v-list-item
-                            @click="logout()"
-                    >
-                        <v-list-item-title>Logout</v-list-item-title>
-                    </v-list-item>
-                    <v-list-item
-                            @click="goToMyAccount()"
-                    >
-                        <v-list-item-title>Mein Account</v-list-item-title>
-                    </v-list-item>
-                </v-list>
-            </v-menu>
+                <v-icon>mdi-dots-vertical</v-icon>
+            </v-btn>
         </v-app-bar>
     </div>
 </template>
 <script>
-    import {mapGetters, mapActions} from 'vuex';
+    import {mapGetters} from 'vuex';
 
     export default {
         data() {
@@ -66,13 +47,9 @@
             ...mapGetters('auth', ['isAuth']),
         },
         methods: {
-            ...mapActions('auth', ['logout']),
             goToLogin() {
                 this.$router.push({name: 'login'})
             },
-            goToMyAccount() {
-                this.$router.push({name: 'dasboard'})
-            }
         }
     };
 </script>
