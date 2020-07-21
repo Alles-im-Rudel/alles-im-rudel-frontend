@@ -10,6 +10,8 @@
                                     v-model="form.email"
                                     required
                                     label="Benutzername"
+                                    :error="hasErrors('email')"
+                                    :error-messages="getErrors('email')"
                             />
                             <v-text-field
                                     v-model="form.password"
@@ -20,7 +22,7 @@
                         </form>
                     </v-card-text>
                     <v-card-actions>
-                        <v-btn @click="submit">Login</v-btn>
+                        <v-btn @click="submit" @keydown.enter.native="submit" :loading="isLoadingAuth">Login</v-btn>
                     </v-card-actions>
                 </v-card>
             </v-col>
@@ -29,7 +31,7 @@
 </template>
 
 <script>
-    import {mapActions} from 'vuex';
+    import {mapActions, mapGetters} from 'vuex';
     import ValidationErrors from '../mixins/ValidationErros'
 
     export default {
@@ -45,26 +47,24 @@
                 errors: {},
             }
         },
+        computed: {
+            ...mapGetters('auth', ['isLoadingAuth']),
+        },
         methods: {
             ...mapActions('auth', ['login']),
             submit() {
                 this.clearErrors();
                 this.login(this.form)
-                    .then(response => {
-                        this.$root.$snackbar.open(response.data.message);
+                    .then(() => {
                         this.$router.push({name: 'dashboard'});
-                        this.getUser();
                     })
                     .catch(error => {
+                        console.log(error);
                         this.syncErrors(error);
-                        if (error.response.data.message) {
-                            this.errorMessage = error.response.data.message;
-                        }
                     })
-                    .finally(() => (this.isLoading = false));
-            },
-            getUser() {
-
+                    .finally(() => {
+                        this.isLoading = false;
+                    });
             }
         }
     }

@@ -1,7 +1,7 @@
 <template>
     <div>
         <v-app-bar
-                color="deep-purple accent-4"
+                color="primary"
                 dense
                 dark
         >
@@ -11,15 +11,18 @@
 
             <v-spacer></v-spacer>
 
-            <v-btn icon>
-                <v-icon>mdi-heart</v-icon>
-            </v-btn>
-
-            <v-btn icon>
-                <v-icon>mdi-magnify</v-icon>
+            <v-btn
+                   v-if="!isAuth"
+                    class="mx-4"
+                    dark
+                    icon
+                    @click="goToLogin"
+            >
+                <v-icon>mdi-login</v-icon>
             </v-btn>
 
             <v-menu
+                    v-if="isAuth"
                     left
                     bottom
             >
@@ -35,77 +38,22 @@
 
                 <v-list>
                     <v-list-item
-                            v-for="n in 5"
-                            :key="n"
-                            @click="() => {}"
+                            @click="logout()"
                     >
-                        <v-list-item-title>Option {{ n }}</v-list-item-title>
+                        <v-list-item-title>Logout</v-list-item-title>
+                    </v-list-item>
+                    <v-list-item
+                            @click="goToMyAccount()"
+                    >
+                        <v-list-item-title>Mein Account</v-list-item-title>
                     </v-list-item>
                 </v-list>
             </v-menu>
         </v-app-bar>
     </div>
 </template>
-<!--<template>
-    <section>
-        <section v-if="isAuth">
-            <v-navigation-drawer
-                    :value="navigationItemDrawer"
-                    app
-                    temporary
-                    right
-                    width="400"
-                    @input="SET_NAVIGATION_ITEM_DRAWER($event)"
-            >
-                <navigation-item-drawer />
-            </v-navigation-drawer>
-        </section>
-
-        <v-app-bar
-                app
-                height="100"
-                extension-height="auto"
-                fixed
-                clipped-right
-                absolute
-        >
-            <v-toolbar-title class="headline">
-                <router-link to="/">
-                    <picture>
-                        <source
-                                class="header-logo"
-                                srcset="@/assets/logo.svg"
-                                type="image/svg+xml"
-                        />
-                        <img
-                                width="75"
-                                class="header-logo"
-                                src="@/assets/logo.png"
-                                alt="company-image"
-                        />
-                    </picture>
-                </router-link>
-            </v-toolbar-title>
-            <v-spacer />
-            <section v-if="isAuth">
-                <v-btn color="accent" fab text href="#" @click="extended = !extended">
-                    <v-icon>fa-search</v-icon>
-                </v-btn>
-                <v-btn
-                        color="accent"
-                        fab
-                        text
-                        href="#"
-                        @click.stop="SET_NAVIGATION_ITEM_DRAWER(!navigationItemDrawer)"
-                >
-                    <v-icon>fa-cog</v-icon>
-                </v-btn>
-            </section>
-        </v-app-bar>
-    </section>
-</template>-->
 <script>
-    import {mapGetters, mapMutations} from 'vuex';
+    import {mapGetters, mapActions} from 'vuex';
 
     export default {
         data() {
@@ -115,15 +63,16 @@
             };
         },
         computed: {
-            ...mapGetters('navigation', [
-                'navigationItemDrawer',
-            ]),
             ...mapGetters('auth', ['isAuth']),
         },
         methods: {
-            ...mapMutations('navigation', [
-                'SET_NAVIGATION_ITEM_DRAWER'
-            ])
+            ...mapActions('auth', ['logout']),
+            goToLogin() {
+                this.$router.push({name: 'login'})
+            },
+            goToMyAccount() {
+                this.$router.push({name: 'dasboard'})
+            }
         }
     };
 </script>

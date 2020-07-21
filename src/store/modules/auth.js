@@ -5,6 +5,7 @@ const state = {
     user: null,
     permissions: null,
     navigationItems: null,
+    isLoadingAuth: false,
 };
 
 const getters = {
@@ -12,6 +13,7 @@ const getters = {
     user: state => state.user,
     permissions: state => state.permissions,
     navigationItems: state => state.navigationItems,
+    isLoadingAuth: state => state.isLoadingAuth,
 };
 
 const mutations = {
@@ -31,32 +33,45 @@ const mutations = {
     },
     SET_NAVIGATION_ITEMS(state, navigationItems) {
         state.navigationItems = navigationItems;
+    },
+    SET_IS_LOADING_AUTH(state, isLoadingAuth) {
+        state.isLoadingAuth = isLoadingAuth;
     }
 };
 
 const actions = {
     login({commit}, loginForm) {
+        commit('SET_IS_LOADING_AUTH', true);
         this.isLoading = true;
+        return new Promise((resolve, reject) => {
         axios.get('/sanctum/csrf-cookie').then(() => {
-                axios.post('login', loginForm)
-                    .then(() => {
-                            axios.get('api/auth')
-                                .then(response => {
-                                    commit('SET_USER', response.data.data);
-                                    /*commit('SET_PERMISSIONS', response.data.permissions);
-                                    commit('SET_NAVIGATION_ITEMS', response.data.navigation_items);*/
-                                    commit('SET_IS_AUTH', true);
-                                })
-                    })
-                    .catch(error => {
-                        console.log(error)
-                    });
+            axios.post('login', loginForm)
+                .then(() => {
+                    axios.get('api/auth')
+                        .then(response => {
+                            commit('SET_USER', response.data.data);
+                            /*commit('SET_PERMISSIONS', response.data.permissions);
+                            commit('SET_NAVIGATION_ITEMS', response.data.navigation_items);*/
+                            commit('SET_IS_AUTH', true);
+                            resolve(response);
+                        })
+                })
+                .catch(error => {
+                    commit('UNSET_AUTH');
+                    reject(error);
+                }).finally(() => {
+                commit('SET_IS_LOADING_AUTH', false);
+            });
         });
+    });
     },
     logout({commit}) {
+        commit('SET_IS_LOADING_AUTH', true);
         axios.post('/logout').then(() => {
             commit('UNSET_AUTH');
             window.location.reload();
+        }).finally(() => {
+            commit('SET_IS_LOADING_AUTH', false);
         })
     },
     getUser({commit}) {
@@ -64,8 +79,8 @@ const actions = {
             axios.get('api/auth')
                 .then(response => {
                     commit('SET_USER', response.data.data);
-                   /* commit('SET_PERMISSIONS', response.data.permissions);
-                    commit('SET_NAVIGATION_ITEMS', response.data.navigation_items);*/
+                    /* commit('SET_PERMISSIONS', response.data.permissions);
+                     commit('SET_NAVIGATION_ITEMS', response.data.navigation_items);*/
                     resolve(response);
                 })
                 .catch(error => {
