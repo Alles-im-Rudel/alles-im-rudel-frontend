@@ -1,12 +1,13 @@
 <template>
     <v-app>
         <span class="bg" />
-        <navigation @user-navigation-changed="setUserNavigation" />
-        <v-content>
+        <navigation @user-navigation-changed="setUserNavigation" @side-navigation-changed="setSideNavigation" />
+        <v-content class="mt-12">
             <v-slide-y-transition mode="out-in">
                 <router-view />
             </v-slide-y-transition>
             <user-navigation :user-navigation="userNavigation" />
+            <side-navigation :side-navigation="sideNavigation" />
         </v-content>
         <!-- GLOBAL COMPONENTS -->
         <confirm-modal ref="confirm" />
@@ -20,8 +21,9 @@
     import AlertModal from './components/dialogs/AlertModal';
     import Snackbar from './components/dialogs/Snackbar';
     import Navigation from "./components/navigation/Navigation";
-    import SocialFooter from './components/footer/SocialFooter'
+    import SocialFooter from './components/footer/SocialFooter';
     import UserNavigation from "./components/navigation/UserNavigation";
+    import SideNavigation from "./components/navigation/SideNavigation";
 
     export default {
         name: 'App',
@@ -31,11 +33,13 @@
             'snackbar-component': Snackbar,
             'navigation': Navigation,
             'user-navigation': UserNavigation,
+            'side-navigation': SideNavigation,
             'social-footer': SocialFooter
         },
         data() {
             return {
-                userNavigation: false
+                userNavigation: false,
+                sideNavigation: false
             };
         },
         mounted() {
@@ -46,6 +50,9 @@
         methods: {
             setUserNavigation() {
                 this.userNavigation = !this.userNavigation;
+            },
+            setSideNavigation() {
+                this.sideNavigation = !this.sideNavigation;
             }
         }
     };

@@ -1,18 +1,19 @@
 <template>
-    <div>
+    <section>
         <v-app-bar
                 color="primary"
                 dense
                 dark
+                fixed
+                elevate-on-scroll
         >
-            <v-app-bar-nav-icon></v-app-bar-nav-icon>
-
+            <v-app-bar-nav-icon @click="$emit('side-navigation-changed')"></v-app-bar-nav-icon>
             <v-toolbar-title>{{ appName }}</v-toolbar-title>
 
             <v-spacer></v-spacer>
 
             <v-btn
-                   v-if="!isAuth"
+                    v-if="!isAuth"
                     class="mx-4"
                     dark
                     icon
@@ -31,7 +32,7 @@
                 <v-icon>mdi-dots-vertical</v-icon>
             </v-btn>
         </v-app-bar>
-    </div>
+    </section>
 </template>
 <script>
     import {mapGetters} from 'vuex';

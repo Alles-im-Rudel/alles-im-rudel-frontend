@@ -1,17 +1,16 @@
 <template>
 
     <v-navigation-drawer
-            v-model="userNavigation"
+            v-model="sideNavigation"
             absolute
-            right
     >
         <v-list-item>
             <v-list-item-avatar>
-                <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
+                <v-img src="src/assets/background.jpeg"></v-img>
             </v-list-item-avatar>
 
             <v-list-item-content>
-                <v-list-item-title>{{ user.first_name }} {{ user.last_name }}</v-list-item-title>
+                <v-list-item-title>Navigation</v-list-item-title>
             </v-list-item-content>
         </v-list-item>
 
@@ -20,53 +19,45 @@
         <v-list dense>
             <v-list-item
                     link
-                    @click="goToUserProfil"
+                    @click="$router.push({name: 'home'})"
             >
                 <v-list-item-icon>
-                    <v-icon>mdi-account</v-icon>
+                    <v-icon>mdi-home</v-icon>
                 </v-list-item-icon>
 
                 <v-list-item-content>
-                    <v-list-item-title>Mein Profil</v-list-item-title>
+                    <v-list-item-title>Home</v-list-item-title>
                 </v-list-item-content>
             </v-list-item>
             <v-list-item
+                    v-if="isAuth"
                     link
-                    @click="logout"
+                    @click="$router.push({name: 'dashboard'})"
             >
                 <v-list-item-icon>
-                    <v-icon>mdi-logout</v-icon>
+                    <v-icon>mdi-bulletin-board</v-icon>
                 </v-list-item-icon>
 
                 <v-list-item-content>
-                    <v-list-item-title>Logout</v-list-item-title>
+                    <v-list-item-title>Dashboard</v-list-item-title>
                 </v-list-item-content>
             </v-list-item>
         </v-list>
     </v-navigation-drawer>
 </template>
 <script>
-    import {mapGetters, mapActions} from 'vuex';
+    import {mapGetters} from 'vuex';
 
     export default {
         props: {
-            userNavigation: {
+            sideNavigation: {
                 type: Boolean,
                 required: true
             }
         },
         computed: {
             ...mapGetters('auth', ['user']),
-        },
-        data() {
-            return {
-            }
-        },
-        methods: {
-            ...mapActions('auth', ['logout']),
-            goToUserProfil() {
-                this.$router.push({name: 'dashboard'})
-            }
+            ...mapGetters('auth', ['isAuth']),
         }
     }
 </script>
