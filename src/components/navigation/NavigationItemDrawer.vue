@@ -13,18 +13,22 @@
                     </v-col>
                 </v-row>
             </v-sheet>
-            <v-card color="muted" tile flat>
-                <v-card-text>
-          <span>
-            <v-icon small left>mdi-account</v-icon>
-            {{ user.first_name }} {{ user.last_name }}
-          </span>
+            <v-card color="primary" tile flat>
+                <v-card-text v-if="isAuth">
+                    <span>
+                      <v-icon small left>mdi-account</v-icon>
+                      {{ user.first_name }} {{ user.last_name }}
+                    </span>
                     <br />
                     {{ user.username }}
+                </v-card-text>
+                <v-card-text v-if="!isAuth">
+
                 </v-card-text>
             </v-card>
             <v-skeleton-loader type="paragraph">
                 <v-treeview
+                        v-if="navigationItems"
                         :items="navigationItems"
                         :open.sync="open"
                         :transition="true"
@@ -58,7 +62,7 @@
     </v-card>
 </template>
 <script>
-    import { mapActions, mapGetters } from 'vuex';
+    import {mapActions, mapGetters} from 'vuex';
 
     export default {
         data() {
@@ -67,7 +71,7 @@
                 isLoading: false
             };
         },
-        computed: mapGetters('auth', ['navigationItems', 'user']),
+        computed: mapGetters('auth', ['navigationItems', 'user', 'isAuth']),
         created() {
             this.open.push(this.navigationItems[0]); //Shop immer öffnen
         },
@@ -78,7 +82,7 @@
             },
             onItemActive(item) {
                 if (item && item.length > 0 && item[0].route_name !== this.$route.name) {
-                    this.$router.push({ name: item[0].route_name });
+                    this.$router.push({name: item[0].route_name});
                 }
             },
             confirmLogout() {
@@ -86,7 +90,7 @@
                     .open(
                         'Logout',
                         'Möchten Sie sich wirklich Ausloggen',
-                        'info'
+                        'secondary'
                     )
                     .then(confirm => confirm && this.logout());
             }
