@@ -29,10 +29,14 @@ const mutations = {
         state.isAuth = false;
         state.user = null;
         state.permissions = null;
+        state.navigationItems = null
         localStorage.removeItem('is_auth');
     },
     SET_NAVIGATION_ITEMS(state, navigationItems) {
         state.navigationItems = navigationItems;
+    },
+    SET_PERMISSIONS(state, permissions) {
+        state.permissions = permissions
     },
     SET_IS_LOADING_AUTH(state, isLoadingAuth) {
         state.isLoadingAuth = isLoadingAuth;
@@ -49,9 +53,9 @@ const actions = {
                 .then(() => {
                     axios.get('api/auth')
                         .then(response => {
-                            commit('SET_USER', response.data.data);
-                            /*commit('SET_PERMISSIONS', response.data.permissions);
-                            commit('SET_NAVIGATION_ITEMS', response.data.navigation_items);*/
+                            commit('SET_USER', response.data.user);
+                            commit('SET_PERMISSIONS', response.data.permissions);
+                            commit('SET_NAVIGATION_ITEMS', response.data.navigation_items);
                             commit('SET_IS_AUTH', true);
                             resolve(response);
                         })
@@ -78,9 +82,9 @@ const actions = {
         return new Promise((resolve, reject) => {
             axios.get('api/auth')
                 .then(response => {
-                    commit('SET_USER', response.data.data);
-                    /* commit('SET_PERMISSIONS', response.data.permissions);
-                     commit('SET_NAVIGATION_ITEMS', response.data.navigation_items);*/
+                    commit('SET_USER', response.data.user);
+                     commit('SET_PERMISSIONS', response.data.permissions);
+                     commit('SET_NAVIGATION_ITEMS', response.data.navigation_items);
                     resolve(response);
                 })
                 .catch(error => {

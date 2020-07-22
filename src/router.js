@@ -25,6 +25,12 @@ const router = new Router({
             component: () => import('./views/dashboard')
         },
         {
+            path: '/admin-users-index',
+            name: 'admin-users-index',
+            meta: {auth: true, permission: null},
+            component: () => import('./views/HomeIndex')
+        },
+        {
             path: '/login',
             name: 'login',
             component: () => import('./views/LoginForm')
