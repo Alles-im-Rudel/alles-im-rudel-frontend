@@ -48,26 +48,26 @@ const actions = {
         commit('SET_IS_LOADING_AUTH', true);
         this.isLoading = true;
         return new Promise((resolve, reject) => {
-        axios.get('/sanctum/csrf-cookie').then(() => {
-            axios.post('login', loginForm)
-                .then(() => {
-                    axios.get('api/auth')
-                        .then(response => {
-                            commit('SET_USER', response.data.user);
-                            commit('SET_PERMISSIONS', response.data.permissions);
-                            commit('SET_NAVIGATION_ITEMS', response.data.navigation_items);
-                            commit('SET_IS_AUTH', true);
-                            resolve(response);
-                        })
-                })
-                .catch(error => {
-                    commit('UNSET_AUTH');
-                    reject(error);
-                }).finally(() => {
-                commit('SET_IS_LOADING_AUTH', false);
+            axios.get('/sanctum/csrf-cookie').then(() => {
+                axios.post('login', loginForm)
+                    .then(() => {
+                        axios.get('api/auth')
+                            .then(response => {
+                                commit('SET_USER', response.data.user);
+                                commit('SET_PERMISSIONS', response.data.permissions);
+                                commit('SET_NAVIGATION_ITEMS', response.data.navigation_items);
+                                commit('SET_IS_AUTH', true);
+                                resolve(response);
+                            })
+                    })
+                    .catch(error => {
+                        commit('UNSET_AUTH');
+                        reject(error);
+                    }).finally(() => {
+                    commit('SET_IS_LOADING_AUTH', false);
+                });
             });
         });
-    });
     },
     logout({commit}) {
         commit('SET_IS_LOADING_AUTH', true);
@@ -83,8 +83,8 @@ const actions = {
             axios.get('api/auth')
                 .then(response => {
                     commit('SET_USER', response.data.user);
-                     commit('SET_PERMISSIONS', response.data.permissions);
-                     commit('SET_NAVIGATION_ITEMS', response.data.navigation_items);
+                    commit('SET_PERMISSIONS', response.data.permissions);
+                    commit('SET_NAVIGATION_ITEMS', response.data.navigation_items);
                     resolve(response);
                 })
                 .catch(error => {

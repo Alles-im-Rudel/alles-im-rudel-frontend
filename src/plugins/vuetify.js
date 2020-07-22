@@ -7,10 +7,12 @@ export default new Vuetify({
         dark: false,
         themes: {
             light: {
-                primary: '#5b5b5b',
+                primary: '#231f21',
+                darkGrey: '#495056',
+                greyBlue: '#596571',
                 secondary: '#c6c6c6',
-                muted: '#fff697',
-                accent: '#000000',
+                yellow: '#fff697',
+                black: '#010101',
                 error: '#F44336',
                 info: '#FF5500',
                 success: '#4CAF50',

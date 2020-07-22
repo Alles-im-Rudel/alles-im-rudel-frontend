@@ -1,29 +1,26 @@
 <template>
     <v-card tile min-height="100%" color="white">
         <section>
-            <v-sheet color="secondary" class="pa-4 headline" tile>
+            <v-sheet color="primary" class="pa-4 headline" tile>
                 <v-row no-gutters>
                     <v-col cols="11">
-                        <p class="title">Hauptmenü</p>
+                        <p class="title white--text">Hauptmenü</p>
                     </v-col>
                     <v-col cols="1">
                         <v-btn icon @click.prevent="onSettingsDrawerClose">
-                            <v-icon color="accent">mdi-dots-vertical</v-icon>
+                            <v-icon color="white">mdi-dots-vertical</v-icon>
                         </v-btn>
                     </v-col>
                 </v-row>
             </v-sheet>
-            <v-card color="primary" tile flat>
-                <v-card-text v-if="isAuth">
-                    <span>
-                      <v-icon small left>mdi-account</v-icon>
-                      {{ user.first_name }} {{ user.last_name }}
-                    </span>
+            <v-card color="darkGrey" tile flat>
+                <v-card-text v-if="isAuth" class="white--text">
+                    Willkommen:
                     <br />
                     {{ user.username }}
                 </v-card-text>
-                <v-card-text v-if="!isAuth">
-
+                <v-card-text v-if="!isAuth" class="white--text">
+                    Willkommen
                 </v-card-text>
             </v-card>
             <v-skeleton-loader type="paragraph">
@@ -40,22 +37,28 @@
                         @update:active="onItemActive"
                 >
                     <template v-slot:prepend="{ item, open }">
-            <span>
-              <v-icon v-if="!item.parent_id" left color="accent">
-                {{ open ? 'fa-folder-open' : 'fa-folder' }}
-              </v-icon>
-              <v-icon v-else left color="accent">
-                {{ item.icon }}
-              </v-icon>
-              {{ item.display_name }}
-            </span>
+                        <span>
+                          <v-icon v-if="!item.parent_id" left color="greyBlue">
+                            {{ open ? 'fa-folder-open' : 'fa-folder' }}
+                          </v-icon>
+                          <v-icon v-else left color="greyBlue">
+                            {{ item.icon }}
+                          </v-icon>
+                          {{ item.display_name }}
+                        </span>
                     </template>
                 </v-treeview>
             </v-skeleton-loader>
-            <div class="ma-3">
-                <v-btn block color="secondary" @click="confirmLogout">
+            <div class="ma-3" v-if="isAuth">
+                <v-btn block color="greyBlue white--text" @click="confirmLogout">
                     <v-icon small left>fa-power-off</v-icon>
                     Logout
+                </v-btn>
+            </div>
+            <div class="ma-3" v-if="!isAuth">
+                <v-btn block color="greyBlue white--text" @click="goToLogin">
+                    <v-icon small left>mdi-login</v-icon>
+                    Login
                 </v-btn>
             </div>
         </section>
@@ -68,13 +71,11 @@
         data() {
             return {
                 open: [],
-                isLoading: false
+                openFree: [],
+                isLoading: false,
             };
         },
         computed: mapGetters('auth', ['navigationItems', 'user', 'isAuth']),
-        created() {
-            this.open.push(this.navigationItems[0]); //Shop immer öffnen
-        },
         methods: {
             ...mapActions('auth', ['logout']),
             onSettingsDrawerClose() {
@@ -90,10 +91,13 @@
                     .open(
                         'Logout',
                         'Möchten Sie sich wirklich Ausloggen',
-                        'secondary'
+                        'greyBlue'
                     )
                     .then(confirm => confirm && this.logout());
-            }
+            },
+            goToLogin() {
+                this.$router.push({name: 'login'})
+            },
         }
     };
 </script>

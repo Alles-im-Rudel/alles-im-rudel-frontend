@@ -10,14 +10,9 @@ import store from './store'
 
 let app = null;
 
-if (store.getters['auth/isAuth'] && !store.getters['auth/user']) {
-    Promise.all([
-        store.dispatch('auth/getUser'),
-        store.dispatch('shop/setShopConfig')
-    ]).finally(() => mountApp());
-} else {
-    mountApp();
-}
+Promise.all([
+    store.dispatch('auth/getUser'),
+]).finally(() => mountApp());
 
 function mountApp() {
     app = new Vue({

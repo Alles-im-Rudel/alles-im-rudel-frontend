@@ -1,12 +1,12 @@
 <template>
     <section>
         <v-navigation-drawer
-            :value="navigationItemDrawer"
-            app
-            temporary
-            right
-            width="400"
-            @input="SET_NAVIGATION_ITEM_DRAWER($event)"
+                :value="navigationItemDrawer"
+                app
+                temporary
+                right
+                width="400"
+                @input="SET_NAVIGATION_ITEM_DRAWER($event)"
         >
             <navigation-item-drawer />
         </v-navigation-drawer>
@@ -20,6 +20,12 @@
         >
             <v-container fluid>
                 <v-row>
+                    <v-col align-self="center" class="text-left white--text">
+                        <router-link class="text-left white--text no-underline" :to="{ name: 'home'}">Alles Im Rudel</router-link>
+                    </v-col>
+                    <v-col align-self="center">
+
+                    </v-col>
                     <!--<v-col align-self="center" class="text-center">
                         <router-link to="/">
                             <img
@@ -30,43 +36,18 @@
                         </router-link>
                     </v-col>-->
                     <v-col align-self="center" class="text-right">
-                            <v-btn
-                                    color="white"
-                                    fab
-                                    text
-                                    href="#"
-                                    @click.stop="SET_NAVIGATION_ITEM_DRAWER(!navigationItemDrawer)"
-                            >
-                                <v-icon>mdi-dots-vertical</v-icon>
-                            </v-btn>
+                        <v-btn
+                                color="white"
+                                fab
+                                text
+                                href="#"
+                                @click.stop="SET_NAVIGATION_ITEM_DRAWER(!navigationItemDrawer)"
+                        >
+                            <v-icon>mdi-dots-vertical</v-icon>
+                        </v-btn>
                     </v-col>
                 </v-row>
             </v-container>
-            <v-spacer />
-            <!--<v-app-bar-nav-icon @click="$emit('side-navigation-changed')"></v-app-bar-nav-icon>
-            <v-toolbar-title>{{ appName }}</v-toolbar-title>
-
-            <v-spacer></v-spacer>
-
-            <v-btn
-                    v-if="!isAuth"
-                    class="mx-4"
-                    dark
-                    icon
-                    @click="goToLogin"
-            >
-                <v-icon>mdi-login</v-icon>
-            </v-btn>
-
-            <v-btn
-                    v-if="isAuth"
-                    class="mx-4"
-                    dark
-                    icon
-                    @click="$emit('user-navigation-changed')"
-            >
-                <v-icon>mdi-dots-vertical</v-icon>
-            </v-btn>-->
         </v-app-bar>
     </section>
 </template>
@@ -75,8 +56,8 @@
     import NavigationItemDrawer from "./NavigationItemDrawer";
 
     export default {
-        components:{
-          'navigation-item-drawer': NavigationItemDrawer
+        components: {
+            'navigation-item-drawer': NavigationItemDrawer
         },
         data() {
             return {
@@ -89,9 +70,6 @@
             ...mapGetters('navigation', ['navigationItemDrawer'])
         },
         methods: {
-            goToLogin() {
-                this.$router.push({name: 'login'})
-            },
             ...mapMutations('navigation', ['SET_NAVIGATION_ITEM_DRAWER'])
         }
     };
@@ -99,5 +77,8 @@
 <style scoped>
     .header-logo {
         height: 75px;
+    }
+    .no-underline {
+        text-decoration: none;
     }
 </style>

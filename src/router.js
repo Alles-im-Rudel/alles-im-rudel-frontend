@@ -19,6 +19,12 @@ const router = new Router({
             component: () => import('./views/impressum')
         },
         {
+            path: '/airsoft',
+            name: 'airsoft',
+            meta: {auth: false, permission: null},
+            component: () => import('./views/airsoft')
+        },
+        {
             path: '/dashboard',
             name: 'dashboard',
             meta: {auth: true, permission: null},
