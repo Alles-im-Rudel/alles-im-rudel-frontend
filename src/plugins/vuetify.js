@@ -29,5 +29,8 @@ export default new Vuetify({
                 warning: '#DBBB00'
             }
         }
+    },
+    icons: {
+        iconfont: 'fa'
     }
 });

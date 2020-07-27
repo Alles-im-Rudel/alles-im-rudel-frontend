@@ -1,17 +1,7 @@
 <template>
     <v-card tile min-height="100%" color="white">
         <section>
-            <v-sheet color="primary" class="pa-4 headline" tile>
-                <v-row no-gutters>
-                    <v-col cols="11">
-                        <p class="title white--text">Hauptmenü</p>
-                    </v-col>
-                    <v-col cols="1">
-                        <v-btn icon @click.prevent="onSettingsDrawerClose">
-                            <v-icon color="white">mdi-dots-vertical</v-icon>
-                        </v-btn>
-                    </v-col>
-                </v-row>
+            <v-sheet color="primary" class="pa-6 headline" tile>
             </v-sheet>
             <v-card color="darkGrey" tile flat>
                 <v-card-text v-if="isAuth" class="white--text">
@@ -23,7 +13,7 @@
                     Willkommen
                 </v-card-text>
             </v-card>
-            <v-skeleton-loader type="paragraph">
+            <v-skeleton-loader type="paragraph" v-if="isAuth">
                 <v-treeview
                         v-if="navigationItems"
                         :items="navigationItems"
@@ -90,7 +80,7 @@
                 this.$root.$confirm
                     .open(
                         'Logout',
-                        'Möchten Sie sich wirklich Ausloggen',
+                        'Möchten Sie sich wirklich Ausloggen?',
                         'greyBlue'
                     )
                     .then(confirm => confirm && this.logout());

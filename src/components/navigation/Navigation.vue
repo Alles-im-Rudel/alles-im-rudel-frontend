@@ -22,9 +22,8 @@
                 <v-row>
                     <v-col align-self="center" class="text-left white--text">
                         <router-link class="text-left white--text no-underline" :to="{ name: 'home'}">Alles Im Rudel</router-link>
-                    </v-col>
-                    <v-col align-self="center">
-
+                        <router-link class="text-left white--text no-underline pl-10" :to="{ name: 'airsoft'}"><v-icon class="white--text">fa-tree</v-icon> Airsoft</router-link>
+                        <router-link class="text-left white--text no-underline pl-5" :to="{ name: 'gaming'}"><v-icon class="white--text">fa-desktop</v-icon> Gaming</router-link>
                     </v-col>
                     <!--<v-col align-self="center" class="text-center">
                         <router-link to="/">
@@ -43,7 +42,7 @@
                                 href="#"
                                 @click.stop="SET_NAVIGATION_ITEM_DRAWER(!navigationItemDrawer)"
                         >
-                            <v-icon>mdi-dots-vertical</v-icon>
+                            <v-icon>fa-bars</v-icon>
                         </v-btn>
                     </v-col>
                 </v-row>

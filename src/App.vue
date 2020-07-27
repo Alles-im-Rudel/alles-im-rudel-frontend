@@ -2,11 +2,11 @@
     <v-app>
         <span class="bg" />
         <navigation />
-        <v-content class="mt-12">
+        <v-main class="mt-12">
             <v-slide-y-transition mode="out-in">
                 <router-view />
             </v-slide-y-transition>
-        </v-content>
+        </v-main>
         <!-- GLOBAL COMPONENTS -->
         <confirm-modal ref="confirm" />
         <alert-modal ref="alert" />
