@@ -10,8 +10,6 @@
                   v-model="form.email"
                   required
                   label="Benutzername"
-                  :error="hasErrors('email')"
-                  :error-messages="getErrors('email')"
               />
               <v-text-field
                   v-model="form.password"
