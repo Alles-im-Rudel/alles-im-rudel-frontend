@@ -1,4 +1,5 @@
 import '@babel/polyfill';
+import '@fortawesome/fontawesome-free/css/all.css';
 import './plugins/axios';
 import Vue from 'vue'
 import App from './App.vue'
