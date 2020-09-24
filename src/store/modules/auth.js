@@ -3,8 +3,7 @@ import axios from "../../plugins/axios";
 const state = {
     isAuth: !!localStorage.getItem('is_auth'),
     user: null,
-    permissions: null,
-    navigationItems: null,
+    permissions: [],
     isLoadingAuth: false,
 };
 
@@ -12,7 +11,6 @@ const getters = {
     isAuth: state => state.isAuth,
     user: state => state.user,
     permissions: state => state.permissions,
-    navigationItems: state => state.navigationItems,
     isLoadingAuth: state => state.isLoadingAuth,
 };
 
@@ -29,11 +27,7 @@ const mutations = {
         state.isAuth = false;
         state.user = null;
         state.permissions = null;
-        state.navigationItems = null
         localStorage.removeItem('is_auth');
-    },
-    SET_NAVIGATION_ITEMS(state, navigationItems) {
-        state.navigationItems = navigationItems;
     },
     SET_PERMISSIONS(state, permissions) {
         state.permissions = permissions
@@ -55,7 +49,6 @@ const actions = {
                             .then(response => {
                                 commit('SET_USER', response.data.user);
                                 commit('SET_PERMISSIONS', response.data.permissions);
-                                commit('SET_NAVIGATION_ITEMS', response.data.navigation_items);
                                 commit('SET_IS_AUTH', true);
                                 resolve(response);
                             })
@@ -84,7 +77,6 @@ const actions = {
                 .then(response => {
                     commit('SET_USER', response.data.user);
                     commit('SET_PERMISSIONS', response.data.permissions);
-                    commit('SET_NAVIGATION_ITEMS', response.data.navigation_items);
                     resolve(response);
                 })
                 .catch(error => {
