@@ -10,8 +10,7 @@
                   v-model="form.email"
                   required
                   label="Benutzername"
-                  :error="hasErrors('email')"
-                  :error-messages="getErrors('email')"
+
               />
               <v-text-field
                   v-model="form.password"
@@ -34,10 +33,9 @@
 
 <script>
 import {mapActions, mapGetters} from 'vuex';
-import ValidationErrors from '../mixins/ValidationErros'
 
 export default {
-  mixins: [ValidationErrors],
+
   data() {
     return {
       form: {
@@ -55,14 +53,14 @@ export default {
   methods: {
     ...mapActions('auth', ['login']),
     submit() {
-      this.clearErrors();
+
       this.login(this.form)
           .then(() => {
             this.$router.push({name: 'dashboard'});
           })
           .catch(error => {
             console.log(error);
-            this.syncErrors(error);
+
           })
           .finally(() => {
             this.isLoading = false;
