@@ -47,6 +47,11 @@ const router = new Router({
             name: 'login',
             component: () => import('./views/LoginForm')
         },
+        {
+            path: '/register',
+            name: 'register',
+            component: () => import('./views/RegisterForm')
+        },
         //Static Pages
         {
             path: '/permission-denied',

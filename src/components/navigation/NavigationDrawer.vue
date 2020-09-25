@@ -15,36 +15,45 @@
         Willkommen
       </v-card-text>
     </v-card>
-    <v-list dense nav shaped>
-      <v-list-item-group v-model="view" color="primary">
-        <div v-for="item in menu" :key="item.title">
-          <v-subheader v-if="item.type === 'title' && can(item.permission)">{{
-              item.title
-            }}</v-subheader>
-
-          <v-list-item
-              v-if="item.type === 'button' && can(item.permission)"
-              v-show="can(item.permission)"
-              link
-              @click="switchView(item.action)"
-          >
-            <v-list-item-icon>
-              <v-icon small>{{ item.icon }}</v-icon>
-            </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title v-text="item.title" />
-            </v-list-item-content>
-          </v-list-item>
-
-          <v-divider v-if="item.type === 'divider' && can(item.permission)" />
-        </div>
+    <v-list dense v-if="isAuth">
+      <v-list-item-group v-model="item" color="primary">
+        <v-list-item
+            v-for="(item, i) in menu"
+            :key="i"
+            link
+            @click="switchView(item.action)"
+        >
+          <v-list-item-icon>
+            <v-icon v-text="item.icon"></v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title v-text="item.text" />
+          </v-list-item-content>
+        </v-list-item>
+      </v-list-item-group>
+    </v-list>
+    <v-list dense v-if="!isAuth">
+      <v-list-item-group v-model="item" color="primary">
+        <v-list-item
+            v-for="(item, i) in authItems"
+            :key="i"
+            link
+            @click="switchView(item.action)"
+        >
+          <v-list-item-icon>
+            <v-icon v-text="item.icon"></v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title v-text="item.text" />
+          </v-list-item-content>
+        </v-list-item>
       </v-list-item-group>
     </v-list>
   </v-navigation-drawer>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import {mapActions, mapGetters} from 'vuex';
 import Permissions from '@/mixins/Permissions';
 
 export default {
@@ -61,70 +70,13 @@ export default {
       showMenu: this.value,
       view: 'home',
 
+      item: 1,
+      authItems: [
+        {text: 'Login', icon: 'fa-sign-in-alt', action: 'login'},
+        {text: 'Register', icon: 'fa-user-plus', action: 'register'}
+      ],
+
       menu: [
-          // Main
-        {
-          type: 'title',
-          title: 'MAIN',
-          permission: null,
-          icon: null,
-          action: null
-        },
-        {
-          type: 'button',
-          title: 'Neu',
-          action: 'recording.customer.create',
-          permission: null,
-          icon: 'fa-plus'
-        },
-        {
-          type: 'divider',
-          title: null,
-          permission: null,
-          icon: null,
-          action: null
-        },
-
-        // Administration
-
-        {
-          type: 'title',
-          title: 'ADMINISTRATION',
-          permission: null,
-          icon: null,
-          action: null
-        },
-        {
-          type: 'button',
-          title: 'Tier',
-          action: 'administration-animal',
-          permission: null,
-          icon: 'fa-paw'
-        },
-        {
-          type: 'divider',
-          title: null,
-          permission: null,
-          icon: null,
-          action: null
-        },
-
-        // Reports
-
-        {
-          type: 'title',
-          title: 'REPORTS',
-          permission: 'reports.headline',
-          icon: null,
-          action: null
-        },
-        {
-          type: 'divider',
-          title: null,
-          permission: 'reports.headline',
-          icon: null,
-          action: null
-        }
       ]
     };
   },
@@ -149,7 +101,7 @@ export default {
     ...mapActions('auth', ['logout']),
     switchView(name) {
       if (this.$route.name !== name) {
-        this.$router.push({ name: name });
+        this.$router.push({name: name});
       }
     }
   }
