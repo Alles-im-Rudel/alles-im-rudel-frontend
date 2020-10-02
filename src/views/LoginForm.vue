@@ -5,25 +5,28 @@
         <v-card color="rgb(255, 255, 255, 0.9)">
           <v-card-title>Login</v-card-title>
           <form @submit.prevent="submit">
-          <v-card-text>
+            <v-card-text>
               <v-text-field
                   v-model="form.email"
                   required
-                  label="Benutzername"
-
+                  label="Email"
+                  :error="hasErrors('email')"
+                  :error-messages="getErrors('email')"
               />
               <v-text-field
                   v-model="form.password"
                   required
                   type="password"
                   label="Passwort"
+                  :error="hasErrors('password')"
+                  :error-messages="getErrors('password')"
               />
 
-          </v-card-text>
-          <v-card-actions>
-            <v-spacer />
-            <v-btn type="submit" :loading="isLoadingAuth">Login</v-btn>
-          </v-card-actions>
+            </v-card-text>
+            <v-card-actions>
+              <v-spacer />
+              <v-btn type="submit" :loading="isLoadingAuth">Login</v-btn>
+            </v-card-actions>
           </form>
         </v-card>
       </v-col>
@@ -33,9 +36,10 @@
 
 <script>
 import {mapActions, mapGetters} from 'vuex';
+import ValidationErrors from '@/mixins/ValidationErros';
 
 export default {
-
+  mixins: [ValidationErrors],
   data() {
     return {
       form: {
@@ -53,17 +57,13 @@ export default {
   methods: {
     ...mapActions('auth', ['login']),
     submit() {
-
+      this.clearErrors();
       this.login(this.form)
           .then(() => {
             this.$router.push({name: 'dashboard'});
           })
           .catch(error => {
-            console.log(error);
-
-          })
-          .finally(() => {
-            this.isLoading = false;
+            this.syncErrors(error);
           });
     }
   }

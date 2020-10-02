@@ -28,6 +28,7 @@ const mutations = {
         state.user = null;
         state.permissions = null;
         localStorage.removeItem('is_auth');
+        localStorage.removeItem('user');
     },
     SET_PERMISSIONS(state, permissions) {
         state.permissions = permissions
@@ -59,6 +60,22 @@ const actions = {
                     }).finally(() => {
                     commit('SET_IS_LOADING_AUTH', false);
                 });
+            });
+        });
+    },
+    register({commit}, registerForm) {
+        commit('SET_IS_LOADING_AUTH', true);
+        this.isLoading = true;
+        return new Promise((resolve, reject) => {
+            axios.post('register', registerForm)
+                .then((response) => {
+                    resolve(response);
+                })
+                .catch(error => {
+                    commit('UNSET_AUTH');
+                    reject(error);
+                }).finally(() => {
+                commit('SET_IS_LOADING_AUTH', false);
             });
         });
     },

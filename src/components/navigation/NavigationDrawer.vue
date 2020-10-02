@@ -70,18 +70,20 @@ export default {
       showMenu: this.value,
       view: 'home',
 
-      item: 1,
+      item: 0,
       authItems: [
         {text: 'Login', icon: 'fa-sign-in-alt', action: 'login'},
         {text: 'Register', icon: 'fa-user-plus', action: 'register'}
       ],
 
-      menu: [
-      ]
+      menu: []
     };
   },
   computed: {
-    ...mapGetters('auth', ['user', 'isAuth'])
+    ...mapGetters('auth', ['user', 'isAuth']),
+    currentRouteName() {
+      return this.$route.name
+    }
   },
   watch: {
     value: {
@@ -94,6 +96,15 @@ export default {
       deep: true,
       handler(value) {
         this.$emit('input', value);
+      },
+    },
+    currentRouteName(value) {
+      if (value === 'login') {
+        this.item = 0;
+      } else if (value === 'register') {
+        this.item = 1;
+      } else {
+        this.item = null;
       }
     }
   },

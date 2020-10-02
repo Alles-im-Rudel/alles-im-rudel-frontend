@@ -10,10 +10,10 @@ module.exports = {
       if (typeof error !== undefined) {
         if (
             typeof error.response !== undefined &&
-            error.hasOwnProperty('response') &&
-            error.response.hasOwnProperty('data')
+            Object.prototype.hasOwnProperty.call(error, 'response') &&
+            Object.prototype.hasOwnProperty.call(error, 'data')
         ) {
-          if (error.response.data.hasOwnProperty('errors')) {
+          if ( Object.prototype.hasOwnProperty.call(error, 'errors')) {
             this.errors = this.normalizeArrayErrors(error.response.data.errors);
           }
         }
@@ -39,13 +39,13 @@ module.exports = {
       this.errors = {};
     },
     hasErrors(field) {
-      return this.errors.hasOwnProperty(field);
+      return Object.prototype.hasOwnProperty.call(this.errors, field);
     },
     getError(field) {
-      return this.errors.hasOwnProperty(field) ? this.errors[field][0] : true;
+      return Object.prototype.hasOwnProperty.call(this.errors, field) ? this.errors[field][0] : true;
     },
     getErrors(field) {
-      return this.errors.hasOwnProperty(field) ? this.errors[field] : [];
+      return Object.prototype.hasOwnProperty.call(this.errors, field) ? this.errors[field] : [];
     },
     getErrorList() {
       let errors = Object.values(this.errors);
