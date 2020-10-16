@@ -13,7 +13,7 @@ let app = null;
 
 if (store.getters['auth/isAuth'] && !store.getters['auth/user']) {
     Promise.all([
-        store.dispatch('auth/getUser'),
+        store.dispatch('auth/getAuth'),
     ]).finally(() => mountApp());
 } else {
     mountApp();

@@ -6,11 +6,15 @@ import Axios from 'axios';
 
 let config = {
     baseURL: process.env.VUE_APP_REMOTE_BASE_URL,
-    withCredentials: true,
     headers: {
         'Content-Type': 'application/json',
         'Accept-Language': store.getters['locale/getLocale'],
         Accept: 'application/json',
+        Authorization: {
+            toString() {
+                return `Bearer ${store.getters['auth/accessToken']}`;
+            }
+        }
     }
 };
 

@@ -10,10 +10,13 @@ module.exports = {
       if (typeof error !== undefined) {
         if (
             typeof error.response !== undefined &&
-            Object.prototype.hasOwnProperty.call(error, 'response') &&
-            Object.prototype.hasOwnProperty.call(error, 'data')
+            // eslint-disable-next-line no-prototype-builtins
+            error.hasOwnProperty('response') &&
+            // eslint-disable-next-line no-prototype-builtins
+            error.response.hasOwnProperty('data')
         ) {
-          if ( Object.prototype.hasOwnProperty.call(error, 'errors')) {
+          // eslint-disable-next-line no-prototype-builtins
+          if (error.response.data.hasOwnProperty('errors')) {
             this.errors = this.normalizeArrayErrors(error.response.data.errors);
           }
         }
@@ -39,13 +42,16 @@ module.exports = {
       this.errors = {};
     },
     hasErrors(field) {
-      return Object.prototype.hasOwnProperty.call(this.errors, field);
+      // eslint-disable-next-line no-prototype-builtins
+      return this.errors.hasOwnProperty(field);
     },
     getError(field) {
-      return Object.prototype.hasOwnProperty.call(this.errors, field) ? this.errors[field][0] : true;
+      // eslint-disable-next-line no-prototype-builtins
+      return this.errors.hasOwnProperty(field) ? this.errors[field][0] : true;
     },
     getErrors(field) {
-      return Object.prototype.hasOwnProperty.call(this.errors, field) ? this.errors[field] : [];
+      // eslint-disable-next-line no-prototype-builtins
+      return this.errors.hasOwnProperty(field) ? this.errors[field] : [];
     },
     getErrorList() {
       let errors = Object.values(this.errors);

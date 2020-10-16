@@ -11,8 +11,8 @@
                   <v-text-field
                       v-model="form.username"
                       label="Benutzername"
-                      :error="hasErrors('email')"
-                      :error-messages="getErrors('email')"
+                      :error="hasErrors('username')"
+                      :error-messages="getErrors('username')"
                   />
                 </v-col>
                 <v-col cols="12" md="6">
@@ -63,6 +63,7 @@
 <script>
 import {mapActions, mapGetters} from 'vuex';
 import ValidationErrors from "@/mixins/ValidationErros";
+import router from "@/router";
 
 export default {
   mixins: [ValidationErrors],
@@ -96,12 +97,11 @@ export default {
     submit() {
       this.clearErrors();
       this.register(this.form)
-          .then(() => {
-            this.$router.push({name: 'dashboard'});
+          .then((response) => {
+            router.push({name: 'home'});
+            this.$root.$snackbar.open(response.data.message);
           })
-          .catch(error => {
-            this.syncErrors(error);
-          });
+          .catch(this.syncErrors);
     }
   }
 }
