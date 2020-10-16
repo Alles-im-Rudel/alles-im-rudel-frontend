@@ -97,9 +97,8 @@ export default {
     submit() {
       this.clearErrors();
       this.register(this.form)
-          .then((response) => {
+          .then(() => {
             router.push({name: 'home'});
-            this.$root.$snackbar.open(response.data.message);
           })
           .catch(this.syncErrors);
     }
