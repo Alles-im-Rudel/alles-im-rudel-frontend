@@ -11,10 +11,10 @@ const state = {
 };
 
 const getters = {
-  isAuth: state => state.isAuth,
-  user: state => state.user,
-  permissions: state => state.permissions,
-  isLoadingAuth: state => state.isLoadingAuth,
+  isAuth: (state) => state.isAuth,
+  user: (state) => state.user,
+  permissions: (state) => state.permissions,
+  isLoadingAuth: (state) => state.isLoadingAuth,
   accessToken: (state) => state.accessToken,
   refreshToken: (state) => state.refreshToken,
   tokenExpiresIn: (state) => state.tokenExpiresIn,
@@ -31,7 +31,7 @@ const mutations = {
   UNSET_AUTH(state) {
     state.isAuth = false;
     state.user = null;
-    state.permissions = null;
+    state.permissions = [];
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
     localStorage.removeItem('tokenExpiresIn');
@@ -113,15 +113,19 @@ const actions = {
   },
   getAuth({commit}) {
     return new Promise((resolve, reject) => {
-      axios.get('/auth')
-        .then(response => {
-          commit('SET_USER', response.data.user);
-          commit('SET_PERMISSIONS', response.data.permissions);
-          resolve(response);
-        })
-        .catch(error => {
-          reject(error);
-        });
+      if(state.isAuth) {
+        axios.get('/auth')
+          .then(response => {
+            commit('SET_USER', response.data.user);
+            commit('SET_PERMISSIONS', response.data.permissions);
+            resolve(response);
+          })
+          .catch(error => {
+            reject(error);
+          });
+      } else {
+       commit('UNSET_AUTH')
+      }
     });
   }
 };
