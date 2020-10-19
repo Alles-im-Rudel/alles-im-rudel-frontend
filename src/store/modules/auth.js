@@ -113,7 +113,7 @@ const actions = {
   },
   getAuth({commit}) {
     return new Promise((resolve, reject) => {
-      axios.get('api/auth')
+      axios.get('/auth')
         .then(response => {
           commit('SET_USER', response.data.user);
           commit('SET_PERMISSIONS', response.data.permissions);
