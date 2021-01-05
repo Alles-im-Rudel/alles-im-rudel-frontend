@@ -12,7 +12,7 @@
 
                         <h2>Kontakt</h2>
                         <p>Telefon: +49 1515 0742262<br />
-                            E-Mail: Silas.Beckmann@t-online.de</p>
+                            E-Mail: silas.beckmann@allesimrudel.de</p>
                     </v-col>
                 </v-row>
 
