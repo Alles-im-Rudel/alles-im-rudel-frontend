@@ -5,7 +5,8 @@
         <v-card color="rgb(255, 255, 255, 0.9)">
           <v-card-title>Benutzerverwaltung</v-card-title>
           <v-card-text>
-
+            <user-table v-model="options" :is-loading="isLoading" :users="users"
+                        :server-items-length="serverItemsLength" />
           </v-card-text>
         </v-card>
       </v-col>
@@ -14,9 +15,13 @@
 </template>
 
 <script>
-import { zipObject } from 'lodash';
+import {zipObject} from 'lodash';
+import UserTable from "@/views/management/users/parts/UserTable";
 
 export default {
+  components: {
+    UserTable
+  },
   data() {
     return {
       users: [],
@@ -24,7 +29,7 @@ export default {
       options: {
         page: 1,
         itemsPerPage: 10,
-        sortBy: ['first_name'],
+        sortBy: ['firstName'],
         sortDesc: [false]
       },
       serverItemsLength: 0,
@@ -44,7 +49,7 @@ export default {
       this.isLoading = true;
       const sortBy = zipObject(this.options.sortBy, this.options.sortDesc);
       const params = {
-        ...(Object.keys(sortBy).length > 0 ? { sortBy } : {}),
+        ...(Object.keys(sortBy).length > 0 ? {sortBy} : {}),
         search: this.filters.search,
         userGroupIds: this.filters.userGroups.map((userGroup) => userGroup.id),
         perPage: this.options.itemsPerPage,
@@ -52,9 +57,10 @@ export default {
         withOnlyTrashed: this.filters.withOnlyTrashed
       };
       window.axios.get('users', {params})
-      .then(response  => {
-        this.users = response.data.data
-      })
+          .then(response => {
+            this.users = response.data.data
+            this.serverItemsLength = response.data.meta.total;
+          }).finally(() => this.isLoading = false)
     }
   }
 }

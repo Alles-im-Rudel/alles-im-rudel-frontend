@@ -133,9 +133,7 @@ export default {
     setActiveItem() {
       this.activeItem = null;
       let actions = this.items.filter(item => item.type === 'action' && item.auth === this.isAuth && this.can(item.permission))
-      console.log(actions);
       actions.forEach((item, index) => {
-        console.log(this.can(item.permission));
         if (item.action === this.currentRouteName) {
           this.activeItem = index
         }
