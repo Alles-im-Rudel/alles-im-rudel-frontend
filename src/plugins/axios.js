@@ -8,7 +8,6 @@ let config = {
     baseURL: process.env.VUE_APP_REMOTE_BASE_URL,
     headers: {
         'Content-Type': 'application/json',
-        'Accept-Language': store.getters['locale/getLocale'],
         Accept: 'application/json',
         Authorization: {
             toString() {

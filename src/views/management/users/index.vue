@@ -1,0 +1,61 @@
+<template>
+  <v-container>
+    <v-row justify="center">
+      <v-col cols="12">
+        <v-card color="rgb(255, 255, 255, 0.9)">
+          <v-card-title>Benutzerverwaltung</v-card-title>
+          <v-card-text>
+
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
+
+<script>
+import { zipObject } from 'lodash';
+
+export default {
+  data() {
+    return {
+      users: [],
+      isLoading: false,
+      options: {
+        page: 1,
+        itemsPerPage: 10,
+        sortBy: ['first_name'],
+        sortDesc: [false]
+      },
+      serverItemsLength: 0,
+      filters: {
+        search: null,
+        withOnlyTrashed: false,
+        userGroups: []
+      }
+    }
+  },
+  computed: {},
+  created() {
+    this.getUsers();
+  },
+  methods: {
+    getUsers() {
+      this.isLoading = true;
+      const sortBy = zipObject(this.options.sortBy, this.options.sortDesc);
+      const params = {
+        ...(Object.keys(sortBy).length > 0 ? { sortBy } : {}),
+        search: this.filters.search,
+        userGroupIds: this.filters.userGroups.map((userGroup) => userGroup.id),
+        perPage: this.options.itemsPerPage,
+        page: this.options.page,
+        withOnlyTrashed: this.filters.withOnlyTrashed
+      };
+      window.axios.get('users', {params})
+      .then(response  => {
+        this.users = response.data.data
+      })
+    }
+  }
+}
+</script>

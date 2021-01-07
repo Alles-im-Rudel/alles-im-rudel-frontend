@@ -11,7 +11,7 @@ export default {
      */
     can(permission) {
       return (
-          permission === undefined ||
+          permission === undefined || permission === null ||
           this.permissions.some((p) => p.name === permission)
       );
     }

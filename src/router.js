@@ -37,10 +37,16 @@ const router = new Router({
             component: () => import('./views/dashboard')
         },
         {
-            path: '/admin-users-index',
-            name: 'admin-users-index',
-            meta: {auth: true, permission: null},
-            component: () => import('./views/HomeIndex')
+            path: '/management/users',
+            name: 'management-users',
+            meta: {auth: true, permission: 'users.index'},
+            component: () => import('./views/management/users/index')
+        },
+        {
+            path: '/management/permissions',
+            name: 'management-permissions',
+            meta: {auth: true, permission: 'permissions.index'},
+            component: () => import('./views/management/permissions/index')
         },
         {
             path: '/login',
