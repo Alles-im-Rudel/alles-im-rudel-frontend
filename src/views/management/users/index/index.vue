@@ -5,8 +5,13 @@
         <v-card color="rgb(255, 255, 255, 0.9)">
           <v-card-title>Benutzerverwaltung</v-card-title>
           <v-card-text>
-            <user-table v-model="options" :is-loading="isLoading" :users="users"
-                        :server-items-length="serverItemsLength" />
+            <user-table
+                v-model="options"
+                :is-loading="isLoading"
+                :users="users"
+                :server-items-length="serverItemsLength"
+                @reload="getUsers"
+            />
           </v-card-text>
         </v-card>
       </v-col>
@@ -16,7 +21,7 @@
 
 <script>
 import {zipObject} from 'lodash';
-import UserTable from "@/views/management/users/parts/UserTable";
+import UserTable from "@/views/management/users/index/parts/UserTable";
 
 export default {
   components: {
@@ -29,7 +34,7 @@ export default {
       options: {
         page: 1,
         itemsPerPage: 10,
-        sortBy: ['firstName'],
+        sortBy: ['username'],
         sortDesc: [false]
       },
       serverItemsLength: 0,

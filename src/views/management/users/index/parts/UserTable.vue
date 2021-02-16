@@ -9,22 +9,6 @@
       :no-data-text="'Es wurden keine Benutzer gefunden'"
       multi-sort
   >
-    <template v-slot:item.userGroups="{ item }">
-      <v-tooltip top>
-        <template v-slot:activator="{ on }">
-          <v-icon v-if="item.userGroups.length > 0" color="fhRed" v-on="on">
-            fa-bars
-          </v-icon>
-        </template>
-        <span>
-          <v-row v-for="userGroup in item.userGroups" :key="userGroup.id">
-            <v-col lg="12">
-              {{ userGroup.displayName }}
-            </v-col>
-          </v-row>
-        </span>
-      </v-tooltip>
-    </template>
     <template v-slot:item.activatedAt="{ item }">
       <v-icon v-if="item.isActive" color="success">fa-check</v-icon>
       <v-icon v-else color="error">fa-times</v-icon>
@@ -33,16 +17,28 @@
       {{ item.updatedAt | dateTime }}
     </template>
     <template v-slot:item.actions="{ item }">
-      <v-btn>Test {{ item.firstName }}</v-btn>
+      <user-edit-button :user="item" />
+      <user-sync-user-groups-button :user="item" @reload="reload" />
+      <user-sync-permissions-button :user="item" @reload="reload" />
+      <user-delete-button :selected-user="item" @user-was-deleted="reload" />
     </template>
   </v-data-table>
 </template>
 <script>
 import Permissions from '@/mixins/Permissions';
 import DataTableMixin from '@/mixins/DataTableMixin';
+import UserEditButton from "@/views/management/users/index/parts/buttons/UserEditButton";
+import UserDeleteButton from "@/views/management/users/index/parts/buttons/UserDeleteButton";
+import UserSyncPermissionsButton from "@/views/management/users/index/parts/buttons/UserSyncPermissionsButton";
+import UserSyncUserGroupsButton from "@/views/management/users/index/parts/buttons/UserSyncUserGroupsButton";
 
 export default {
-  components: {},
+  components: {
+    UserEditButton,
+    UserDeleteButton,
+    UserSyncPermissionsButton,
+    UserSyncUserGroupsButton
+  },
   mixins: [Permissions, DataTableMixin],
   props: {
     value: {
@@ -51,7 +47,7 @@ export default {
       default: () => ({
         page: 1,
         itemsPerPage: 10,
-        sortBy: ['firstName'],
+        sortBy: ['username'],
         sortDesc: [false],
         totalItems: null
       })
@@ -90,6 +86,11 @@ export default {
         {
           text: 'Email',
           value: 'email'
+        },
+        {
+          text: 'Benutzergruppen',
+          value: 'userGroupsCount',
+          sortable: false
         },
         {
           text: 'Rollen',

@@ -43,6 +43,13 @@ const router = new Router({
             component: () => import('./views/management/users/index')
         },
         {
+            path: '/management/users/:userId/edit',
+            name: 'management-users-edit',
+            props: true,
+            meta: {auth: true, permission: 'users.update'},
+            component: () => import('./views/management/users/edit')
+        },
+        {
             path: '/management/permissions',
             name: 'management-permissions',
             meta: {auth: true, permission: 'permissions.index'},
@@ -109,5 +116,8 @@ router.beforeEach((to, from, next) => {
         return next();
     }
 });
+router.afterEach(() => {
+    window.scrollTo(0,0);
+})
 
 export default router;

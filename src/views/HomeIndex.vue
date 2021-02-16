@@ -6,6 +6,7 @@
                     <v-card-title>Alles Im Rudel</v-card-title>
                     <v-card-text>
                        Voll Startseite und so
+                      <div class="effects size-fade-in">Test</div>
                     </v-card-text>
                 </v-card>
             </v-col>

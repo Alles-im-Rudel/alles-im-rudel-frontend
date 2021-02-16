@@ -6,7 +6,7 @@
       <confirm-modal ref="confirm" />
       <alert-modal ref="alert" />
       <snackbar-component ref="snackbar" />
-      <router-view />
+      <router-view class="effects fade-in-main" />
       <social-footer />
     </v-main>
   </v-app>
@@ -59,6 +59,18 @@ export default {
   background: url('./assets/background.jpeg') no-repeat center center;
   background-size: cover;
   transform: scale(1.1);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
 }
 
 #nav {
