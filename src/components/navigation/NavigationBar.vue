@@ -11,6 +11,10 @@
       Gaming
     </v-btn>
     <v-spacer />
+    <v-btn v-if="can('headline.management')" text @click="pushToManagement">
+      <v-icon left>fa-cogs</v-icon>
+      Management
+    </v-btn>
     <v-menu
         v-if="isAuth && user && permissions"
         open-on-hover
@@ -46,8 +50,10 @@
 
 <script>
 import {mapActions, mapGetters} from 'vuex';
+import Permissions from "@/mixins/Permissions";
 
 export default {
+  mixins: [Permissions],
   computed: {
     ...mapGetters('auth', ['user', 'isAuth', 'permissions'])
   },
@@ -71,6 +77,9 @@ export default {
     },
     pushToGaming() {
       this.$router.push({name: 'gaming'});
+    },
+    pushToManagement() {
+      this.$router.push({name: 'management-users'});
     },
     pushToHome() {
       this.$router.push({name: 'home'})

@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <span class="bg" />
+    <span :class="bgClass" />
     <navigation />
     <v-main>
       <confirm-modal ref="confirm" />
@@ -30,7 +30,7 @@ export default {
   data() {
     return {
       userNavigation: false,
-      sideNavigation: false
+      sideNavigation: false,
     };
   },
   mounted() {
@@ -38,6 +38,21 @@ export default {
     this.$root.$alert = this.$refs.alert;
     this.$root.$snackbar = this.$refs.snackbar;
   },
+  computed: {
+    currentRouteGroup() {
+      return this.$route.meta.group
+    },
+    bgClass() {
+      switch (this.currentRouteGroup) {
+        case 'airsoft':
+          return 'bg-arisoft'
+        case 'gaming':
+          return 'bg-gaming'
+        default:
+          return 'bg'
+      }
+    }
+  }
 };
 </script>
 
@@ -56,7 +71,29 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  background: url('./assets/background.jpeg') no-repeat center center;
+  background: url('./assets/background.png') no-repeat center center;
+  background-size: cover;
+  transform: scale(1.1);
+}
+
+.bg-arisoft {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: url('./assets/airsoft-background.png') no-repeat center center;
+  background-size: cover;
+  transform: scale(1.1);
+}
+
+.bg-gaming {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: url('assets/gaming-background.png') no-repeat center center;
   background-size: cover;
   transform: scale(1.1);
 }
