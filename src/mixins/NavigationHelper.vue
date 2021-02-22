@@ -19,7 +19,11 @@ export default {
       return this.$route.name
     },
     items() {
-      return this.allItems;
+      return this.allItems.filter(item => {
+        return this.can(item.permission) &&
+            (item.auth && this.isAuth) ||
+            !item.auth
+      });
     }
   },
   watch: {
@@ -44,10 +48,9 @@ export default {
     ...mapActions('auth', ['logout']),
     setActiveItem() {
       this.activeItem = null;
-      let actions = this.items.filter(item => item.type === 'action' && item.auth === this.isAuth && this.can(item.permission))
-      actions.forEach((item, index) => {
+      this.items.forEach((item, index) => {
         if (item.action === this.currentRouteName) {
-          this.activeItem = index
+          this.activeItem = --index
         }
       })
     },

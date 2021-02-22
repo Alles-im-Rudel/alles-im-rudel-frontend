@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col cols="12" md="12">
-        <v-card color="rgb(255, 255, 255, 0.9)">
+        <base-card>
           <v-card-title>Alles Im Rudel Airsoft</v-card-title>
           <v-card-text>
             Wir sind ein wachsendes Airsoft-Team mit dem Sitz in Südholstein/Elmshorn und Mitte Mecklenburgs an der
@@ -11,7 +11,7 @@
 
             Teamplay und Spaß stehen bei uns im Vordergrund.
           </v-card-text>
-        </v-card>
+        </base-card>
       </v-col>
     </v-row>
   </v-container>

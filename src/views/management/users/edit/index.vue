@@ -1,14 +1,14 @@
 <template>
   <v-container>
-    <v-card v-if="!user.id">
+    <base-card v-if="!user.id">
       <v-card-title>
         Lädt den Benutzer
       </v-card-title>
       <v-card-text>
         <v-skeleton-loader class="mx-auto" type="card" />
       </v-card-text>
-    </v-card>
-    <v-card v-else>
+    </base-card>
+    <base-card v-else>
       <v-card-title class="headline">
         Bearbeiten von: {{ user.fullName }}
         <v-spacer />
@@ -33,7 +33,7 @@
           @submit="submit"
           @clear="clear"
       />
-    </v-card>
+    </base-card>
   </v-container>
 </template>
 <script>

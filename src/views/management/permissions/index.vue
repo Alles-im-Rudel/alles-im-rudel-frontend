@@ -2,10 +2,10 @@
   <v-container>
     <v-row justify="center">
       <v-col cols="12">
-        <v-card color="rgb(255, 255, 255, 0.9)">
+        <base-card>
           <v-card-title>Berechtigungsverwaltung</v-card-title>
 
-        </v-card>
+        </base-card>
       </v-col>
     </v-row>
   </v-container>

@@ -1,6 +1,6 @@
 <template>
     <v-container>
-        <v-card color="rgb(255, 255, 255, 0.9)">
+        <base-card>
             <v-card-title>Impressum</v-card-title>
             <v-card-title>Angaben gem&auml;&szlig; &sect; 5 TMG</v-card-title>
             <v-card-text class="text-left">
@@ -62,7 +62,7 @@
                     Rechtsverletzungen werden wir
                     derartige Inhalte umgehend entfernen.</p>
             </v-card-text>
-        </v-card>
+        </base-card>
     </v-container>
 </template>
 

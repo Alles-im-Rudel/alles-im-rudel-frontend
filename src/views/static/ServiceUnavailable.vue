@@ -3,7 +3,7 @@
         <v-container fluid>
             <v-row justify="center" align="center">
                 <v-col cols="12" lg="5">
-                    <v-card color="rgb(255, 255, 255, 0.9)">
+                    <base-card>
                         <v-card-title>
                             <v-icon color="error" left>fa-exclamation-triangle</v-icon>
                             503 - Error
@@ -17,7 +17,7 @@
                             <p>Error</p>
                         </v-card-text>
                         <v-divider />
-                    </v-card>
+                    </base-card>
                 </v-col>
             </v-row>
         </v-container>

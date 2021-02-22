@@ -2,13 +2,13 @@
     <v-container>
         <v-row>
             <v-col cols="12" md="12">
-                <v-card color="rgb(255, 255, 255, 0.9)">
+                <base-card>
                     <v-card-title>Alles Im Rudel</v-card-title>
                     <v-card-text>
                        Voll Startseite und so
                       <div class="effects size-fade-in">Test</div>
                     </v-card-text>
-                </v-card>
+                </base-card>
             </v-col>
         </v-row>
     </v-container>

@@ -44,6 +44,12 @@ const router = new Router({
       component: () => import('./views/gaming/lol')
     },
     {
+      path: '/gaming/summoner',
+      name: 'gaming-summoner',
+      meta: {group: 'gaming', auth: true, permission: 'summoners.index'},
+      component: () => import('./views/gaming/summoner')
+    },
+    {
       path: '/management/users',
       name: 'management-users',
       meta: {group: 'management', auth: true, permission: 'users.index'},

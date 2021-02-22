@@ -2,7 +2,7 @@
   <v-container>
     <v-row justify="center">
       <v-col cols="12" md="6">
-        <v-card color="rgb(255, 255, 255, 0.9)">
+        <base-card>
           <v-card-title>Register</v-card-title>
           <form @submit.prevent="submit">
             <v-card-text>
@@ -54,7 +54,7 @@
               <v-btn type="submit" :loading="isLoadingAuth" :disabled="!canSubmit">Register</v-btn>
             </v-card-actions>
           </form>
-        </v-card>
+        </base-card>
       </v-col>
     </v-row>
   </v-container>

@@ -58,7 +58,7 @@ export default {
       return this.$route.meta.group
     },
     showAuth() {
-      return this.currentRouteGroup === 'auth'
+      return !this.isAuth
     },
     showGaming() {
       return this.currentRouteGroup === 'gaming'
