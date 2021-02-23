@@ -4,7 +4,6 @@
       {{ summoner.name }}
       <v-spacer />
       <summoner-reload-button :summoner="summoner" @summonerReloaded="$emit('summonerReloaded')" />
-      <summoner-entries-button :summoner="summoner" @summonerReloaded="$emit('summonerReloaded')" />
     </v-card-title>
     <v-divider />
     <v-card-text>
@@ -75,7 +74,7 @@
                   </v-list-item-title>
                 </v-list-item-content>
               </template>
-              <base-card>
+              <base-card flat>
                 <v-card-title>
                   {{ leagueEntry.tier }} {{ leagueEntry.rank }} {{ leagueEntry.leaguePoints }}
                 </v-card-title>
@@ -112,12 +111,10 @@
 
 <script>
 import SummonerReloadButton from "@/components/summoners/SummonerReloadButton";
-import SummonerEntriesButton from "@/components/summoners/SummonerEntriesButton";
 
 export default {
   components: {
-    SummonerReloadButton,
-    SummonerEntriesButton
+    SummonerReloadButton
   },
   props: {
     summoner: {

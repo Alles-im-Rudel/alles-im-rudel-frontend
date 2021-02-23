@@ -10,7 +10,7 @@
         :disabled="!canSubmit"
         @click="submit"
     >
-      Speichern
+      {{ submitText }}
     </v-btn>
   </v-card-actions>
 </template>
@@ -32,6 +32,11 @@ export default {
       type: Boolean,
       required: false,
       default: () => true
+    },
+    submitText: {
+      type: String,
+      required: false,
+      default: () => 'Speichern'
     }
   },
   methods: {

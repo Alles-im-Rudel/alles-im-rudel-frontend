@@ -9,6 +9,7 @@
               <v-col cols="12" lg="3">
                 <v-text-field
                     label="Summoner Name"
+                    @keyup.enter.native="getSummoner"
                     v-model="summonerName"
                 />
               </v-col>
@@ -22,7 +23,7 @@
               :is-loading="isLoading"
               :can-submit="canSubmit"
               :has-changes="hasChanges"
-              @keyup.enter.native="getSummoner"
+              submit-text="Suchen"
               @submit="getSummoner"
               @clear="clear"
           />

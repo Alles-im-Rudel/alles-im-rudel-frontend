@@ -12,8 +12,6 @@
 
 <script>
 
-import * as dayjs from "dayjs";
-
 export default {
   components: {},
   props: {
@@ -29,7 +27,7 @@ export default {
   },
   computed: {
     canReload() {
-      return dayjs().diff(dayjs(this.summoner.updatedAt), 'minute') >= 1
+      return true
     }
   },
   methods: {
