@@ -38,6 +38,12 @@ const router = new Router({
       component: () => import('./views/gaming')
     },
     {
+      path: '/profile',
+      name: 'profile',
+      meta: {group: 'home', auth: true, permission: null},
+      component: () => import('./views/profile')
+    },
+    {
       path: '/gaming/lol',
       name: 'gaming-lol',
       meta: {group: 'gaming', auth: false, permission: null},
