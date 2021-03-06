@@ -11,7 +11,7 @@
           />
         </v-col>
         <v-col cols="12" lg="9">
-          <summoner-card :summoner="summoner" @summonerReloaded="getSummoner" />
+          <summoner-card :summoner="summoner" @summoner-reloaded="getSummoner" />
         </v-col>
       </v-row>
     </v-card-text>

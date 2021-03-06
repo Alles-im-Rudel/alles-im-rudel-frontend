@@ -20,6 +20,14 @@
     <gaming v-if="showGaming" />
     <airsoft v-if="showAirsoft" />
     <auth v-if="showAuth" />
+    <template #append>
+      <iframe
+          src="https://discord.com/widget?id=377547252278886422&theme=light"
+          width="100%" height="400"
+          allowtransparency="true"
+          frameborder="0"
+          sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts" />
+    </template>
   </v-navigation-drawer>
 </template>
 

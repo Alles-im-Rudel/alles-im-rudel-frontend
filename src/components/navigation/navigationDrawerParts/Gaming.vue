@@ -65,14 +65,6 @@ export default {
           icon: 'fa-grin-hearts',
           permission: null
         },
-        {
-          auth: true,
-          type: 'action',
-          action: 'gaming-summoner',
-          text: 'Summoner suche',
-          icon: 'fa-search',
-          permission: 'summoners.index'
-        }
       ]
     };
   }

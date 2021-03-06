@@ -20,6 +20,7 @@
       <user-edit-button :user="item" />
       <user-sync-user-groups-button :user="item" @reload="reload" />
       <user-sync-permissions-button :user="item" @reload="reload" />
+      <user-sync-main-summoner-button :user="item" @reload="reload" />
       <user-delete-button :selected-user="item" @user-was-deleted="reload" />
     </template>
   </v-data-table>
@@ -31,13 +32,15 @@ import UserEditButton from "@/views/management/users/index/parts/buttons/UserEdi
 import UserDeleteButton from "@/views/management/users/index/parts/buttons/UserDeleteButton";
 import UserSyncPermissionsButton from "@/views/management/users/index/parts/buttons/UserSyncPermissionsButton";
 import UserSyncUserGroupsButton from "@/views/management/users/index/parts/buttons/UserSyncUserGroupsButton";
+import UserSyncMainSummonerButton from "@/views/management/users/index/parts/buttons/UserSyncMainSummonerButton";
 
 export default {
   components: {
     UserEditButton,
     UserDeleteButton,
     UserSyncPermissionsButton,
-    UserSyncUserGroupsButton
+    UserSyncUserGroupsButton,
+    UserSyncMainSummonerButton
   },
   mixins: [Permissions, DataTableMixin],
   props: {

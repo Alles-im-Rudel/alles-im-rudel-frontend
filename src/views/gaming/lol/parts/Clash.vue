@@ -7,7 +7,9 @@
           v-for="clashTeam in clashTeams"
           :key="clashTeam.id"
       >
-        <v-card-title>{{ clashTeam.name }}</v-card-title>
+        <v-col cols="12" md="11" offset-md="1">
+          <v-card-title class="pb-0">{{ clashTeam.name }}</v-card-title>
+        </v-col>
         <v-col cols="12" md="2"
                v-for="clashMember in clashTeam.clashMembers"
                :key="clashMember.id"

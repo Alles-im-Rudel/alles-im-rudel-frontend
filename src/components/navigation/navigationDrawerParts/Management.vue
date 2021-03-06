@@ -62,6 +62,14 @@ export default {
           text: 'Berechtigungsverwaltung',
           icon: 'fa-shield-alt',
           permission: 'permissions.index'
+        },
+        {
+          auth: true,
+          type: 'action',
+          action: 'management-clash',
+          text: 'Clashverwaltung',
+          icon: 'fa-cogs',
+          permission: 'clash.update'
         }
       ]
     };

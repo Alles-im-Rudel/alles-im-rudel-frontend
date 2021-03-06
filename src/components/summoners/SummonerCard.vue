@@ -3,7 +3,17 @@
     <v-card-title>
       {{ summoner.name }}
       <v-spacer />
-      <summoner-reload-button :summoner="summoner" @summonerReloaded="$emit('summonerReloaded')" />
+      <summoner-main-user-detach-button
+          v-if="canDetachSummoner"
+          :summoner="summoner"
+          @summoner-detached="$emit('summoner-detached')"
+      />
+      <v-spacer />
+      <summoner-reload-button
+          v-if="canReload"
+          :summoner="summoner"
+          @summoner-reloaded="$emit('summoner-reloaded')"
+      />
     </v-card-title>
     <v-divider />
     <v-card-text>
@@ -111,15 +121,27 @@
 
 <script>
 import SummonerReloadButton from "@/components/summoners/SummonerReloadButton";
+import SummonerMainUserDetachButton from "@/components/summoners/SummonerMainUserDetachButton";
 
 export default {
   components: {
-    SummonerReloadButton
+    SummonerReloadButton,
+    SummonerMainUserDetachButton
   },
   props: {
     summoner: {
       required: true,
       type: Object
+    },
+    canDetachSummoner: {
+      required: false,
+      type: Boolean,
+      default: () => false
+    },
+    canReload: {
+      required: false,
+      type: Boolean,
+      default: () => true
     }
   },
   data() {

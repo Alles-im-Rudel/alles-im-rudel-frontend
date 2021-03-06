@@ -1,12 +1,12 @@
 <template>
   <v-btn
-      color="primary"
+      color="error"
       :loading="isLoading"
       :disabled="!canReload"
-      @click="reloadSummoner"
+      @click="detachMainUser"
   >
-    <v-icon left>fa-sync</v-icon>
-    Summoner aktualisieren
+    <v-icon left>fa-unlink</v-icon>
+    Main User entfernen
   </v-btn>
 </template>
 
@@ -31,20 +31,16 @@ export default {
     }
   },
   methods: {
-    reloadSummoner() {
+    detachMainUser() {
       this.isLoading = true
       const params = {
         id: this.summoner.id
       }
-      window.axios.get(`summoners/reload/${this.summoner.id}`, {params})
+      window.axios.put(`summoners/detach-main-user/${this.summoner.id}`, params)
           .then(response => {
             this.$root.$snackbar.open(response.data.message);
-            this.$emit('summoner-reloaded')
-          })
-          .catch(error => {
-            this.$root.$snackbar.open(error.response.data.message, 'error');
-          })
-          .finally(() => this.isLoading = false)
+            this.$emit('summoner-detached')
+          }).finally(() => this.isLoading = false)
     }
   }
 }
