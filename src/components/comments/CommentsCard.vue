@@ -3,7 +3,7 @@
     <v-card-title>
       Kommentare
       <v-spacer />
-      <comment-create-button />
+      <comment-create-button :post-id="value" />
     </v-card-title>
     <v-divider />
     <v-card-text>
