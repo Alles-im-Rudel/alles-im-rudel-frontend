@@ -9,7 +9,7 @@
       <v-card-text v-if="isAuth" class="white--text">
         Willkommen:
         <br />
-        {{ user.username }}
+        <user-chip :user="user" />
       </v-card-text>
       <v-card-text v-if="!isAuth" class="white--text">
         Willkommen
@@ -39,6 +39,7 @@ import Gaming from "@/components/navigation/navigationDrawerParts/Gaming";
 import Auth from "@/components/navigation/navigationDrawerParts/Auth";
 import Airsoft from "@/components/navigation/navigationDrawerParts/Airsoft";
 import Home from "@/components/navigation/navigationDrawerParts/Home";
+import UserChip from '@/components/users/UserChip'
 
 export default {
   components: {
@@ -46,7 +47,8 @@ export default {
     Management,
     Gaming,
     Auth,
-    Home
+    Home,
+    UserChip
   },
   mixins: [Permissions],
   props: {

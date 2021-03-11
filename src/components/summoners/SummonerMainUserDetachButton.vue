@@ -1,8 +1,8 @@
 <template>
   <v-btn
+      v-if="canSubmit"
       color="error"
       :loading="isLoading"
-      :disabled="!canReload"
       @click="detachMainUser"
   >
     <v-icon left>fa-unlink</v-icon>
@@ -26,8 +26,8 @@ export default {
     }
   },
   computed: {
-    canReload() {
-      return true
+    canSubmit() {
+      return this.summoner.mainUserId
     }
   },
   methods: {

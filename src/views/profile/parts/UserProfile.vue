@@ -1,13 +1,5 @@
 <template>
-  <base-card v-if="!user.id">
-    <v-card-title>
-      Lädt dein Profil
-    </v-card-title>
-    <v-card-text>
-      <v-skeleton-loader class="mx-auto" type="card" />
-    </v-card-text>
-  </base-card>
-  <base-card v-else>
+  <base-card>
     <v-card-title class="headline">
       {{ user.fullName }}
     </v-card-title>
@@ -15,6 +7,7 @@
     <v-card-text>
       <user-form
           v-model="user"
+          is-profil
           :password-form-labels="passwordFormLabels"
           :validation-errors="errors"
       />
@@ -41,30 +34,15 @@ export default {
     UserForm
   },
   mixins: [ValidationErrors],
+  props: {
+    originalUser: {
+      type: Object,
+      required: true
+    }
+  },
   data() {
     return {
-      user: {
-        id: null,
-        salutation: null,
-        fullName: null,
-        firstName: null,
-        lastName: null,
-        username: null,
-        email: null,
-        isActive: null,
-        levelId: null
-      },
-      originalUser: {
-        id: null,
-        salutation: null,
-        fullName: null,
-        firstName: null,
-        lastName: null,
-        username: null,
-        email: null,
-        isActive: null,
-        levelId: null
-      },
+      user: cloneDeep(this.originalUser),
       passwordFormLabels: {
         first: 'Passwort ändern',
         second: 'Passwort bestätigen'
@@ -79,7 +57,6 @@ export default {
           this.user.lastName &&
           this.user.firstName &&
           this.user.username &&
-          this.user.levelId &&
           (((this.user.password === undefined ||
               this.user.password.length === 0) &&
               (this.user.passwordRepeat === undefined ||
@@ -94,28 +71,20 @@ export default {
           this.user.firstName !== this.originalUser.firstName ||
           this.user.username !== this.originalUser.username ||
           this.user.email !== this.originalUser.email ||
-          this.user.isActive !== this.originalUser.isActive ||
-          this.user.salutation !== this.originalUser.salutation ||
-          this.user.levelId !== this.originalUser.levelId ||
           !!this.user.password ||
           !!this.user.passwordRepeat
       );
     }
   },
-  created() {
-    this.getUser();
+  watch: {
+    originalUser: {
+      deep: true,
+      handler(value) {
+        this.user = cloneDeep(value);
+      }
+    },
   },
   methods: {
-    getUser() {
-      this.isLoading = true;
-      window.axios
-          .get(`profile`)
-          .then((response) => {
-            this.user = cloneDeep(response.data.data);
-            this.originalUser = cloneDeep(response.data.data);
-          })
-          .finally(() => (this.isLoading = false));
-    },
     submit() {
       this.isLoading = true;
       this.errors = {};
@@ -124,9 +93,7 @@ export default {
         firstName: this.user.firstName,
         lastName: this.user.lastName,
         username: this.user.username,
-        email: this.user.email,
-        isActive: this.user.isActive,
-        levelId: this.user.levelId
+        email: this.user.email
       };
 
       if (this.user.password && this.user.passwordRepeat) {
@@ -138,8 +105,7 @@ export default {
           .put(`profile`, params)
           .then((response) => {
             this.$root.$snackbar.open(response.data.message);
-            this.user = cloneDeep(response.data.user);
-            this.originalUser = cloneDeep(response.data.user);
+            this.$emit('updated')
           })
           .catch(this.syncErrors)
           .finally(() => (this.isLoading = false));

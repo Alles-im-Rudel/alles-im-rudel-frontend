@@ -58,6 +58,14 @@ export default {
           permission: null
         },
         {
+          auth: false,
+          type: 'action',
+          action: 'news',
+          text: 'News',
+          icon: 'fa-newspaper',
+          permission: null
+        },
+        {
           auth: true,
           type: 'action',
           action: 'dashboard',

@@ -9,7 +9,7 @@
                 v-model="activeTab"
                 centered
             >
-              <v-tab href="#clash">Clash Team</v-tab>
+              <v-tab href="#clash">Clash Teams</v-tab>
               <v-tab href="#summoner-search">Summoner Suche</v-tab>
             </v-tabs>
             <v-divider />

@@ -1,10 +1,23 @@
 <template>
   <v-container>
-    <v-row justify="center">
-      <v-col cols="12">
+    <v-row>
+      <v-col cols="12" md="12">
         <base-card>
           <v-card-title>Berechtigungsverwaltung</v-card-title>
-
+          <v-card-text class="pa-0 ma-0">
+            <v-tabs
+                v-model="activeTab"
+                centered
+            >
+              <v-tab href="#user-groups">Benutzergruppen</v-tab>
+            </v-tabs>
+            <v-divider />
+            <v-tabs-items style="background-color:rgba(255, 255, 255, 0)" v-model="activeTab">
+              <v-tab-item value="user-groups">
+                <user-groups />
+              </v-tab-item>
+            </v-tabs-items>
+          </v-card-text>
         </base-card>
       </v-col>
     </v-row>
@@ -12,22 +25,30 @@
 </template>
 
 <script>
+import UserGroups from '@/views/management/permissions/parts/UserGroups'
+
 
 export default {
+  name: "PermissionManagement",
+  components: {
+    UserGroups
+  },
   data() {
     return {
-      form: {
-        username: null,
-        email: null,
-        password: null,
-        passwordRepeat: null
-      },
-      isLoading: false,
-      errorMessage: null,
-      errors: {},
+      activeTab: this.$route.query.activeTab || null
     }
   },
   computed: {},
-  methods: {}
+  methods: {},
+  watch: {
+    activeTab(activeTab) {
+      if (activeTab) {
+        this.$router.replace({
+          name: 'management-permissions',
+          query: {activeTab}
+        });
+      }
+    }
+  }
 }
 </script>

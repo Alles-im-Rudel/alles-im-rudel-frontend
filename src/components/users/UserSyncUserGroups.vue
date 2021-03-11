@@ -128,7 +128,7 @@ export default {
         )
       };
       window.axios
-          .get(`user-groups`, {params})
+          .get(`user-groups/all`, {params})
           .then((response) => {
             this.notSelectedUserGroups = cloneDeep(response.data.data);
             this.originalNotSelectedUserGroups = cloneDeep(response.data.data);

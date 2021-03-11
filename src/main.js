@@ -19,22 +19,23 @@ Vue.mixin(Dates);
 Vue.mixin(Effects);
 
 if (store.getters['auth/isAuth'] && !store.getters['auth/user']) {
-    Promise.all([
-        store.dispatch('auth/getAuth'),
-        store.dispatch('level/getLevels'),
-    ]).finally(() => mountApp());
+  Promise.all([
+    store.dispatch('auth/getAuth'),
+    store.dispatch('level/getLevels'),
+    store.dispatch('tag/getTags'),
+  ]).finally(() => mountApp());
 } else {
-    mountApp();
+  mountApp();
 }
 
 function mountApp() {
-    app = new Vue({
-        router,
-        store,
-        vuetify,
-        i18n,
-        render: h => h(App)
-    }).$mount('#app');
+  app = new Vue({
+    router,
+    store,
+    vuetify,
+    i18n,
+    render: h => h(App)
+  }).$mount('#app');
 }
 
 export default app;

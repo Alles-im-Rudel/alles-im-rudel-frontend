@@ -81,7 +81,6 @@ export default {
     value: {
       type: Object,
       required: true,
-      default: () => ({})
     },
     freeMain: {
       type: Boolean,

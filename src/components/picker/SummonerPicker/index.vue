@@ -26,7 +26,7 @@
 import SummonerSearchForm from './parts/SummonerSearchForm';
 
 export default {
-  name: 'UserPicker',
+  name: 'SummonerPicker',
   components: {
     SummonerSearchForm
   },
@@ -34,7 +34,6 @@ export default {
     value: {
       type: Object,
       required: true,
-      default: () => ({})
     },
     summonerIds: {
       type: Array,
