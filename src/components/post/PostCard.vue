@@ -7,6 +7,7 @@
       <v-spacer />
       {{ post.createdAt | dateTime }}
     </v-card-title>
+    <v-divider />
     <post-images :images="post.thumbnails" :show-only="2" only-thumbnail />
     <v-card-actions>
       <post-tags :tags="post.tags" />

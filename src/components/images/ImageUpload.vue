@@ -3,7 +3,7 @@
     <v-row>
       <v-col cols="12" lg="6">
         <v-file-input
-            v-model="file"
+            v-model="file.file"
             color="primary"
             counter
             :error="hasErrors('image')"
@@ -17,9 +17,13 @@
             :show-size="1000"
             @change="transformToBase64"
             @click:clear="clear"
-        >
-
-        </v-file-input>
+        />
+        <v-text-field
+            v-model="file.title"
+            label="Bild Titel"
+            :error="hasErrors('title')"
+            :error-messages="getErrors('title')"
+        />
       </v-col>
       <v-scale-transition>
         <v-col v-if="imageBase64" cols="12" lg="6" class="image-preview">
@@ -28,33 +32,17 @@
         </v-col>
       </v-scale-transition>
     </v-row>
-    <v-row>
-      <v-col cols="12" lg="6">
-          <image-edit-card
-              v-if="image"
-              :image="image"
-              @deleted="$emit('reload')"
-          />
-      </v-col>
-    </v-row>
   </v-container>
 </template>
 <script>
 import ValidationErrors from '@/mixins/ValidationErros';
-import ImageEditCard from "@/components/images/ImageEditCard";
 
 export default {
-  components: {
-    ImageEditCard
-  },
   mixins: [ValidationErrors],
   props: {
     value: {
-      type: [File, null],
+      type: Object,
       rquired: true
-    },
-    image: {
-      required: true
     }
   },
   data() {
@@ -70,7 +58,7 @@ export default {
       deep: true,
       handler(value) {
         this.file = value;
-        if (!value) {
+        if (!value.file) {
           this.imageBase64 = null
         }
       }

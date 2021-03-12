@@ -1,9 +1,9 @@
 <template>
-  <v-card v-if="comments" :max-height="maxHeight">
+  <v-card v-if="comments" :max-height="maxHeight" class="scroll">
     <v-card-title>
       Kommentare
       <v-spacer />
-      <comment-create-button :post-id="value" />
+      <comment-create-button :post-id="value" @reload="getComments" />
     </v-card-title>
     <v-divider />
     <v-card-text>
@@ -11,6 +11,7 @@
           v-for="comment in comments"
           :key="comment.id"
           :comment="comment"
+          @reload="getComments"
       />
     </v-card-text>
   </v-card>

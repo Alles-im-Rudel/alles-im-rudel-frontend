@@ -1,24 +1,29 @@
 <template>
-  <v-dialog v-model="showDialog" max-width="500">
+  <v-dialog v-model="showDialog" fullscreen>
     <template v-slot:activator="{ on: dialog }">
       <v-btn
           color="darkGrey"
-          icon
+          dark
           v-on="{ ...dialog }"
       >
-        <v-icon>fa-plus</v-icon>
+        <v-icon left>fa-plus</v-icon>
+        Post
       </v-btn>
     </template>
-    <v-card>
+    <v-card tile>
       <v-card-title>
-        Kommentar
+        Post erstellen
+        <v-spacer />
+        <close-button @close="close" />
       </v-card-title>
+      <v-divider />
       <v-card-text>
-        <v-textarea
-            v-model="comment"
-            label="Kommentar"
+        <post-form
+            v-model="post"
+            :validation-errors="errors"
         />
       </v-card-text>
+      <v-divider />
       <reset-save-action
           :has-changes="hasChanges"
           :can-submit="canSubmit"
@@ -32,68 +37,67 @@
 
 <script>
 import ResetSaveAction from "@/components/cardActions/ResetSaveAction";
+import PostForm from "@/components/post/PostForm";
+import ValidationErrors from "@/mixins/ValidationErros";
+import CloseButton from '@/components/cardActions/CloseButton'
 
 export default {
+  mixins: [ValidationErrors],
   components: {
-    ResetSaveAction
-  },
-  props: {
-    postId: {
-      type: Number,
-      required: false,
-      default: () => null
-    },
-    commentId: {
-      type: Number,
-      required: false,
-      default: () => null
-    }
+    ResetSaveAction,
+    PostForm,
+    CloseButton
   },
   data() {
     return {
       showDialog: false,
-      comment: null,
-      isLoading: false
+      isLoading: false,
+      post: {
+        title: null,
+        text: null,
+        tags: [],
+        images: []
+      }
     };
   },
 
   computed: {
     canSubmit() {
-      return !!this.comment && this.hasChanges;
+      return this.post.title &&
+          this.post.text &&
+          this.hasChanges;
     },
     hasChanges() {
-      return !!this.comment;
+      return this.post.text ||
+          this.post.text ||
+          this.post.images.length > 0 ||
+          this.post.tags.length > 0;
     }
   },
   methods: {
     submit() {
       this.isLoading = true;
+      this.clearErrors();
       const params = {
         comment: this.comment,
       };
-      if (this.postId) {
-        params.modelId = this.postId;
-        params.modelType = 'App\\Models\\Post'
-      }
-      if (this.commentId) {
-        params.modelId = this.commentId;
-        params.modelType = 'App\\Models\\Comment'
-      }
       window.axios
-          .post('comments', params)
+          .post('posts', params)
           .then((response => {
             this.$root.$snackbar.open(response.data.message);
             this.clear();
             this.$emit('reload');
             this.showDialog = false;
           }))
-          .catch(error => {
-            this.$root.$snackbar.open(error.response.data.message, 'error');
-          })
+          .catch(this.syncErrors)
           .finally(() => this.isLoading = false);
     },
     clear() {
+      this.clearErrors();
       this.comment = null;
+    },
+    close() {
+      this.showDialog = false
     }
   }
 };

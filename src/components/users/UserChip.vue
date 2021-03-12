@@ -14,7 +14,7 @@
         <v-avatar left v-if="hasProfileImage">
           <v-img :src="user.thumbnail.thumbnail" />
         </v-avatar>
-        {{ user.fullName }}
+        {{ user.username }}
       </v-chip>
     </template>
     <v-card width="300">
