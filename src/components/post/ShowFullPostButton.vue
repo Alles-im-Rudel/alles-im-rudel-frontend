@@ -12,7 +12,7 @@
     </template>
     <v-row dense class="pa-0 ma-0">
       <v-col cols="12" lg="9" class="py-0 pl-0">
-        <show-post-card v-model="postId" @close="close" :max-height="windowSize.y - 150" />
+        <show-post-card v-model="postId" @close="close" :max-height="windowSize.y - 150" @reload="$emit('reload')"/>
       </v-col>
       <v-col cols="12" lg="3" class="py-0 pr-0">
         <comments-card v-model="postId" :max-height="windowSize.y - 150" />

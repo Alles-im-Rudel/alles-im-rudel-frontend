@@ -38,22 +38,34 @@ const router = new Router({
       component: () => import('./views/airsoft')
     },
     {
+      path: '/airsoft/news',
+      name: 'airsoft-news',
+      meta: {group: 'airsoft', auth: false, permission: null},
+      component: () => import('./views/airsoft/news')
+    },
+    {
       path: '/gaming',
       name: 'gaming',
       meta: {group: 'gaming', auth: false, permission: null},
       component: () => import('./views/gaming')
     },
     {
-      path: '/profile',
-      name: 'profile',
-      meta: {group: 'home', auth: true, permission: null},
-      component: () => import('./views/profile')
+      path: '/gaming/news',
+      name: 'gaming-news',
+      meta: {group: 'gaming', auth: false, permission: null},
+      component: () => import('./views/gaming/news')
     },
     {
       path: '/gaming/lol',
       name: 'gaming-lol',
       meta: {group: 'gaming', auth: false, permission: null},
       component: () => import('./views/gaming/lol')
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      meta: {group: 'home', auth: true, permission: null},
+      component: () => import('./views/profile')
     },
     {
       path: '/management/users',

@@ -8,7 +8,7 @@
           :src="clashMember.clashTeamRole.image"
           alt="lane" />
     </v-card-title>
-    <v-card-text class="ma-0 pa-0">
+    <v-card-text class="ma-0 pa-0" v-if="clashMember.summonerId">
       <base-card flat>
         <v-card-text class="ma-0 pa-0">
           <v-row class="ma-0 pa-0">

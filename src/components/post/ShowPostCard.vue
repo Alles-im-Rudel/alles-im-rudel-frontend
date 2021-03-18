@@ -7,12 +7,17 @@
       <post-tags :tags="post.tags" />
       <v-spacer />
       {{ post.createdAt | dateTime }}
+      <post-edit-button v-model="post" />
+      <post-delete-button
+          :selected-post="post"
+          @deleted="$emit('reload')"
+      />
     </v-card-title>
     <v-divider />
     <post-images :images="post.images" />
-    <v-card-text>
-      {{ post.text }}
-    </v-card-text>
+    <div class="ql-snow">
+      <div class="ql-editor" v-html="post.text" />
+    </div>
   </v-card>
   <v-card v-else>
     <v-skeleton-loader class="mx-auto" type="card" />
@@ -23,12 +28,16 @@
 import UserChip from "@/components/users/UserChip";
 import PostImages from "@/components/post/PostImages";
 import PostTags from "@/components/post/PostTags";
+import PostDeleteButton from "@/components/post/PostDeleteButton";
+import PostEditButton from "@/components/post/PostEditButton";
 
 export default {
   components: {
     UserChip,
     PostImages,
-    PostTags
+    PostTags,
+    PostDeleteButton,
+    PostEditButton
   },
   props: {
     value: {

@@ -17,12 +17,7 @@
         </v-row>
         <v-row>
           <v-col cols="12" md="12">
-            <v-textarea
-                v-model="post.text"
-                label="Text"
-                :error="hasErrors('text')"
-                :error-messages="getErrors('text')"
-            />
+            <vue-editor v-model="post.text" />
           </v-col>
         </v-row>
       </v-col>

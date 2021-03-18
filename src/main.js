@@ -12,11 +12,19 @@ import i18n from './i18n'
 import store from './store'
 import Effects from "@/mixins/Effects";
 import "@/style/effects.scss";
+import Vue2Editor from 'vue2-editor';
+
+import "vue2-editor/dist/vue2-editor.css";
+
+import 'quill/dist/quill.core.css';
+import 'quill/dist/quill.bubble.css';
+import 'quill/dist/quill.snow.css';
 
 let app = null;
 
 Vue.mixin(Dates);
 Vue.mixin(Effects);
+Vue.use(Vue2Editor);
 
 if (store.getters['auth/isAuth'] && !store.getters['auth/user']) {
   Promise.all([

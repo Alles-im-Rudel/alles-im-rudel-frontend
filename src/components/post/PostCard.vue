@@ -1,11 +1,15 @@
 <template>
   <base-card>
     <v-card-title>
-      AllesImRudel.de V1
+      {{ post.title }}
       <v-spacer />
       <user-chip :user="post.user" />
       <v-spacer />
       {{ post.createdAt | dateTime }}
+      <post-delete-button
+          :selected-post="post"
+          @deleted="$emit('reload')"
+      />
     </v-card-title>
     <v-divider />
     <post-images :images="post.thumbnails" :show-only="2" only-thumbnail />
@@ -13,6 +17,7 @@
       <post-tags :tags="post.tags" />
       <v-spacer />
       <v-badge
+          v-if="post.commentsCount > 0"
           color="greyBlue"
           :content="post.commentsCount"
           overlap
@@ -25,7 +30,7 @@
         </v-chip>
       </v-badge>
       <v-spacer />
-      <show-full-post-button :post-id="post.id"/>
+      <show-full-post-button :post-id="post.id" @reload="$emit('reload')" />
       <v-spacer />
       <v-btn
           icon
@@ -37,9 +42,9 @@
     <v-expand-transition>
       <div v-show="show">
         <v-divider />
-        <v-card-text>
-          {{ text }}
-        </v-card-text>
+        <div class="ql-snow">
+          <div class="ql-editor" v-html="text" />
+        </div>
       </div>
     </v-expand-transition>
   </base-card>
@@ -50,13 +55,15 @@ import UserChip from '@/components/users/UserChip';
 import PostTags from '@/components/post/PostTags';
 import PostImages from "@/components/post/PostImages";
 import ShowFullPostButton from "@/components/post/ShowFullPostButton";
+import PostDeleteButton from "@/components/post/PostDeleteButton";
 
 export default {
   components: {
     UserChip,
     PostTags,
     PostImages,
-    ShowFullPostButton
+    ShowFullPostButton,
+    PostDeleteButton
   },
   props: {
     post: {

@@ -2,6 +2,7 @@
   <v-dialog v-model="showDialog" max-width="500">
     <template v-slot:activator="{ on: dialog }">
       <v-btn
+          v-if="canSeeButton"
           color="darkGrey"
           icon
           v-on="{ ...dialog }"
@@ -32,11 +33,13 @@
 
 <script>
 import ResetSaveAction from "@/components/cardActions/ResetSaveAction";
+import Permissions from "@/mixins/Permissions";
 
 export default {
   components: {
     ResetSaveAction
   },
+  mixins: [Permissions],
   props: {
     postId: {
       type: Number,
@@ -58,6 +61,9 @@ export default {
   },
 
   computed: {
+    canSeeButton() {
+      return this.can('comments.create');
+    },
     canSubmit() {
       return !!this.comment && this.hasChanges;
     },

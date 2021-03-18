@@ -1,19 +1,24 @@
 <template>
   <v-dialog v-model="showDialog" fullscreen>
     <template v-slot:activator="{ on: dialog }">
-      <v-btn
-          v-if="canSeeButton"
-          color="darkGrey"
-          dark
-          v-on="{ ...dialog }"
-      >
-        <v-icon left>fa-plus</v-icon>
-        Post
-      </v-btn>
+      <v-tooltip top>
+        <template v-slot:activator="{ on:tooltip }">
+          <v-btn
+              v-if="canSeeButton"
+              color="darkGrey"
+              dark
+              icon
+              v-on="{ ...dialog, ...tooltip}"
+          >
+            <v-icon>fa-edit</v-icon>
+          </v-btn>
+        </template>
+        <span>Post bearbeiten</span>
+      </v-tooltip>
     </template>
     <v-card tile>
       <v-card-title>
-        Post erstellen
+        Post {{ post.title }} bearbeiten
         <v-spacer />
         <close-button @close="close" />
       </v-card-title>
@@ -43,6 +48,7 @@ import ValidationErrors from "@/mixins/ValidationErros";
 import CloseButton from '@/components/cardActions/CloseButton'
 import {mapGetters} from "vuex";
 import Permissions from "@/mixins/Permissions";
+import {cloneDeep} from 'lodash';
 
 export default {
   mixins: [ValidationErrors, Permissions],
@@ -51,16 +57,18 @@ export default {
     PostForm,
     CloseButton
   },
+  props: {
+    value: {
+      type: Object,
+      required: true
+    }
+  },
   data() {
     return {
       showDialog: false,
       isLoading: false,
-      post: {
-        title: null,
-        text: null,
-        tags: [],
-        images: []
-      }
+      post: cloneDeep(this.value),
+      originalPost: cloneDeep(this.value)
     };
   },
 
@@ -91,50 +99,19 @@ export default {
         tagIds: this.post.tags.map(tag => tag.id),
       };
       window.axios
-          .post('posts', params)
-          .then((response => {
-            if (this.post.images.length > 0) {
-              this.post.images.forEach((image, index) => {
-                this.uploadImage(response.data.postId, image, index);
-              });
-            } else {
-              this.$root.$snackbar.open('Der Post wurde erfolgreich erstellt.');
-              this.clear();
-              this.$emit('reload');
-              this.showDialog = false;
-            }
-          }))
+          .put(`posts/${this.post.id}`, params)
+          .then((response) => {
+            this.$root.$snackbar.open(response.data.message);
+            this.clear();
+            this.post = cloneDeep(response.data.post);
+            this.originalPost = cloneDeep(response.data.post);
+            this.$emit('reload');
+          })
           .catch(this.syncErrors)
           .finally(() => this.isLoading = false);
     },
-    uploadImage(postId, image, index) {
-      this.isLoading = true;
-      const request = new FormData();
-      const config = {headers: {'Content-Type': 'multipart/form-data'}};
-      request.append('file', image.file);
-      if (image.title) {
-        request.append('title', image.title);
-      }
-      window.axios
-          .post(`posts/${postId}/image`, request, config)
-          .then(() => {
-            if (this.post.images.length === ++index) {
-              this.isLoading = false;
-              this.clear();
-              this.$emit('reload');
-              this.showDialog = false;
-              this.$root.$snackbar.open('Der Post wurde erfolgreich erstellt.');
-            }
-          })
-          .catch(this.syncErrors);
-    },
     clear() {
-      this.post = {
-        title: null,
-        text: null,
-        tags: [],
-        images: []
-      }
+      this.post = cloneDeep(this.originalPost);
     },
     close() {
       this.showDialog = false

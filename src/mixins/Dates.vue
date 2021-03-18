@@ -9,6 +9,9 @@ export default {
       return date ? dayjs(date).format('DD.MM.YYYY') : defaultVal;
     },
     dateTime: function (date, defaultVal = '-') {
+      return date ? dayjs(date).format(' HH:mm DD.MM.YYYY') : defaultVal;
+    },
+    dateTimeSek: function (date, defaultVal = '-') {
       return date ? dayjs(date).format('DD.MM.YYYY HH:mm:ss') : defaultVal;
     },
     monthYear: function (date, defaultVal = '-') {

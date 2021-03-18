@@ -4,19 +4,7 @@
       <v-col cols="12" md="12">
         <base-card>
           <v-card-title>
-            News
-            <v-spacer />
-            <v-text-field
-                append-icon="fa-search"
-                v-model="search"
-                label="Suche"
-                clearable
-                @keydown.enter="tagsChanged"
-                @click:append="tagsChanged"
-                @click:clear="tagsChanged"
-            />
-            <v-spacer />
-            <tag-select v-model="tags" />
+            Gaming News
             <v-spacer />
             <post-create-button @reload="tagsChanged" />
           </v-card-title>
@@ -28,7 +16,7 @@
              v-for="post in posts"
              :key="post.id"
       >
-        <post-card class="effects fade-in-main" :post="post" @reload="tagsChanged" />
+        <post-card class="effects fade-in-main" :post="post" />
       </v-col>
     </v-row>
     <infinite-loader
@@ -43,25 +31,22 @@
 <script>
 import PostCard from "@/components/post/PostCard";
 import PostCreateButton from "@/components/post/PostCreateButton";
-import TagSelect from "@/components/selects/TagSelect";
 import InfiniteLoader from '@/components/infiniteLoader/InfiniteLoader';
 import {debounce} from 'lodash';
 
 export default {
-  name: "News",
+  name: "GamingNews",
   components: {
     PostCard,
     PostCreateButton,
-    TagSelect,
     InfiniteLoader
   },
   data() {
     return {
       isLoading: false,
       posts: [],
-      tags: [],
+      tags: [{id: 2}, {id: 3}],
       page: 1,
-      search: null,
       totalItems: null
     }
   },
@@ -92,8 +77,7 @@ export default {
     getPosts: debounce(function () {
       const params = {
         tagIds: this.tags.map(tag => tag.id),
-        page: this.page,
-        search: this.search
+        page: this.page
       };
       window.axios
           .get(`posts`, {params})

@@ -11,13 +11,13 @@
     <v-card-actions>
       <v-spacer />
       <v-badge
-          v-if="comment.comments.length > 0"
+          v-if="comment.commentsCount > 0"
           color="greyBlue"
-          :content="comment.comments.length"
+          :content="comment.commentsCount"
           overlap
       >
         <v-btn
-            v-if="comment.comments.length > 0"
+            v-if="comment.commentsCount > 0"
             right
             icon
             @click="show = !show"

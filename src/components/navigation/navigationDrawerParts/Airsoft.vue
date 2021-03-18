@@ -55,6 +55,14 @@ export default {
           icon: 'fa-tree',
           permission: null
         },
+        {
+          auth: false,
+          type: 'action',
+          action: 'airsoft-news',
+          text: 'Airsoft News',
+          icon: 'fa-newspaper',
+          permission: null
+        },
       ]
     };
   }

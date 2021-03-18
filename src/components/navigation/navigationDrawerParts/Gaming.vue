@@ -60,6 +60,14 @@ export default {
         {
           auth: false,
           type: 'action',
+          action: 'gaming-news',
+          text: 'Gaming News',
+          icon: 'fa-newspaper',
+          permission: null
+        },
+        {
+          auth: false,
+          type: 'action',
           action: 'gaming-lol',
           text: 'League of Legends',
           icon: 'fa-grin-hearts',

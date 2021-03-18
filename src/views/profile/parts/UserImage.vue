@@ -5,7 +5,19 @@
     </v-card-title>
     <v-divider />
     <v-card-text>
-      <image-upload v-model="file" :image="user.image" @reload="$emit('reload')" @clear="clear" />
+      <image-upload v-model="file" @clear="clear" />
+      <v-row>
+        <v-col cols="6">
+          <v-img
+              class="black--text align-end"
+              :src="user.image.image"
+          >
+            <v-card-title style="background-color: rgba(255, 255, 255, 0.2)">
+              {{ user.image.title }}
+            </v-card-title>
+          </v-img>
+        </v-col>
+      </v-row>
     </v-card-text>
     <v-divider />
     <reset-save-action
@@ -40,7 +52,10 @@ export default {
       user: cloneDeep(this.originalUser),
       isLoading: false,
       errors: {},
-      file: null
+      file: {
+        file: null,
+        title: null
+      }
     };
   },
   computed: {
@@ -65,7 +80,8 @@ export default {
       this.clearErrors();
       const request = new FormData();
       const config = {headers: {'Content-Type': 'multipart/form-data'}};
-      request.append('image', this.file);
+      request.append('image', this.file.file);
+      request.append('title', this.file.title);
       window.axios
           .post(`users/image/${this.originalUser.id}`, request, config)
           .then(response => {
@@ -81,7 +97,10 @@ export default {
     clear() {
       this.clearErrors();
       this.user = cloneDeep(this.originalUser);
-      this.file = null;
+      this.file = {
+        file: null,
+        title: null
+      }
     },
   }
 };
