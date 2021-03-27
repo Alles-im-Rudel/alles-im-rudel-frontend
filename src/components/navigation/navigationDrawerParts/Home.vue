@@ -66,6 +66,14 @@ export default {
           permission: null
         },
         {
+          auth: false,
+          type: 'action',
+          action: 'calendar',
+          text: 'Kalender',
+          icon: 'fa-calendar-alt',
+          permission: null
+        },
+        {
           auth: true,
           type: 'action',
           action: 'dashboard',
