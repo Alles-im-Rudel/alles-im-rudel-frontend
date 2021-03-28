@@ -1,12 +1,18 @@
 <template>
-  <v-btn
-      v-if="canSeeButton"
-      :color="color"
-      icon
-      @click="change"
+  <v-badge
+      color="greyBlue"
+      :content="selectedAppointment.likes ? selectedAppointment.likes : '0'"
+      overlap
   >
-    <v-icon>fa-thumbs-up</v-icon>
-  </v-btn>
+    <v-btn
+        v-if="canSeeButton"
+        :color="color"
+        icon
+        @click="change"
+    >
+      <v-icon>fa-thumbs-up</v-icon>
+    </v-btn>
+  </v-badge>
 </template>
 
 <script>

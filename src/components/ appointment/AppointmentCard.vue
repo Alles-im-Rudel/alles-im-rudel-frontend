@@ -11,14 +11,26 @@
     >
       <v-toolbar-title v-html="appointment.title"></v-toolbar-title>
       <v-spacer />
+      <user-chip :user="appointment.user" />
       <close-button
           color="white"
           @close="$emit('close')"
       />
     </v-toolbar>
-    <v-card-text class="pa-1">
-      <strong>Von: {{ appointment.startAt | dateTime }}</strong> <br>
-      <strong>Bis: {{ appointment.endAt | dateTime }}</strong>
+    <v-card-text class="py-0">
+      <v-row>
+        <v-col v-if="!appointment.isAllDay" cols="12" md="8" class="text-left">
+          <strong>Von: {{ appointment.startAt | dateTime }}</strong> <br>
+          <strong>Bis: {{ appointment.endAt | dateTime }}</strong>
+        </v-col>
+        <v-col v-else cols="12" md="8" class="text-left">
+          <strong>Von: {{ appointment.startAt | date }}</strong> <br>
+          <strong>Bis: {{ appointment.endAt | date }}</strong>
+        </v-col>
+        <v-col cols="12" md="4">
+          <appointment-like-button :selected-appointment="appointment" @reload="getAppointment" />
+        </v-col>
+      </v-row>
     </v-card-text>
     <v-divider />
     <div class="ql-snow">
@@ -27,9 +39,6 @@
     <v-card-actions>
       <appointment-edit-button v-model="appointment" @reload="$emit('reload')" />
       <appointment-delete-button :selected-appointment="appointment" @reload="$emit('reload')" />
-      <v-spacer />
-      {{ appointment.likes }}
-      <appointment-like-button :selected-appointment="appointment" @reload="getAppointment" />
     </v-card-actions>
   </v-card>
   <v-card v-else>
@@ -43,13 +52,15 @@ import CloseButton from '@/components/cardActions/CloseButton';
 import AppointmentLikeButton from "@/components/ appointment/AppointmentLikeButton";
 import AppointmentEditButton from "@/components/ appointment/AppointmentEditButton";
 import AppointmentDeleteButton from "@/components/ appointment/AppointmentDeleteButton";
+import UserChip from "@/components/users/UserChip";
 
 export default {
   components: {
     CloseButton,
     AppointmentLikeButton,
     AppointmentEditButton,
-    AppointmentDeleteButton
+    AppointmentDeleteButton,
+    UserChip
   },
   props: {
     selectedAppointment: {

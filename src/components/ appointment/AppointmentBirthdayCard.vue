@@ -9,6 +9,8 @@
     >
       <v-toolbar-title>
         Geburstag {{ appointment.startAt | date }}
+        von:
+        <user-chip :user="appointment.birthdayKid" />
       </v-toolbar-title>
       <v-spacer />
       <close-button
@@ -16,11 +18,6 @@
           @close="$emit('close')"
       />
     </v-toolbar>
-    <v-card-actions>
-      <v-spacer />
-      <user-chip :user="appointment.birthdayKid" />
-      <v-spacer />
-    </v-card-actions>
   </v-card>
 </template>
 <script>
