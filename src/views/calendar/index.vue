@@ -62,7 +62,7 @@ export default {
     getAppointments: debounce(function () {
       const params = {
         tagIds: this.tags.map(tag => tag.id),
-        search: null
+        search: this.search
       };
       window.axios
           .get(`appointments`, {params})

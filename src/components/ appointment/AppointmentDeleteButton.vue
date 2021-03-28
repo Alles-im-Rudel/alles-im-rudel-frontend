@@ -55,10 +55,10 @@ export default {
           .delete(`appointments/${this.selectedAppointment.id}`)
           .then((response) => {
             this.$root.$snackbar.open(response.data.message);
+            this.$emit('reload');
           })
           .finally(() => {
             this.isLoading = false;
-            this.$emit('deleted');
           });
     }
   }

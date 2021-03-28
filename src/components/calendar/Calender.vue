@@ -96,9 +96,17 @@
             :activator="selectedElement"
             offset-x
         >
-          <appointment-birthday-card v-if="selectedEvent.isBirthday" :appointment="selectedEvent"
-                                     @close="selectedOpen = false" />
-          <appointment-card v-else :appointment="selectedEvent" @close="selectedOpen = false" />
+          <appointment-birthday-card
+              v-if="selectedEvent.isBirthday"
+              :appointment="selectedEvent"
+              @close="selectedOpen = false"
+          />
+          <appointment-card
+              v-else
+              :selected-appointment="selectedEvent"
+              @reload="$emit('reload')"
+              @close="selectedOpen = false"
+          />
         </v-menu>
       </v-sheet>
     </v-col>

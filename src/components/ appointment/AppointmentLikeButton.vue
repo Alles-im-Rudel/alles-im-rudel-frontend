@@ -3,9 +3,7 @@
       v-if="canSeeButton"
       :color="color"
       icon
-      :loading="isLoading"
-      v-on="on"
-      @click="like"
+      @click="change"
   >
     <v-icon>fa-thumbs-up</v-icon>
   </v-btn>
@@ -24,7 +22,8 @@ export default {
   },
   data() {
     return {
-      isLoading: false
+      isLoading: false,
+      liked: false
     };
   },
   computed: {
@@ -32,16 +31,39 @@ export default {
       return true;
     },
     color() {
-      return 'liked';
+      return this.liked ? 'liked' : 'darkGrey';
     }
   },
+  watch: {
+    selectedAppointment: {
+      deep: true,
+      handler() {
+        this.check();
+      }
+    }
+  },
+  created() {
+    this.check();
+  },
   methods: {
-    like() {
+    check() {
       this.isLoading = true;
       window.axios
-          .delete(`appointments/${this.selectedAppointment.id}`)
+          .get(`appointments/${this.selectedAppointment.id}/check`)
           .then((response) => {
-            this.$root.$snackbar.open(response.data.message);
+            this.liked = response.data.liked
+          })
+          .finally(() => {
+            this.isLoading = false;
+          });
+    },
+    change() {
+      this.isLoading = true;
+      window.axios
+          .put(`appointments/${this.selectedAppointment.id}/change`)
+          .then((response) => {
+            this.liked = response.data.liked;
+            this.$emit('reload');
           })
           .finally(() => {
             this.isLoading = false;

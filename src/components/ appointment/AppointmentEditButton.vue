@@ -43,7 +43,6 @@
 
 <script>
 import ResetSaveAction from "@/components/cardActions/ResetSaveAction";
-import PostForm from "@/components/post/PostForm";
 import ValidationErrors from "@/mixins/ValidationErros";
 import CloseButton from '@/components/cardActions/CloseButton'
 import {mapGetters} from "vuex";
@@ -86,7 +85,7 @@ export default {
           this.appointment.tags.length > 0;
     },
     canSeeButton() {
-      return this.can('appointment.edit');
+      return this.can('appointments.update');
     }
   },
   methods: {
@@ -97,15 +96,17 @@ export default {
         title: this.appointment.title,
         text: this.appointment.text,
         tagIds: this.appointment.tags.map(tag => tag.id),
+        color: this.appointment.color,
+        isAllDay: this.appointment.isAllDay,
+        startAt: this.appointment.dates[0] + ' ' + this.appointment.fromTime,
+        endAt: this.appointment.dates[1] ? this.appointment.dates[1] : this.appointment.dates[0] + ' ' + this.appointment.toTime
       };
       window.axios
           .put(`appointments/${this.appointment.id}`, params)
           .then((response) => {
             this.$root.$snackbar.open(response.data.message);
-            this.clear();
-            this.appointment = cloneDeep(response.data.appointment);
-            this.originalAppointment = cloneDeep(response.data.appointment);
             this.$emit('reload');
+            this.close();
           })
           .catch(this.syncErrors)
           .finally(() => this.isLoading = false);
