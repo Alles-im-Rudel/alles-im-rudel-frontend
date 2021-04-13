@@ -4,7 +4,7 @@
       <v-col cols="12" md="12">
         <base-card>
           <v-card-title>
-           Kalender / Events
+            Kalender / Events
             <v-spacer />
             <v-text-field
                 append-icon="fa-search"
@@ -18,8 +18,13 @@
             <v-spacer />
             <tag-select v-model="tags" />
           </v-card-title>
-          <v-card-text v-if="appointments.length > 0">
-            <calender :appointments="appointments" @reload="getAppointments" />
+          <v-card-text>
+            <calender
+                v-model="range"
+                :appointments="appointments"
+                :is-loading="isLoading"
+                @reload="getAppointments"
+            />
           </v-card-text>
         </base-card>
       </v-col>
@@ -42,9 +47,12 @@ export default {
     return {
       isLoading: false,
       appointments: [],
-      page: 1,
       tags: [],
-      search: null
+      search: null,
+      range: {
+        month: this.today().format('MM'),
+        year: this.today().format('YYYY')
+      }
     }
   },
   created() {
@@ -53,16 +61,25 @@ export default {
   watch: {
     tags: {
       deep: true,
+      handler: debounce(function () {
+        this.getAppointments();
+      }, 500)
+    },
+    range: {
+      deep: true,
       handler() {
         this.getAppointments();
       }
     },
   },
   methods: {
-    getAppointments: debounce(function () {
+    getAppointments() {
+      this.isLoading = true;
       const params = {
         tagIds: this.tags.map(tag => tag.id),
-        search: this.search
+        search: this.search,
+        month: this.range.month,
+        year: this.range.year
       };
       window.axios
           .get(`appointments`, {params})
@@ -70,7 +87,7 @@ export default {
             this.appointments = response.data.data;
           })
           .finally(() => (this.isLoading = false));
-    }, 500),
+    },
   }
 }
 </script>

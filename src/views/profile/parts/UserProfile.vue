@@ -71,6 +71,7 @@ export default {
           this.user.firstName !== this.originalUser.firstName ||
           this.user.username !== this.originalUser.username ||
           this.user.email !== this.originalUser.email ||
+          this.user.birthday !== this.originalUser.birthday ||
           !!this.user.password ||
           !!this.user.passwordRepeat
       );
@@ -93,7 +94,8 @@ export default {
         firstName: this.user.firstName,
         lastName: this.user.lastName,
         username: this.user.username,
-        email: this.user.email
+        email: this.user.email,
+        birthday: this.user.birthday
       };
 
       if (this.user.password && this.user.passwordRepeat) {

@@ -29,6 +29,7 @@
           Kommentare
         </v-chip>
       </v-badge>
+      <like-button model="posts" :selected="post" @reload="$emit('reload')" />
       <v-spacer />
       <show-full-post-button :post-id="post.id" @reload="$emit('reload')" />
       <v-spacer />
@@ -56,6 +57,7 @@ import PostTags from '@/components/post/PostTags';
 import PostImages from "@/components/post/PostImages";
 import ShowFullPostButton from "@/components/post/ShowFullPostButton";
 import PostDeleteButton from "@/components/post/PostDeleteButton";
+import LikeButton from "@/components/buttons/LikeButton";
 
 export default {
   components: {
@@ -63,7 +65,8 @@ export default {
     PostTags,
     PostImages,
     ShowFullPostButton,
-    PostDeleteButton
+    PostDeleteButton,
+    LikeButton
   },
   props: {
     post: {

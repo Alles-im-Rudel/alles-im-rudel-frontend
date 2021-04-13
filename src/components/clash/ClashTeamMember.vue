@@ -34,7 +34,7 @@
                 </v-col>
               </v-row>
             </v-col>
-            <v-col class="ma-0 pa-0" cols="12">
+            <v-col class="ma-0 pa-0" cols="12" v-if="clashMember.summoner.leagueEntries.length > 0">
               <v-list color="rgba(255, 255, 255, 0.6)">
                 <v-list-group
                     v-for="leagueEntry in clashMember.summoner.leagueEntries"
@@ -43,7 +43,7 @@
                 >
                   <template v-slot:activator>
                     <v-list-item-content>
-                      <v-list-item-title>
+                      <v-list-item-title v-if="leagueEntry.queueType">
                         {{ leagueEntry.queueType.displayName }}
                       </v-list-item-title>
                     </v-list-item-content>

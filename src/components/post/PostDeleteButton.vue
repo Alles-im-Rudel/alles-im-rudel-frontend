@@ -41,10 +41,10 @@ export default {
   computed: {
     ...mapGetters('auth', ['user']),
     canSeeButton() {
-      return (
-          this.can('posts.delete') ||
-          this.selectedPost.userId !== this.user.id
-      );
+      return this.checkAuth() &&
+          (this.can('posts.delete') ||
+              this.selectedPost.userId !== this.user.id
+          );
     }
   },
   methods: {

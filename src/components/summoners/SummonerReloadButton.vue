@@ -1,5 +1,6 @@
 <template>
   <v-btn
+      v-if="canSeeButton"
       color="primary"
       :loading="isLoading"
       :disabled="!canReload"
@@ -12,8 +13,10 @@
 
 <script>
 
+import Permissions from "@/mixins/Permissions";
+
 export default {
-  components: {},
+  mixins: [Permissions],
   props: {
     summoner: {
       required: true,
@@ -28,6 +31,9 @@ export default {
   computed: {
     canReload() {
       return true
+    },
+    canSeeButton() {
+      return this.checkAuth() && this.can('summoners.reload')
     }
   },
   methods: {

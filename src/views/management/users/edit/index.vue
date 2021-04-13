@@ -65,7 +65,8 @@ export default {
         username: null,
         email: null,
         isActive: null,
-        levelId: null
+        levelId: null,
+        birthday: null
       },
       originalUser: {
         id: null,
@@ -76,7 +77,8 @@ export default {
         username: null,
         email: null,
         isActive: null,
-        levelId: null
+        levelId: null,
+        birthday: null
       },
       passwordFormLabels: {
         first: 'Passwort ändern',
@@ -110,6 +112,7 @@ export default {
           this.user.isActive !== this.originalUser.isActive ||
           this.user.salutation !== this.originalUser.salutation ||
           this.user.levelId !== this.originalUser.levelId ||
+          this.user.birthday !== this.originalUser.birthday ||
           !!this.user.password ||
           !!this.user.passwordRepeat
       );
@@ -142,7 +145,8 @@ export default {
         username: this.user.username,
         email: this.user.email,
         isActive: this.user.isActive,
-        levelId: this.user.levelId
+        levelId: this.user.levelId,
+        birthday: this.user.birthday
       };
 
       if (this.user.password && this.user.passwordRepeat) {

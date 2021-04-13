@@ -17,6 +17,7 @@
               fab
               text
               small
+              :loading="isLoading"
               color="grey darken-2"
               @click="prev"
           >
@@ -28,6 +29,7 @@
               fab
               text
               small
+              :loading="isLoading"
               color="grey darken-2"
               @click="next"
           >
@@ -124,8 +126,16 @@ export default {
     AppointmentBirthdayCard
   },
   props: {
+    value: {
+      type: Object,
+      required: true
+    },
     appointments: {
       type: Array,
+      required: true
+    },
+    isLoading: {
+      type: Boolean,
       required: true
     }
   },
@@ -142,6 +152,10 @@ export default {
       selectedElement: null,
       selectedOpen: false,
       events: this.appointments,
+      range: {
+        month: null,
+        year: null
+      }
     }
   },
   mounted() {
@@ -152,7 +166,12 @@ export default {
       handler(value) {
         this.events = value
       }
-    }
+    },
+    range: {
+      handler(value) {
+        this.$emit('input', value);
+      }
+    },
   },
   methods: {
     viewDay({date}) {
@@ -190,7 +209,11 @@ export default {
 
       nativeEvent.stopPropagation()
     },
-    updateRange() {
+    updateRange(range) {
+      this.range = {
+        month: range.start.month,
+        year: range.start.year
+      }
       this.events = this.appointments
     },
   },

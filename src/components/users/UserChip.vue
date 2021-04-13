@@ -23,11 +23,12 @@
           <v-list-item-avatar v-if="hasProfileImage">
             <v-img :src="user.thumbnail.thumbnail"></v-img>
           </v-list-item-avatar>
-          <v-list-item-content>
+          <v-list-item-content class="text-left">
             <v-list-item-title>{{ user.fullName }}</v-list-item-title>
             <v-list-item-subtitle>{{ user.username }}</v-list-item-subtitle>
             <v-list-item-subtitle>{{ user.email }}</v-list-item-subtitle>
           </v-list-item-content>
+          <user-profile-button :username="user.username" />
         </v-list-item>
       </v-list>
     </v-card>
@@ -35,9 +36,12 @@
 </template>
 
 <script>
+import UserProfileButton from "@/components/users/UserProfileButton";
 
 export default {
-  components: {},
+  components: {
+    UserProfileButton
+  },
   props: {
     user: {
       type: Object,
@@ -53,7 +57,6 @@ export default {
     hasProfileImage() {
       return this.user.thumbnail
     }
-  },
-  watch: {}
+  }
 };
 </script>

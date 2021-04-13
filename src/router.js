@@ -11,7 +11,7 @@ const router = new Router({
       path: '/',
       name: 'home',
       meta: {group: 'home',},
-      component: () => import('./views/HomeIndex')
+      component: () => import('./views/home')
     },
     {
       path: '/impressum',
@@ -23,19 +23,25 @@ const router = new Router({
       path: '/dashboard',
       name: 'dashboard',
       meta: {group: 'home', auth: true, permission: null},
-      component: () => import('./views/dashboard')
+      component: () => import('./views/home/dashboard')
     },
     {
       path: '/news',
       name: 'news',
       meta: {group: 'home', auth: false, permission: null},
-      component: () => import('./views/news')
+      component: () => import('./views/home/news')
     },
     {
       path: '/calendar',
       name: 'calendar',
       meta: {group: 'home', auth: false, permission: null},
-      component: () => import('./views/calendar')
+      component: () => import('./views/home/calendar')
+    },
+    {
+      path: '/members',
+      name: 'members',
+      meta: {group: 'home', auth: false, permission: null},
+      component: () => import('./views/home/members')
     },
     {
       path: '/airsoft',
@@ -70,8 +76,15 @@ const router = new Router({
     {
       path: '/profile',
       name: 'profile',
-      meta: {group: 'home', auth: true, permission: null},
+      meta: {group: 'profile', auth: true, permission: null},
       component: () => import('./views/profile')
+    },
+    {
+      path: '/profile/:username',
+      name: 'profile-show',
+      props: true,
+      meta: {group: 'home', auth: false, permission: null},
+      component: () => import('./views/profile/show')
     },
     {
       path: '/management/users',
@@ -101,13 +114,13 @@ const router = new Router({
     {
       path: '/login',
       name: 'login',
-      meta: {group: 'auth'},
+      meta: {group: 'home'},
       component: () => import('./views/LoginForm')
     },
     {
       path: '/register',
       name: 'register',
-      meta: {group: 'auth'},
+      meta: {group: 'home'},
       component: () => import('./views/RegisterForm')
     },
     //Static Pages

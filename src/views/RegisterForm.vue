@@ -3,7 +3,7 @@
     <v-row justify="center">
       <v-col cols="12" md="6">
         <base-card>
-          <v-card-title>Register</v-card-title>
+          <v-card-title>Mitglied werden</v-card-title>
           <form @submit.prevent="submit">
             <v-card-text>
               <v-row>
@@ -21,6 +21,25 @@
                       label="Email"
                       :error="hasErrors('email')"
                       :error-messages="getErrors('email')"
+                  />
+                </v-col>
+                <v-col cols="12" md="2">
+                  <date-picker v-model="form.birthday" label="Geburstag" />
+                </v-col>
+                <v-col cols="12" md="4">
+                  <v-text-field
+                      v-model="form.firstName"
+                      label="Vorname"
+                      :error="hasErrors('firstName')"
+                      :error-messages="getErrors('firstName')"
+                  />
+                </v-col>
+                <v-col cols="12" md="6">
+                  <v-text-field
+                      v-model="form.lastName"
+                      label="Nachname"
+                      :error="hasErrors('lastName')"
+                      :error-messages="getErrors('lastName')"
                   />
                 </v-col>
                 <v-col cols="12" md="6">
@@ -63,15 +82,22 @@
 <script>
 import {mapActions, mapGetters} from 'vuex';
 import ValidationErrors from "@/mixins/ValidationErros";
+import DatePicker from '@/components/picker/DatePicker';
 import router from "@/router";
 
 export default {
   mixins: [ValidationErrors],
+  components: {
+    DatePicker
+  },
   data() {
     return {
       form: {
         username: null,
         email: null,
+        birthday: null,
+        firstName: null,
+        lastName: null,
         password: null,
         passwordRepeat: null
       },
@@ -89,6 +115,9 @@ export default {
           !!this.form.email &&
           !!this.form.password &&
           !!this.form.passwordRepeat &&
+          !!this.form.birthday &&
+          !!this.form.firstName &&
+          !!this.form.lastName &&
           (this.form.password === this.form.passwordRepeat)
     }
   },

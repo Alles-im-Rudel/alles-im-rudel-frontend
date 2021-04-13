@@ -28,7 +28,7 @@
           <strong>Bis: {{ appointment.endAt | date }}</strong>
         </v-col>
         <v-col cols="12" md="4">
-          <appointment-like-button :selected-appointment="appointment" @reload="getAppointment" />
+          <like-button :selected="appointment" model="appointments" @reload="getAppointment" />
         </v-col>
       </v-row>
     </v-card-text>
@@ -49,18 +49,18 @@
 </template>
 <script>
 import CloseButton from '@/components/cardActions/CloseButton';
-import AppointmentLikeButton from "@/components/ appointment/AppointmentLikeButton";
 import AppointmentEditButton from "@/components/ appointment/AppointmentEditButton";
 import AppointmentDeleteButton from "@/components/ appointment/AppointmentDeleteButton";
 import UserChip from "@/components/users/UserChip";
+import LikeButton from "@/components/buttons/LikeButton";
 
 export default {
   components: {
     CloseButton,
-    AppointmentLikeButton,
     AppointmentEditButton,
     AppointmentDeleteButton,
-    UserChip
+    UserChip,
+    LikeButton
   },
   props: {
     selectedAppointment: {

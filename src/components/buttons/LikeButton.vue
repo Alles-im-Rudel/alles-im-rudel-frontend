@@ -1,11 +1,11 @@
 <template>
   <v-badge
       color="greyBlue"
-      :content="selectedAppointment.likes ? selectedAppointment.likes : '0'"
+      :content="selected.likes ? selected.likes : '0'"
       overlap
   >
     <v-btn
-        v-if="canSeeButton"
+        :disabled="!canSeeButton"
         :color="color"
         icon
         @click="change"
@@ -21,8 +21,12 @@ import Permissions from '@/mixins/Permissions';
 export default {
   mixins: [Permissions],
   props: {
-    selectedAppointment: {
+    selected: {
       type: Object,
+      required: true
+    },
+    model: {
+      type: String,
       required: true
     }
   },
@@ -34,14 +38,14 @@ export default {
   },
   computed: {
     canSeeButton() {
-      return true;
+      return this.can(this.model+'.like');
     },
     color() {
       return this.liked ? 'liked' : 'darkGrey';
     }
   },
   watch: {
-    selectedAppointment: {
+    selected: {
       deep: true,
       handler() {
         this.check();
@@ -53,20 +57,22 @@ export default {
   },
   methods: {
     check() {
-      this.isLoading = true;
-      window.axios
-          .get(`appointments/${this.selectedAppointment.id}/check`)
-          .then((response) => {
-            this.liked = response.data.liked
-          })
-          .finally(() => {
-            this.isLoading = false;
-          });
+      if(this.checkAuth()) {
+        this.isLoading = true;
+        window.axios
+            .get(this.model+`/${this.selected.id}/check`)
+            .then((response) => {
+              this.liked = response.data.liked
+            })
+            .finally(() => {
+              this.isLoading = false;
+            });
+      }
     },
     change() {
       this.isLoading = true;
       window.axios
-          .put(`appointments/${this.selectedAppointment.id}/change`)
+          .put(this.model+`/${this.selected.id}/change`)
           .then((response) => {
             this.liked = response.data.liked;
             this.$emit('reload');

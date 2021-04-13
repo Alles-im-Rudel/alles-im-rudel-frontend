@@ -74,6 +74,14 @@ export default {
           permission: null
         },
         {
+          auth: false,
+          type: 'action',
+          action: 'members',
+          text: 'Mitglieder',
+          icon: 'fa-users',
+          permission: null
+        },
+        {
           auth: true,
           type: 'action',
           action: 'dashboard',

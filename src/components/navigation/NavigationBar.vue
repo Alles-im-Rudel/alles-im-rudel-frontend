@@ -2,16 +2,16 @@
   <v-app-bar color="primary" dark app clipped-left>
     <v-app-bar-nav-icon @click="toggleMenu" />
     <v-toolbar-title @click="pushToHome" class="mr-2">Alles Im Rudel</v-toolbar-title>
-    <v-btn text @click="pushToAirsoft">
+    <v-btn text @click="pushToAirsoft" :color="isActive('airsoft')">
       <v-icon left>fa-tree</v-icon>
       Airsoft
     </v-btn>
-    <v-btn text @click="pushToGaming">
+    <v-btn text @click="pushToGaming" :color="isActive('gaming')">
       <v-icon left>fa-headset</v-icon>
       Gaming
     </v-btn>
     <v-spacer />
-    <v-btn v-if="can('headline.management')" text @click="pushToManagement">
+    <v-btn v-if="can('headline.management')" text @click="pushToManagement" :color="isActive('management')">
       <v-icon left>fa-cogs</v-icon>
       Management
     </v-btn>
@@ -24,7 +24,7 @@
         transition="slide-y-transition"
     >
       <template v-slot:activator="{ on, attrs }">
-        <v-btn text v-bind="attrs" large v-on="on">
+        <v-btn text v-bind="attrs" v-on="on" :color="isActive('profile')">
           <v-icon left>fa-user-cog</v-icon>
           {{ user.username }}
         </v-btn>
@@ -55,7 +55,7 @@ import Permissions from "@/mixins/Permissions";
 export default {
   mixins: [Permissions],
   computed: {
-    ...mapGetters('auth', ['user', 'isAuth', 'permissions'])
+    ...mapGetters('auth', ['user', 'isAuth', 'permissions']),
   },
   data() {
     return {
@@ -66,6 +66,9 @@ export default {
     ...mapActions('auth', ['logout']),
     toggleMenu() {
       this.$emit('toggle-menu');
+    },
+    isActive(group) {
+      return this.$route.meta.group === group ? 'darkGrey' : ''
     },
     switchPage(name) {
       if (this.$route.name !== name) {

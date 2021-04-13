@@ -14,7 +14,7 @@
                v-for="clashMember in clashTeam.clashMembers"
                :key="clashMember.id"
         >
-          <clash-team-member :clash-member="clashMember"/>
+          <clash-team-member :clash-member="clashMember" />
         </v-col>
       </v-row>
     </v-card-text>

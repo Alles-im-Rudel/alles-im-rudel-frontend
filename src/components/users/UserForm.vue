@@ -32,6 +32,9 @@
           :error-messages="getErrors('email')"
       />
     </v-col>
+    <v-col cols="12" md="6" lg="3">
+      <date-picker v-model="user.birthday" label="Geburstag" />
+    </v-col>
     <v-col cols="12" md="6" lg="3" v-if="!isProfil">
       <level-select v-model="user.levelId" @input="updateLevel" />
     </v-col>
@@ -55,11 +58,13 @@
 import ValidationErrors from '@/mixins/ValidationErros';
 import UserPasswordForm from '@/components/users/UserPasswordForm';
 import LevelSelect from '@/components/selects/LevelSelect';
+import DatePicker from '@/components/picker/DatePicker';
 
 export default {
   components: {
     LevelSelect,
     UserPasswordForm,
+    DatePicker
   },
   mixins: [ValidationErrors],
   props: {
@@ -74,7 +79,8 @@ export default {
         username: null,
         email: null,
         isActive: false,
-        levelId: null
+        levelId: null,
+        birthday: null
       })
     },
     passwordFormLabels: {

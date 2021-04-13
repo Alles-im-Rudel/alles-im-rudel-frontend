@@ -21,15 +21,10 @@
           />
         </v-col>
         <v-col cols="12" lg="3">
-          <v-text-field
-              v-model="appointment.color"
-              label="Farbe"
-              :error="hasErrors('color')"
-              :error-messages="getErrors('color')"
-          />
+          <color-select v-model="appointment.color" />
         </v-col>
         <v-col cols="12" lg="6">
-          <date-picker v-model="appointment.dates" label="Datum von, bis" />
+          <date-range-picker v-model="appointment.dates" label="Datum von, bis" />
         </v-col>
         <v-col cols="12" lg="3" v-if="!appointment.isAllDay">
           <time-picker v-model="appointment.fromTime" label="Start Urzeit" />
@@ -50,15 +45,17 @@
 <script>
 import ValidationErrors from "@/mixins/ValidationErros";
 import TagSelect from "@/components/selects/TagSelect";
-import DatePicker from "@/components/picker/DatePicker";
+import DateRangePicker from "@/components/picker/DateRangePicker";
 import TimePicker from "@/components/picker/TimePicker";
+import ColorSelect from "@/components/selects/ColorSelect";
 
 export default {
   mixins: [ValidationErrors],
   components: {
     TagSelect,
-    DatePicker,
-    TimePicker
+    DateRangePicker,
+    TimePicker,
+    ColorSelect
   },
   props: {
     value: {

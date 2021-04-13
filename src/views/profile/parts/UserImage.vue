@@ -9,6 +9,7 @@
       <v-row>
         <v-col cols="6">
           <v-img
+              v-if="user.image"
               class="black--text align-end"
               :src="user.image.image"
           >

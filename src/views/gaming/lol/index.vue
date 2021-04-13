@@ -10,7 +10,7 @@
                 centered
             >
               <v-tab href="#clash">Clash Teams</v-tab>
-              <v-tab href="#summoner-search">Summoner Suche</v-tab>
+              <v-tab href="#summoner-search" v-if="can('summoners.show')">Summoner Suche</v-tab>
             </v-tabs>
             <v-divider />
             <v-tabs-items style="background-color:rgba(255, 255, 255, 0)" v-model="activeTab">
@@ -31,9 +31,11 @@
 <script>
 import Clash from '@/views/gaming/lol/parts/Clash'
 import SummonerSearch from '@/views/gaming/lol/parts/SummonerSearch'
+import Permissions from "@/mixins/Permissions";
 
 export default {
   name: "Gaming-Lol",
+  mixins: [Permissions],
   components: {
     Clash,
     SummonerSearch

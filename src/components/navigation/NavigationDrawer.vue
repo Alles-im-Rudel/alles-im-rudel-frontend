@@ -19,8 +19,8 @@
     <management v-if="showManagement" />
     <gaming v-if="showGaming" />
     <airsoft v-if="showAirsoft" />
-    <auth v-if="showAuth" />
     <template #append>
+      <auth class="" v-if="showAuth" />
       <iframe
           src="https://discord.com/widget?id=377547252278886422&theme=light"
           width="100%" height="400"
@@ -80,7 +80,7 @@ export default {
       return this.currentRouteGroup === 'airsoft'
     },
     showHome() {
-      return this.currentRouteGroup === 'home'
+      return this.currentRouteGroup === 'home' || this.currentRouteGroup === 'profile'
     }
   },
   watch: {

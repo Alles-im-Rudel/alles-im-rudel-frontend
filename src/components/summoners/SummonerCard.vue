@@ -2,6 +2,7 @@
   <base-card v-if="summoner.id">
     <v-card-title>
       {{ summoner.name }}
+      <summoner-is-in-game-dot :summoner="summoner" />
       <v-spacer />
       <summoner-main-user-detach-button
           v-if="canDetachSummoner"
@@ -16,28 +17,10 @@
       />
     </v-card-title>
     <v-divider />
-    <v-card-text>
+    <v-card-text class="text-body-1">
       <v-row>
         <v-col cols="12" md="6">
           <v-row>
-            <v-col cols="12" lg="6">
-              Summoner Id:
-            </v-col>
-            <v-col cols="12" lg="6">
-              {{ summoner.summonerId }}
-            </v-col>
-            <v-col cols="12" lg="6">
-              Account Id:
-            </v-col>
-            <v-col cols="12" lg="6">
-              {{ summoner.accountId }}
-            </v-col>
-            <v-col cols="12" lg="6">
-              Puu Id:
-            </v-col>
-            <v-col cols="12" lg="6">
-              {{ summoner.puuid }}
-            </v-col>
             <v-col cols="12" lg="6">
               Name:
             </v-col>
@@ -49,12 +32,6 @@
             </v-col>
             <v-col cols="12" lg="6">
               {{ summoner.profileIconId }}
-            </v-col>
-            <v-col cols="12" lg="6">
-              Revision Data:
-            </v-col>
-            <v-col cols="12" lg="6">
-              {{ summoner.revisionDate | dateTime }}
             </v-col>
             <v-col cols="12" lg="6">
               Summoner Level:
@@ -122,11 +99,13 @@
 <script>
 import SummonerReloadButton from "@/components/summoners/SummonerReloadButton";
 import SummonerMainUserDetachButton from "@/components/summoners/SummonerMainUserDetachButton";
+import SummonerIsInGameDot from "@/components/summoners/SummonerIsInGameDot";
 
 export default {
   components: {
     SummonerReloadButton,
-    SummonerMainUserDetachButton
+    SummonerMainUserDetachButton,
+    SummonerIsInGameDot
   },
   props: {
     summoner: {

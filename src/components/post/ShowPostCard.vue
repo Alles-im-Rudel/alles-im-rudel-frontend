@@ -5,6 +5,7 @@
       <v-spacer />
       <user-chip :user="post.user" />
       <post-tags :tags="post.tags" />
+      <like-button model="posts" :selected="post" @reload="getPost" />
       <v-spacer />
       {{ post.createdAt | dateTime }}
       <post-edit-button v-model="post" />
@@ -30,6 +31,7 @@ import PostImages from "@/components/post/PostImages";
 import PostTags from "@/components/post/PostTags";
 import PostDeleteButton from "@/components/post/PostDeleteButton";
 import PostEditButton from "@/components/post/PostEditButton";
+import LikeButton from "@/components/buttons/LikeButton";
 
 export default {
   components: {
@@ -37,7 +39,8 @@ export default {
     PostImages,
     PostTags,
     PostDeleteButton,
-    PostEditButton
+    PostEditButton,
+    LikeButton
   },
   props: {
     value: {

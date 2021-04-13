@@ -10,12 +10,13 @@ import vuetify from './plugins/vuetify';
 import './plugins/dayjs'
 import i18n from './i18n'
 import store from './store'
+import Bool from "@/mixins/Bool";
 import Effects from "@/mixins/Effects";
 import "@/style/effects.scss";
+
 import Vue2Editor from 'vue2-editor';
 
 import "vue2-editor/dist/vue2-editor.css";
-
 import 'quill/dist/quill.core.css';
 import 'quill/dist/quill.bubble.css';
 import 'quill/dist/quill.snow.css';
@@ -23,6 +24,7 @@ import 'quill/dist/quill.snow.css';
 let app = null;
 
 Vue.mixin(Dates);
+Vue.mixin(Bool);
 Vue.mixin(Effects);
 Vue.use(Vue2Editor);
 

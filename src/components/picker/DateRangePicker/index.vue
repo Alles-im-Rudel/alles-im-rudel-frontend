@@ -2,11 +2,10 @@
   <v-dialog v-model="showDialog" max-width="400">
     <template v-slot:activator="{ on }">
       <v-text-field
-          v-model="value"
-          type="date"
           v-on="on"
           :label="label"
           readonly
+          v-model="value"
       />
     </template>
     <v-card>
@@ -14,7 +13,8 @@
         <v-date-picker
             v-model="date"
             color="darkGrey"
-            locale="de"
+            range
+            :min="minDate"
             full-width
         />
       </v-card-text>
@@ -43,15 +43,15 @@
 import {cloneDeep} from 'lodash';
 
 export default {
-  name: 'DatePicker',
+  name: 'DateRangePicker',
   props: {
     value: {
-      type: String,
-      default: () => ''
+      type: Array,
+      required: true,
     },
     label: {
       type: String,
-      default: () => 'Datum'
+      default: () => 'Datum range'
     }
   },
   data() {
@@ -60,6 +60,11 @@ export default {
       date: cloneDeep(this.value),
       dateOriginal: cloneDeep(this.value)
     };
+  },
+  computed: {
+    minDate() {
+      return this.date[0] || this.today().format('YYYY-MM-DD');
+    }
   },
   watch: {
     value: {
@@ -79,7 +84,7 @@ export default {
       this.date = cloneDeep(this.dateOriginal);
     },
     clear() {
-      this.date = null;
+      this.date = [];
     },
     close() {
       this.showDialog = false;
