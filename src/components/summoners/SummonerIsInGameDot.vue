@@ -2,15 +2,15 @@
   <div>
     <v-tooltip top>
       <template v-slot:activator="{ on }">
-        <v-btn
-            :loading="isLoading"
-            icon
+        <v-icon
             small
-            :color="isInGame ? 'success' : ''"
+            class="mb-1 ml-1"
             v-on="on"
+            :color="isInGame ? 'success' : ''"
+            :loading="isLoading"
         >
-          <v-icon small>fa-circle</v-icon>
-        </v-btn>
+          fa-circle
+        </v-icon>
       </template>
       <span>{{ isInGame ? 'In Game' : 'Ist nicht in-game' }}</span>
     </v-tooltip>

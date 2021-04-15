@@ -1,14 +1,20 @@
 <template>
-  <v-btn
-      v-if="canSeeButton"
-      color="primary"
-      :loading="isLoading"
-      :disabled="!canReload"
-      @click="reloadSummoner"
-  >
-    <v-icon left>fa-sync</v-icon>
-    Summoner aktualisieren
-  </v-btn>
+  <v-tooltip top>
+    <template v-slot:activator="{ on }">
+      <v-btn
+          v-if="canSeeButton"
+          color="darkGrey"
+          :loading="isLoading"
+          :disabled="!canReload"
+          v-on="on"
+          icon
+          @click="reloadSummoner"
+      >
+        <v-icon>fa-sync</v-icon>
+      </v-btn>
+    </template>
+    <span>Summoner aktualisieren</span>
+  </v-tooltip>
 </template>
 
 <script>

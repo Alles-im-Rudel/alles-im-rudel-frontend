@@ -3,6 +3,7 @@
     <v-card-title>
       {{ summoner.name }}
       <summoner-is-in-game-dot :summoner="summoner" />
+      <summoner-info-button :summoner="summoner" />
       <v-spacer />
       <summoner-main-user-detach-button
           v-if="canDetachSummoner"
@@ -19,36 +20,25 @@
     <v-divider />
     <v-card-text class="text-body-1">
       <v-row>
-        <v-col cols="12" md="6">
-          <v-row>
-            <v-col cols="12" lg="6">
-              Name:
-            </v-col>
-            <v-col cols="12" lg="6">
-              {{ summoner.name }}
-            </v-col>
-            <v-col cols="12" lg="6">
-              Profilbild Id:
-            </v-col>
-            <v-col cols="12" lg="6">
-              {{ summoner.profileIconId }}
-            </v-col>
-            <v-col cols="12" lg="6">
-              Summoner Level:
-            </v-col>
-            <v-col cols="12" lg="6">
-              {{ summoner.summonerLevel }}
-            </v-col>
-            <v-col cols="12" lg="6">
-              Aktualisiert um:
-            </v-col>
-            <v-col cols="12" lg="6">
-              {{ summoner.updatedAt | dateTime }}
-            </v-col>
-          </v-row>
+        <v-col cols="12" md="2">
+          <v-list color="rgba(255, 255, 255, 0.1)">
+            <v-list-item>
+              <v-list-item-content>
+                <v-img
+                    :src="summoner.profileIcon"
+                    class="white--text align-end"
+                    style="border-radius: 50%"
+                >
+                  <div style="background: #495056">
+                    {{ summoner.summonerLevel }}
+                  </div>
+                </v-img>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
         </v-col>
-        <v-col cols="12" md="6">
-          <v-list color="rgba(255, 255, 255, 0.6)">
+        <v-col cols="12" md="10">
+          <v-list color="rgba(255, 255, 255, 0.1)">
             <v-list-group
                 v-for="leagueEntry in summoner.leagueEntries"
                 :key="leagueEntry.id"
@@ -100,12 +90,14 @@
 import SummonerReloadButton from "@/components/summoners/SummonerReloadButton";
 import SummonerMainUserDetachButton from "@/components/summoners/SummonerMainUserDetachButton";
 import SummonerIsInGameDot from "@/components/summoners/SummonerIsInGameDot";
+import SummonerInfoButton from "@/components/summoners/summonerInfo/SummonerInfoButton";
 
 export default {
   components: {
     SummonerReloadButton,
     SummonerMainUserDetachButton,
-    SummonerIsInGameDot
+    SummonerIsInGameDot,
+    SummonerInfoButton
   },
   props: {
     summoner: {
