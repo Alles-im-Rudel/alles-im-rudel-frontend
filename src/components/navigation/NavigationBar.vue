@@ -55,27 +55,17 @@
 <script>
 import {mapActions, mapGetters} from 'vuex';
 import Permissions from "@/mixins/Permissions";
+import CheckMobile from "@/mixins/CheckMobile";
 
 export default {
-  mixins: [Permissions],
+  mixins: [Permissions, CheckMobile],
   computed: {
     ...mapGetters('auth', ['user', 'isAuth', 'permissions']),
   },
   data() {
     return {
       showMenu: false,
-      isMobile: false,
     };
-  },
-  beforeDestroy() {
-    if (typeof window === 'undefined') return
-
-    window.removeEventListener('resize', this.onResize, {passive: true})
-  },
-  mounted() {
-    this.onResize()
-
-    window.addEventListener('resize', this.onResize, {passive: true})
   },
   methods: {
     ...mapActions('auth', ['logout']),
@@ -101,10 +91,7 @@ export default {
     },
     pushToHome() {
       this.$router.push({name: 'home'})
-    },
-    onResize() {
-      this.isMobile = window.innerWidth < 600
-    },
+    }
   }
 };
 </script>

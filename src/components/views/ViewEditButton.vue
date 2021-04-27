@@ -2,13 +2,14 @@
   <v-dialog v-model="showDialog" fullscreen>
     <template v-slot:activator="{ on: dialog }">
       <v-btn
+          :icon="isMobile"
           v-if="canSeeButton"
           color="darkGrey"
           dark
           v-on="{ ...dialog }"
       >
-        <v-icon left>fa-plus</v-icon>
-        {{ label }}
+        <v-icon left>fa-edit</v-icon>
+        {{ !isMobile ? label : '' }}
       </v-btn>
     </template>
     <edit-view :view-id="viewId" :label="label" @close="close" @reload="$emit('reload')" />
@@ -18,12 +19,13 @@
 <script>
 import EditView from "@/components/views/EditView";
 import Permissions from "@/mixins/Permissions";
+import CheckMobile from "@/mixins/CheckMobile";
 
 export default {
   components: {
     EditView
   },
-  mixins: [Permissions],
+  mixins: [Permissions, CheckMobile],
   props: {
     label: {
       type: String,
