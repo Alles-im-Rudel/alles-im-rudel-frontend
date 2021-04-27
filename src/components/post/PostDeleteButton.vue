@@ -41,7 +41,7 @@ export default {
   computed: {
     ...mapGetters('auth', ['user']),
     canSeeButton() {
-      return this.checkAuth() &&
+      return this.checkAuth &&
           (this.can('posts.delete') ||
               this.selectedPost.userId !== this.user.id
           );

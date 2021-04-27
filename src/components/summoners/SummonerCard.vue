@@ -2,8 +2,8 @@
   <base-card v-if="summoner.id">
     <v-card-title>
       {{ summoner.name }}
-      <summoner-is-in-game-dot v-if="!checkAuth" :summoner="summoner" />
-      <summoner-info-button v-if="!checkAuth" :summoner="summoner" />
+      <summoner-is-in-game-dot v-if="checkAuth" :summoner="summoner" />
+      <summoner-info-button v-if="checkAuth" :summoner="summoner" />
       <v-spacer />
       <summoner-main-user-detach-button
           v-if="canDetachSummoner"
@@ -119,8 +119,6 @@ export default {
   },
   data() {
     return {}
-  },
-  computed: {},
-  methods: {}
+  }
 }
 </script>

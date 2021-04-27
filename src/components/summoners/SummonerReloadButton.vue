@@ -39,7 +39,7 @@ export default {
       return true
     },
     canSeeButton() {
-      return this.checkAuth() && this.can('summoners.reload')
+      return this.checkAuth && this.can('summoners.reload')
     }
   },
   methods: {

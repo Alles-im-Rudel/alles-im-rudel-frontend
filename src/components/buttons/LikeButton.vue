@@ -57,7 +57,7 @@ export default {
   },
   methods: {
     check() {
-      if(this.checkAuth()) {
+      if(this.checkAuth) {
         this.isLoading = true;
         window.axios
             .get(this.model+`/${this.selected.id}/check`)
