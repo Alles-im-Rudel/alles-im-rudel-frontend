@@ -14,31 +14,33 @@
     <v-divider />
     <post-images :images="post.thumbnails" :show-only="2" only-thumbnail />
     <v-card-actions>
-      <post-tags :tags="post.tags" />
-      <v-spacer />
-      <v-badge
-          v-if="post.commentsCount > 0"
-          color="greyBlue"
-          :content="post.commentsCount"
-          overlap
-      >
-        <v-chip
-            color="darkGrey"
-            text-color="white"
+      <v-row no-gutters>
+        <post-tags :tags="post.tags" />
+        <v-spacer />
+        <v-badge
+            v-if="post.commentsCount > 0"
+            color="greyBlue"
+            :content="post.commentsCount"
+            overlap
         >
-          Kommentare
-        </v-chip>
-      </v-badge>
-      <like-button model="posts" :selected="post" @reload="$emit('reload')" />
-      <v-spacer />
-      <show-full-post-button :post-id="post.id" @reload="$emit('reload')" />
-      <v-spacer />
-      <v-btn
-          icon
-          @click="show = !show"
-      >
-        <v-icon>{{ show ? 'fa-chevron-up' : 'fa-chevron-down' }}</v-icon>
-      </v-btn>
+          <v-chip
+              color="darkGrey"
+              text-color="white"
+          >
+            Kommentare
+          </v-chip>
+        </v-badge>
+        <like-button model="posts" :selected="post" @reload="$emit('reload')" />
+        <v-spacer />
+        <show-full-post-button :post-id="post.id" @reload="$emit('reload')" />
+        <v-spacer />
+        <v-btn
+            icon
+            @click="show = !show"
+        >
+          <v-icon>{{ show ? 'fa-chevron-up' : 'fa-chevron-down' }}</v-icon>
+        </v-btn>
+      </v-row>
     </v-card-actions>
     <v-expand-transition>
       <div v-show="show">
