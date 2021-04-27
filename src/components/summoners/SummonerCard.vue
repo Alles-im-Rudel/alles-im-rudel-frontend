@@ -2,8 +2,8 @@
   <base-card v-if="summoner.id">
     <v-card-title>
       {{ summoner.name }}
-      <summoner-is-in-game-dot :summoner="summoner" />
-      <summoner-info-button :summoner="summoner" />
+      <summoner-is-in-game-dot v-if="!checkAuth" :summoner="summoner" />
+      <summoner-info-button v-if="!checkAuth" :summoner="summoner" />
       <v-spacer />
       <summoner-main-user-detach-button
           v-if="canDetachSummoner"
@@ -91,6 +91,7 @@ import SummonerReloadButton from "@/components/summoners/SummonerReloadButton";
 import SummonerMainUserDetachButton from "@/components/summoners/SummonerMainUserDetachButton";
 import SummonerIsInGameDot from "@/components/summoners/SummonerIsInGameDot";
 import SummonerInfoButton from "@/components/summoners/summonerInfo/SummonerInfoButton";
+import Permissions from "@/mixins/Permissions";
 
 export default {
   components: {
@@ -99,6 +100,7 @@ export default {
     SummonerIsInGameDot,
     SummonerInfoButton
   },
+  mixins: [Permissions],
   props: {
     summoner: {
       required: true,

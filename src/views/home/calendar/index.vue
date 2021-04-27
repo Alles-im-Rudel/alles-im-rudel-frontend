@@ -13,7 +13,7 @@
                 clearable
                 @keydown.enter="getAppointments"
                 @click:append="getAppointments"
-                @click:clear="getAppointments"
+                @click:clear="clearSearch"
             />
             <v-spacer />
             <tag-select v-model="tags" />
@@ -73,6 +73,10 @@ export default {
     },
   },
   methods: {
+    clearSearch() {
+      this.search = null;
+      this.getAppointments();
+    },
     getAppointments() {
       this.isLoading = true;
       const params = {

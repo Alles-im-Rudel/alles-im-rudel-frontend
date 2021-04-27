@@ -127,6 +127,7 @@ export default {
       this.clearErrors();
       this.register(this.form)
           .then(() => {
+            this.$root.$snackbar.open('Dein Antrag ist eingegangen und wird bei Gelegenehit überprüft!');
             router.push({name: 'home'});
           })
           .catch(this.syncErrors);
