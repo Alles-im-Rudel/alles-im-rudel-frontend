@@ -1,19 +1,23 @@
 <template>
   <v-app-bar color="primary" dark app clipped-left>
     <v-app-bar-nav-icon @click="toggleMenu" />
-    <v-toolbar-title @click="pushToHome" class="mr-2">Alles Im Rudel</v-toolbar-title>
-    <v-btn text @click="pushToAirsoft" :color="isActive('airsoft')">
-      <v-icon left>fa-tree</v-icon>
-      Airsoft
+    <v-toolbar-title v-if="!isMobile" @click="pushToHome" class="mr-2">Alles Im Rudel</v-toolbar-title>
+    <v-toolbar-title v-if="isMobile" @click="pushToHome" class="mr-2">
+      <v-icon :color="isActive('home')">fa-home</v-icon>
+    </v-toolbar-title>
+    <v-btn :text="!isMobile" :icon="isMobile" @click="pushToAirsoft" :color="isActive('airsoft')">
+      <v-icon :left="!isMobile">fa-tree</v-icon>
+      {{ !isMobile ? 'Airsoft' : '' }}
     </v-btn>
-    <v-btn text @click="pushToGaming" :color="isActive('gaming')">
-      <v-icon left>fa-headset</v-icon>
-      Gaming
+    <v-btn :text="!isMobile" :icon="isMobile" @click="pushToGaming" :color="isActive('gaming')">
+      <v-icon :left="!isMobile">fa-headset</v-icon>
+      {{ !isMobile ? 'Gaming' : '' }}
     </v-btn>
     <v-spacer />
-    <v-btn v-if="can('headline.management')" text @click="pushToManagement" :color="isActive('management')">
-      <v-icon left>fa-cogs</v-icon>
-      Management
+    <v-btn :text="!isMobile" :icon="isMobile" v-if="can('headline.management')" @click="pushToManagement"
+           :color="isActive('management')">
+      <v-icon :left="!isMobile">fa-cogs</v-icon>
+      {{ !isMobile ? 'Management' : '' }}
     </v-btn>
     <v-menu
         v-if="isAuth && user && permissions"
@@ -24,9 +28,9 @@
         transition="slide-y-transition"
     >
       <template v-slot:activator="{ on, attrs }">
-        <v-btn text v-bind="attrs" v-on="on" :color="isActive('profile')">
-          <v-icon left>fa-user-cog</v-icon>
-          {{ user.username }}
+        <v-btn :text="!isMobile" :icon="isMobile" v-bind="attrs" v-on="on" :color="isActive('profile')">
+          <v-icon :left="!isMobile">fa-user-cog</v-icon>
+          {{ !isMobile ? user.username : '' }}
         </v-btn>
       </template>
 
@@ -59,8 +63,19 @@ export default {
   },
   data() {
     return {
-      showMenu: false
+      showMenu: false,
+      isMobile: false,
     };
+  },
+  beforeDestroy() {
+    if (typeof window === 'undefined') return
+
+    window.removeEventListener('resize', this.onResize, {passive: true})
+  },
+  mounted() {
+    this.onResize()
+
+    window.addEventListener('resize', this.onResize, {passive: true})
   },
   methods: {
     ...mapActions('auth', ['logout']),
@@ -86,7 +101,10 @@ export default {
     },
     pushToHome() {
       this.$router.push({name: 'home'})
-    }
+    },
+    onResize() {
+      this.isMobile = window.innerWidth < 600
+    },
   }
 };
 </script>
