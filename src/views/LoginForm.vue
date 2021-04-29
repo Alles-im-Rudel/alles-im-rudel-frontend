@@ -60,7 +60,7 @@ export default {
       this.clearErrors();
       this.login(this.form)
           .then(() => {
-            this.$router.push({name: 'dashboard'});
+            this.$router.push({name: 'home'});
           })
           .catch(error => {
             this.syncErrors(error);

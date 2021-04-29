@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex';
+import {mapGetters, mapActions} from 'vuex';
 
 export default {
   props: {
@@ -64,7 +64,10 @@ export default {
     },
   },
   created() {
+    this.getTags()
   },
-  methods: {}
+  methods: {
+    ...mapActions('tag', ['getTags']),
+  }
 };
 </script>

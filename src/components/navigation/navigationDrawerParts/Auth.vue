@@ -40,10 +40,16 @@ export default {
   data() {
     return {
       allItems: [
-        //UnAuth
-        {auth: false, type: 'headline', action: '', text: 'Login', icon: '', permission: null},
-        {auth: false, type: 'action', action: 'login', text: 'Login', icon: 'fa-sign-in-alt', permission: null},
-        {auth: false, type: 'action', action: 'register', text: 'Mitglied werden', icon: 'fa-user-plus', permission: null}
+        {auth: false, type: 'headline', action: '', text: 'Anmeldung', icon: '', permission: null},
+        {auth: false, type: 'action', action: 'login', text: 'Anmeldung', icon: 'fa-sign-in-alt', permission: null},
+        {
+          auth: false,
+          type: 'action',
+          action: 'register',
+          text: 'Mitglied werden',
+          icon: 'fa-user-plus',
+          permission: null
+        }
       ]
     };
   }

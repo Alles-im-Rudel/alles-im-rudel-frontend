@@ -43,14 +43,22 @@
       <v-card-text class="py-2 primary white--text text-center">
         {{ new Date().getFullYear() }} — <strong>Alles Im Rudel</strong>
       </v-card-text>
-      <v-card-text class="py-2 primary white--text text-center">
-        <v-btn text small @click="impressum">Impressum</v-btn>
+      <v-card-text class="py-2 primary white--text">
+        <v-row no-gutters>
+          <v-col cols="12" md="6" :class="{'text-end': !isMobile}">
+            <v-btn text small @click="impressum">Impressum</v-btn>
+          </v-col>
+          <v-col cols="12" md="6" :class="{'text-left': !isMobile}">
+            <v-btn text small @click="dataProtection">Datenschutzerklärung</v-btn>
+          </v-col>
+        </v-row>
       </v-card-text>
     </v-card>
   </v-footer>
 </template>
 <script>
 import {debounce} from 'lodash';
+import CheckMobile from "@/mixins/CheckMobile";
 
 export default {
   data() {
@@ -59,6 +67,7 @@ export default {
       footerHeight: 150
     }
   },
+  mixins:[CheckMobile],
   created() {
     this.getFooter();
     window.addEventListener("resize", this.getFooter);
@@ -82,6 +91,9 @@ export default {
     },
     impressum() {
       this.$router.push({name: 'impressum'})
+    },
+    dataProtection() {
+      this.$router.push({name: 'dataProtection'})
     }
   },
 }

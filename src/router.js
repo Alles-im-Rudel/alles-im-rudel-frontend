@@ -20,6 +20,12 @@ const router = new Router({
       component: () => import('./views/impressum')
     },
     {
+      path: '/dataProtection',
+      name: 'dataProtection',
+      meta: {group: 'home', auth: false, permission: null},
+      component: () => import('./views/dataProtection')
+    },
+    {
       path: '/dashboard',
       name: 'dashboard',
       meta: {group: 'home', auth: true, permission: null},

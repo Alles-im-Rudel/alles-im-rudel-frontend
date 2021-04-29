@@ -20,7 +20,7 @@
     <gaming v-if="showGaming" />
     <airsoft v-if="showAirsoft" />
     <template #append>
-      <auth class="" v-if="showAuth" />
+      <auth v-if="showAuth" />
       <iframe
           src="https://discord.com/widget?id=377547252278886422&theme=light"
           width="100%" height="400"

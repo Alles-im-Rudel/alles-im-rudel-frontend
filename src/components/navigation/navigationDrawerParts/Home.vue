@@ -69,7 +69,7 @@ export default {
           auth: false,
           type: 'action',
           action: 'calendar',
-          text: 'Kalender',
+          text: 'Kalender / Events',
           icon: 'fa-calendar-alt',
           permission: null
         },

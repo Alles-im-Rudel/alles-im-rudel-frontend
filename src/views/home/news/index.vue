@@ -17,7 +17,7 @@
             />
             <v-spacer />
             <tag-select v-model="tags" />
-            <v-spacer />
+            <v-spacer v-if="can('posts.create')" />
             <post-create-button @reload="tagsChanged" />
           </v-card-title>
         </base-card>
@@ -46,9 +46,11 @@ import PostCreateButton from "@/components/post/PostCreateButton";
 import TagSelect from "@/components/selects/TagSelect";
 import InfiniteLoader from '@/components/infiniteLoader/InfiniteLoader';
 import {debounce} from 'lodash';
+import Permissions from "@/mixins/Permissions";
 
 export default {
   name: "News",
+  mixins: [Permissions],
   components: {
     PostCard,
     PostCreateButton,
