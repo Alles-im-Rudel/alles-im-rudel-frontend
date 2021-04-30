@@ -25,12 +25,31 @@
       />
     </v-col>
     <v-col cols="12" md="6" lg="3">
+      <v-switch
+          v-model="user.wantsEmailNotification"
+          :label="wantsEmailLabel"
+          :error="hasErrors('wantsEmailNotification')"
+          :error-messages="getErrors('wantsEmailNotification')"
+      />
+    </v-col>
+    <v-col cols="12" md="6" lg="3">
       <v-text-field
           v-model="user.email"
           label="Email"
           :error="hasErrors('email')"
           :error-messages="getErrors('email')"
-      />
+      >
+        <template slot="append">
+          <v-tooltip top>
+            <template v-slot:activator="{ on }">
+              <v-icon v-if="!!user.emailVerifiedAt" v-on="on" color="success">fa-check</v-icon>
+              <v-icon v-else v-on="on" color="error">fa-times</v-icon>
+            </template>
+            <span v-if="!!user.emailVerifiedAt">Email Verifiziert</span>
+            <span v-else>Email nicht Verifiziert</span>
+          </v-tooltip>
+        </template>
+      </v-text-field>
     </v-col>
     <v-col cols="12" md="6" lg="3">
       <date-picker v-model="user.birthday" label="Geburstag" />
@@ -79,6 +98,7 @@ export default {
         username: null,
         email: null,
         isActive: false,
+        wantsEmailNotification: false,
         levelId: null,
         birthday: null
       })
@@ -109,6 +129,9 @@ export default {
   computed: {
     activeLabel() {
       return this.user.isActive ? 'Aktiver Benutzer' : 'Inaktiver Benutzer';
+    },
+    wantsEmailLabel() {
+      return this.user.wantsEmailNotification ? 'Email Notification' : 'keine Email Notification';
     }
   },
   watch: {

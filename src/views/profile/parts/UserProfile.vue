@@ -72,6 +72,7 @@ export default {
           this.user.username !== this.originalUser.username ||
           this.user.email !== this.originalUser.email ||
           this.user.birthday !== this.originalUser.birthday ||
+          this.user.wantsEmailNotification !== this.originalUser.wantsEmailNotification ||
           !!this.user.password ||
           !!this.user.passwordRepeat
       );
@@ -95,6 +96,7 @@ export default {
         lastName: this.user.lastName,
         username: this.user.username,
         email: this.user.email,
+        wantsEmailNotification: this.user.wantsEmailNotification,
         birthday: this.user.birthday
       };
 
