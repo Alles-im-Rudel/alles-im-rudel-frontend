@@ -1,13 +1,15 @@
 <template>
   <base-card>
     <v-card-title class="headline">
-      Profil Bild
+      Profilbild
     </v-card-title>
     <v-divider />
     <v-card-text>
-      <image-upload v-model="file" @clear="clear" />
       <v-row>
-        <v-col cols="6">
+        <v-col cols="12" lg="6">
+          <image-upload v-model="file" @clear="clear" />
+        </v-col>
+        <v-col cols="12" lg="6">
           <v-img
               v-if="user.image"
               class="black--text align-end"
@@ -61,7 +63,7 @@ export default {
   },
   computed: {
     canSubmit() {
-      return !!this.file;
+      return !!this.file.file;
     },
     hasChanges() {
       return true;
