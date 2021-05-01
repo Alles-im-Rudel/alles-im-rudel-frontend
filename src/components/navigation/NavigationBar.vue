@@ -1,10 +1,23 @@
 <template>
   <v-app-bar color="primary" dark app clipped-left>
     <v-app-bar-nav-icon @click="toggleMenu" />
-    <v-toolbar-title v-if="!isMobile" @click="pushToHome" class="mr-2">Alles Im Rudel</v-toolbar-title>
-    <v-toolbar-title v-if="isMobile" @click="pushToHome" class="mr-2">
+
+    <v-toolbar-title
+      v-if="!isMobile"
+      @click="pushToHome"
+      class="mr-2 cursor-pointer"
+    >
+      Alles Im Rudel
+    </v-toolbar-title>
+
+    <v-toolbar-title
+      v-if="isMobile"
+      @click="pushToHome"
+      class="mr-2"
+    >
       <v-icon :color="isActive('home')">fa-home</v-icon>
     </v-toolbar-title>
+
     <v-btn :text="!isMobile" :icon="isMobile" @click="pushToAirsoft" :color="isActive('airsoft')">
       <v-icon :left="!isMobile">fa-tree</v-icon>
       {{ !isMobile ? 'Airsoft' : '' }}
@@ -95,3 +108,9 @@ export default {
   }
 };
 </script>
+
+<style>
+.cursor-pointer {
+  cursor: pointer;
+}
+</style>
