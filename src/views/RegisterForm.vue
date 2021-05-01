@@ -24,7 +24,7 @@
                   />
                 </v-col>
                 <v-col cols="12" md="2">
-                  <date-picker v-model="form.birthday" label="Geburtstag" />
+                  <date-picker v-model="form.birthday" label="Geburtsdatum" />
                 </v-col>
                 <v-col cols="12" md="4">
                   <v-text-field

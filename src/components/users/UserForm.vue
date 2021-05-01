@@ -52,7 +52,7 @@
       </v-text-field>
     </v-col>
     <v-col cols="12" md="6" lg="3">
-      <date-picker v-model="user.birthday" label="Geburtstag" />
+      <date-picker v-model="user.birthday" label="Geburtsdatum" />
     </v-col>
     <v-col cols="12" md="6" lg="3" v-if="!isProfil">
       <level-select v-model="user.levelId" @input="updateLevel" />
