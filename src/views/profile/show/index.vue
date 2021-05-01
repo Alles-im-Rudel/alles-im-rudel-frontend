@@ -26,7 +26,7 @@
                 <v-list-item-subtitle class="text-h6">Aktive:
                   <v-icon :color="activeColor">{{ user.isActive | boolIcon }}</v-icon>
                 </v-list-item-subtitle>
-                <v-list-item-subtitle class="text-h6">Geburstdatum: {{ user.birthday | date }}</v-list-item-subtitle>
+                <v-list-item-subtitle class="text-h6">Geburtsdatum: {{ user.birthday | date }}</v-list-item-subtitle>
                 <v-list-item-subtitle class="text-h6">
                   Benutzergruppen:
                   <v-chip

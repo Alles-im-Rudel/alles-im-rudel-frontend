@@ -9,7 +9,7 @@
               <v-text-field
                   v-model="form.email"
                   required
-                  label="Email"
+                  label="E-Mail"
                   :error="hasErrors('email')"
                   :error-messages="getErrors('email')"
               />

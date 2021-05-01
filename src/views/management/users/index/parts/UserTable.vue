@@ -87,7 +87,7 @@ export default {
           value: 'username'
         },
         {
-          text: 'Email',
+          text: 'E-Mail',
           value: 'email'
         },
         {

@@ -18,7 +18,7 @@
     </template>
     <v-card tile>
       <v-card-title>
-        Event Erstellen
+        Event erstellen
         <v-spacer />
         <close-button @close="close" />
       </v-card-title>

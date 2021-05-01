@@ -38,7 +38,7 @@
             <v-divider />
             <v-card-text>
               <v-row>
-                <v-col cols="12" md="2"> Email: </v-col>
+                <v-col cols="12" md="2">E-Mail:</v-col>
                 <v-col cols="12" md="10">
                   {{ item.email }}
                 </v-col>

@@ -8,7 +8,7 @@
         <v-col cols="12" lg="6">
           <v-text-field
               v-model="appointment.title"
-              label="Title"
+              label="Titel"
               :error="hasErrors('title')"
               :error-messages="getErrors('title')"
           />

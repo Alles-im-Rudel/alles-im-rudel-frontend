@@ -8,7 +8,7 @@
         dark
     >
       <v-toolbar-title>
-        Geburstag {{ appointment.birthday | date }}
+        Geburtstag {{ appointment.birthday | date }}
         von:
         <user-chip :user="appointment.birthdayKid" />
       </v-toolbar-title>

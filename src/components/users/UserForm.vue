@@ -35,7 +35,7 @@
     <v-col cols="12" md="6" lg="3">
       <v-text-field
           v-model="user.email"
-          label="Email"
+          label="E-Mail"
           :error="hasErrors('email')"
           :error-messages="getErrors('email')"
       >
@@ -45,14 +45,14 @@
               <v-icon v-if="!!user.emailVerifiedAt" v-on="on" color="success">fa-check</v-icon>
               <v-icon v-else v-on="on" color="error">fa-times</v-icon>
             </template>
-            <span v-if="!!user.emailVerifiedAt">Email Verifiziert</span>
-            <span v-else>Email nicht Verifiziert</span>
+            <span v-if="!!user.emailVerifiedAt">E-Mail verifiziert</span>
+            <span v-else>E-Mail nicht verifiziert</span>
           </v-tooltip>
         </template>
       </v-text-field>
     </v-col>
     <v-col cols="12" md="6" lg="3">
-      <date-picker v-model="user.birthday" label="Geburstag" />
+      <date-picker v-model="user.birthday" label="Geburtstag" />
     </v-col>
     <v-col cols="12" md="6" lg="3" v-if="!isProfil">
       <level-select v-model="user.levelId" @input="updateLevel" />
@@ -131,7 +131,7 @@ export default {
       return this.user.isActive ? 'Aktiver Benutzer' : 'Inaktiver Benutzer';
     },
     wantsEmailLabel() {
-      return this.user.wantsEmailNotification ? 'Email Notification' : 'keine Email Notification';
+      return this.user.wantsEmailNotification ? 'E-Mail Benachrichtigungen' : 'keine E-Mail Benachrichtigungen';
     }
   },
   watch: {

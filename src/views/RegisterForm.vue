@@ -18,13 +18,13 @@
                 <v-col cols="12" md="6">
                   <v-text-field
                       v-model="form.email"
-                      label="Email"
+                      label="E-Mail"
                       :error="hasErrors('email')"
                       :error-messages="getErrors('email')"
                   />
                 </v-col>
                 <v-col cols="12" md="2">
-                  <date-picker v-model="form.birthday" label="Geburstag" />
+                  <date-picker v-model="form.birthday" label="Geburtstag" />
                 </v-col>
                 <v-col cols="12" md="4">
                   <v-text-field

@@ -3,7 +3,7 @@
     <v-col cols="12" md="6" lg="3">
       <v-text-field
           v-model="view.title"
-          label="Title"
+          label="Titel"
           :error="hasErrors('title')"
           :error-messages="getErrors('title')"
       />
