@@ -1,40 +1,40 @@
 <template>
   <v-footer
-      id="footer"
-      dark
-      padless
-      absolute
-      :style="'margin-bottom: -'+footerHeight+'px'"
+    id="footer"
+    dark
+    padless
+    absolute
+    :style="'margin-bottom: -'+footerHeight+'px'"
   >
     <v-card
-        class="flex"
-        flat
-        tile
+      class="flex"
+      flat
+      tile
     >
       <v-card-title class="greyBlue">
         <strong class="subheading">Get connected with us on social networks!</strong>
-        <v-spacer />
+        <v-spacer/>
         <v-btn
-            class="mx-4"
-            dark
-            icon
-            @click="discord"
+          class="mx-4"
+          dark
+          icon
+          @click="discord"
         >
           <v-icon size="24px">mdi-discord</v-icon>
         </v-btn>
         <v-btn
-            class="mx-4"
-            dark
-            icon
-            @click="instagram"
+          class="mx-4"
+          dark
+          icon
+          @click="instagram"
         >
           <v-icon size="24px">mdi-instagram</v-icon>
         </v-btn>
         <v-btn
-            class="mx-4"
-            dark
-            icon
-            @click="youtube"
+          class="mx-4"
+          dark
+          icon
+          @click="youtube"
         >
           <v-icon size="24px">mdi-youtube</v-icon>
         </v-btn>
@@ -44,14 +44,24 @@
         {{ new Date().getFullYear() }} — <strong>Alles Im Rudel</strong>
       </v-card-text>
       <v-card-text class="py-2 primary white--text">
-        <v-row no-gutters>
-          <v-col cols="12" md="6" :class="{'text-end': !isMobile}">
-            <v-btn text small @click="impressum">Impressum</v-btn>
-          </v-col>
-          <v-col cols="12" md="6" :class="{'text-left': !isMobile}">
-            <v-btn text small @click="dataProtection">Datenschutzerklärung</v-btn>
-          </v-col>
-        </v-row>
+        <div :class="isMobile ? 'd-block text-center' : 'd-flex justify-center'">
+          <v-btn
+            @click="impressum"
+            class="mx-1"
+            text
+            small
+          >
+            Impressum
+          </v-btn>
+          <v-btn
+            @click="dataProtection"
+            class="mx-1"
+            text
+            small
+          >
+            Datenschutzerklärung
+          </v-btn>
+        </div>
       </v-card-text>
     </v-card>
   </v-footer>
@@ -67,7 +77,7 @@ export default {
       footerHeight: 150
     }
   },
-  mixins:[CheckMobile],
+  mixins: [CheckMobile],
   created() {
     this.getFooter();
     window.addEventListener("resize", this.getFooter);
