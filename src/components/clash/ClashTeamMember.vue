@@ -15,22 +15,10 @@
             <v-col class="ma-0 pa-0" cols="12">
               <v-row class="ma-0 pa-0">
                 <v-col cols="12" lg="6">
-                  Name:
-                </v-col>
-                <v-col cols="12" lg="6">
                   <strong>{{ clashMember.summoner.name }}</strong>
                 </v-col>
                 <v-col cols="12" lg="6">
-                  Profilbild Id:
-                </v-col>
-                <v-col cols="12" lg="6">
-                  <strong>{{ clashMember.summoner.profileIconId }}</strong>
-                </v-col>
-                <v-col cols="12" lg="6">
-                  Summoner Level:
-                </v-col>
-                <v-col cols="12" lg="6">
-                  <strong>{{ clashMember.summoner.summonerLevel }}</strong>
+                  <summoner-profile-icon :summoner="clashMember.summoner" />
                 </v-col>
               </v-row>
             </v-col>
@@ -87,8 +75,12 @@
 
 <script>
 
+import SummonerProfileIcon from "@/components/summoners/SummonerProfileIcon";
+
 export default {
-  components: {},
+  components: {
+    SummonerProfileIcon
+  },
   props: {
     clashMember: {
       type: Object,

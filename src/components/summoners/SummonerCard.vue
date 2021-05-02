@@ -24,15 +24,7 @@
           <v-list color="rgba(255, 255, 255, 0.1)">
             <v-list-item>
               <v-list-item-content>
-                <v-img
-                    :src="summoner.profileIcon"
-                    class="white--text align-end"
-                    style="border-radius: 50%"
-                >
-                  <div style="background: #495056">
-                    {{ summoner.summonerLevel }}
-                  </div>
-                </v-img>
+                <summoner-profile-icon :summoner="summoner" />
               </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -92,13 +84,15 @@ import SummonerMainUserDetachButton from "@/components/summoners/SummonerMainUse
 import SummonerIsInGameDot from "@/components/summoners/SummonerIsInGameDot";
 import SummonerInfoButton from "@/components/summoners/summonerInfo/SummonerInfoButton";
 import Permissions from "@/mixins/Permissions";
+import SummonerProfileIcon from "@/components/summoners/SummonerProfileIcon";
 
 export default {
   components: {
     SummonerReloadButton,
     SummonerMainUserDetachButton,
     SummonerIsInGameDot,
-    SummonerInfoButton
+    SummonerInfoButton,
+    SummonerProfileIcon
   },
   mixins: [Permissions],
   props: {
