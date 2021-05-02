@@ -3,7 +3,8 @@
     <template #activator="{ on }">
       <v-btn
           v-if="canSeeButton"
-          color="primary"
+          color="greyBlue"
+          dark
           v-on="on"
       >
         <v-icon left>fa-plus</v-icon>
@@ -30,7 +31,7 @@ export default {
   },
   computed: {
     canSeeButton() {
-      return this.can('clash.create');
+      return this.can('clash_team.create');
     }
   },
   methods: {

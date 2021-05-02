@@ -16,8 +16,8 @@
               <v-card-title>
                 {{ clashTeam.name }}
                 <v-spacer />
-                <clash-team-delete-button :clash-team="clashTeam" @clash-team-was-deleted="getClashTeams"/>
-                <clash-team-edit-button :clash-team="clashTeam" @updated="getClashTeams"/>
+                <clash-team-delete-button :clash-team="clashTeam" @clash-team-was-deleted="getClashTeams" />
+                <clash-team-edit-button :clash-team="clashTeam" @updated="getClashTeams" />
               </v-card-title>
               <v-card-text>
                 <v-col cols="12"
@@ -26,7 +26,7 @@
                 >
                   <base-card>
                     <v-card-text>
-                     <strong>{{ clashMember.clashTeamRole.name }}:</strong> {{ clashMember.user.username }}
+                      <strong>{{ clashMember.clashTeamRole.name }}:</strong> {{ clashMember.user.username }}
                     </v-card-text>
                   </base-card>
                 </v-col>

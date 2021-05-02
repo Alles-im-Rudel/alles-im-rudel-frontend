@@ -6,7 +6,7 @@
           <v-btn
               icon
               v-if="canSeeButton"
-              color="primary"
+              color="greyBlue"
               v-on="{ ...dialog, ...tooltip }"
           >
             <v-icon>fa-edit</v-icon>

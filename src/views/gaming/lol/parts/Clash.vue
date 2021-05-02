@@ -1,6 +1,8 @@
 <template>
   <base-card flat>
-    <v-card-title>Alles Im Rudel Clash Teams</v-card-title>
+    <v-card-title>
+      Alles Im Rudel Clash Teams
+    </v-card-title>
     <v-card-text>
       <v-row
           justify="center"
@@ -26,7 +28,7 @@ import ClashTeamMember from "@/components/clash/ClashTeamMember";
 
 export default {
   components: {
-    ClashTeamMember
+    ClashTeamMember,
   },
   data() {
     return {
