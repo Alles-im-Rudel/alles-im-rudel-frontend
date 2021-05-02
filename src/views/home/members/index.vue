@@ -38,9 +38,6 @@
                     class="black--text align-end"
                     :src="member.thumbnail.thumbnail"
                 >
-                  <v-card-title style="background-color: rgba(255, 255, 255, 0.2)">
-                    {{ member.thumbnail.title ? member.thumbnail.title : '' }}
-                  </v-card-title>
                 </v-img>
               </v-col>
               <v-col cols="12" lg="8">

@@ -12,9 +12,6 @@
                 class="black--text align-end"
                 :src="user.image.image"
             >
-              <v-card-title style="background-color: rgba(255, 255, 255, 0.2)">
-                {{ user.image.title }}
-              </v-card-title>
             </v-img>
           </v-col>
           <v-col cols="12" lg="4"  md="6">
