@@ -49,6 +49,13 @@ export default {
   created() {
     this.getUsers();
   },
+  watch: {
+    options: {
+      handler() {
+        this.getUsers()
+      }
+    }
+  },
   methods: {
     getUsers() {
       this.isLoading = true;

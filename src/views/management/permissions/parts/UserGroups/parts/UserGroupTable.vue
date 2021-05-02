@@ -17,7 +17,7 @@
       {{ item.updatedAt | dateTime }}
     </template>
     <template v-slot:item.actions="{ item }">
-      <user-group-edit-button :user-group="item" @reload="reload"/>
+      <user-group-edit-button :user-group="item" @reload="reload" />
       <user-group-sync-users-button :user-group="item" @reload="reload" />
       <user-group-sync-permissions-button :user-group="item" @reload="reload" />
       <user-group-delete-button :selected-user-group="item" @user-group-was-deleted="reload" />
@@ -29,8 +29,10 @@ import Permissions from '@/mixins/Permissions';
 import DataTableMixin from '@/mixins/DataTableMixin';
 import UserGroupEditButton from '@/views/management/permissions/parts/UserGroups/parts/buttons/UserGroupEditButton';
 import UserGroupDeleteButton from "@/views/management/permissions/parts/UserGroups/parts/buttons/UserGroupDeleteButton";
-import UserGroupSyncPermissionsButton from '@/views/management/permissions/parts/UserGroups/parts/buttons/UserGroupSyncPermissionsButton';
-import UserGroupSyncUsersButton from  '@/views/management/permissions/parts/UserGroups/parts/buttons/UserGroupSyncUsersButton';
+import UserGroupSyncPermissionsButton
+  from '@/views/management/permissions/parts/UserGroups/parts/buttons/UserGroupSyncPermissionsButton';
+import UserGroupSyncUsersButton
+  from '@/views/management/permissions/parts/UserGroups/parts/buttons/UserGroupSyncUsersButton';
 
 export default {
   components: {
@@ -111,8 +113,14 @@ export default {
   watch: {
     options: {
       deep: true,
-      handler() {
-        this.$emit('input', this.options);
+      handler(value) {
+        this.$emit('input', value);
+      }
+    },
+    value: {
+      deep: true,
+      handler(value) {
+        this.options = value;
       }
     }
   },

@@ -124,8 +124,14 @@ export default {
   watch: {
     options: {
       deep: true,
-      handler() {
-        this.$emit('input', this.options);
+      handler(value) {
+        this.$emit('input', value);
+      }
+    },
+    value: {
+      deep: true,
+      handler(value) {
+        this.options = value;
       }
     }
   },

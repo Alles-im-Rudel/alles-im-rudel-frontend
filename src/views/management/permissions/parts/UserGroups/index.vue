@@ -39,6 +39,13 @@ export default {
   created() {
     this.getUserGroups();
   },
+  watch: {
+    options: {
+      handler() {
+        this.getUserGroups()
+      }
+    }
+  },
   methods: {
     getUserGroups() {
       this.isLoading = true;
