@@ -26,7 +26,6 @@
           <v-list-item-content class="text-left">
             <v-list-item-title>{{ user.fullName }}</v-list-item-title>
             <v-list-item-subtitle>{{ user.username }}</v-list-item-subtitle>
-            <v-list-item-subtitle>{{ user.email }}</v-list-item-subtitle>
           </v-list-item-content>
           <user-profile-button :username="user.username" />
         </v-list-item>

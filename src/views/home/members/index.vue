@@ -47,7 +47,6 @@
                 <v-list-item>
                   <v-list-item-content class="text-left">
                     <v-list-item-subtitle class="text-h6">Benutzername: {{ member.username }}</v-list-item-subtitle>
-                    <v-list-item-subtitle class="text-h6">E-Mail: {{ member.email }}</v-list-item-subtitle>
                     <v-list-item-subtitle class="text-h6">Alter: {{ member.age }}</v-list-item-subtitle>
                     <v-list-item-subtitle class="text-h6">
                       Benutzergruppen:
@@ -55,6 +54,7 @@
                   </v-list-item-content>
                 </v-list-item>
                 <v-chip
+                    class="ma-1"
                     dark
                     v-for="userGroup in member.userGroups"
                     :key="userGroup.id"

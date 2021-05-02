@@ -22,7 +22,6 @@
               <v-list-item-content class="text-left">
                 <v-list-item-title class="text-h5">{{ user.fullName }}</v-list-item-title>
                 <v-list-item-subtitle class="text-h6">Benutzername: {{ user.username }}</v-list-item-subtitle>
-                <v-list-item-subtitle class="text-h6">E-Mail: {{ user.email }}</v-list-item-subtitle>
                 <v-list-item-subtitle class="text-h6">Aktive:
                   <v-icon :color="activeColor">{{ user.isActive | boolIcon }}</v-icon>
                 </v-list-item-subtitle>
