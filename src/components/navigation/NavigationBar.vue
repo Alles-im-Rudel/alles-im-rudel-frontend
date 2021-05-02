@@ -24,7 +24,7 @@
     </v-btn>
     <v-btn :text="!isMobile" :icon="isMobile" @click="pushToGaming" :color="isActive('gaming')">
       <v-icon :left="!isMobile">fa-headset</v-icon>
-      {{ !isMobile ? 'Gaming' : '' }}
+      {{ !isMobile ? 'E-Sports' : '' }}
     </v-btn>
     <v-spacer />
     <v-btn :text="!isMobile" :icon="isMobile" v-if="can('headline.management')" @click="pushToManagement"

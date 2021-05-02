@@ -4,7 +4,7 @@
       <v-col cols="12" md="12">
         <base-card>
           <v-card-title>
-            Gaming News
+            E-Sports News
             <v-spacer />
             <post-create-button @reload="tagsChanged" />
           </v-card-title>

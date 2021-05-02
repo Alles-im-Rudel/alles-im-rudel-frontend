@@ -46,7 +46,7 @@ export default {
           auth: false,
           type: 'headline',
           action: '',
-          text: 'Gaming',
+          text: 'E-Sports',
           permission: null
         },
         {
@@ -61,7 +61,7 @@ export default {
           auth: false,
           type: 'action',
           action: 'gaming-news',
-          text: 'Gaming News',
+          text: 'E-Sports News',
           icon: 'fa-newspaper',
           permission: null
         },
