@@ -28,7 +28,10 @@
                 <v-list-item-subtitle class="text-h6">Geburtsdatum: {{ user.birthday | date }}</v-list-item-subtitle>
                 <v-list-item-subtitle class="text-h6">
                   Benutzergruppen:
+                </v-list-item-subtitle>
+                <v-list-item-subtitle>
                   <v-chip
+                      class="ma-1"
                       dark
                       v-for="userGroup in user.userGroups"
                       :key="userGroup.id"
