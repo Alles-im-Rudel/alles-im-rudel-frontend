@@ -87,7 +87,7 @@ export default {
           action: 'dashboard',
           text: 'Dashboard',
           icon: 'fa-columns',
-          permission: null
+          permission: 'dashboard.index'
         }
       ]
     };

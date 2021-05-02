@@ -28,7 +28,7 @@ const router = new Router({
     {
       path: '/dashboard',
       name: 'dashboard',
-      meta: {group: 'home', auth: true, permission: null},
+      meta: {group: 'home', auth: true, permission: 'dashboard.index'},
       component: () => import('./views/home/dashboard')
     },
     {
