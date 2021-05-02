@@ -24,7 +24,7 @@
                   />
                 </v-col>
                 <v-col cols="12" md="2">
-                  <date-picker v-model="form.birthday" label="Geburtsdatum" />
+                  <date-picker v-model="form.birthday" label="Geburtsdatum" :max-date="maxDate" />
                 </v-col>
                 <v-col cols="12" md="4">
                   <v-text-field
@@ -84,6 +84,7 @@ import {mapActions, mapGetters} from 'vuex';
 import ValidationErrors from "@/mixins/ValidationErros";
 import DatePicker from '@/components/picker/DatePicker';
 import router from "@/router";
+import dayjs from 'dayjs';
 
 export default {
   mixins: [ValidationErrors],
@@ -105,7 +106,8 @@ export default {
       errorMessage: null,
       errors: {},
       showPasswordRepeat: false,
-      showPassword: false
+      showPassword: false,
+      maxDate: dayjs().format('YYYY-MM-DD')
     }
   },
   computed: {

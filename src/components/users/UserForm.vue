@@ -52,7 +52,7 @@
       </v-text-field>
     </v-col>
     <v-col cols="12" md="6" lg="3">
-      <date-picker v-model="user.birthday" label="Geburtsdatum" />
+      <date-picker v-model="user.birthday" label="Geburtsdatum" :max-date="maxDate" />
     </v-col>
     <v-col cols="12" md="6" lg="3" v-if="!isProfil">
       <level-select v-model="user.levelId" @input="updateLevel" />
@@ -78,6 +78,7 @@ import ValidationErrors from '@/mixins/ValidationErros';
 import UserPasswordForm from '@/components/users/UserPasswordForm';
 import LevelSelect from '@/components/selects/LevelSelect';
 import DatePicker from '@/components/picker/DatePicker';
+import dayjs from 'dayjs';
 
 export default {
   components: {
@@ -123,7 +124,8 @@ export default {
   data() {
     return {
       user: this.value,
-      errors: this.validationErrors
+      errors: this.validationErrors,
+      maxDate: dayjs().format('YYYY-MM-DD')
     };
   },
   computed: {

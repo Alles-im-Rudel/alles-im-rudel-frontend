@@ -15,6 +15,7 @@
             v-model="date"
             color="darkGrey"
             locale="de"
+            :max="maxDate"
             full-width
         />
       </v-card-text>
@@ -52,7 +53,11 @@ export default {
     label: {
       type: String,
       default: () => 'Datum'
-    }
+    },
+    maxDate: {
+      type: String,
+      default: () => ''
+    },
   },
   data() {
     return {
