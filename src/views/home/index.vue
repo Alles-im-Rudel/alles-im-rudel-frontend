@@ -4,7 +4,7 @@
         style="background-color: #596571"
         elevation="9"
     >
-      test
+      Voll nice
     </v-banner>
     <v-parallax :src="require('../../assets/background.png')">
       <h1>Alles Im Rudel</h1>
