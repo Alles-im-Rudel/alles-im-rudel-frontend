@@ -4,6 +4,7 @@
       <v-col cols="12" md="12">
         <base-card>
           <v-card-title>
+
             {{ homeView.title }}
             <v-spacer />
             <view-edit-button :view-id="1" :label="homeView.title+' bearbeiten'" @reload="getHomeView" />
