@@ -12,6 +12,7 @@
           <div class="ql-snow">
             <div class="ql-editor" v-html="homeView.body" />
           </div>
+
           <vue-editor style="display:none"/>
         </base-card>
       </v-col>
