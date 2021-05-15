@@ -120,13 +120,13 @@ const router = new Router({
     {
       path: '/login',
       name: 'login',
-      meta: {group: 'home'},
+      meta: {group: 'login'},
       component: () => import('./views/LoginForm')
     },
     {
       path: '/register',
       name: 'register',
-      meta: {group: 'home'},
+      meta: {group: 'register'},
       component: () => import('./views/RegisterForm')
     },
     //Static Pages

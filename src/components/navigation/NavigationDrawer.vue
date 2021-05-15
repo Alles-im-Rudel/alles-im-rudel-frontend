@@ -80,7 +80,7 @@ export default {
       return this.currentRouteGroup === 'airsoft'
     },
     showHome() {
-      return this.currentRouteGroup === 'home' || this.currentRouteGroup === 'profile'
+      return this.currentRouteGroup === 'home' || this.currentRouteGroup === 'profile' || this.currentRouteGroup === 'login' || this.currentRouteGroup === 'register'
     }
   },
   watch: {
