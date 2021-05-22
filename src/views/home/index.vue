@@ -16,6 +16,7 @@
         </p>
         <v-btn
           class="mt-4"
+          text
           @click="pushToSparta"
         >
           Zu den Sparten
