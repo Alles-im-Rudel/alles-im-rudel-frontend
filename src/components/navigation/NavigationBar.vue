@@ -168,9 +168,6 @@ export default {
     pushToLogin() {
       this.$router.push({name: 'login'});
     },
-    pushToRegister() {
-      this.$router.push({name: 'register'});
-    },
     pushToHome() {
       this.$router.push({name: 'home'})
     }

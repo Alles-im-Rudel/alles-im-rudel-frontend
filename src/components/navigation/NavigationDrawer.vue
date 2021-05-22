@@ -35,14 +35,8 @@ export default {
     currentRouteGroup() {
       return this.$route.meta.group
     },
-    showAuth() {
-      return !this.isAuth
-    },
     showManagement() {
       return this.currentRouteGroup === 'management'
-    },
-    showAirsoft() {
-      return this.currentRouteGroup === 'airsoft'
     },
   },
   watch: {
