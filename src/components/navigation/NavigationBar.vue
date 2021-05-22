@@ -25,6 +25,17 @@
     <v-btn
         :text="!isMedium"
         :icon="isMedium"
+        @click="pushToNews"
+        :color="isActive('news')"
+        class="mr-1"
+    >
+      <v-icon :left="!isMedium">fa-newspaper</v-icon>
+      {{ !isMedium ? 'News' : '' }}
+    </v-btn>
+
+    <v-btn
+        :text="!isMedium"
+        :icon="isMedium"
         @click="pushToAirsoft"
         :color="isActive('airsoft')"
         class="mr-1"
@@ -158,6 +169,9 @@ export default {
     },
     pushToAirsoft() {
       this.$router.push({name: 'airsoft'});
+    },
+    pushToNews() {
+      this.$router.push({name: 'news'});
     },
     pushToGaming() {
       this.$router.push({name: 'gaming'});

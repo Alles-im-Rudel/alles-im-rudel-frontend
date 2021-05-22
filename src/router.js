@@ -34,7 +34,7 @@ const router = new Router({
     {
       path: '/news',
       name: 'news',
-      meta: {group: 'home', auth: false, permission: null},
+      meta: {group: 'news', auth: false, permission: null},
       component: () => import('./views/home/news')
     },
     {
