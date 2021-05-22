@@ -5,10 +5,7 @@
       app
       class="elevation-5"
   >
-    <home v-if="showHome" />
     <management v-if="showManagement" />
-    <gaming v-if="showGaming" />
-    <airsoft v-if="showAirsoft" />
   </v-navigation-drawer>
 </template>
 
@@ -16,16 +13,10 @@
 import {mapGetters} from 'vuex';
 import Permissions from '@/mixins/Permissions';
 import Management from "@/components/navigation/navigationDrawerParts/Management";
-import Gaming from "@/components/navigation/navigationDrawerParts/Gaming";
-import Airsoft from "@/components/navigation/navigationDrawerParts/Airsoft";
-import Home from "@/components/navigation/navigationDrawerParts/Home";
 
 export default {
   components: {
-    Airsoft,
     Management,
-    Gaming,
-    Home
   },
   mixins: [Permissions],
   props: {
@@ -44,21 +35,9 @@ export default {
     currentRouteGroup() {
       return this.$route.meta.group
     },
-    showAuth() {
-      return !this.isAuth
-    },
-    showGaming() {
-      return this.currentRouteGroup === 'gaming'
-    },
     showManagement() {
       return this.currentRouteGroup === 'management'
     },
-    showAirsoft() {
-      return this.currentRouteGroup === 'airsoft'
-    },
-    showHome() {
-      return this.currentRouteGroup === 'home' || this.currentRouteGroup === 'profile' || this.currentRouteGroup === 'login' || this.currentRouteGroup === 'register'
-    }
   },
   watch: {
     value: {
