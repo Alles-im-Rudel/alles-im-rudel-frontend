@@ -13,7 +13,7 @@
       </v-tabs>
     </v-parallax>
     <v-divider />
-    <v-card-text max>
+    <v-card-text class="mx-auto" style="max-width: 1300px">
       <v-tabs-items v-model="activeTab">
         <v-tab-item value="airsoft">
           <Airsoft />
