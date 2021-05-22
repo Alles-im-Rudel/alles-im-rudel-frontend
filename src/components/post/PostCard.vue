@@ -1,74 +1,58 @@
 <template>
-  <base-card>
+  <base-card height="100%" style="display: flex; flex-direction: column">
+    <v-img
+        class="black--text align-end"
+        :src="post.thumbnails[0].thumbnail"
+    >
+      <v-card-title style="background-color: rgba(255, 255, 255, 0.2)">
+        {{ post.thumbnails[0].title }}
+      </v-card-title>
+    </v-img>
     <v-card-title>
       {{ post.title }}
       <v-spacer />
       <user-chip :user="post.user" />
-      <v-spacer />
-      {{ post.createdAt | dateTime }}
-      <post-delete-button
-          :selected-post="post"
-          @deleted="$emit('reload')"
-      />
     </v-card-title>
     <v-divider />
-    <post-images :images="post.thumbnails" :show-only="2" only-thumbnail />
-    <v-card-actions>
-      <v-row no-gutters>
-        <post-tags :tags="post.tags" />
-        <v-spacer />
-        <v-badge
-            v-if="post.commentsCount > 0"
-            color="greyBlue"
-            :content="post.commentsCount"
-            overlap
-        >
-          <v-chip
-              color="darkGrey"
-              text-color="white"
-          >
-            Kommentare
-          </v-chip>
-        </v-badge>
-        <like-button model="posts" :selected="post" @reload="$emit('reload')" />
-        <v-spacer />
-        <show-full-post-button :post-id="post.id" @reload="$emit('reload')" />
-        <v-spacer />
-        <v-btn
-            icon
-            @click="show = !show"
-        >
-          <v-icon>{{ show ? 'fa-chevron-up' : 'fa-chevron-down' }}</v-icon>
-        </v-btn>
-      </v-row>
-    </v-card-actions>
-    <v-expand-transition>
-      <div v-show="show">
-        <v-divider />
-        <div class="ql-snow">
-          <div class="ql-editor" v-html="text" />
-        </div>
+    <v-card-text class="pa-0">
+      <div class="ql-snow">
+        <div class="ql-editor" style="min-height: unset !important;" v-html="text" />
       </div>
-    </v-expand-transition>
+    </v-card-text>
+    <v-card-text justify="center" v-if="post.tags.length > 0">
+      <post-tags :tags="post.tags" />
+    </v-card-text>
+    <v-card-actions>
+      <v-badge
+          v-if="post.commentsCount > 0"
+          color="greyBlue"
+          :content="post.commentsCount"
+          overlap
+      >
+        <v-chip
+            color="darkGrey"
+            text-color="white"
+        >
+          Kommentare
+        </v-chip>
+      </v-badge>
+      {{ post.createdAt | dateTime }}
+      <v-spacer />
+      <show-full-post-button :post-id="post.id" @reload="$emit('reload')" />
+    </v-card-actions>
   </base-card>
 </template>
 
 <script>
 import UserChip from '@/components/users/UserChip';
 import PostTags from '@/components/post/PostTags';
-import PostImages from "@/components/post/PostImages";
 import ShowFullPostButton from "@/components/post/ShowFullPostButton";
-import PostDeleteButton from "@/components/post/PostDeleteButton";
-import LikeButton from "@/components/buttons/LikeButton";
 
 export default {
   components: {
     UserChip,
     PostTags,
-    PostImages,
-    ShowFullPostButton,
-    PostDeleteButton,
-    LikeButton
+    ShowFullPostButton
   },
   props: {
     post: {
