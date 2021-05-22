@@ -27,7 +27,6 @@ import {mapGetters} from 'vuex';
 import Permissions from '@/mixins/Permissions';
 import Management from "@/components/navigation/navigationDrawerParts/Management";
 import Gaming from "@/components/navigation/navigationDrawerParts/Gaming";
-import Auth from "@/components/navigation/navigationDrawerParts/Auth";
 import Airsoft from "@/components/navigation/navigationDrawerParts/Airsoft";
 import Home from "@/components/navigation/navigationDrawerParts/Home";
 import UserChip from '@/components/users/UserChip'
@@ -37,7 +36,6 @@ export default {
     Airsoft,
     Management,
     Gaming,
-    Auth,
     Home,
     UserChip
   },
