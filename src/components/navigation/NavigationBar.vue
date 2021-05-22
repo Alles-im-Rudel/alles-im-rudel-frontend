@@ -36,6 +36,17 @@
     <v-btn
         :text="!isMedium"
         :icon="isMedium"
+        @click="pushToSparta"
+        :color="isActive('branch')"
+        class="mr-1"
+    >
+      <v-icon :left="!isMedium">fa-code-branch</v-icon>
+      {{ !isMedium ? 'Sparten' : '' }}
+    </v-btn>
+
+    <v-btn
+        :text="!isMedium"
+        :icon="isMedium"
         @click="pushToAirsoft"
         :color="isActive('airsoft')"
         class="mr-1"
@@ -172,6 +183,9 @@ export default {
     },
     pushToNews() {
       this.$router.push({name: 'news'});
+    },
+    pushToSparta() {
+      this.$router.push({name: 'branches'});
     },
     pushToGaming() {
       this.$router.push({name: 'gaming'});

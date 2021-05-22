@@ -38,6 +38,12 @@ const router = new Router({
       component: () => import('./views/home/news')
     },
     {
+      path: '/braches',
+      name: 'branches',
+      meta: {group: 'branches', auth: false, permission: null},
+      component: () => import('./views/Branches')
+    },
+    {
       path: '/calendar',
       name: 'calendar',
       meta: {group: 'home', auth: false, permission: null},
