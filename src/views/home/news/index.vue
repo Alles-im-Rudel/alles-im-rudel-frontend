@@ -23,8 +23,8 @@
         </base-card>
       </v-col>
     </v-row>
-    <v-row justify="center">
-      <v-col cols="12" md="6"
+    <v-row justify="center" class="mx-auto mb-5" style="max-width: 1300px">
+      <v-col cols="12" md="4"
              v-for="post in posts"
              :key="post.id"
       >

@@ -1,7 +1,14 @@
 <template>
   <div>
-    <navigation-bar @toggle-menu="toggleMenu" />
-    <navigation-drawer v-model="showMenu" @toggle-menu="toggleMenu" />
+    <navigation-bar
+      @toggle-menu="toggleMenu"
+      :show-navigation-drawer="showNavigationDrawer"
+    />
+    <navigation-drawer
+      v-if="showNavigationDrawer"
+      v-model="showMenu"
+      @toggle-menu="toggleMenu"
+    />
   </div>
 </template>
 
@@ -16,7 +23,10 @@ export default {
     'navigation-drawer': NavigationDrawer
   },
   computed: {
-    ...mapGetters('auth', ['user', 'isAuth'])
+    ...mapGetters('auth', ['user', 'isAuth']),
+    showNavigationDrawer() {
+      return this.$route.meta.group === 'management'
+    }
   },
   data() {
     return {

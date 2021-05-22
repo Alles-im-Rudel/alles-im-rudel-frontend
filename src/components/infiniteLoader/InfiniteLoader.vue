@@ -3,6 +3,7 @@
     <v-icon>fa-circle-notch fa-spin</v-icon>
   </v-btn>
   <v-alert
+      tile
       style="background-color: rgba(255, 255, 255, 0.6)"
       v-else-if="end"
       border="top"

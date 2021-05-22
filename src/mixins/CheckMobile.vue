@@ -3,6 +3,7 @@ export default {
   data() {
     return {
       isMobile: false,
+      isMedium: false
     };
   },
   beforeDestroy() {
@@ -17,7 +18,8 @@ export default {
   },
   methods: {
     onResize() {
-      this.isMobile = window.innerWidth < 600
+      this.isMobile = window.innerWidth < 600;
+      this.isMedium = window.innerWidth < 960;
     },
   }
 };
