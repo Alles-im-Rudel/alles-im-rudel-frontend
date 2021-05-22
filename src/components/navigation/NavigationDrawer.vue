@@ -5,16 +5,6 @@
       app
       class="elevation-5"
   >
-    <v-card color="darkGrey" tile flat>
-      <v-card-text v-if="isAuth" class="white--text">
-        Willkommen:
-        <br />
-        <user-chip :user="user" />
-      </v-card-text>
-      <v-card-text v-if="!isAuth" class="white--text">
-        Willkommen
-      </v-card-text>
-    </v-card>
     <home v-if="showHome" />
     <management v-if="showManagement" />
     <gaming v-if="showGaming" />
@@ -29,15 +19,13 @@ import Management from "@/components/navigation/navigationDrawerParts/Management
 import Gaming from "@/components/navigation/navigationDrawerParts/Gaming";
 import Airsoft from "@/components/navigation/navigationDrawerParts/Airsoft";
 import Home from "@/components/navigation/navigationDrawerParts/Home";
-import UserChip from '@/components/users/UserChip'
 
 export default {
   components: {
     Airsoft,
     Management,
     Gaming,
-    Home,
-    UserChip
+    Home
   },
   mixins: [Permissions],
   props: {
