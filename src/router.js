@@ -123,12 +123,6 @@ const router = new Router({
       meta: {group: 'login'},
       component: () => import('./views/LoginForm')
     },
-    {
-      path: '/register',
-      name: 'register',
-      meta: {group: 'register'},
-      component: () => import('./views/RegisterForm')
-    },
     //Static Pages
     {
       path: '/permission-denied',

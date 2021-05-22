@@ -47,7 +47,7 @@
       </div>
       <div class="ma-3" v-if="!isAuth">
         <v-btn block color="greyBlue white--text" @click="goToLogin">
-          <v-icon small left>mdi-login</v-icon>
+          <v-icon small left>fa-sign-in</v-icon>
           Login
         </v-btn>
       </div>

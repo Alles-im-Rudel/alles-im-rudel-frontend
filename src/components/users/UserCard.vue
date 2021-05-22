@@ -27,21 +27,21 @@
                 icon
                 @click="instagram"
             >
-              <v-icon>mdi-instagram</v-icon>
+              <v-icon>fab fa-instagram</v-icon>
             </v-btn>
             <v-btn
                 dark
                 icon
                 @click="instagram"
             >
-              <v-icon>mdi-snapchat</v-icon>
+              <v-icon>fab fa-snapchat</v-icon>
             </v-btn>
             <v-btn
                 dark
                 icon
                 @click="instagram"
             >
-              <v-icon>mdi-xing</v-icon>
+              <v-icon>fab fa-xing</v-icon>
             </v-btn>
           </v-card-actions>
         </v-card>

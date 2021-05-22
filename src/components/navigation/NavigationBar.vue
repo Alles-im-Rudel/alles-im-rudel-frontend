@@ -6,8 +6,8 @@
     />
 
     <v-toolbar-title
-        @click="pushToHome"
-        class="cursor-pointer pl-1 d-flex align-center"
+      @click="pushToHome"
+      class="cursor-pointer pl-1 d-flex align-center"
     >
       <v-icon
         size="64"
@@ -15,56 +15,81 @@
       >
         $vuetify.icons.allesimrudel
       </v-icon>
-      <span v-if="!isMobile">
+      <span v-if="!isMedium">
         Alles im Rudel
       </span>
     </v-toolbar-title>
 
-    <v-toolbar-title
-        v-if="isMobile"
-        @click="pushToHome"
-        class="mr-2"
+    <v-spacer/>
+
+    <v-btn
+      :text="!isMedium"
+      :icon="isMedium"
+      @click="pushToAirsoft"
+      :color="isActive('airsoft')"
+      class="mr-1"
     >
-      <v-icon :color="isActive('home')">my-icon</v-icon>
-    </v-toolbar-title>
-    <v-spacer />
-    <v-btn :text="!isMobile" :icon="isMobile" @click="pushToAirsoft" :color="isActive('airsoft')">
-      <v-icon :left="!isMobile">fa-tree</v-icon>
-      {{ !isMobile ? 'Airsoft' : '' }}
+      <v-icon :left="!isMedium">fa-tree</v-icon>
+      {{ !isMedium ? 'Airsoft' : '' }}
     </v-btn>
-    <v-btn :text="!isMobile" :icon="isMobile" @click="pushToGaming" :color="isActive('gaming')">
-      <v-icon :left="!isMobile">fa-headset</v-icon>
-      {{ !isMobile ? 'E-Sports' : '' }}
+
+    <v-btn
+      :text="!isMedium"
+      :icon="isMedium"
+      @click="pushToGaming"
+      :color="isActive('gaming')"
+      class="mr-2"
+    >
+      <v-icon :left="!isMedium">fa-headset</v-icon>
+      {{ !isMedium ? 'E-Sports' : '' }}
     </v-btn>
-    <v-divider v-if="isAuth" vertical inset />
-    <v-btn :text="!isMobile" :icon="isMobile" v-if="can('headline.management')" @click="pushToManagement"
-           :color="isActive('management')">
-      <v-icon :left="!isMobile">fa-cogs</v-icon>
-      {{ !isMobile ? 'Management' : '' }}
+
+    <v-divider vertical inset/>
+
+    <!-- Ohne Auth -->
+
+    <v-btn
+      :text="!isMedium"
+      :icon="isMedium"
+      v-if="!isAuth"
+      @click="pushToLogin"
+      :color="isActive('login')"
+      class="mr-1 ml-2"
+    >
+      <v-icon :left="!isMedium">fa-sign-in-alt</v-icon>
+      {{ !isMedium ? 'Login' : '' }}
     </v-btn>
-    <v-divider vertical inset />
-    <v-btn :text="!isMobile" :icon="isMobile" v-if="!isAuth" @click="pushToLogin"
-           :color="isActive('login')">
-      <v-icon :left="!isMobile">fa-sign-in-alt</v-icon>
-      {{ !isMobile ? 'Login' : '' }}
+
+    <!-- Auth -->
+
+    <v-btn
+      v-if="can('headline.management')"
+      icon
+      class="ml-4"
+      @click="pushToManagement"
+      :color="isActive('management')"
+    >
+      <v-icon>fa-cog</v-icon>
     </v-btn>
-    <v-btn :text="!isMobile" :icon="isMobile" v-if="!isAuth" @click="pushToRegister"
-           :color="isActive('register')">
-      <v-icon :left="!isMobile">fa-user-plus</v-icon>
-      {{ !isMobile ? 'Mitglied werden' : '' }}
-    </v-btn>
+
     <v-menu
-        v-if="isAuth && user && permissions"
-        open-on-hover
-        bottom
-        offset-y
-        rounded="0"
-        transition="slide-y-transition"
+      v-if="isAuth && user && permissions"
+      open-on-hover
+      bottom
+      offset-y
+      rounded="0"
+      transition="slide-y-transition"
     >
       <template v-slot:activator="{ on, attrs }">
-        <v-btn :text="!isMobile" :icon="isMobile" v-bind="attrs" v-on="on" :color="isActive('profile')">
-          <v-icon :left="!isMobile">fa-user-cog</v-icon>
-          {{ !isMobile ? user.username : '' }}
+        <v-btn
+          icon
+          class="mr-0"
+          :class="can('headline.management') ? 'ml-1' : 'ml-4'"
+          :color="isActive('profile')"
+          v-bind="attrs"
+          v-on="on"
+        >
+          <v-icon>fa-user</v-icon>
         </v-btn>
       </template>
 

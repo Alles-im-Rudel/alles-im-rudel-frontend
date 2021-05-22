@@ -56,7 +56,7 @@
               >
                 <span>{{ typeToLabel[type] }}</span>
                 <v-icon right>
-                  mdi-menu-down
+                  fa-chevron-down
                 </v-icon>
               </v-btn>
             </template>

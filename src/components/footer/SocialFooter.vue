@@ -20,7 +20,7 @@
           icon
           @click="discord"
         >
-          <v-icon size="24px">mdi-discord</v-icon>
+          <v-icon size="24px">fab fa-discord</v-icon>
         </v-btn>
         <v-btn
           class="mx-4"
@@ -28,7 +28,7 @@
           icon
           @click="instagram"
         >
-          <v-icon size="24px">mdi-instagram</v-icon>
+          <v-icon size="24px">fab fa-instagram</v-icon>
         </v-btn>
         <v-btn
           class="mx-4"
@@ -36,7 +36,7 @@
           icon
           @click="youtube"
         >
-          <v-icon size="24px">mdi-youtube</v-icon>
+          <v-icon size="24px">fab fa-youtube</v-icon>
         </v-btn>
       </v-card-title>
 
