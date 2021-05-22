@@ -4,7 +4,7 @@
       <v-parallax :src="require('@/assets/background.png')">
         <h1 class="text-h1">Alles im Rudel e.V.</h1>
       </v-parallax>
-      <div class="px-7 pt-1 text-h5">
+      <div class="mx-auto pt-1 text-h5" style="max-width: 1300px">
         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
         dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
         clita
@@ -15,6 +15,28 @@
       </div>
     </v-card-text>
     <v-divider />
+    <v-card-title class="justify-center py-8" style="background-color: #596571; color: white">
+      <h2 class="text-h2">News</h2>
+    </v-card-title>
+    <v-card-text>
+      <v-row justify="center" class="pt-2 mx-auto mb-5" style="max-width: 1300px">
+        <v-col cols="12" md="4"
+               v-for="post in posts"
+               :key="post.id"
+        >
+          <post-card class="effects fade-in-main" :post="post" />
+        </v-col>
+      </v-row>
+      <v-row justify="center" class="mb-4">
+        <v-btn
+            text
+            color="primary"
+            @click="$router.push('news')"
+        >
+          Alle News
+        </v-btn>
+      </v-row>
+    </v-card-text>
     <v-card-title class="justify-center py-8" style="background-color: #596571; color: white">
       <h2 class="text-h2">Das Rudel</h2>
     </v-card-title>
@@ -84,16 +106,19 @@
 <script>
 import UserCard from "@/components/users/UserCard";
 import Branch from "@/views/home/parts/Branch";
+import PostCard from "@/components/post/PostCard";
 
 export default {
   name: 'Home',
   components: {
     UserCard,
-    Branch
+    Branch,
+    PostCard
   },
   data() {
     return {
       active: 1,
+      posts: [],
       member1: {
         id: 1,
         fullName: 'Silas Beckmann',
@@ -153,7 +178,22 @@ export default {
   },
   computed: {},
   created() {
+    this.getNews()
   },
-  methods: {},
+  methods: {
+    getNews() {
+      const params = {
+        page: 1,
+        items: 3
+      };
+      window.axios
+          .get(`posts`, {params})
+          .then((response) => {
+            this.page += 1;
+            this.posts = response.data.data
+          })
+          .finally(() => (this.isLoading = false));
+    }
+  },
 };
 </script>
