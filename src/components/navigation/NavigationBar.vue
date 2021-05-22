@@ -1,14 +1,23 @@
 <template>
   <v-app-bar color="primary" dark app clipped-left>
-    <v-app-bar-nav-icon @click="toggleMenu" />
+    <v-app-bar-nav-icon
+      v-if="showNavigationDrawer"
+      @click="toggleMenu"
+    />
 
     <v-toolbar-title
-        v-if="!isMobile"
         @click="pushToHome"
-        class="mr-2 cursor-pointer"
+        class="cursor-pointer pl-1 d-flex align-center"
     >
-      <v-icon :left="!isMobile">my-icon</v-icon>
-      Alles Im Rudel
+      <v-icon
+        size="64"
+        class="mr-3"
+      >
+        $vuetify.icons.allesimrudel
+      </v-icon>
+      <span v-if="!isMobile">
+        Alles im Rudel
+      </span>
     </v-toolbar-title>
 
     <v-toolbar-title
@@ -84,6 +93,13 @@ import CheckMobile from "@/mixins/CheckMobile";
 
 export default {
   mixins: [Permissions, CheckMobile],
+  props: {
+    showNavigationDrawer: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
+  },
   computed: {
     ...mapGetters('auth', ['user', 'isAuth', 'permissions']),
   },

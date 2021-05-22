@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify/lib/framework';
-import MyIcon from "@/icons/MyIcon";
 
 Vue.use(Vuetify);
 export default new Vuetify({
@@ -56,8 +55,10 @@ export default new Vuetify({
   },
   icons: {
     iconfont: 'fa',
-    'my-icon': {
-      component: MyIcon
+    values: {
+      allesimrudel: {
+        component: () => import('./../icons/AllesImRudel')
+      }
     }
   },
 });
