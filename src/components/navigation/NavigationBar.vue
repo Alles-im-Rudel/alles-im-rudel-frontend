@@ -34,11 +34,11 @@
     </v-btn>
 
     <v-btn
-        :text="!isMedium"
-        :icon="isMedium"
-        @click="pushToSparta"
-        :color="isActive('branch')"
-        class="mr-1"
+      :text="!isMedium"
+      :icon="isMedium"
+      @click="pushToSparta"
+      :color="isActive('branch')"
+      class="mr-1"
     >
       <v-icon :left="!isMedium">fa-code-branch</v-icon>
       {{ !isMedium ? 'Sparten' : '' }}
@@ -47,23 +47,12 @@
     <v-btn
       :text="!isMedium"
       :icon="isMedium"
-      @click="pushToAirsoft"
-      :color="isActive('airsoft')"
-      class="mr-1"
+      @click="pushToJoin"
+      :color="isActive('join')"
+      class="mr-4"
     >
-      <v-icon :left="!isMedium">fa-tree</v-icon>
-      {{ !isMedium ? 'Airsoft' : '' }}
-    </v-btn>
-
-    <v-btn
-      :text="!isMedium"
-      :icon="isMedium"
-      @click="pushToGaming"
-      :color="isActive('gaming')"
-      class="mr-2"
-    >
-      <v-icon :left="!isMedium">fa-headset</v-icon>
-      {{ !isMedium ? 'E-Sports' : '' }}
+      <v-icon :left="!isMedium">fa-award</v-icon>
+      {{ !isMedium ? 'Beitritt' : '' }}
     </v-btn>
 
     <v-divider vertical inset/>
@@ -215,6 +204,9 @@ export default {
     },
     pushToHome() {
       this.$router.push({name: 'home'})
+    },
+    pushToJoin() {
+      this.$router.push({name: 'join'})
     }
   }
 };
