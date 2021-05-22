@@ -1,5 +1,5 @@
 <template>
-  <v-card color="rgba(255, 255, 255, 0.6)" v-bind="$attrs" v-on="$listeners">
+  <v-card color="rgba(255, 255, 255, 0.6)" v-bind="$attrs" v-on="$listeners" tile>
     <slot />
   </v-card>
 </template>
