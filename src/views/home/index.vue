@@ -17,6 +17,7 @@
         <v-btn
           class="mt-4"
           @click="pushRouteTo('branches')"
+          text
         >
           Zu den Sparten
         </v-btn>
