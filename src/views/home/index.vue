@@ -1,7 +1,15 @@
 <template>
   <v-card tile>
     <v-card-text class="px-0 pt-0">
-      <v-parallax :src="require('@/assets/background_only_wolfs.png')">
+      <v-parallax
+        :src="require('@/assets/backgrounds/blank.jpg')"
+        class="d-flex justify-center align-center"
+      >
+        <img
+          :src="require('@/icons/logo.svg')"
+          style="width: 95%; max-width: 825px"
+          alt=""
+        />
       </v-parallax>
       <div class="mx-auto mt-16 mb-12" style="max-width: 1300px">
         <div class="text-center text-h3">
