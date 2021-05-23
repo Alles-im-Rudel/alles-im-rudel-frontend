@@ -52,7 +52,7 @@ export default {
     getComments() {
       this.isLoading = true;
       window.axios
-          .get(`/commments/by/${this.value}`)
+          .get(`/comments/by/${this.value}`)
           .then((response) => {
             this.comments = response.data.data;
           })

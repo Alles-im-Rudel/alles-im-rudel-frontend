@@ -91,6 +91,13 @@ const router = new Router({
       component: () => import('./views/management/users/index')
     },
     {
+      path: '/management/users/create',
+      name: 'management-users-create',
+      props: true,
+      meta: {group: 'management', auth: true, permission: 'users.store'},
+      component: () => import('./views/management/users/create')
+    },
+    {
       path: '/management/users/:userId/edit',
       name: 'management-users-edit',
       props: true,

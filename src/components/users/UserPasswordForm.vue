@@ -3,7 +3,7 @@
     <v-col cols="12" md="6">
       <v-text-field
           v-model="user.password"
-          :append-icon="showIcon ? 'fa-eye' : 'fa-eye-off'"
+          :append-icon="showIcon ? 'fa-eye' : 'fa-eye-slash'"
           :type="showIcon ? 'text' : 'password'"
           :label="labels.first"
           counter

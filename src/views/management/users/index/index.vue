@@ -3,7 +3,20 @@
     <v-row justify="center">
       <v-col cols="12">
         <base-card>
-          <v-card-title>Benutzerverwaltung</v-card-title>
+          <v-card-title>
+            Benutzerverwaltung
+            <v-spacer />
+            <v-btn
+              color="greyBlue"
+              dark
+              @click="pushRouteTo('management-users-create')"
+            >
+              <v-icon small class="mr-2">
+                fa-plus
+              </v-icon>
+              Benutzer erstellen
+            </v-btn>
+          </v-card-title>
           <v-card-text>
             <user-table
                 v-model="options"
