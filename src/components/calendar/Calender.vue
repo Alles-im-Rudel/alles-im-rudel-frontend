@@ -13,31 +13,43 @@
           >
             Heute
           </v-btn>
-          <v-btn
+          <template v-if="isLoading">
+            <div class="d-flex justify-center align-center" style="width: 80px">
+              <v-progress-circular
+                color="greyBlue"
+                indeterminate
+                size="24"
+              />
+            </div>
+          </template>
+          <template v-else>
+            <v-btn
               fab
               text
               small
-              :loading="isLoading"
               color="grey darken-2"
               @click="prev"
-          >
-            <v-icon small>
-              fa-chevron-left
-            </v-icon>
-          </v-btn>
-          <v-btn
+            >
+              <v-icon small>
+                fa-chevron-left
+              </v-icon>
+            </v-btn>
+            <v-btn
               fab
               text
               small
-              :loading="isLoading"
               color="grey darken-2"
               @click="next"
+            >
+              <v-icon small>
+                fa-chevron-right
+              </v-icon>
+            </v-btn>
+          </template>
+          <v-toolbar-title
+            v-if="$refs.calendar"
+            class="ml-2"
           >
-            <v-icon small>
-              fa-chevron-right
-            </v-icon>
-          </v-btn>
-          <v-toolbar-title v-if="$refs.calendar">
             {{ $refs.calendar.title }}
           </v-toolbar-title>
           <v-spacer />

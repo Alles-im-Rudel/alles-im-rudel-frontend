@@ -64,7 +64,7 @@ const router = new Router({
     {
       path: '/calendar',
       name: 'calendar',
-      meta: {group: 'profile', auth: false, permission: null},
+      meta: {group: 'profile', auth: true, permission: null},
       component: () => import('./views/home/calendar')
     },
     {
