@@ -11,39 +11,56 @@
       flat
       tile
     >
-      <v-card-title class="greyBlue">
-        <strong class="subheading">Get connected with us on social networks!</strong>
-        <v-spacer/>
-        <v-btn
-          class="mx-4"
-          dark
-          icon
-          @click="discord"
+      <v-card-title class="greyBlue py-8">
+        <div
+          class="d-block d-md-flex justify-space-between align-center mx-auto px-4"
+          style="max-width: 1300px; width: 100%"
         >
-          <v-icon size="24px">fab fa-discord</v-icon>
-        </v-btn>
-        <v-btn
-          class="mx-4"
-          dark
-          icon
-          @click="instagram"
-        >
-          <v-icon size="24px">fab fa-instagram</v-icon>
-        </v-btn>
-        <v-btn
-          class="mx-4"
-          dark
-          icon
-          @click="youtube"
-        >
-          <v-icon size="24px">fab fa-youtube</v-icon>
-        </v-btn>
+          <div
+            class="text-h6 ma-0"
+            style="overflow-wrap: normal; word-break: normal;"
+          >
+            Get connected with us on social networks!
+          </div>
+          <div class="mt-4 mt-md-0">
+            <v-btn
+              class="mx-2"
+              dark
+              icon
+              large
+              @click="discord"
+            >
+              <v-icon size="24px">fab fa-discord</v-icon>
+            </v-btn>
+            <v-btn
+              class="mx-2"
+              dark
+              icon
+              large
+              @click="instagram"
+            >
+              <v-icon size="24px">fab fa-instagram</v-icon>
+            </v-btn>
+            <v-btn
+              class="mx-2"
+              dark
+              icon
+              large
+              @click="youtube"
+            >
+              <v-icon size="24px">fab fa-youtube</v-icon>
+            </v-btn>
+          </div>
+        </div>
       </v-card-title>
 
-      <v-card-text class="py-2 primary white--text text-center">
-        {{ new Date().getFullYear() }} — <strong>Alles Im Rudel</strong>
+      <v-card-text class="pt-8 primary white--text text-center">
+          <v-icon size="128">$vuetify.icons.allesimrudel</v-icon>
+          <div style="margin-top: -18px">
+            {{ new Date().getFullYear() }} — <strong>Alles Im Rudel</strong>
+          </div>
       </v-card-text>
-      <v-card-text class="py-2 primary white--text">
+      <v-card-text class="pb-14 primary white--text">
         <div :class="isMobile ? 'd-block text-center' : 'd-flex justify-center'">
           <v-btn
             @click="pushRouteTo('impressum')"
