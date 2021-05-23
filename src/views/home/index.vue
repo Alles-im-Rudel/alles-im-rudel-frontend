@@ -56,13 +56,13 @@
     <v-card-text>
       <v-row justify="center">
         <v-col cols="12" md="2">
-          <user-card :user="member1" />
+          <user-card class="effects fade-in-main" :user="member1" />
         </v-col>
         <v-col cols="12" md="2">
-          <user-card :user="member2" />
+          <user-card class="effects fade-in-main" :user="member2" />
         </v-col>
         <v-col cols="12" md="2">
-          <user-card :user="member3" />
+          <user-card class="effects fade-in-main" :user="member3" />
         </v-col>
       </v-row>
     </v-card-text>
@@ -78,7 +78,7 @@
             cols="12"
             md="2"
         >
-          <branch v-model="active" :branch="branch" />
+          <branch class="effects fade-in-main" v-model="active" :branch="branch" />
         </v-col>
       </v-row>
     </v-card-text>
@@ -102,7 +102,7 @@
               </h2>
             </v-card-title>
             <v-card-text class="text-h5 text-justify mx-auto" style="max-width: 1300px">
-              {{ branch.text }}
+              {{ branch.text }} <a :href="link" style="color: unset">Zu der Sparte</a>
             </v-card-text>
           </v-card>
         </v-window-item>
@@ -155,7 +155,11 @@ export default {
             img: require('@/assets/nick.png'),
             text: '22 Jahre alt / Leiter Airsoft'
           },
-          text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+          text: 'Wir sind ein stetig wachsendes Team, das sich aus Mitgliedern aus dem Raum Schleswig-Holstein und\n' +
+              '        Mecklenburg-Vorpommern zusammensetzt, und jeweils einen Sitz in Elmshorn (SH) und in Leizen (MV) hat.\n' +
+              '        Es ist unser vorrangiges Ziel, den Airsoft-Sport für neue Spieler zugänglicher zu machen, und bereits aktiven\n' +
+              '        Spielern schnell und unkompliziert ein erfahrenes Team anzubieten. Mit dem Fokus auf Teamplay, Fairness und vor\n' +
+              '        allem Spaß an dem Airsoft-Sport begrüßen wir auf herzliche Weise neue Spieler bei uns im Team.',
         },
         {
           id: 2,
@@ -167,12 +171,19 @@ export default {
             img: require('@/assets/timm.png'),
             text: '22 Jahre alt / Vorsitzender und so weiter'
           },
-          text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+          text: 'Hier möchten wir uns als E-Sports-Team an allen möglichen Spielen versuchen, und sind dabei stets auf der Suche nach weiteren Spielern, ' +
+              'denen Teamplay und Freundlichkeit sehr wichtig sind. Bei uns steht der Spaß primär im Vordergrund, aber je nachdem, um welches Spiel es sich ' +
+              'handelt, ist es ebenfalls ein Ziel von uns, kompetitiv an kleineren oder auch mal größeren Turnieren teilzunehmen. Die Mehrheit von uns spielt' +
+              ' momentan vor allem League of Legends, und bei den Clash-Turnieren sind wir regelmäßig vertreten.'
         }
       ],
     };
   },
-  computed: {},
+  computed: {
+    link() {
+      return this.active === 1 ? '/#/branches?activeTab=airsoft' : '/#/branches?activeTab=gaming'
+    }
+  },
   created() {
     this.getNews()
   },
