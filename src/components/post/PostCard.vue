@@ -1,6 +1,7 @@
 <template>
   <base-card height="100%" style="display: flex; flex-direction: column">
     <v-img
+        v-if="post.thumbnails && post.thumbnails[0]"
         class="black--text align-end"
         :src="post.thumbnails[0].thumbnail"
     >

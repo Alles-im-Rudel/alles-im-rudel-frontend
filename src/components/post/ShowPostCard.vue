@@ -1,27 +1,36 @@
 <template>
-  <v-card v-if="post.id" :max-height="maxHeight" class="scroll">
-    <v-card-title>
+  <v-card v-if="post.id" :max-height="maxHeight" class="scroll" tile>
+    <v-card-title class="px-2">
+      <v-btn
+        @click="$emit('close')"
+        icon
+        class="mr-1"
+      >
+        <v-icon>fa-times</v-icon>
+      </v-btn>
       {{ post.title }}
-      <v-spacer />
-      <user-chip :user="post.user" />
-      <post-tags :tags="post.tags" />
-      <like-button model="posts" :selected="post" @reload="getPost" />
-      <v-spacer />
-      {{ post.createdAt | dateTime }}
-      <post-edit-button v-model="post" />
+      <v-spacer/>
+      <user-chip :user="post.user"/>
+      <post-tags :tags="post.tags"/>
+      <like-button model="posts" :selected="post" @reload="getPost"/>
+      <v-spacer/>
+      <span class="mr-1">
+        {{ post.createdAt | dateTime }}
+      </span>
+      <post-edit-button v-model="post"/>
       <post-delete-button
-          :selected-post="post"
-          @deleted="$emit('reload')"
+        :selected-post="post"
+        @deleted="$emit('reload')"
       />
     </v-card-title>
-    <v-divider />
-    <post-images :images="post.images" />
+    <v-divider/>
+    <post-images :images="post.images"/>
     <div class="ql-snow">
-      <div class="ql-editor" v-html="post.text" />
+      <div class="ql-editor" v-html="post.text"/>
     </div>
   </v-card>
   <v-card v-else>
-    <v-skeleton-loader class="mx-auto" type="card" />
+    <v-skeleton-loader class="mx-auto" type="card"/>
   </v-card>
 </template>
 
@@ -65,11 +74,11 @@ export default {
     getPost() {
       this.isLoading = true;
       window.axios
-          .get(`/posts/${this.value}`)
-          .then((response) => {
-            this.post = response.data.data;
-          })
-          .finally(() => (this.isLoading = false));
+        .get(`/posts/${this.value}`)
+        .then((response) => {
+          this.post = response.data.data;
+        })
+        .finally(() => (this.isLoading = false));
     }
   }
 };

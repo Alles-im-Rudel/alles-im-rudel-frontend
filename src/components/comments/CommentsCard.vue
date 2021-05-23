@@ -1,18 +1,21 @@
 <template>
-  <v-card v-if="comments" :max-height="maxHeight" class="scroll">
+  <v-card v-if="comments" :max-height="maxHeight" class="scroll" tile>
     <v-card-title>
       Kommentare
       <v-spacer />
       <comment-create-button :post-id="value" @reload="getComments" />
     </v-card-title>
     <v-divider />
-    <v-card-text>
+    <v-card-text v-if="comments.length > 0">
       <comment-card
           v-for="comment in comments"
           :key="comment.id"
           :comment="comment"
           @reload="getComments"
       />
+    </v-card-text>
+    <v-card-text v-else>
+      Dieser Post hat noch keine Kommentare!
     </v-card-text>
   </v-card>
   <v-card v-else>
