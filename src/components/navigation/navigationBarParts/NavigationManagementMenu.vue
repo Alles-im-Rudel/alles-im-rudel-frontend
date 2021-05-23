@@ -11,7 +11,7 @@
     <template v-slot:activator="{ on, attrs }">
       <v-btn
         icon
-        class="ml-4"
+        class="ml-1 ml-sm-4"
         v-bind="attrs"
         v-on="on"
         :color="isActive('management')"

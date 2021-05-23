@@ -7,10 +7,10 @@
 
     <v-toolbar-title
       @click="pushRouteTo('home')"
-      class="cursor-pointer pl-1 d-flex align-center"
+      class="cursor-pointer pl-0 pl-sm-1 d-flex align-center"
     >
       <v-icon
-        size="64"
+        :size="isMobile ? 56 : 64"
         class="mr-3"
       >
         $vuetify.icons.allesimrudel
@@ -27,7 +27,7 @@
         :icon="isMedium"
         @click="pushRouteTo('news')"
         :color="isActive('news')"
-        class="mr-1"
+        class="mr-0 mr-sm-1"
     >
       <v-icon :left="!isMedium">fa-newspaper</v-icon>
       {{ !isMedium ? 'News' : '' }}
@@ -38,7 +38,7 @@
       :icon="isMedium"
       @click="pushRouteTo('branches')"
       :color="isActive('branch')"
-      class="mr-1"
+      class="mr-0 mr-sm-1"
     >
       <v-icon :left="!isMedium">fa-code-branch</v-icon>
       {{ !isMedium ? 'Sparten' : '' }}
@@ -49,7 +49,7 @@
       :icon="isMedium"
       @click="pushRouteTo('join')"
       :color="isActive('join')"
-      class="mr-4"
+      class="mr-1 mr-sm-4"
     >
       <v-icon :left="!isMedium">fa-award</v-icon>
       {{ !isMedium ? 'Beitritt' : '' }}

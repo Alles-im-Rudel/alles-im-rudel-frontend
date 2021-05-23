@@ -12,7 +12,7 @@
       <v-btn
         icon
         class="mr-0"
-        :class="can('headline.management') ? 'ml-1' : 'ml-4'"
+        :class="can('headline.management') ? 'ml-0 ml-sm-1' : 'ml-1 ml-sm-4'"
         :color="isActive('profile')"
         v-bind="attrs"
         v-on="on"
