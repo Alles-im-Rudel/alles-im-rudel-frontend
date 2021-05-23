@@ -1,5 +1,8 @@
 <template>
   <div>
+    <navigation-bar />
+
+    <!--
     <navigation-bar
       @toggle-menu="toggleMenu"
       :show-navigation-drawer="showNavigationDrawer"
@@ -9,24 +12,23 @@
       v-model="showMenu"
       @toggle-menu="toggleMenu"
     />
+    -->
   </div>
 </template>
 
 <script>
-import {mapActions, mapGetters} from 'vuex';
 import NavigationBar from '@/components/navigation/NavigationBar';
-import NavigationDrawer from '@/components/navigation/NavigationDrawer';
+// import NavigationDrawer from '@/components/navigation/NavigationDrawer';
 
 export default {
   components: {
     'navigation-bar': NavigationBar,
-    'navigation-drawer': NavigationDrawer
+    // 'navigation-drawer': NavigationDrawer
   },
   computed: {
-    ...mapGetters('auth', ['user', 'isAuth']),
-    showNavigationDrawer() {
+    /*showNavigationDrawer() {
       return this.$route.meta.group === 'management'
-    }
+    }*/
   },
   data() {
     return {
@@ -34,7 +36,6 @@ export default {
     };
   },
   methods: {
-    ...mapActions('auth', ['logout']),
     toggleMenu() {
       this.showMenu = !this.showMenu;
     }

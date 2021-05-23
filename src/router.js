@@ -6,7 +6,9 @@ Vue.use(Router);
 const router = new Router({
   mode: 'hash',
   routes: [
-    //Home
+    /*
+     * Public
+     */
     {
       path: '/',
       name: 'home',
@@ -24,12 +26,6 @@ const router = new Router({
       name: 'dataProtection',
       meta: {group: 'home', auth: false, permission: null},
       component: () => import('./views/dataProtection')
-    },
-    {
-      path: '/dashboard',
-      name: 'dashboard',
-      meta: {group: 'home', auth: true, permission: 'dashboard.index'},
-      component: () => import('./views/home/dashboard')
     },
     {
       path: '/news',
@@ -56,6 +52,16 @@ const router = new Router({
       component: () => import('./views/home/members')
     },
     {
+      path: '/login',
+      name: 'login',
+      meta: {group: 'login'},
+      component: () => import('./views/LoginForm')
+    },
+
+    /*
+     *  Private
+     */
+    {
       path: '/calendar',
       name: 'calendar',
       meta: {group: 'profile', auth: false, permission: null},
@@ -74,6 +80,10 @@ const router = new Router({
       meta: {group: 'home', auth: false, permission: null},
       component: () => import('./views/profile/show')
     },
+
+    /*
+     * Management
+     */
     {
       path: '/management/users',
       name: 'management-users',
@@ -99,13 +109,10 @@ const router = new Router({
       meta: {group: 'management', auth: true, permission: 'clash.update'},
       component: () => import('./views/management/clash')
     },
-    {
-      path: '/login',
-      name: 'login',
-      meta: {group: 'login'},
-      component: () => import('./views/LoginForm')
-    },
-    //Static Pages
+
+    /*
+     * Static
+     */
     {
       path: '/permission-denied',
       name: 'permission-denied',
@@ -131,7 +138,6 @@ const router = new Router({
       meta: {group: 'static', auth: false, permission: null},
       component: () => import('./views/static/NotFound')
     },
-    //Redirect zur 404 bei unbekannten / nicht gültigen Routes
     {
       path: '*',
       meta: {group: 'static', auth: false, permission: null},
