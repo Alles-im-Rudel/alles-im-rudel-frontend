@@ -24,19 +24,6 @@
       <post-tags :tags="post.tags" />
     </v-card-text>
     <v-card-actions>
-      <v-badge
-          v-if="post.commentsCount > 0"
-          color="greyBlue"
-          :content="post.commentsCount"
-          overlap
-      >
-        <v-chip
-            color="darkGrey"
-            text-color="white"
-        >
-          Kommentare
-        </v-chip>
-      </v-badge>
       {{ post.createdAt | dateTime }}
       <v-spacer />
       <show-full-post-button :post-id="post.id" @reload="$emit('reload')" />
