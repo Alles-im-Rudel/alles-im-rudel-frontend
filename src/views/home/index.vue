@@ -26,7 +26,7 @@
     <v-card-title class="justify-center py-8" style="background-color: #596571; color: white">
       <h2 class="text-h2">News</h2>
     </v-card-title>
-    <v-card-text>
+    <v-card-text class="mt-2">
       <v-row justify="center" class="pt-2 mx-auto mb-5" style="max-width: 1300px">
         <v-col cols="12" md="4"
                v-for="post in posts"
@@ -73,7 +73,7 @@
     <v-card-text>
       <v-row justify="center">
         <v-col
-            v-for="branch in braches"
+            v-for="branch in branches"
             :key="branch.id"
             cols="12"
             md="2"
@@ -87,7 +87,7 @@
           v-model="active"
       >
         <v-window-item
-            v-for="branch in braches"
+            v-for="branch in branches"
             :key="branch.id"
             :value="branch.id"
         >
@@ -145,7 +145,7 @@ export default {
         img: require('@/assets/nick.png'),
         text: '22 Jahre alt / Leiter Airsoft'
       },
-      braches: [
+      branches: [
         {
           id: 1,
           title: 'Airsoft',
