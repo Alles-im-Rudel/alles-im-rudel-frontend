@@ -46,7 +46,7 @@
       <v-card-text class="py-2 primary white--text">
         <div :class="isMobile ? 'd-block text-center' : 'd-flex justify-center'">
           <v-btn
-            @click="impressum"
+            @click="pushRouteTo('impressum')"
             class="mx-1"
             text
             small
@@ -54,7 +54,7 @@
             Impressum
           </v-btn>
           <v-btn
-            @click="dataProtection"
+            @click="pushRouteTo('dataProtection')"
             class="mx-1"
             text
             small
@@ -98,12 +98,6 @@ export default {
     },
     discord() {
       window.open("https://discord.com/invite/CwjhPq6", "_blank");
-    },
-    impressum() {
-      this.$router.push({name: 'impressum'})
-    },
-    dataProtection() {
-      this.$router.push({name: 'dataProtection'})
     }
   },
 }

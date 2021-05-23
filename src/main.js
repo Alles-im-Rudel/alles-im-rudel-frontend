@@ -12,6 +12,7 @@ import i18n from './i18n'
 import store from './store'
 import Bool from "@/mixins/Bool";
 import Effects from "@/mixins/Effects";
+import PushRouteTo from "./mixins/PushRouteTo";
 import "@/style/effects.scss";
 
 import Vue2Editor from 'vue2-editor';
@@ -26,6 +27,7 @@ let app = null;
 Vue.mixin(Dates);
 Vue.mixin(Bool);
 Vue.mixin(Effects);
+Vue.mixin(PushRouteTo)
 Vue.use(Vue2Editor);
 
 if (store.getters['auth/isAuth'] && !store.getters['auth/user']) {

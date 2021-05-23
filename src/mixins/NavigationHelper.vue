@@ -53,11 +53,6 @@ export default {
           this.activeItem = --index
         }
       })
-    },
-    switchView(name) {
-      if (this.$route.name !== name) {
-        this.$router.push({name: name});
-      }
     }
   }
 };

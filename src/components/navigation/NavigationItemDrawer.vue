@@ -46,7 +46,7 @@
         </v-btn>
       </div>
       <div class="ma-3" v-if="!isAuth">
-        <v-btn block color="greyBlue white--text" @click="goToLogin">
+        <v-btn block color="greyBlue white--text" @click="pushRouteTo('login')">
           <v-icon small left>fa-sign-in</v-icon>
           Login
         </v-btn>
@@ -74,12 +74,9 @@ export default {
   computed: mapGetters('auth', ['user', 'isAuth']),
   methods: {
     ...mapActions('auth', ['logout']),
-    onSettingsDrawerClose() {
-      this.$store.commit('navigation/SET_NAVIGATION_ITEM_DRAWER', false);
-    },
     onItemActive(item) {
       if (item && item.length > 0 && item[0].route_name !== this.$route.name) {
-        this.$router.push({name: item[0].route_name});
+        this.pushRouteTo(item[0].route_name);
       }
     },
     confirmLogout() {
@@ -90,10 +87,7 @@ export default {
               'greyBlue'
           )
           .then(confirm => confirm && this.logout());
-    },
-    goToLogin() {
-      this.$router.push({name: 'login'})
-    },
+    }
   }
 };
 </script>

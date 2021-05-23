@@ -17,7 +17,7 @@
         <v-list-item
             v-if="item.type === 'action'"
             link
-            @click="switchView(item.action)"
+            @click="pushRouteTo(item.action)"
         >
           <v-list-item-icon>
             <v-icon v-text="item.icon"></v-icon>

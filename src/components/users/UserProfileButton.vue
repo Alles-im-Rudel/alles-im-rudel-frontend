@@ -26,11 +26,9 @@ export default {
   },
   methods: {
     pushToProfile() {
-      this.$router.push({
-            name: 'profile-show',
-            params: {username: this.username}
-          }
-      )
+      this.pushRouteTo('profile-show', {
+        username: this.username
+      })
     }
   }
 };

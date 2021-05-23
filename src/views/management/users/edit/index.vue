@@ -5,33 +5,33 @@
         Lädt den Benutzer
       </v-card-title>
       <v-card-text>
-        <v-skeleton-loader class="mx-auto" type="card" />
+        <v-skeleton-loader class="mx-auto" type="card"/>
       </v-card-text>
     </base-card>
     <base-card v-else>
       <v-card-title class="headline">
         Bearbeiten von: {{ user.fullName }}
-        <v-spacer />
-        <v-btn @click="backToUserManagement">
+        <v-spacer/>
+        <v-btn @click="pushRouteTo('management-users')">
           <v-icon class="mr-1">fa-arrow-left</v-icon>
           Zurück zur Benutzerübersicht
         </v-btn>
       </v-card-title>
-      <v-divider />
+      <v-divider/>
       <v-card-text>
         <user-form
-            v-model="user"
-            :password-form-labels="passwordFormLabels"
-            :validation-errors="errors"
+          v-model="user"
+          :password-form-labels="passwordFormLabels"
+          :validation-errors="errors"
         />
       </v-card-text>
-      <v-divider />
+      <v-divider/>
       <reset-save-action
-          :is-loading="isLoading"
-          :can-submit="canSubmit"
-          :has-changes="hasChanges"
-          @submit="submit"
-          @clear="clear"
+        :is-loading="isLoading"
+        :can-submit="canSubmit"
+        :has-changes="hasChanges"
+        @submit="submit"
+        @clear="clear"
       />
     </base-card>
   </v-container>
@@ -91,30 +91,30 @@ export default {
   computed: {
     canSubmit() {
       return (
-          this.user.lastName &&
-          this.user.firstName &&
-          this.user.username &&
-          this.user.levelId &&
-          (((this.user.password === undefined ||
-              this.user.password.length === 0) &&
-              (this.user.passwordRepeat === undefined ||
-                  this.user.passwordRepeat.length === 0)) ||
-              this.user.password === this.user.passwordRepeat) &&
-          this.hasChanges
+        this.user.lastName &&
+        this.user.firstName &&
+        this.user.username &&
+        this.user.levelId &&
+        (((this.user.password === undefined ||
+          this.user.password.length === 0) &&
+          (this.user.passwordRepeat === undefined ||
+            this.user.passwordRepeat.length === 0)) ||
+          this.user.password === this.user.passwordRepeat) &&
+        this.hasChanges
       );
     },
     hasChanges() {
       return (
-          this.user.lastName !== this.originalUser.lastName ||
-          this.user.firstName !== this.originalUser.firstName ||
-          this.user.username !== this.originalUser.username ||
-          this.user.email !== this.originalUser.email ||
-          this.user.isActive !== this.originalUser.isActive ||
-          this.user.salutation !== this.originalUser.salutation ||
-          this.user.levelId !== this.originalUser.levelId ||
-          this.user.birthday !== this.originalUser.birthday ||
-          !!this.user.password ||
-          !!this.user.passwordRepeat
+        this.user.lastName !== this.originalUser.lastName ||
+        this.user.firstName !== this.originalUser.firstName ||
+        this.user.username !== this.originalUser.username ||
+        this.user.email !== this.originalUser.email ||
+        this.user.isActive !== this.originalUser.isActive ||
+        this.user.salutation !== this.originalUser.salutation ||
+        this.user.levelId !== this.originalUser.levelId ||
+        this.user.birthday !== this.originalUser.birthday ||
+        !!this.user.password ||
+        !!this.user.passwordRepeat
       );
     }
   },
@@ -128,12 +128,12 @@ export default {
         userId: this.userId
       };
       window.axios
-          .get(`users/${this.userId}`, {params})
-          .then((response) => {
-            this.user = cloneDeep(response.data.data);
-            this.originalUser = cloneDeep(response.data.data);
-          })
-          .finally(() => (this.isLoading = false));
+        .get(`users/${this.userId}`, {params})
+        .then((response) => {
+          this.user = cloneDeep(response.data.data);
+          this.originalUser = cloneDeep(response.data.data);
+        })
+        .finally(() => (this.isLoading = false));
     },
     submit() {
       this.isLoading = true;
@@ -155,17 +155,14 @@ export default {
       }
 
       window.axios
-          .put(`users/${this.userId}`, params)
-          .then((response) => {
-            this.$root.$snackbar.open(response.data.message);
-            this.user = cloneDeep(response.data.user);
-            this.originalUser = cloneDeep(response.data.user);
-          })
-          .catch(this.syncErrors)
-          .finally(() => (this.isLoading = false));
-    },
-    backToUserManagement() {
-      this.$router.push({name: 'management-users'});
+        .put(`users/${this.userId}`, params)
+        .then((response) => {
+          this.$root.$snackbar.open(response.data.message);
+          this.user = cloneDeep(response.data.user);
+          this.originalUser = cloneDeep(response.data.user);
+        })
+        .catch(this.syncErrors)
+        .finally(() => (this.isLoading = false));
     },
     clear() {
       this.user = cloneDeep(this.originalUser);

@@ -40,26 +40,26 @@ const router = new Router({
     {
       path: '/branches',
       name: 'branches',
-      meta: {group: 'branches', auth: false, permission: null},
+      meta: {group: 'branch', auth: false, permission: null},
       component: () => import('./views/Branches')
     },
     {
       path: '/join',
       name: 'join',
-      meta: {group: 'joins', auth: false, permission: null},
+      meta: {group: 'join', auth: false, permission: null},
       component: () => import('./views/joins')
-    },
-    {
-      path: '/calendar',
-      name: 'calendar',
-      meta: {group: 'home', auth: false, permission: null},
-      component: () => import('./views/home/calendar')
     },
     {
       path: '/members',
       name: 'members',
       meta: {group: 'home', auth: false, permission: null},
       component: () => import('./views/home/members')
+    },
+    {
+      path: '/calendar',
+      name: 'calendar',
+      meta: {group: 'profile', auth: false, permission: null},
+      component: () => import('./views/home/calendar')
     },
     {
       path: '/profile',

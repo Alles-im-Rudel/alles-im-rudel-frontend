@@ -16,7 +16,7 @@
         </p>
         <v-btn
           class="mt-4"
-          @click="pushToSparta"
+          @click="pushRouteTo('branches')"
         >
           Zu den Sparten
         </v-btn>
@@ -39,7 +39,7 @@
         <v-btn
           text
           color="primary"
-          @click="$router.push('news')"
+          @click="pushRouteTo('news')"
         >
           Alle News
         </v-btn>
@@ -201,9 +201,6 @@ export default {
           this.posts = response.data.data
         })
         .finally(() => (this.isLoading = false));
-    },
-    pushToSparta() {
-      this.$router.push({name: 'branches'})
     }
   },
 };

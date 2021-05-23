@@ -6,7 +6,7 @@
     />
 
     <v-toolbar-title
-      @click="pushToHome"
+      @click="pushRouteTo('home')"
       class="cursor-pointer pl-1 d-flex align-center"
     >
       <v-icon
@@ -25,7 +25,7 @@
     <v-btn
         :text="!isMedium"
         :icon="isMedium"
-        @click="pushToNews"
+        @click="pushRouteTo('news')"
         :color="isActive('news')"
         class="mr-1"
     >
@@ -36,7 +36,7 @@
     <v-btn
       :text="!isMedium"
       :icon="isMedium"
-      @click="pushToSparta"
+      @click="pushRouteTo('branches')"
       :color="isActive('branch')"
       class="mr-1"
     >
@@ -47,7 +47,7 @@
     <v-btn
       :text="!isMedium"
       :icon="isMedium"
-      @click="pushToJoin"
+      @click="pushRouteTo('join')"
       :color="isActive('join')"
       class="mr-4"
     >
@@ -63,7 +63,7 @@
       :text="!isMedium"
       :icon="isMedium"
       v-if="!isAuth"
-      @click="pushToLogin"
+      @click="pushRouteTo('login')"
       :color="isActive('login')"
       class="mr-1 ml-2"
     >
@@ -77,7 +77,7 @@
       v-if="can('headline.management')"
       icon
       class="ml-4"
-      @click="pushToManagement"
+      @click="pushRouteTo('management-users')"
       :color="isActive('management')"
     >
       <v-icon>fa-cog</v-icon>
@@ -121,13 +121,13 @@
             </div>
           </v-list-item>
           <v-divider />
-          <v-list-item @click="switchPage('profile')">
+          <v-list-item @click="pushRouteTo('profile')">
             <v-list-item-icon class="mr-2">
               <v-icon small>fa-edit</v-icon>
             </v-list-item-icon>
             <v-list-item-content>Profil bearbeiten</v-list-item-content>
           </v-list-item>
-          <v-list-item @click="switchCalendar">
+          <v-list-item @click="pushRouteTo('calendar')">
             <v-list-item-icon class="mr-2">
               <v-icon small>fa-calendar-alt</v-icon>
             </v-list-item-icon>
@@ -175,38 +175,6 @@ export default {
     },
     isActive(group) {
       return this.$route.meta.group === group ? 'darkGrey' : ''
-    },
-    switchPage(name) {
-      if (this.$route.name !== name) {
-        this.$router.push({name: 'profile'});
-      }
-    },
-    switchCalendar() {
-      this.$router.push({name: 'calendar'});
-    },
-    pushToAirsoft() {
-      this.$router.push({name: 'airsoft'});
-    },
-    pushToNews() {
-      this.$router.push({name: 'news'});
-    },
-    pushToSparta() {
-      this.$router.push({name: 'branches'});
-    },
-    pushToGaming() {
-      this.$router.push({name: 'gaming'});
-    },
-    pushToManagement() {
-      this.$router.push({name: 'management-users'});
-    },
-    pushToLogin() {
-      this.$router.push({name: 'login'});
-    },
-    pushToHome() {
-      this.$router.push({name: 'home'})
-    },
-    pushToJoin() {
-      this.$router.push({name: 'join'})
     }
   }
 };
