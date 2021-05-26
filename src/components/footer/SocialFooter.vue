@@ -114,7 +114,7 @@ export default {
       window.open("https://www.instagram.com/allesimrudel/?hl=de", "_blank");
     },
     discord() {
-      window.open("https://discord.com/invite/CwjhPq6", "_blank");
+      window.open("https://www.discord.com/invite/sMzHHnFkTh/", "_blank");
     }
   },
 }
