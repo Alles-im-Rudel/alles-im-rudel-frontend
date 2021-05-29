@@ -94,22 +94,36 @@ export default {
     return {
       activeTab: null,
       member1: {
-        id: 1,
         fullName: 'Silas Beckmann',
-        img: '/assets/leading/left.png',
-        text: dayjs().diff('1998-04-20', 'years') + ' Jahre alt'
+        image: '/assets/leading/left.png',
+        text: dayjs().diff('1998-04-20', 'years') + ' Jahre alt',
+        socials: {
+          instagram: 'silas098',
+          snapchat: 'silas098',
+          linkedin: 'silas-beckmann-866828210'
+        }
       },
       member2: {
         id: 1,
         fullName: 'Timm Vollborn',
-        img: '/assets/leading/center.png',
-        text: dayjs().diff('1999-01-30', 'years') + ' Jahre alt'
+        image: '/assets/leading/center.png',
+        text: dayjs().diff('1999-01-30', 'years') + ' Jahre alt',
+        socials: {
+          instagram: 't.vollborn',
+          snapchat: 't.vollborn',
+          linkedin: 'timm-vollborn-18a4b9210'
+        }
       },
       member3: {
         id: 1,
         fullName: 'Nick Nickels',
-        img: '/assets/leading/right.png',
-        text: dayjs().diff('1998-12-28', 'years') + ' Jahre alt'
+        image: '/assets/leading/right.png',
+        text: dayjs().diff('1998-12-28', 'years') + ' Jahre alt',
+        socials: {
+          instagram: 'air_nj',
+          snapchat: 'nickels_nick',
+          linkedin: null
+        }
       },
     }
   },

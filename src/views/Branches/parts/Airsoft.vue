@@ -3,7 +3,7 @@
     <v-card-text>
       <v-row justify="center">
         <v-col cols="12" md="6" lg="3">
-          <user-card :user="brachLeader" />
+          <user-card :user="branchLeader" />
         </v-col>
       </v-row>
     </v-card-text>
@@ -40,6 +40,7 @@
 </template>
 <script>
 import UserCard from "@/components/users/UserCard";
+import dayjs from "dayjs";
 
 export default {
   components: {
@@ -47,11 +48,15 @@ export default {
   },
   data() {
     return {
-      brachLeader: {
-        id: 1,
+      branchLeader: {
         fullName: 'Nick Nickels',
-        img: null,
-        text: '22 Jahre alt / Vorsitzender und Spartenleiter Airsoft'
+        image: '/assets/leading/branches/airsoft.jpg',
+        text: dayjs().diff('1998-12-28', 'years') + " Jahre alt\nSpartenleiter Airsoft",
+        socials: {
+          instagram: 'air_nj',
+          snapchat: 'nickels_nick',
+          linkedin: null
+        }
       },
     };
   },

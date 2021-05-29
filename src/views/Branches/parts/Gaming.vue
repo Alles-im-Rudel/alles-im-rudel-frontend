@@ -29,6 +29,7 @@
 </template>
 <script>
 import UserCard from "@/components/users/UserCard";
+import dayjs from "dayjs";
 
 export default {
   components: {
@@ -37,16 +38,17 @@ export default {
   data() {
     return {
       brachLeader: {
-        id: 1,
-        fullName: 'Chripstop Schautiluis',
-        img: null,
-        text: '19 Jahre alt / Spartenleiter E-Sports'
+        fullName: 'Christoph Schottelius',
+        image: '/assets/leading/branches/e-sports.jpg',
+        text: dayjs().diff('2001-01-17', 'years') + " Jahre alt\nSpartenleiter E-Sports",
+        socials: {
+          instagram: 'cchhristoph',
+          snapchat: 'cchristoph4',
+          linkedin: null
+        }
       },
     };
-  },
-  watch: {},
-  created() {
-  },
-  methods: {}
+  }
+  //
 };
 </script>
