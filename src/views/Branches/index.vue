@@ -1,25 +1,23 @@
 <template>
   <v-card tile>
-    <v-parallax :src="img">
-      <v-tabs
-          style="position: absolute; bottom: 0; left: 0"
-          v-model="activeTab"
-          active-class="secondary"
-          fixed-tabs
-          show-arrows
-      >
-        <v-tab href="#airsoft"> Airsoft</v-tab>
-        <v-tab href="#gaming"> E-Sports</v-tab>
-      </v-tabs>
-    </v-parallax>
-    <v-divider />
+    <logo-parallax :active-tab="activeTab" />
+    <v-tabs
+      v-model="activeTab"
+      active-class="secondary"
+      fixed-tabs
+      show-arrows
+    >
+      <v-tab href="#airsoft">Airsoft</v-tab>
+      <v-tab href="#gaming">E-Sports</v-tab>
+    </v-tabs>
+    <v-divider/>
     <v-card-text class="mx-auto" style="max-width: 1300px">
       <v-tabs-items v-model="activeTab">
         <v-tab-item value="airsoft">
-          <Airsoft />
+          <Airsoft/>
         </v-tab-item>
         <v-tab-item value="gaming">
-          <Gaming />
+          <Gaming/>
         </v-tab-item>
       </v-tabs-items>
     </v-card-text>
@@ -28,10 +26,12 @@
 <script>
 import Gaming from "@/views/Branches/parts/Gaming";
 import Airsoft from "@/views/Branches/parts/Airsoft";
+import LogoParallax from "./parts/LogoParallax";
 
 export default {
   name: 'Branches',
   components: {
+    LogoParallax,
     Airsoft,
     Gaming
   },
@@ -40,14 +40,6 @@ export default {
       activeTab: this.$route.query.activeTab || null
     }
   },
-  computed: {
-    img() {
-      return this.activeTab === 'airsoft' ? require('@/assets/airsoft-background.png') : require('@/assets/gaming-background.png')
-    }
-  },
-  created() {
-  },
-  methods: {},
   watch: {
     activeTab(activeTab) {
       if (activeTab) {

@@ -50,7 +50,7 @@ export default {
       brachLeader: {
         id: 1,
         fullName: 'Nick Nickels',
-        img: require('@/assets/timm.png'),
+        img: null,
         text: '22 Jahre alt / Vorsitzender und Spartenleiter Airsoft'
       },
     };

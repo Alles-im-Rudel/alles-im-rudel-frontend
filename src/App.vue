@@ -45,7 +45,7 @@ export default {
     bgClass() {
       switch (this.currentRouteGroup) {
         case 'airsoft':
-          return 'bg-arisoft'
+          return 'bg-airsoft'
         case 'gaming':
           return 'bg-gaming'
         default:
@@ -71,18 +71,18 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  background: url('./assets/background.png') no-repeat center center;
+  background: url('./assets/backgrounds/blank.jpg') no-repeat center center;
   background-size: cover;
   transform: scale(1.1);
 }
 
-.bg-arisoft {
+.bg-airsoft {
   width: 100%;
   height: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  background: url('./assets/airsoft-background.png') no-repeat center center;
+  background: url('/assets/backgrounds/airsoft.jpg') no-repeat center center;
   background-size: cover;
   transform: scale(1.1);
 }
@@ -93,7 +93,7 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  background: url('assets/gaming-background.png') no-repeat center center;
+  background: url('/assets/backgrounds/e-sports.jpg') no-repeat center center;
   background-size: cover;
   transform: scale(1.1);
 }

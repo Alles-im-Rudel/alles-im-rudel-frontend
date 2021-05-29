@@ -39,7 +39,7 @@ export default {
       brachLeader: {
         id: 1,
         fullName: 'Chripstop Schautiluis',
-        img: require('@/assets/timm.png'),
+        img: null,
         text: '19 Jahre alt / Spartenleiter E-Sports'
       },
     };

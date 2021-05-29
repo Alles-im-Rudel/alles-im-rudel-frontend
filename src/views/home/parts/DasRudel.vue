@@ -49,7 +49,7 @@
               <br />Schau dir Näheres auf unserer Airsoft-Seite an!
             </p>
             <v-btn
-              @click="toBranch('gaming')"
+              @click="toBranch('airsoft')"
               text
               class="mt-2"
             >
@@ -69,7 +69,7 @@
               <br />Schau dir Näheres auf unserer E-Sports-Seite an!
             </p>
             <v-btn
-              @click="toBranch('airsoft')"
+              @click="toBranch('gaming')"
               text
               class="mt-2"
             >
