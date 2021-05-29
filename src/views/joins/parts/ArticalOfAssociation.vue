@@ -1,5 +1,11 @@
 <template>
-  <div>
+  <div
+    v-if="isLoading"
+    class="d-flex justify-center py-16"
+  >
+    <v-progress-circular indeterminate />
+  </div>
+  <div v-else>
     <pdf
         v-for="i in numPages"
         :key="i"
@@ -11,10 +17,7 @@
 </template>
 
 <script>
-
 import pdf from 'vue-pdf'
-
-let loadingTask = pdf.createLoadingTask('/pdf/satzung.pdf');
 
 export default {
   components: {
@@ -22,15 +25,15 @@ export default {
   },
   data() {
     return {
-      src: loadingTask,
-      numPages: undefined,
+      src: pdf.createLoadingTask('/pdf/satzung.pdf'),
+      numPages: null,
+      isLoading: true
     }
   },
   mounted() {
-
     this.src.promise.then(pdf => {
-
       this.numPages = pdf.numPages;
+      this.isLoading = false;
     });
   }
 }
