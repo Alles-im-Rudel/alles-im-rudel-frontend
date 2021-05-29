@@ -13,10 +13,10 @@
       </v-parallax>
       <div class="mx-auto mt-16 mb-12" style="max-width: 1300px">
         <div class="text-center text-h3">
-          Willkommen bei Alles im Rudel e.V.!
+          Willkommen bei Alles im Rudel!
         </div>
         <p class="text-h5 mt-8">
-          Moin und herzlich Willkommen auf der offiziellen Seite von Alles im Rudel e.V.!
+          Moin und herzlich Willkommen auf der offiziellen Seite von Alles im Rudel!
           <br/>Wir sind ein Verein mit Sitz in Elmshorn und wachsen stetig.
           <br/>
           <br/>Schau doch mal bei unseren Vereinssparten vorbei!
