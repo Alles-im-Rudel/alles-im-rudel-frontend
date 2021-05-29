@@ -1,17 +1,3 @@
 <template>
-  <h1>asdefa</h1>
+  <h1 class="py-6">Coming soon!</h1>
 </template>
-<script>
-
-export default {
-  components: {},
-  data() {
-    return {}
-  },
-  computed: {},
-  created() {
-  },
-  methods: {},
-  watch: {}
-};
-</script>
