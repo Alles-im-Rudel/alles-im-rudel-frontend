@@ -111,7 +111,7 @@ export default {
         socials: {
           instagram: 't.vollborn',
           snapchat: 't.vollborn',
-          linkedin: 'timm-vollborn-18a4b9210'
+          linkedin: 'timm-vollborn'
         }
       },
       member3: {
