@@ -146,7 +146,8 @@ export default {
         email: this.user.email,
         isActive: this.user.isActive,
         levelId: this.user.levelId,
-        birthday: this.user.birthday
+        birthday: this.user.birthday,
+        wantsEmailNotification: this.user.wantsEmailNotification
       };
 
       if (this.user.password && this.user.passwordRepeat) {
