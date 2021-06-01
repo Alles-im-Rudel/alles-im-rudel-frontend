@@ -8,7 +8,7 @@
       </v-row>
     </v-card-text>
     <v-card-text class="text-h5">
-      <h2 class="text-h2 mb-8">Willkommen in dem Bereich E-Sports von <br>"Alles im Rudel"</h2>
+      <h2 class="text-h2 mb-8">Willkommen im Bereich Airsoft von <br>Alles im Rudel</h2>
       <p class="text-justify">
         Wir sind ein stetig wachsendes Team, das sich aus Mitgliedern aus dem Raum Schleswig-Holstein und
         Mecklenburg-Vorpommern zusammensetzt, und jeweils einen Sitz in Elmshorn (SH) und in Leizen (MV) hat.

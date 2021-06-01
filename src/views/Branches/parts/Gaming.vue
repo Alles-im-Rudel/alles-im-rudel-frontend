@@ -8,7 +8,7 @@
       </v-row>
     </v-card-text>
     <v-card-text class="text-h5">
-      <h2 class="text-h2 mb-8">Willkommen in dem Bereich E-Sports von <br>"Alles im Rudel"</h2>
+      <h2 class="text-h2 mb-8">Willkommen im Bereich E-Sports von <br>Alles im Rudel</h2>
       <p class="text-justify">
         Hier möchten wir uns als E-Sports-Team an allen möglichen Spielen versuchen, und sind dabei stets auf der Suche
         nach weiteren Spielern, denen Teamplay und Freundlichkeit sehr wichtig sind. Bei uns steht der Spaß primär im
