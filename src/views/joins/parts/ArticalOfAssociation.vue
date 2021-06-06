@@ -11,7 +11,7 @@
         :key="i"
         :src="src"
         :page="i"
-        style="max-width: 1300px"
+        style="max-width: 1000px; margin: auto;"
     />
   </div>
 </template>
