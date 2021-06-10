@@ -6,10 +6,10 @@
       class="d-flex justify-center align-center"
     >
       <img
-        :src="require('@/icons/logoWhite.svg')"
+        :src="require('@/icons/logoWhite.png')"
         style="width: 95%; max-width: 825px;"
-        class="pb-2"
-        alt=""
+        class="pb-2 effects fade-in-main"
+        alt="logo wihte"
       />
     </v-parallax>
 
@@ -19,10 +19,10 @@
       class="d-flex justify-center align-center"
     >
       <img
-        :src="require('@/icons/logo.svg')"
+        :src="require('@/icons/logo.png')"
         style="width: 95%; max-width: 825px;"
-        class="pb-2"
-        alt=""
+        class="pb-2 effects fade-in-main"
+        alt="logo black"
       />
     </v-parallax>
   </div>

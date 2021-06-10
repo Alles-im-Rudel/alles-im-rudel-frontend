@@ -6,7 +6,7 @@
         class="d-flex justify-center align-center"
       >
         <img
-          :src="require('@/icons/logo.svg')"
+          :src="require('@/icons/logo.png')"
           style="width: 95%; max-width: 825px"
           alt=""
         />
