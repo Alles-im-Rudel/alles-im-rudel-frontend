@@ -40,7 +40,7 @@ export default {
       brachLeader: {
         fullName: 'Christoph Schottelius',
         image: '/assets/leading/branches/e-sports.jpg',
-        text: dayjs().diff('2001-01-17', 'years') + " Jahre alt\nSpartenleiter E-Sports",
+        text: dayjs().diff('2002-01-17', 'years') + " Jahre alt\nSpartenleiter E-Sports",
         socials: {
           instagram: 'cchhristoph',
           snapchat: 'cchristoph4',
