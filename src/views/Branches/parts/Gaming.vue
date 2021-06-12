@@ -1,14 +1,18 @@
 <template>
   <v-card>
-    <v-card-text>
+    <v-card-text class="pt-4">
+      <h2 class="text-h3 text-sm-h2">Willkommen im Bereich E-Sports von <br>Alles im Rudel</h2>
+    </v-card-text>
+
+    <v-card-text class="mt-2">
       <v-row justify="center">
         <v-col cols="12" md="6" lg="3">
-          <user-card :user="brachLeader" />
+          <user-card :user="brachLeader"/>
         </v-col>
       </v-row>
     </v-card-text>
-    <v-card-text class="text-h5">
-      <h2 class="text-h2 mb-8">Willkommen im Bereich E-Sports von <br>Alles im Rudel</h2>
+
+    <v-card-text class="text-h5 mt-2">
       <p class="text-justify">
         Hier möchten wir uns als E-Sports-Team an allen möglichen Spielen versuchen, und sind dabei stets auf der Suche
         nach weiteren Spielern, denen Teamplay und Freundlichkeit sehr wichtig sind. Bei uns steht der Spaß primär im
@@ -21,7 +25,8 @@
         trainieren können, und letztlich an Scrims und Clash-Turnieren teilnehmen. <br><br>
         Natürlich ist aber auch jeder, der einfach nur so in seiner Freizeit ein wenig zocken möchte und auf der Suche
         nach einem freundlichen Team ist, bei uns herzlich willkommen!<br><br>
-        Um noch mehr über uns zu erfahren oder uns persönlich kennenzulernen, könnt ihr <a href="https://discord.com/invite/CwjhPq6">hier</a> unserem Discord-Server
+        Um noch mehr über uns zu erfahren oder uns persönlich kennenzulernen, könnt ihr <a
+        href="https://discord.com/invite/CwjhPq6">hier</a> unserem Discord-Server
         beitreten.
       </p>
     </v-card-text>

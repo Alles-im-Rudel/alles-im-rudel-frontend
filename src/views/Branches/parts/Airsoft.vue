@@ -1,14 +1,40 @@
 <template>
   <v-card>
-    <v-card-text>
+    <v-card-text class="pt-4">
+      <h2 class="text-h3 text-sm-h2">Willkommen im Bereich Airsoft von <br>Alles im Rudel</h2>
+    </v-card-text>
+
+    <v-card-text
+      v-if="isMobile"
+      class="mt-4"
+    >
+      <v-img
+        src="/assets/sponsors/begadi/begadi_vertical.jpg"
+        style="max-width: 150px;"
+        class="mx-auto"
+      />
+    </v-card-text>
+
+    <v-card-text
+      v-else
+      class="pt-6"
+    >
+      <v-img
+        src="/assets/sponsors/begadi/begadi_horizontal.jpg"
+        style="max-width: 600px;"
+        class="mx-auto"
+      />
+    </v-card-text>
+
+    <v-card-text class="mt-4">
       <v-row justify="center">
         <v-col cols="12" md="6" lg="3">
           <user-card :user="branchLeader" />
         </v-col>
       </v-row>
     </v-card-text>
-    <v-card-text class="text-h5">
-      <h2 class="text-h2 mb-8">Willkommen im Bereich Airsoft von <br>Alles im Rudel</h2>
+
+    <v-card-text class="text-h5 mt-2">
       <p class="text-justify">
         Wir sind ein stetig wachsendes Team, das sich aus Mitgliedern aus dem Raum Schleswig-Holstein und
         Mecklenburg-Vorpommern zusammensetzt, und jeweils einen Sitz in Elmshorn (SH) und in Leizen (MV) hat.
@@ -41,11 +67,15 @@
 <script>
 import UserCard from "@/components/users/UserCard";
 import dayjs from "dayjs";
+import CheckMobile from "../../../mixins/CheckMobile";
 
 export default {
   components: {
     UserCard
   },
+  mixins: [
+    CheckMobile
+  ],
   data() {
     return {
       branchLeader: {
