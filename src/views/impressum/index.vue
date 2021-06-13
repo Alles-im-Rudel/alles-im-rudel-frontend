@@ -1,24 +1,24 @@
 <template>
   <v-container>
-    <base-card>
-      <v-card-title>Impressum</v-card-title>
-      <v-card-title>Angaben gem&auml;&szlig; &sect; 5 TMG</v-card-title>
+    <base-card class="text-left mx-auto mt-2" style="max-width: 1300px">
+      <v-card-title class="text-h5 text-sm-h4 text-md-v-card-title">Impressum</v-card-title>
       <v-card-text class="text-left">
+        <v-card-title>Angaben gem&auml;&szlig; &sect; 5 TMG</v-card-title>
         <v-row>
           <v-col cols="12" md="12">
-            <p>Silas Beckmann<br />
+            <p>Alles im Rudel<br />
               Bertolt-Brecht-Ring 7<br />
               25336 Elmshorn <br>
               Deutschland
             </p>
 
-            <h2>Kontakt</h2>
+            <v-card-title>Kontakt</v-card-title>
             <p>Telefon: +49 1515 0742262<br />
               E-Mail: allesimrudel@gmail.com</p>
           </v-col>
         </v-row>
 
-        <h3>Haftung f&uuml;r Inhalte</h3>
+        <v-card-title>Haftung f&uuml;r Inhalte</v-card-title>
         <p>Als Diensteanbieter sind wir gem&auml;&szlig; &sect; 7 Abs.1 TMG f&uuml;r eigene
           Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach &sect;&sect; 8 bis 10
           TMG sind wir als
@@ -32,8 +32,8 @@
           Rechtsverletzung m&ouml;glich.
           Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend
           entfernen.</p>
-        <h3>Haftung
-          f&uuml;r Links</h3>
+        <v-card-title>Haftung
+          f&uuml;r Links</v-card-title>
         <p>Unser Angebot enth&auml;lt Links zu externen Websites Dritter, auf deren Inhalte wir keinen
           Einfluss haben. Deshalb k&ouml;nnen wir f&uuml;r diese fremden Inhalte auch keine Gew&auml;hr &uuml;bernehmen.
           F&uuml;r
@@ -46,7 +46,7 @@
           Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht
           zumutbar. Bei
           Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.</p>
-        <h3>Urheberrecht</h3>
+        <v-card-title>Urheberrecht</v-card-title>
         <p>Die
           durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen
           Urheberrecht. Die
@@ -68,8 +68,9 @@
   </v-container>
 </template>
 
-<script>
-export default {
-  name: "Impressum"
+<style scoped>
+.v-card__title {
+  overflow-wrap: normal !important;
+  word-break: normal !important;
 }
-</script>
+</style>

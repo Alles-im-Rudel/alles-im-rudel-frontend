@@ -1,31 +1,30 @@
 <template>
   <v-container>
-    <base-card class="text-left">
-      <v-card-title>Datenschutzerklärung</v-card-title>
+    <base-card class="text-left mx-auto mt-2" style="max-width: 1300px">
+      <v-card-title class="text-h5 text-sm-h4 text-md-v-card-title">Datenschutzerklärung</v-card-title>
       <v-card-title>Allgemeiner Hinweis und Pflichtinformationen</v-card-title>
-      <v-card-title>Benennung der verantwortlichen Stelle</v-card-title>
       <v-card-text>
-
+        <v-card-title>Benennung der verantwortlichen Stelle</v-card-title>
         <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
         <v-row>
           <v-col cols="12" md="12">
-            <p>Silas Beckmann<br />
-              Bertholt-Brecht-Ring Nr. 7<br />
+            <p>Alles im Rudel<br />
+              Bertolt-Brecht-Ring 7<br />
               25336 Elmshorn<br>
               Telefon: +49 1515 0742262<br />
-              E-Mail: silas.beckmann@allesimrudel.de</p>
+              E-Mail: allesimrudel@gmail.com</p>
           </v-col>
         </v-row>
         <p>Die verantwortliche Stelle entscheidet allein oder gemeinsam mit anderen über die Zwecke und Mittel der
           Verarbeitung von personenbezogenen Daten (z.B. Namen, Kontaktdaten o. Ä.).</p>
 
-        <h3>Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3>
+        <v-card-title>Widerruf Ihrer Einwilligung zur Datenverarbeitung</v-card-title>
         <p>Nur mit Ihrer ausdrücklichen Einwilligung sind einige Vorgänge der Datenverarbeitung möglich. Ein Widerruf
           Ihrer bereits erteilten Einwilligung ist jederzeit möglich. Für den Widerruf genügt eine formlose Mitteilung
           per
           E-Mail. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.</p>
 
-        <h3>Recht auf Beschwerde bei der zuständigen Aufsichtsbehörde</h3>
+        <v-card-title>Recht auf Beschwerde bei der zuständigen Aufsichtsbehörde</v-card-title>
         <p>Als Betroffener steht Ihnen im Falle eines datenschutzrechtlichen Verstoßes ein Beschwerderecht bei der
           zuständigen Aufsichtsbehörde zu. Zuständige Aufsichtsbehörde bezüglich datenschutzrechtlicher Fragen ist der
           Landesdatenschutzbeauftragte des Bundeslandes, in dem sich der Sitz unseres Unternehmens befindet. Der
@@ -34,27 +33,27 @@
               href="https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html" target="_blank">https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html</a>.
         </p>
 
-        <h3>Recht auf Datenübertragbarkeit</h3>
+        <v-card-title>Recht auf Datenübertragbarkeit</v-card-title>
         <p>Ihnen steht das Recht zu, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags
           automatisiert verarbeiten, an sich oder an Dritte aushändigen zu lassen. Die Bereitstellung erfolgt in einem
           maschinenlesbaren Format. Sofern Sie die direkte Übertragung der Daten an einen anderen Verantwortlichen
           verlangen, erfolgt dies nur, soweit es technisch machbar ist.</p>
 
-        <h3>Recht auf Auskunft, Berichtigung, Sperrung, Löschung</h3>
+        <v-card-title>Recht auf Auskunft, Berichtigung, Sperrung, Löschung</v-card-title>
         <p>Sie haben jederzeit im Rahmen der geltenden gesetzlichen Bestimmungen das Recht auf unentgeltliche Auskunft
           über Ihre gespeicherten personenbezogenen Daten, Herkunft der Daten, deren Empfänger und den Zweck der
           Datenverarbeitung und ggf. ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Diesbezüglich und
           auch zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit über die im Impressum
           aufgeführten Kontaktmöglichkeiten an uns wenden.</p>
 
-        <h3>SSL- bzw. TLS-Verschlüsselung</h3>
+        <v-card-title>SSL- bzw. TLS-Verschlüsselung</v-card-title>
         <p>Aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte, die Sie an uns als
           Seitenbetreiber
           senden, nutzt unsere Website eine SSL-bzw. TLS-Verschlüsselung. Damit sind Daten, die Sie über diese Website
           übermitteln, für Dritte nicht mitlesbar. Sie erkennen eine verschlüsselte Verbindung an der „https://“
           Adresszeile Ihres Browsers und am Schloss-Symbol in der Browserzeile.</p>
 
-        <h3>Server-Log-Dateien</h3>
+        <v-card-title>Server-Log-Dateien</v-card-title>
         <p>In Server-Log-Dateien erhebt und speichert der Provider der Website automatisch Informationen, die Ihr
           Browser
           automatisch an uns übermittelt. Dies sind:</p>
@@ -71,7 +70,7 @@
           bildet Art. 6 Abs. 1 lit. b DSGVO, der die Verarbeitung von Daten zur Erfüllung eines Vertrags oder
           vorvertraglicher Maßnahmen gestattet.</p>
 
-        <h3>Registrierung auf dieser Website</h3>
+        <v-card-title>Registrierung auf dieser Website</v-card-title>
         <p>Zur Nutzung bestimmter Funktionen können Sie sich auf unserer Website registrieren. Die übermittelten Daten
           dienen ausschließlich zum Zwecke der Nutzung des jeweiligen Angebotes oder Dienstes. Bei der Registrierung
           abgefragte Pflichtangaben sind vollständig anzugeben. Andernfalls werden wir die Registrierung ablehnen.</p>
@@ -88,7 +87,7 @@
           registriert sind. Ihren Daten werden gelöscht, sollten Sie Ihre Registrierung aufheben. Gesetzliche
           Aufbewahrungsfristen bleiben unberührt.</p>
 
-        <h3>Kontaktformular</h3>
+        <v-card-title>Kontaktformular</v-card-title>
         <p>Per Kontaktformular übermittelte Daten werden einschließlich Ihrer Kontaktdaten gespeichert, um Ihre Anfrage
           bearbeiten zu können oder um für Anschlussfragen bereitzustehen. Eine Weitergabe dieser Daten findet ohne Ihre
           Einwilligung nicht statt.</p>
@@ -100,7 +99,7 @@
           Einwilligung zur Speicherung widerrufen oder keine Notwendigkeit der Datenspeicherung mehr besteht. Zwingende
           gesetzliche Bestimmungen - insbesondere Aufbewahrungsfristen - bleiben unberührt.</p>
 
-        <h3>Speicherdauer von Beiträgen und Kommentaren</h3>
+        <v-card-title>Speicherdauer von Beiträgen und Kommentaren</v-card-title>
         <p>Beiträge und Kommentare sowie damit in Verbindung stehende Daten, wie beispielsweise IP-Adressen, werden
           gespeichert. Der Inhalt verbleibt auf unserer Website, bis er vollständig gelöscht wurde oder aus rechtlichen
           Gründen gelöscht werden musste.</p>
@@ -109,7 +108,7 @@
           formlose Mitteilung per E-Mail. Die
           Rechtmäßigkeit bereits erfolgter Datenverarbeitungsvorgänge bleibt vom Widerruf unberührt.</p>
 
-        <h3>Abonnieren von Posts</h3>
+        <v-card-title>Abonnieren von Posts</v-card-title>
         <p>Sie können als Nutzer unserer Website nach erfolgter Anmeldung Posts abonnieren. Mit einer
           Bestätigungs-E-Mail prüfen wir, ob Sie der Inhaber der angegebenen E-Mail-Adresse sind. Sie können die
           Abo-Funktion für Kommentare jederzeit über einen Link,
@@ -118,7 +117,7 @@
           worden sein, verbleiben diese
           weiterhin bei uns.</p>
 
-        <h3>Newsletter-Daten</h3>
+        <v-card-title>Newsletter-Daten</v-card-title>
         <p>Zum Versenden unseres Newsletters benötigen wir von Ihnen eine E-Mail-Adresse. Eine Verifizierung der
           angegebenen E-Mail-Adresse ist notwendig und der Empfang des Newsletters ist einzuwilligen. Ergänzende Daten
           werden nicht erhoben oder sind freiwillig.
@@ -133,7 +132,7 @@
           für andere Zwecke und an anderer Stelle an uns übermittelt worden sein, verbleiben diese weiterhin bei
           uns.</p>
 
-        <h3>YouTube</h3>
+        <v-card-title>YouTube</v-card-title>
         <p>Für Integration und Darstellung von Videoinhalten nutzt unsere Website Plugins von YouTube. Anbieter des
           Videoportals ist die YouTube, LLC, 901 Cherry Ave., San Bruno, CA 94066, USA.</p>
         <p>Bei Aufruf einer Seite mit integriertem YouTube-Plugin wird eine Verbindung zu den Servern von YouTube
@@ -147,7 +146,7 @@
             href="https://www.google.de/intl/de/policies/privacy">https://www.google.de/intl/de/policies/privacy</a>.
         </p>
 
-        <h3>Cookies</h3>
+        <v-card-title>Cookies</v-card-title>
         <p>Unsere Website verwendet Cookies. Das sind kleine Textdateien, die Ihr Webbrowser auf Ihrem Endgerät
           speichert.
           Cookies helfen uns dabei, unser Angebot nutzerfreundlicher, effektiver und sicherer zu machen. </p>
@@ -167,21 +166,14 @@
           reibungslosen Bereitstellung unserer Dienste. Sofern die Setzung anderer Cookies (z.B. für Analyse-Funktionen)
           erfolgt, werden diese in dieser
           Datenschutzerklärung separat behandelt.</p>
-        <p><small>Quelle: Datenschutz-Konfigurator von <a href="http://www.mein-datenschutzbeauftragter.de"
-                                                          target="_blank">mein-datenschutzbeauftragter.de</a></small>
-        </p>
-
       </v-card-text>
     </base-card>
   </v-container>
 </template>
 
-<script>
-export default {
-  name: "Impressum",
-  data() {
-    return {}
-  },
-  methods: {}
-}
-</script>
+<style scoped>
+  .v-card__title {
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+</style>
