@@ -46,9 +46,27 @@
               dark
               icon
               large
+              @click="facebook"
+            >
+              <v-icon size="24px">fab fa-facebook</v-icon>
+            </v-btn>
+            <v-btn
+              class="mx-2"
+              dark
+              icon
+              large
               @click="youtube"
             >
               <v-icon size="24px">fab fa-youtube</v-icon>
+            </v-btn>
+            <v-btn
+              class="mx-2"
+              dark
+              icon
+              large
+              @click="twitch"
+            >
+              <v-icon size="24px">fab fa-twitch</v-icon>
             </v-btn>
           </div>
         </div>
@@ -115,6 +133,12 @@ export default {
     },
     discord() {
       window.open("https://www.discord.com/invite/sMzHHnFkTh/", "_blank");
+    },
+    facebook() {
+      window.open("https://www.facebook.com/allesimrudel/", "_blank");
+    },
+    twitch() {
+      window.open("https://www.twitch.tv/allesimrudel/", "_blank");
     }
   },
 }
