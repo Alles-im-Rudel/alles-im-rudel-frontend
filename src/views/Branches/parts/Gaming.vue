@@ -32,14 +32,22 @@
         uns persönlich kennenzulernen, tretet gerne einfach unserem Discord-Server bei.
       </p>
     </v-card-text>
+    <v-card-title class="mt-4" v-if="false">
+      <h3 class="text-h3">
+        Unsere Teams
+      </h3>
+    </v-card-title>
+    <clash class="pb-8" v-if="false"/>
   </v-card>
 </template>
 <script>
 import UserCard from "@/components/users/UserCard";
 import dayjs from "dayjs";
+import Clash from "../../gaming/lol/parts/Clash";
 
 export default {
   components: {
+    Clash,
     UserCard
   },
   data() {

@@ -1,8 +1,5 @@
 <template>
   <base-card flat>
-    <v-card-title>
-      Alles Im Rudel Clash Teams
-    </v-card-title>
     <v-card-text>
       <v-row
           justify="center"
@@ -10,7 +7,7 @@
           :key="clashTeam.id"
       >
         <v-col cols="12" md="11" offset-md="1">
-          <v-card-title class="pb-0">{{ clashTeam.name }}</v-card-title>
+          <v-card-title class="pb-0 text-h5">{{ clashTeam.name }}</v-card-title>
         </v-col>
         <v-col cols="12" md="2"
                v-for="clashMember in clashTeam.clashMembers"
