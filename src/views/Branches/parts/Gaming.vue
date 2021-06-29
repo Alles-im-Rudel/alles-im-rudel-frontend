@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-card-text class="pt-4">
-      <h2 class="text-h3 text-sm-h2 py-8">Willkommen in der Sparte E-Sports</h2>
+      <h2 class="text-h3 text-sm-h2 py-8">Willkommen in der Sparte E-Sports!</h2>
     </v-card-text>
 
     <v-card-text class="mt-2">
