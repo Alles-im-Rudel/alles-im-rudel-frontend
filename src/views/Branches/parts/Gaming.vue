@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-card-text class="pt-4">
-      <h2 class="text-h3 text-sm-h2">Willkommen im Bereich E-Sports von <br>Alles im Rudel</h2>
+      <h2 class="text-h3 text-sm-h2 py-8">Willkommen in der Sparte E-Sports</h2>
     </v-card-text>
 
     <v-card-text class="mt-2">
@@ -12,22 +12,24 @@
       </v-row>
     </v-card-text>
 
-    <v-card-text class="text-h5 mt-2">
+    <v-card-title class="mt-4">
+      <h3 class="text-h3">
+        Über uns
+      </h3>
+    </v-card-title>
+    <v-card-text class="text-h5 mt-2 pb-6">
       <p class="text-justify">
-        Hier möchten wir uns als E-Sports-Team an allen möglichen Spielen versuchen, und sind dabei stets auf der Suche
-        nach weiteren Spielern, denen Teamplay und Freundlichkeit sehr wichtig sind. Bei uns steht der Spaß primär im
-        Vordergrund, aber je nachdem, um welches Spiel es sich handelt, ist es ebenfalls ein Ziel von uns, kompetitiv an
-        kleineren oder auch mal größeren Turnieren teilzunehmen. Die Mehrheit von uns spielt momentan vor allem League
-        of
-        Legends, und bei den Clash-Turnieren sind wir regelmäßig vertreten. Im Hinblick auf League of Legends möchten
-        wir
-        gerade als kurzfristiges Ziel versuchen, ein paar Teams zu bilden, die dann regelmäßig zusammenspielen und
-        trainieren können, und letztlich an Scrims und Clash-Turnieren teilnehmen. <br><br>
-        Natürlich ist aber auch jeder, der einfach nur so in seiner Freizeit ein wenig zocken möchte und auf der Suche
-        nach einem freundlichen Team ist, bei uns herzlich willkommen!<br><br>
-        Um noch mehr über uns zu erfahren oder uns persönlich kennenzulernen, könnt ihr <a
-        href="https://discord.com/invite/CwjhPq6">hier</a> unserem Discord-Server
-        beitreten.
+        Wir sind ein E-Sports-Team, das sich an allen möglichen Spielen versucht und sind dabei stets auf der Suche nach
+        weiteren Spielern, die sowohl freundlich als auch teamplayfähig sind. Zwar steht bei uns der Spaß im
+        Vordergrund, aber je nach Spiel nehmen wir auch kompetitiv an kleineren oder auch mal größeren Turnieren teil.
+        Aktuell spielt die Mehrheit von uns vor allem League of Legends, aber auch Spiele wie Minecraft oder Hearts of
+        Iron sind bei uns vertreten.<br><br>
+        Im Hinblick auf League of Legends sind wir bereits häufig bei den Clash-Turnieren vertreten. Dennoch erweitern
+        wir gerade unseren Bereich rund um League of Legends, da wir mehrere Teams haben möchten, die dann regelmäßig
+        zusammenspielen, trainieren, und letztlich erfolgreich an Turnieren teilnehmen.<br><br>
+        Selbstverständlich ist aber auch jeder, der einfach nur so in seiner Freizeit ein wenig zocken möchte und auf
+        der Suche nach einem freundlichen Team ist, bei uns herzlich willkommen! Um noch mehr über uns zu erfahren oder
+        uns persönlich kennenzulernen, tretet gerne einfach unserem Discord-Server bei.
       </p>
     </v-card-text>
   </v-card>

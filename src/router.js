@@ -16,13 +16,13 @@ const router = new Router({
       component: () => import('./views/home')
     },
     {
-      path: '/impressum',
+      path: '/legal-notice',
       name: 'impressum',
       meta: {group: 'home', auth: false, permission: null},
       component: () => import('./views/impressum')
     },
     {
-      path: '/dataProtection',
+      path: '/privacy-notice',
       name: 'dataProtection',
       meta: {group: 'home', auth: false, permission: null},
       component: () => import('./views/dataProtection')

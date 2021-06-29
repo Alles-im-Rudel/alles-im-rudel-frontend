@@ -18,8 +18,9 @@
           Willkommen bei Alles im Rudel!
         </div>
         <p class="text-h5 mt-8">
-          Moin und herzlich Willkommen auf der offiziellen Seite von Alles im Rudel!
-          <br/>Wir sind ein Verein mit Sitz in Elmshorn und wachsen stetig.
+          Hallo und herzlich willkommen auf unserer offiziellen Homepage.
+          <br />
+          <br/>Wir sind ein stetig wachsender Verein mit Sitz in Elmshorn, der unter anderem mehrere Vereinssparten beschäftigt.
           <br/>
           <br/>Schau doch mal bei unseren Vereinssparten vorbei!
         </p>

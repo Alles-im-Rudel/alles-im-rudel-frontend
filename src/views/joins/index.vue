@@ -6,14 +6,14 @@
         fixed-tabs
         show-arrows
     >
-      <v-tab href="#artical-of-association"> Vereinssatzung</v-tab>
+      <v-tab href="#article-of-association"> Vereinssatzung</v-tab>
       <v-tab href="#membership-application"> Mitgliedsantrag</v-tab>
       <v-tab href="#branch-membership-application"> Spartenzugehörigkeitsantrag</v-tab>
     </v-tabs>
     <v-divider />
     <v-card-text class="mx-auto" style="max-width: 1300px">
       <v-tabs-items v-model="activeTab">
-        <v-tab-item value="artical-of-association">
+        <v-tab-item value="article-of-association">
           <ArticalOfAssociation />
         </v-tab-item>
         <v-tab-item value="membership-application">

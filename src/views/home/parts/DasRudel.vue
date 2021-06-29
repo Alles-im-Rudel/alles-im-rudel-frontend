@@ -46,7 +46,7 @@
             </div>
             <p class="text-h5 mt-6">
               Wir spielen gerne Airsoft. Und wir würden uns freuen, wenn wir dich auch dafür begeistern könnten.
-              <br />Schau dir Näheres auf unserer Airsoft-Seite an!
+              <br />Schau doch mal bei unserer Sparte Airsoft vorbei!
             </p>
             <v-btn
               @click="toBranch('airsoft')"
@@ -65,8 +65,8 @@
               E-Sports
             </div>
             <p class="text-h5 mt-6">
-              Wir zocken. Ob kompetitiv oder casual.
-              <br />Schau dir Näheres auf unserer E-Sports-Seite an!
+              Wir zocken gerne, sowohl casual als auch kompetitiv. Und wir würden uns freuen, wenn wir dich auch dafür begeistern könnten.
+              <br />Schau doch mal bei unserer Sparte E-Sports vorbei!
             </p>
             <v-btn
               @click="toBranch('gaming')"

@@ -10,7 +10,9 @@
           <v-col cols="12" md="12">
             <p>Alles im Rudel<br />
               Bertolt-Brecht-Ring 7<br />
-              25336 Elmshorn<br>
+              25336 Elmshorn<br />
+              Deutschland<br />
+              <br />
               Telefon: +49 1515 0742262<br />
               E-Mail: allesimrudel@gmail.com</p>
           </v-col>
