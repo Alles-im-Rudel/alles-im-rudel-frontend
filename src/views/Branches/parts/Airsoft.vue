@@ -34,6 +34,11 @@
       </v-row>
     </v-card-text>
 
+    <v-card-title class="mt-4">
+      <h3 class="text-h3">
+        Über uns
+      </h3>
+    </v-card-title>
     <v-card-text class="text-h5 mt-2">
       <p class="text-justify">
         Wir sind ein stetig wachsendes Team, das sich aus Mitgliedern aus dem Raum Schleswig-Holstein und
@@ -46,6 +51,7 @@
       </p>
       <div class="text-left">
         <ul>
+          <li>Sponsoring durch Begadi mit exklusiven Rabatten</li>
           <li>
             Ausrüstung zum Leihen, um einen ersten Eindruck zu gewinnen
           </li>
@@ -56,21 +62,30 @@
       <p class="text-justify mt-7">
         Folgendes solltet ihr mitbringen:
       </p>
-      <div class="text-left">
+      <div class="text-left pb-6">
         <ul>
           <li>Interesse an dem Airsoft-Sport</li>
         </ul>
       </div>
     </v-card-text>
+
+    <v-card-title class="mt-8" v-if="false">
+      <h3 class="text-h3">
+        Unser Team
+      </h3>
+    </v-card-title>
+    <airsoft-members class="py-4" v-if="false" />
   </v-card>
 </template>
 <script>
 import UserCard from "@/components/users/UserCard";
 import dayjs from "dayjs";
 import CheckMobile from "../../../mixins/CheckMobile";
+import AirsoftMembers from "./AirsoftMembers";
 
 export default {
   components: {
+    AirsoftMembers,
     UserCard
   },
   mixins: [
@@ -89,10 +104,6 @@ export default {
         }
       },
     };
-  },
-  watch: {},
-  created() {
-  },
-  methods: {}
+  }
 };
 </script>

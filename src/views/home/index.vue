@@ -5,11 +5,13 @@
         :src="require('@/assets/backgrounds/blank.jpg')"
         class="d-flex justify-center align-center"
       >
-        <img
-          :src="require('@/icons/logo.png')"
-          style="width: 95%; max-width: 825px"
-          alt=""
-        />
+        <div class="d-flex justify-center align-center">
+          <img
+            :src="require('@/icons/logo.png')"
+            style="width: 95%; max-width: 825px"
+            alt=""
+          />
+        </div>
       </v-parallax>
       <div class="mx-auto mt-16 mb-12" style="max-width: 1300px">
         <div class="text-center text-h3">
