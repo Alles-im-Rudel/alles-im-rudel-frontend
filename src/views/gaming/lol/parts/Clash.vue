@@ -6,15 +6,18 @@
           v-for="clashTeam in clashTeams"
           :key="clashTeam.id"
       >
-        <v-col cols="12" md="11" offset-md="1">
+        <v-col cols="12">
           <v-card-title class="pb-0 text-h5">{{ clashTeam.name }}</v-card-title>
         </v-col>
-        <v-col cols="12" md="2"
-               v-for="clashMember in clashTeam.clashMembers"
-               :key="clashMember.id"
-        >
-          <clash-team-member :clash-member="clashMember" />
-        </v-col>
+        <div class="container">
+          <div
+              class="item"
+              v-for="clashMember in clashTeam.clashMembers"
+              :key="clashMember.id"
+          >
+            <clash-team-member :clash-member="clashMember" />
+          </div>
+        </div>
       </v-row>
     </v-card-text>
   </base-card>
@@ -46,3 +49,35 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.item {
+  max-width: 19%;
+  margin: 5px;
+}
+
+@media (max-width: 1264px) {
+  .container {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .item {
+    max-width: 47%;
+  }
+}
+
+@media (max-width: 960px) {
+  .container {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .item {
+    max-width: 100%;
+  }
+}
+</style>

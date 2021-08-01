@@ -7,7 +7,7 @@
     <v-card-text class="mt-2">
       <v-row justify="center">
         <v-col cols="12" md="6" lg="3">
-          <user-card :user="brachLeader"/>
+          <user-card :user="branchLeader" />
         </v-col>
       </v-row>
     </v-card-text>
@@ -32,18 +32,18 @@
         uns persönlich kennenzulernen, tretet gerne einfach unserem Discord-Server bei.
       </p>
     </v-card-text>
-    <v-card-title class="mt-4" v-if="false">
+    <v-card-title class="mt-4">
       <h3 class="text-h3">
         Unsere Teams
       </h3>
     </v-card-title>
-    <clash class="pb-8" v-if="false"/>
+    <clash class="pb-8" />
   </v-card>
 </template>
 <script>
 import UserCard from "@/components/users/UserCard";
 import dayjs from "dayjs";
-import Clash from "../../gaming/lol/parts/Clash";
+import Clash from "@/views/gaming/lol/parts/Clash";
 
 export default {
   components: {
@@ -52,7 +52,7 @@ export default {
   },
   data() {
     return {
-      brachLeader: {
+      branchLeader: {
         fullName: 'Christoph Schottelius',
         image: '/assets/leading/branches/e-sports.jpg',
         text: dayjs().diff('2002-01-17', 'years') + " Jahre alt\nSpartenleiter E-Sports",
@@ -63,7 +63,6 @@ export default {
         }
       },
     };
-  }
-  //
+  },
 };
 </script>
