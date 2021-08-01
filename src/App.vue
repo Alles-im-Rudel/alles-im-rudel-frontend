@@ -8,6 +8,7 @@
       <snackbar-component ref="snackbar" />
       <router-view class="effects fade-in-main" />
       <social-footer />
+      <cookie-banner />
     </v-main>
   </v-app>
 </template>
@@ -17,10 +18,12 @@ import AlertModal from './components/dialogs/AlertModal';
 import Snackbar from './components/dialogs/Snackbar';
 import Navigation from "./components/navigation/Navigation";
 import SocialFooter from './components/footer/SocialFooter';
+import CookieBanner from "@/components/cookies/CookieBanner";
 
 export default {
   name: 'App',
   components: {
+    CookieBanner,
     'alert-modal': AlertModal,
     'confirm-modal': ConfirmModal,
     'snackbar-component': Snackbar,
