@@ -46,12 +46,6 @@ const router = new Router({
       component: () => import('./views/joins')
     },
     {
-      path: '/members',
-      name: 'members',
-      meta: {group: 'home', auth: false, permission: null},
-      component: () => import('./views/home/members')
-    },
-    {
       path: '/login',
       name: 'login',
       meta: {group: 'login'},

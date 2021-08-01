@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <span :class="bgClass" />
+    <span class="bg"/>
     <navigation />
     <v-main>
       <confirm-modal ref="confirm" />
@@ -41,16 +41,6 @@ export default {
   computed: {
     currentRouteGroup() {
       return this.$route.meta.group
-    },
-    bgClass() {
-      switch (this.currentRouteGroup) {
-        case 'airsoft':
-          return 'bg-airsoft'
-        case 'gaming':
-          return 'bg-gaming'
-        default:
-          return 'bg'
-      }
     }
   }
 };
@@ -72,28 +62,6 @@ export default {
   top: 0;
   left: 0;
   background: url('./assets/backgrounds/blank.jpg') no-repeat center center;
-  background-size: cover;
-  transform: scale(1.1);
-}
-
-.bg-airsoft {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: url('/assets/backgrounds/airsoft.jpg') no-repeat center center;
-  background-size: cover;
-  transform: scale(1.1);
-}
-
-.bg-gaming {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: url('/assets/backgrounds/e-sports.jpg') no-repeat center center;
   background-size: cover;
   transform: scale(1.1);
 }

@@ -43,7 +43,7 @@
 <script>
 import UserCard from "@/components/users/UserCard";
 import dayjs from "dayjs";
-import Clash from "@/views/gaming/lol/parts/Clash";
+import Clash from "@/components/clash/Clash";
 
 export default {
   components: {
