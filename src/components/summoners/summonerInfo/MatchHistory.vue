@@ -9,11 +9,12 @@
             v-for="match in matches"
             :key="match.gameId"
         >
-            <v-expansion-panel-header>
-              <match-title :match="match.gameData" :summoner-id="summoner.summonerId" />
-            </v-expansion-panel-header>
+          <v-expansion-panel-header>
+            <match-title v-if="match.gameData" :match="match.gameData" :summoner-id="summoner.summonerId" />
+            <div v-else>Leider ist ein Problem aufgeträten...</div>
+          </v-expansion-panel-header>
           <v-expansion-panel-content>
-            <match-body :match="match.gameData" :summoner-id="summoner.summonerId" />
+            <match-body v-if="match.gameData" :match="match.gameData" :summoner-id="summoner.summonerId" />
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>

@@ -15,7 +15,7 @@
           <span v-else v-on="{...tooltip}">{{ summoner.name }}</span>
         </template>
         <span v-if="isAuth">Profil von {{ summoner.name }} ansehen</span>
-        <span v-if="!isAuth">Melden dich an um das Profil von {{ summoner.name }} anzusehen!</span>
+        <span v-else>Melden dich an um das Profil von {{ summoner.name }} anzusehen!</span>
       </v-tooltip>
     </template>
     <summoner-info :summoner="summoner" @close="close" />
