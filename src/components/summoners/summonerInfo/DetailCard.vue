@@ -93,7 +93,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .item {
   border-color: goldenrod;
   border-style: solid;

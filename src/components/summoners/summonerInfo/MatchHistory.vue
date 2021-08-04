@@ -4,21 +4,19 @@
       Match History
     </v-card-title>
     <v-card-text v-if="!isLoading && matches.length > 0">
-      <v-list>
-        <v-list-group
+      <v-expansion-panels accordion>
+        <v-expansion-panel
             v-for="match in matches"
             :key="match.gameId"
         >
-          <template v-slot:activator>
-            <v-list-item-content>
+            <v-expansion-panel-header>
               <match-title :match="match.gameData" :summoner-id="summoner.summonerId" />
-            </v-list-item-content>
-          </template>
-          <v-list-item>
+            </v-expansion-panel-header>
+          <v-expansion-panel-content>
             <match-body :match="match.gameData" :summoner-id="summoner.summonerId" />
-          </v-list-item>
-        </v-list-group>
-      </v-list>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+      </v-expansion-panels>
     </v-card-text>
     <v-card-text v-else>
       <v-skeleton-loader class="mx-auto" type="card" />

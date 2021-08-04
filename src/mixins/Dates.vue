@@ -1,6 +1,7 @@
 <script>
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+
 dayjs.extend(customParseFormat);
 
 export default {
@@ -16,7 +17,14 @@ export default {
     },
     monthYear: function (date, defaultVal = '-') {
       return date ? dayjs(date).format('MMMM YYYYY') : defaultVal;
-    }
+    },
+    toHHMMSS: function (milli) {
+      let time = new Date(milli);
+      let hours = time.getUTCHours();
+      let minutes = time.getUTCMinutes();
+      let seconds = time.getUTCSeconds();
+      return hours + ":" + minutes + ":" + seconds;
+    },
   },
   methods: {
     parseDate(date, defaultVal = null) {

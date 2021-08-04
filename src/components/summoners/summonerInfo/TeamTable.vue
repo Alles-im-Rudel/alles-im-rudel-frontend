@@ -139,3 +139,9 @@ export default {
   }
 }
 </script>
+<style scoped>
+td, th {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}
+</style>

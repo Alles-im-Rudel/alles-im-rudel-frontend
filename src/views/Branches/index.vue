@@ -8,7 +8,7 @@
       show-arrows
     >
       <v-tab href="#airsoft">Airsoft</v-tab>
-      <v-tab href="#gaming">E-Sports</v-tab>
+      <v-tab href="#esports">E-Sports</v-tab>
     </v-tabs>
     <v-divider/>
     <v-card-text class="mx-auto" style="max-width: 1300px">
@@ -16,7 +16,7 @@
         <v-tab-item value="airsoft">
           <Airsoft/>
         </v-tab-item>
-        <v-tab-item value="gaming">
+        <v-tab-item value="esports">
           <Gaming/>
         </v-tab-item>
       </v-tabs-items>

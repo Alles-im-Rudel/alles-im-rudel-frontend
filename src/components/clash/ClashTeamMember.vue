@@ -15,7 +15,7 @@
             <v-col class="ma-0 pa-0" cols="12">
               <v-row class="ma-0 pa-0">
                 <v-col cols="12" lg="6">
-                  <strong>{{ clashMember.summoner.name }}</strong>
+                  <summoner-info-button :summoner="clashMember.summoner" />
                 </v-col>
                 <v-col cols="12" lg="6">
                   <summoner-profile-icon :summoner="clashMember.summoner" />
@@ -76,10 +76,12 @@
 <script>
 
 import SummonerProfileIcon from "@/components/summoners/SummonerProfileIcon";
+import SummonerInfoButton from "@/components/summoners/summonerInfo/SummonerInfoButton";
 
 export default {
   components: {
-    SummonerProfileIcon
+    SummonerProfileIcon,
+    SummonerInfoButton
   },
   props: {
     clashMember: {
