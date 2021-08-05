@@ -1,11 +1,11 @@
 <template>
   <v-app>
-    <span class="bg"/>
+    <span class="bg" />
     <navigation />
     <v-main>
       <confirm-modal ref="confirm" />
       <alert-modal ref="alert" />
-      <snackbar-component ref="snackbar" />
+      <snackbar ref="snackbar" />
       <router-view class="effects fade-in-main" />
       <social-footer />
       <cookie-banner />
@@ -22,13 +22,16 @@ import CookieBanner from "@/components/cookies/CookieBanner";
 
 export default {
   name: 'App',
+  metaInfo: {
+    title: 'Alles im Rudel | Airsoft | E-Sports',
+  },
   components: {
     CookieBanner,
-    'alert-modal': AlertModal,
-    'confirm-modal': ConfirmModal,
-    'snackbar-component': Snackbar,
-    'navigation': Navigation,
-    'social-footer': SocialFooter
+    AlertModal,
+    ConfirmModal,
+    Snackbar,
+    Navigation,
+    SocialFooter
   },
   data() {
     return {
@@ -41,11 +44,6 @@ export default {
     this.$root.$alert = this.$refs.alert;
     this.$root.$snackbar = this.$refs.snackbar;
   },
-  computed: {
-    currentRouteGroup() {
-      return this.$route.meta.group
-    }
-  }
 };
 </script>
 
@@ -79,18 +77,5 @@ export default {
 .fade-enter,
 .fade-leave-active {
   opacity: 0
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
 }
 </style>

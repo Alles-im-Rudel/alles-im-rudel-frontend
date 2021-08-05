@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container v-once>
     <base-card class="text-left mx-auto mt-2" style="max-width: 1300px">
       <v-card-title class="text-h5 text-sm-h4 text-md-v-card-title">Impressum</v-card-title>
       <v-card-text class="text-left">

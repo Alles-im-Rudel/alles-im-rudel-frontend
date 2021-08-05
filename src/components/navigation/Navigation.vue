@@ -1,10 +1,5 @@
 <template>
   <v-app-bar color="primary" dark app clipped-left>
-    <v-app-bar-nav-icon
-        v-if="showNavigationDrawer"
-        @click="toggleMenu"
-    />
-
     <v-toolbar-title
         @click="pushRouteTo('home')"
         class="cursor-pointer pl-0 pl-sm-1 d-flex align-center"
@@ -58,7 +53,6 @@
     <v-divider vertical inset />
 
     <!-- Ohne Auth -->
-
     <v-btn
         :text="!isMedium"
         :icon="isMedium"
@@ -72,7 +66,6 @@
     </v-btn>
 
     <!-- Auth -->
-
     <navigation-management-menu />
     <navigation-user-menu />
   </v-app-bar>
@@ -82,32 +75,18 @@
 import {mapActions, mapGetters} from 'vuex';
 import Permissions from "@/mixins/Permissions";
 import CheckMobile from "@/mixins/CheckMobile";
-import NavigationUserMenu from "./navigationBarParts/NavigationUserMenu";
-import NavigationManagementMenu from "./navigationBarParts/NavigationManagementMenu";
 
 export default {
-  components: {NavigationManagementMenu, NavigationUserMenu},
-  mixins: [Permissions, CheckMobile],
-  props: {
-    showNavigationDrawer: {
-      type: Boolean,
-      required: false,
-      default: false
-    }
+  components: {
+    NavigationManagementMenu: () => import("./navigationBarParts/NavigationManagementMenu"),
+    NavigationUserMenu: () => import("./navigationBarParts/NavigationUserMenu")
   },
+  mixins: [Permissions, CheckMobile],
   computed: {
     ...mapGetters('auth', ['user', 'isAuth', 'permissions']),
   },
-  data() {
-    return {
-      showMenu: false,
-    };
-  },
   methods: {
     ...mapActions('auth', ['logout']),
-    toggleMenu() {
-      this.$emit('toggle-menu');
-    },
     isActive(group) {
       return this.$route.meta.group === group ? 'darkGrey' : ''
     }

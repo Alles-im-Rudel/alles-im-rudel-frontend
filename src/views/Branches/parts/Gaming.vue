@@ -29,7 +29,7 @@
         zusammenspielen, trainieren, und letztlich erfolgreich an Turnieren teilnehmen.<br><br>
         Selbstverständlich ist aber auch jeder, der einfach nur so in seiner Freizeit ein wenig zocken möchte und auf
         der Suche nach einem freundlichen Team ist, bei uns herzlich willkommen! Um noch mehr über uns zu erfahren oder
-        uns persönlich kennenzulernen, tretet gerne einfach unserem Discord-Server bei.
+        uns persönlich kennenzulernen, tretet gerne einfach unserem <a href="https://www.discord.com/invite/sMzHHnFkTh/" target="_blank">Discord-Server</a> bei.
       </p>
     </v-card-text>
     <v-card-title class="mt-4">
@@ -46,6 +46,9 @@ import dayjs from "dayjs";
 import Clash from "@/components/clash/Clash";
 
 export default {
+  metaInfo: {
+    title: 'Alles im Rudel Sparte E-Sports',
+  },
   components: {
     Clash,
     UserCard

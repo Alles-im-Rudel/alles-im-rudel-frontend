@@ -43,11 +43,10 @@
 </template>
 
 <script>
-import PostCard from "@/components/post/PostCard";
 
 export default {
   components: {
-    PostCard
+    PostCard: () => import("@/components/post/PostCard"),
   },
   data() {
     return {

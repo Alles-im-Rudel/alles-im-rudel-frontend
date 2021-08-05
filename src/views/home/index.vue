@@ -1,6 +1,6 @@
 <template>
   <v-card tile>
-    <v-card-text class="px-0 pt-0">
+    <v-card-text class="px-0 pt-0" v-once>
       <v-parallax
           :src="require('@/assets/backgrounds/blank.jpg')"
           alt="Alles im Rudel Hintergrund ohne Wölfe"
@@ -15,9 +15,9 @@
         </div>
       </v-parallax>
       <div class="mx-auto mt-16 mb-12" style="max-width: 1300px">
-        <div class="text-center text-h3">
+        <h1 class="text-center text-h3">
           Willkommen bei Alles im Rudel!
-        </div>
+        </h1>
         <p class="text-h5 mt-8">
           Hallo und herzlich willkommen auf unserer offiziellen Homepage.
           <br />
@@ -35,20 +35,17 @@
         </v-btn>
       </div>
     </v-card-text>
-    <v-divider />
     <news />
     <das-rudel />
   </v-card>
 </template>
 <script>
-import DasRudel from "./parts/DasRudel";
-import News from "./parts/News";
 
 export default {
   name: 'Home',
   components: {
-    News,
-    DasRudel,
+    News: () => import("./parts/News"),
+    DasRudel: () => import("./parts/DasRudel"),
   }
 };
 </script>

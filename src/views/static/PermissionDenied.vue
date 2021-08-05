@@ -1,5 +1,5 @@
 <template>
-    <v-img src="@/assets/errors/403.svg" height="100vh">
+    <v-img src="@/assets/errors/403.svg" height="100vh" v-once>
         <v-container fluid>
             <v-row justify="center" align="center">
                 <v-col cols="12" lg="5">

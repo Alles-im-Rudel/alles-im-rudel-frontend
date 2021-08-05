@@ -41,10 +41,10 @@
       <v-tab-item value="airsoft">
         <v-card flat>
           <v-card-text class="mt-0">
-            <div class="text-h3">
+            <h3 class="text-h3" v-once>
               Airsoft
-            </div>
-            <p class="text-h5 mt-6">
+            </h3>
+            <p class="text-h5 mt-6" v-once>
               Wir spielen gerne Airsoft. Und wir würden uns freuen, wenn wir dich auch dafür begeistern könnten.
               <br />Schau doch mal bei unserer Sparte Airsoft vorbei!
             </p>
@@ -61,10 +61,10 @@
       <v-tab-item value="gaming">
         <v-card flat>
           <v-card-text class="mt-0">
-            <div class="text-h3">
+            <h3 class="text-h3" v-once>
               E-Sports
-            </div>
-            <p class="text-h5 mt-6">
+            </h3>
+            <p class="text-h5 mt-6" v-once>
               Wir zocken gerne, sowohl casual als auch kompetitiv. Und wir würden uns freuen, wenn wir dich auch dafür
               begeistern könnten.
               <br />Schau doch mal bei unserer Sparte E-Sports vorbei!

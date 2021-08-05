@@ -49,6 +49,9 @@ import {debounce} from 'lodash';
 import Permissions from "@/mixins/Permissions";
 
 export default {
+  metaInfo: {
+    title: 'Alles im Rudel Neuigkeiten',
+  },
   name: "News",
   mixins: [Permissions],
   components: {

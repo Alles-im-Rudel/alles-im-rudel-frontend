@@ -87,6 +87,9 @@ import CheckMobile from "../../../mixins/CheckMobile";
 import AirsoftMembers from "./AirsoftMembers";
 
 export default {
+  metaInfo: {
+    title: 'Alles im Rudel Sparte Airsoft',
+  },
   components: {
     AirsoftMembers,
     UserCard
