@@ -25,18 +25,18 @@
     </v-card-title>
     <v-divider />
     <v-tabs
-      v-model="activeTab"
-      active-class="secondary"
-      fixed-tabs
-      show-arrows
+        v-model="activeTab"
+        active-class="secondary"
+        fixed-tabs
+        show-arrows
     >
       <v-tab href="#airsoft">Airsoft</v-tab>
       <v-tab href="#gaming">E-Sports</v-tab>
     </v-tabs>
     <v-divider />
     <v-tabs-items
-      v-model="activeTab"
-      class="mt-8 pb-8 text-center mx-auto"
+        v-model="activeTab"
+        class="mt-8 pb-8 text-center mx-auto"
     >
       <v-tab-item value="airsoft">
         <v-card flat>
@@ -49,9 +49,9 @@
               <br />Schau doch mal bei unserer Sparte Airsoft vorbei!
             </p>
             <v-btn
-              @click="toBranch('airsoft')"
-              text
-              class="mt-2"
+                @click="toBranch('airsoft')"
+                text
+                class="mt-2"
             >
               Näheres erfahren
             </v-btn>
@@ -65,13 +65,14 @@
               E-Sports
             </div>
             <p class="text-h5 mt-6">
-              Wir zocken gerne, sowohl casual als auch kompetitiv. Und wir würden uns freuen, wenn wir dich auch dafür begeistern könnten.
+              Wir zocken gerne, sowohl casual als auch kompetitiv. Und wir würden uns freuen, wenn wir dich auch dafür
+              begeistern könnten.
               <br />Schau doch mal bei unserer Sparte E-Sports vorbei!
             </p>
             <v-btn
-              @click="toBranch('gaming')"
-              text
-              class="mt-2"
+                @click="toBranch('gaming')"
+                text
+                class="mt-2"
             >
               Näheres erfahren
             </v-btn>

@@ -3,13 +3,14 @@
     <v-card-text class="px-0 pt-0">
       <v-parallax
         :src="require('@/assets/backgrounds/blank.jpg')"
+        alt="Alles im Rudel Hintergrund ohne Wölfe"
         class="d-flex justify-center align-center"
       >
         <div class="d-flex justify-center align-center">
           <img
             :src="require('@/icons/logo.png')"
             style="width: 95%; max-width: 825px"
-            alt=""
+            alt="Alles im Rudel Wölfe"
           />
         </div>
       </v-parallax>
@@ -47,17 +48,6 @@ export default {
   components: {
     News,
     DasRudel,
-  },
-  data() {
-    return {
-      active: 1,
-      posts: []
-    };
-  },
-  computed: {
-    link() {
-      return this.active === 1 ? '/#/branches?activeTab=airsoft' : '/#/branches?activeTab=gaming'
-    }
   }
 };
 </script>
