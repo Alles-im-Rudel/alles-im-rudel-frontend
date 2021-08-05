@@ -16,7 +16,7 @@
     </v-parallax>
 
     <v-parallax
-      v-if="activeTab === 'gaming'"
+      v-if="activeTab === 'esports'"
       src="/assets/backgrounds/e-sports.jpg"
       class="d-flex justify-center align-center"
     >
