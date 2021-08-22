@@ -31,7 +31,7 @@
         show-arrows
     >
       <v-tab href="#airsoft">Airsoft</v-tab>
-      <v-tab href="#gaming">E-Sports</v-tab>
+      <v-tab href="#esports">E-Sports</v-tab>
     </v-tabs>
     <v-divider />
     <v-tabs-items
@@ -58,7 +58,7 @@
           </v-card-text>
         </v-card>
       </v-tab-item>
-      <v-tab-item value="gaming">
+      <v-tab-item value="esports">
         <v-card flat>
           <v-card-text class="mt-0">
             <h3 class="text-h3" v-once>
@@ -70,7 +70,7 @@
               <br />Schau doch mal bei unserer Sparte E-Sports vorbei!
             </p>
             <v-btn
-                @click="toBranch('gaming')"
+                @click="toBranch('esports')"
                 text
                 class="mt-2"
             >
