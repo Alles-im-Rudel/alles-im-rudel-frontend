@@ -30,7 +30,7 @@
 
 import ArticalOfAssociation from "./parts/ArticalOfAssociation";
 import BranchMembershipApplication from "./parts/BranchMembershipApplication";
-import MembershipApplication from "./parts/MembershipApplication";
+import MembershipApplication from "./parts/MembershipApplication/MembershipApplication";
 
 export default {
   name: 'Join',
