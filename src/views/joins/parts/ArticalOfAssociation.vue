@@ -25,7 +25,7 @@ export default {
   },
   data() {
     return {
-      src: pdf.createLoadingTask('/pdf/verseionsatzung.pdf'),
+      src: pdf.createLoadingTask('/pdf/vereinssatzung.pdf'),
       numPages: null,
       isLoading: true
     }
