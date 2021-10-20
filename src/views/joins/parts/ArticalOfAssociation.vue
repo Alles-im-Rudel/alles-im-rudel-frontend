@@ -25,7 +25,7 @@ export default {
   },
   data() {
     return {
-      src: pdf.createLoadingTask('/pdf/satzung.pdf'),
+      src: pdf.createLoadingTask('/pdf/verseionsatzung.pdf'),
       numPages: null,
       isLoading: true
     }

@@ -7,13 +7,13 @@
         <v-row>
           <v-col cols="12" md="12">
             <p>Alles im Rudel<br />
-              Bertolt-Brecht-Ring 7<br />
-              25336 Elmshorn <br>
+              Norderstraße 23<br />
+              25335 Elmshorn<br>
               Deutschland
             </p>
 
             <v-card-title>Kontakt</v-card-title>
-            <p>Telefon: +49 1515 0742262<br />
+            <p>Telefon: +49 176 55234699<br />
               E-Mail: allesimrudel@gmail.com</p>
           </v-col>
         </v-row>
