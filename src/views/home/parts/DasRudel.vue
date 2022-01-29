@@ -101,7 +101,7 @@ export default {
         socials: {
           instagram: 'silas098',
           snapchat: 'silas098',
-          linkedin: 'silas-beckmann-866828210'
+          linkedin: 'silas-beckmann'
         }
       },
       member2: {
@@ -123,7 +123,7 @@ export default {
         socials: {
           instagram: 'air_nj',
           snapchat: 'nickels_nick',
-          linkedin: null
+          linkedin: 'nick-nickels'
         }
       },
     }

@@ -21,10 +21,9 @@
         <p class="text-h5 mt-8">
           Hallo und herzlich willkommen auf unserer offiziellen Homepage.
           <br />
-          <br />Wir sind ein stetig wachsender Verein mit Sitz in Elmshorn, der unter anderem mehrere Vereinssparten
-          beschäftigt.
-          <br />
-          <br />Schau doch mal bei unseren Vereinssparten vorbei!
+          <br />Wir sind ein stetig wachsender Verein mit Sitz in Elmshorn, dessen Zweck es ist, sich für den Erhalt & die Förderung der sozialen Einheit „Alles im Rudel“ einzusetzen, zu welcher insbesondere unsere Vereinsmitglieder gehören.<br /> Dies geschieht vornehmlich durch einen regelmäßigen sozialen Austausch unserer Vereinsmitglieder, welcher grundsätzlich in den unterschiedlichsten Formen erfolgen kann.
+          <br /><br />Unter anderem geschieht dies auch in den verschiedenen Vereinssparten, welche nach Bedarf von unseren Vereinsmitgliedern ins Leben gerufen werden können, um so dediziert spezielle Interessen abzubilden.
+          <br /><br />Aktuell beschäftigen wir mehrere Vereinssparten, schau doch einfach mal bei diesen vorbei!
         </p>
         <v-btn
             class="mt-4"
