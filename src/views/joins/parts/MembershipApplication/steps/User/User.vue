@@ -13,9 +13,10 @@
       </v-col>
       <v-col cols="12" md="6">
         <v-text-field
-            v-model="form.email"
+            v-model="email"
             required
             label="Email"
+            :prepend-inner-icon="checkEmailIcon"
             :error="hasErrors('email')"
             :error-messages="getErrors('email')"
         />
@@ -55,7 +56,11 @@ export default {
       errors: {},
       isLoading: false,
       username: "",
+      email: "",
       isUsernameFree: false,
+      isLoadingUsername: false,
+      isLoadingEmail: false,
+      isEmailFree: false,
     }
   },
   methods: {
@@ -64,7 +69,7 @@ export default {
       try {
         let {data} = await window.axios.get(`/profils/check-username/${this.username}`)
         this.isUsernameFree = data[0];
-        if(this.isUsernameFree && this.username) {
+        if (this.isUsernameFree && this.username) {
           this.form.username = this.username
         } else {
           this.form.username = null;
@@ -75,6 +80,23 @@ export default {
       } finally {
         this.isLoadingUsername = false;
       }
+    },
+    async checkEmail() {
+      this.isLoadingEmail = true;
+      try {
+        let {data} = await window.axios.get(`/profils/check-email/${this.email}`)
+        this.isEmailFree = data[0];
+        if (this.isEmailFree && this.email) {
+          this.form.email = this.email
+        } else {
+          this.form.email = null;
+        }
+      } catch (error) {
+        this.errors = error;
+        this.form.email = null;
+      } finally {
+        this.isLoadingEmail = false;
+      }
     }
   },
   computed: {
@@ -83,6 +105,12 @@ export default {
         return "fa-loader";
       }
       return this.username && this.isUsernameFree ? "fa-check" : "fa-times";
+    },
+    checkEmailIcon() {
+      if (this.isLoadingEmail) {
+        return "fa-loader";
+      }
+      return this.email && this.isEmailFree ? "fa-check" : "fa-times";
     }
   },
   watch: {
@@ -95,10 +123,21 @@ export default {
     username: {
       handler() {
         setTimeout(() => {
-          if(this.username) {
+          if (this.username) {
             this.checkUsername();
           } else {
             this.form.username = null;
+          }
+        }, 1000)
+      }
+    },
+    email: {
+      handler() {
+        setTimeout(() => {
+          if (this.email) {
+            this.checkEmail();
+          } else {
+            this.form.email = null;
           }
         }, 1000)
       }

@@ -221,6 +221,7 @@ export default {
         };
         let {data} = await window.axios.post(`/members/register`, params);
         this.$root.$snackbar.open(data.message);
+        this.pushRouteTo('home');
       } catch (error) {
         this.errors = error;
       } finally {
