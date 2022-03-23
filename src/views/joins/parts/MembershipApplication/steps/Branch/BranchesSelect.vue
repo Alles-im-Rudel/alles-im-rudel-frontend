@@ -57,10 +57,15 @@ export default {
       }
     },
     changeBranches(branch) {
-      const index = this.form.branches.findIndex((item) => item.id === branch.id);
-      if (index) {
-        this.form.branches.splice(index, 1);
+      if (this.form.branches && this.form.branches.length > 0) {
+        const index = this.form.branches.findIndex((item) => item.id === branch.id);
+        if (index >= 0) {
+          this.form.branches.splice(index, 1);
+        } else {
+          this.form.branches.push(branch)
+        }
       } else {
+        this.form.branches = [];
         this.form.branches.push(branch)
       }
     }

@@ -15,7 +15,7 @@
 
       <v-stepper-content step="1">
         <v-card flat>
-          <v-card-text class="ma-0 pa-0">
+          <v-card-text class="ma-0 px-0">
             <who-are-you v-model="form" :validation-errors="errors" />
           </v-card-text>
           <step-controls :is-valid="stepOneIsValid" @step-back="previousStep" @step-continue="nextStep" />
@@ -31,7 +31,7 @@
 
       <v-stepper-content step="2">
         <v-card flat>
-          <v-card-text class="ma-0 pa-0">
+          <v-card-text class="ma-0 px-0">
             <where-do-you-live v-model="form" :validation-errors="errors" />
           </v-card-text>
           <step-controls :is-valid="stepTwoIsValid" @step-back="previousStep" @step-continue="nextStep" />
@@ -48,7 +48,7 @@
 
       <v-stepper-content step="3">
         <v-card flat>
-          <v-card-text class="ma-0 pa-0">
+          <v-card-text class="ma-0 px-0">
             <v-row justify="center">
               <v-col cols="12" md="6">
                 <v-text-field
@@ -75,7 +75,7 @@
 
       <v-stepper-content step="4">
         <v-card flat>
-          <v-card-text class="ma-0 pa-0">
+          <v-card-text class="ma-0 px-0">
             <branch-data
                 v-model="form"
                 :validation-errors="errors"
@@ -95,7 +95,7 @@
 
       <v-stepper-content step="5">
         <v-card flat>
-          <v-card-text class="ma-0 pa-0">
+          <v-card-text class="ma-0 px-0">
             <user v-model="form" :validation-errors="errors" />
           </v-card-text>
           <step-controls :is-valid="stepFiveIsValid" @step-back="previousStep" @step-continue="nextStep" />
@@ -112,10 +112,11 @@
 
       <v-stepper-content step="6">
         <v-card flat>
-          <v-card-text class="ma-0 pa-0">
+          <v-card-text class="ma-0 px-0">
             <overview v-model="form" />
           </v-card-text>
-          <step-controls :is-valid="stepSixIsValid" continue-label="Fertigstellen" @step-back="previousStep" @step-continue="nextStep" />
+          <step-controls :is-valid="stepSixIsValid" continue-label="Fertigstellen" @step-back="previousStep"
+                         @step-continue="submit" />
         </v-card>
       </v-stepper-content>
     </v-stepper>
@@ -130,7 +131,6 @@ import WhoAreYou from "@/views/joins/parts/MembershipApplication/steps/WhoAreYou
 import WhereDoYouLive from "@/views/joins/parts/MembershipApplication/steps/WhereDoYouLive/WhereDoYouLive";
 import User from "@/views/joins/parts/MembershipApplication/steps/User/User";
 import Overview from "@/views/joins/parts/MembershipApplication/steps/Overview/Overview";
-
 
 export default {
   components: {
@@ -181,12 +181,51 @@ export default {
           && (this.form.password === this.form.passwordRepeat);
     },
     stepSixIsValid() {
-      return true;
+      return this.stepOneIsValid
+          && this.stepTwoIsValid
+          && this.stepThreeIsValid
+          && this.stepFourIsValid
+          && this.stepFourIsValid
+          && this.stepFiveIsValid
+          && !!this.form.hasAcceptedDataProtection
+          && !!this.form.hasAcceptedMonthlyDebits
+          && !!this.form.wantsEmailNotification;
     },
   },
   methods: {
     nextStep() {
       this.step++;
+    },
+    async submit() {
+      this.isLoadingUsername = true;
+      try {
+        const params = {
+          'salutation': this.form.salutation,
+          'firstName': this.form.firstName,
+          'lastName': this.form.lastName,
+          'phone': this.form.phone,
+          'birthday': this.form.birthday,
+          'street': this.form.street,
+          'postcode': this.form.postcode,
+          'city': this.form.city,
+          'country': this.form.country,
+          'iban': this.form.iban,
+          'username': this.form.username,
+          'email': this.form.email,
+          'password': this.form.password,
+          'passwordRepeat': this.form.passwordRepeat,
+          'hasAcceptedDataProtection': this.form.hasAcceptedDataProtection,
+          'hasAcceptedMonthlyDebits': this.form.hasAcceptedMonthlyDebits,
+          'wantsEmailNotification': this.form.wantsEmailNotification,
+          'branches': this.form.branches.map(branch => branch.id)
+        };
+        let {data} = await window.axios.post(`/members/register`, params);
+        this.$root.$snackbar.open(data.message);
+      } catch (error) {
+        this.errors = error;
+      } finally {
+        this.isLoadingUsername = false;
+      }
     },
     previousStep() {
       if (this.step > 1) {
