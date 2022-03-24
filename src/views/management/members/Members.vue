@@ -10,7 +10,7 @@
             <member-table
                 v-model="options"
                 :is-loading="isLoading"
-                :users="users"
+                :members="members"
                 :server-items-length="serverItemsLength"
                 @reload="getMembers"
             />
@@ -23,7 +23,7 @@
 
 <script>
 import {zipObject} from 'lodash';
-import MemberTable from "@/views/management/users/index/parts/UserTable";
+import MemberTable from "@/views/management/members/parts/MembersTable";
 
 export default {
   components: {
@@ -31,7 +31,7 @@ export default {
   },
   data() {
     return {
-      users: [],
+      members: [],
       isLoading: false,
       options: {
         page: 1,
@@ -72,7 +72,7 @@ export default {
       };
       window.axios.get('members', {params})
           .then(response => {
-            this.users = response.data.data
+            this.members = response.data.data
             this.serverItemsLength = response.data.meta.total;
           }).finally(() => this.isLoading = false)
     }

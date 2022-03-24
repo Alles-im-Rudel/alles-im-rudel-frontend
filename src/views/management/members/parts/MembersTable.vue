@@ -2,45 +2,33 @@
   <v-data-table
       :loading="isLoading"
       :headers="headers"
-      :items="users"
+      :items="members"
       :options.sync="options"
       :server-items-length="serverItemsLength"
       :footer-props="footerProps"
-      :no-data-text="'Es wurden keine Benutzer gefunden'"
+      no-data-text="Es wurden keine neu Anmeldungen gefunden"
       multi-sort
   >
-    <template v-slot:item.activatedAt="{ item }">
-      <v-icon v-if="item.isActive" color="success">fa-check</v-icon>
+    <template v-slot:item.emailVerifiedAt="{ item }">
+      <v-icon v-if="item.emailVerifiedAt" color="success">fa-check</v-icon>
       <v-icon v-else color="error">fa-times</v-icon>
     </template>
-    <template v-slot:item.updatedAt="{ item }">
-      {{ item.updatedAt | dateTime }}
+    <template v-slot:item.birthday="{ item }">
+      {{ item.birthday | date }}
     </template>
     <template v-slot:item.actions="{ item }">
-      <user-edit-button :user="item" />
-      <user-sync-user-groups-button :user="item" @reload="reload" />
-      <user-sync-permissions-button :user="item" @reload="reload" />
-      <user-sync-main-summoner-button :user="item" @reload="reload" />
-      <user-delete-button :selected-user="item" @user-was-deleted="reload" />
+      <member-accept-button :member="item" @reload="reload" />
     </template>
   </v-data-table>
 </template>
 <script>
 import Permissions from '@/mixins/Permissions';
 import DataTableMixin from '@/mixins/DataTableMixin';
-import UserEditButton from "@/views/management/users/index/parts/buttons/UserEditButton";
-import UserDeleteButton from "@/views/management/users/index/parts/buttons/UserDeleteButton";
-import UserSyncPermissionsButton from "@/views/management/users/index/parts/buttons/UserSyncPermissionsButton";
-import UserSyncUserGroupsButton from "@/views/management/users/index/parts/buttons/UserSyncUserGroupsButton";
-import UserSyncMainSummonerButton from "@/views/management/users/index/parts/buttons/UserSyncMainSummonerButton";
+import MemberAcceptButton from "@/views/management/members/parts/MemberAcceptButton";
 
 export default {
   components: {
-    UserEditButton,
-    UserDeleteButton,
-    UserSyncPermissionsButton,
-    UserSyncUserGroupsButton,
-    UserSyncMainSummonerButton
+    MemberAcceptButton
   },
   mixins: [Permissions, DataTableMixin],
   props: {
@@ -60,7 +48,7 @@ export default {
       required: true,
       default: 0
     },
-    users: {
+    members: {
       type: Array,
       required: true,
       default: () => []
@@ -91,27 +79,12 @@ export default {
           value: 'email'
         },
         {
-          text: 'Benutzergruppen',
-          value: 'userGroupsCount',
-          sortable: false
+          text: 'E-Mail bestätigt',
+          value: 'emailVerifiedAt'
         },
         {
-          text: 'Rollen',
-          value: 'rolesCount',
-          sortable: false
-        },
-        {
-          text: 'Berechtigungen',
-          value: 'permissionsCount',
-          sortable: false
-        },
-        {
-          text: 'Aktiv',
-          value: 'activatedAt'
-        },
-        {
-          text: 'Bearbeitet am',
-          value: 'updatedAt'
+          text: 'Geburstag',
+          value: 'birthday'
         },
         {
           text: 'Aktionen',
