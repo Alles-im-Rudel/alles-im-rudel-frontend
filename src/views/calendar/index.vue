@@ -1,29 +1,32 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="12" md="12">
+      <v-col
+        cols="12"
+        md="12"
+      >
         <base-card>
           <v-card-title>
             Kalender / Events
             <v-spacer />
             <v-text-field
-                append-icon="fa-search"
-                v-model="search"
-                label="Suche"
-                clearable
-                @keydown.enter="getAppointments"
-                @click:append="getAppointments"
-                @click:clear="clearSearch"
+              v-model="search"
+              append-icon="fa-search"
+              label="Suche"
+              clearable
+              @keydown.enter="getAppointments"
+              @click:append="getAppointments"
+              @click:clear="clearSearch"
             />
             <v-spacer />
             <tag-select v-model="tags" />
           </v-card-title>
           <v-card-text>
             <calender
-                v-model="range"
-                :appointments="appointments"
-                :is-loading="isLoading"
-                @reload="getAppointments"
+              v-model="range"
+              :appointments="appointments"
+              :is-loading="isLoading"
+              @reload="getAppointments"
             />
           </v-card-text>
         </base-card>
@@ -33,12 +36,12 @@
 </template>
 
 <script>
-import TagSelect from "@/components/selects/TagSelect";
-import Calender from "@/components/calendar/Calender";
-import {debounce} from "lodash";
+import TagSelect from '@/components/selects/TagSelect';
+import Calender from '@/components/calendar/Calender';
+import {debounce} from 'lodash';
 
 export default {
-  name: "CalenderIndex",
+  name: 'CalenderIndex',
   components: {
     TagSelect,
     Calender
@@ -53,10 +56,7 @@ export default {
         month: this.today().format('MM'),
         year: this.today().format('YYYY')
       }
-    }
-  },
-  created() {
-    this.getAppointments();
+    };
   },
   watch: {
     tags: {
@@ -72,6 +72,9 @@ export default {
       }
     },
   },
+  created() {
+    this.getAppointments();
+  },
   methods: {
     clearSearch() {
       this.search = null;
@@ -86,12 +89,12 @@ export default {
         year: this.range.year
       };
       window.axios
-          .get(`appointments`, {params})
+          .get('appointments', {params})
           .then((response) => {
             this.appointments = response.data.data;
           })
           .finally(() => (this.isLoading = false));
     },
   }
-}
+};
 </script>

@@ -3,8 +3,9 @@ import Router from 'vue-router';
 import store from './store';
 
 Vue.use(Router);
+
 const router = new Router({
-  mode: 'hash',
+  mode: 'history',
   routes: [
     /*
      * Public
@@ -17,27 +18,27 @@ const router = new Router({
     },
     {
       path: '/legal-notice',
-      name: 'impressum',
+      name: 'legal',
       meta: {group: 'home', auth: false, permission: null},
-      component: () => import('./views/impressum')
+      component: () => import('./views/static/legal')
     },
     {
       path: '/privacy-notice',
-      name: 'dataProtection',
+      name: 'privacy',
       meta: {group: 'home', auth: false, permission: null},
-      component: () => import('./views/dataProtection')
+      component: () => import('./views/static/privacy')
     },
     {
-      path: '/news',
-      name: 'news',
-      meta: {group: 'news', auth: false, permission: null},
-      component: () => import('./views/home/news')
-    },
-    {
-      path: '/branches',
-      name: 'branches',
+      path: '/branches/airsoft',
+      name: 'airsoft',
       meta: {group: 'branch', auth: false, permission: null},
-      component: () => import('./views/Branches')
+      component: () => import('./views/branches/airsoft/Airsoft')
+    },
+    {
+      path: '/branches/e-sports',
+      name: 'esports',
+      meta: {group: 'branch', auth: false, permission: null},
+      component: () => import('./views/branches/esports/Esports')
     },
     {
       path: '/join',
@@ -59,7 +60,7 @@ const router = new Router({
       path: '/calendar',
       name: 'calendar',
       meta: {group: 'profile', auth: true, permission: null},
-      component: () => import('./views/home/calendar')
+      component: () => import('./views/calendar')
     },
     {
       path: '/profile',
@@ -165,6 +166,6 @@ router.beforeEach((to, from, next) => {
 });
 router.afterEach(() => {
   window.scrollTo(0, 0);
-})
+});
 
 export default router;

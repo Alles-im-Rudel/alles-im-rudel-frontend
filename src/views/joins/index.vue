@@ -1,17 +1,26 @@
 <template>
   <v-card tile>
     <v-tabs
-        v-model="activeTab"
-        active-class="secondary"
-        fixed-tabs
-        show-arrows
+      v-model="activeTab"
+      active-class="secondary"
+      fixed-tabs
+      show-arrows
     >
-      <v-tab href="#article-of-association"> Vereinssatzung</v-tab>
-      <v-tab href="#membership-application"> Mitgliedsantrag</v-tab>
-      <v-tab href="#branch-membership-application"> Spartenzugehörigkeitsantrag</v-tab>
+      <v-tab href="#article-of-association">
+        Vereinssatzung
+      </v-tab>
+      <v-tab href="#membership-application">
+        Mitgliedsantrag
+      </v-tab>
+      <v-tab href="#branch-membership-application">
+        Spartenzugehörigkeitsantrag
+      </v-tab>
     </v-tabs>
     <v-divider />
-    <v-card-text class="mx-auto" style="max-width: 1300px">
+    <v-card-text
+      class="mx-auto"
+      style="max-width: 1150px"
+    >
       <v-tabs-items v-model="activeTab">
         <v-tab-item value="article-of-association">
           <ArticalOfAssociation />
@@ -28,9 +37,9 @@
 </template>
 <script>
 
-import ArticalOfAssociation from "./parts/ArticalOfAssociation";
-import BranchMembershipApplication from "./parts/BranchMembershipApplication";
-import MembershipApplication from "./parts/MembershipApplication";
+import ArticalOfAssociation from './parts/ArticalOfAssociation';
+import BranchMembershipApplication from './parts/BranchMembershipApplication';
+import MembershipApplication from './parts/MembershipApplication';
 
 export default {
   name: 'Join',
@@ -42,11 +51,8 @@ export default {
   data() {
     return {
       activeTab: this.$route.query.activeTab || null
-    }
+    };
   },
-  created() {
-  },
-  methods: {},
   watch: {
     activeTab(activeTab) {
       if (activeTab) {
@@ -56,6 +62,9 @@ export default {
         });
       }
     }
-  }
+  },
+  created() {
+  },
+  methods: {}
 };
 </script>

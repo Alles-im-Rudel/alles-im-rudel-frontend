@@ -1,10 +1,11 @@
 <template>
   <div>
     <v-chip
-        v-for="tag in tags"
-        :key="tag.id"
-        class="mx-1"
-        :color="tag.color"
+      v-for="tag in tags"
+      :key="tag.id"
+      class="mx-1"
+      :color="tag.color"
+      dark
     >
       {{ tag.name }}
     </v-chip>
@@ -19,5 +20,5 @@ export default {
       type: Array
     }
   }
-}
+};
 </script>

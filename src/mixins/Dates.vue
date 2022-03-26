@@ -9,8 +9,11 @@ export default {
     date: function (date, defaultVal = '-') {
       return date ? dayjs(date).format('DD.MM.YYYY') : defaultVal;
     },
+    time: function (date, defaultVal = '-') {
+      return date ? dayjs(date).format('HH:mm') : defaultVal;
+    },
     dateTime: function (date, defaultVal = '-') {
-      return date ? dayjs(date).format(' HH:mm DD.MM.YYYY') : defaultVal;
+      return date ? dayjs(date).format('HH:mm DD.MM.YYYY') : defaultVal;
     },
     dateTimeSek: function (date, defaultVal = '-') {
       return date ? dayjs(date).format('DD.MM.YYYY HH:mm:ss') : defaultVal;
@@ -23,7 +26,7 @@ export default {
       let hours = time.getUTCHours();
       let minutes = time.getUTCMinutes();
       let seconds = time.getUTCSeconds();
-      return hours + ":" + minutes + ":" + seconds;
+      return hours + ':' + minutes + ':' + seconds;
     },
   },
   methods: {

@@ -9,7 +9,7 @@
       md="3"
       sm="4"
     >
-      <v-img :src="'/assets/airsoft/members/' + member.image"/>
+      <v-img :src="'/assets/airsoft/members/' + member.image" />
       <div class="person-overlay">
         <div class="name-container text-h5">
           {{ member.name }}
@@ -74,9 +74,9 @@ export default {
         },
 
       ]
-    }
+    };
   }
-}
+};
 </script>
 
 <style scoped lang="scss">
@@ -96,6 +96,7 @@ export default {
     justify-content: center;
     align-items: center;
 
+    //noinspection ALL
     .name-container {
       user-select: none;
       width: min-intrinsic;       /* old Chrome, Safari */

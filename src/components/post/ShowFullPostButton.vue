@@ -2,37 +2,38 @@
   <v-dialog v-model="showDialog">
     <template v-slot:activator="{ on: dialog }">
       <v-btn
-          color="darkGrey"
-          dark
-          v-on="{ ...dialog }"
+        color="darkGrey"
+        dark
+        v-on="{ ...dialog }"
       >
-        <v-icon left>fa-search</v-icon>
-        Post ansehen
+        Ansehen
       </v-btn>
     </template>
-    <v-row no-gutters class="pa-0 ma-0">
-      <v-col cols="12" lg="9" class="py-0 pl-0 pr-lg-2">
+    <v-row
+      no-gutters
+      class="pa-0 ma-0"
+    >
+      <v-col
+        cols="12"
+        class="py-0 pl-0"
+      >
         <show-post-card
           v-model="postId"
+          :max-height="windowSize.y - 150"
           @close="close"
-          :max-height="windowSize.y - 150" @reload="$emit('reload')"
+          @reload="$emit('reload')"
         />
-      </v-col>
-      <v-col cols="12" lg="3" class="py-0 pr-0 mt-2 mt-lg-0">
-        <comments-card v-model="postId" :max-height="windowSize.y - 150" />
       </v-col>
     </v-row>
   </v-dialog>
 </template>
 
 <script>
-import ShowPostCard from "@/components/post/ShowPostCard";
-import CommentsCard from "@/components/comments/CommentsCard";
+import ShowPostCard from '@/components/post/ShowPostCard';
 
 export default {
   components: {
-    ShowPostCard,
-    CommentsCard
+    ShowPostCard
   },
   props: {
     postId: {
@@ -49,21 +50,21 @@ export default {
       }
     };
   },
+  computed: {},
   mounted() {
     this.onResize();
     window.addEventListener('resize', this.onResize);
   },
-  computed: {},
+  destroyed() {
+    window.removeEventListener('resize', this.onResize);
+  },
   methods: {
     onResize() {
-      this.windowSize = {x: window.innerWidth, y: window.innerHeight}
+      this.windowSize = {x: window.innerWidth, y: window.innerHeight};
     },
     close() {
       this.showDialog = false;
     }
-  },
-  destroyed() {
-    window.removeEventListener("resize", this.onResize);
   }
 };
 </script>
