@@ -3,9 +3,14 @@
     <BaseSectionTitle>
       News
     </BaseSectionTitle>
+
+    <BaseContainer class="mt-8 mb-3">
+      <NewsFilter v-model="tagIds" />
+    </BaseContainer>
+
     <v-card-text
       v-if="posts.length > 0"
-      class="mt-6 mb-10"
+      class="mb-10 pt-0"
     >
       <BaseContainer>
         <v-row
@@ -41,7 +46,7 @@
       </BaseContainer>
     </v-card-text>
     <v-card-text
-      v-if="isLoading && posts.length === 0"
+      v-else-if="isLoading && posts.length === 0"
       class="mt-16 mb-12 d-flex justify-center align-center"
     >
       <v-progress-circular
@@ -49,16 +54,23 @@
         indeterminate
       />
     </v-card-text>
+    <v-card-text
+      v-else
+      class="text-center mt-10 mb-12"
+    >
+      Es wurden keine Ergebnisse gefunden.
+    </v-card-text>
   </div>
 </template>
 
 <script>
 import PostCard from '@/components/post/PostCard';
+import NewsFilter from '@/views/home/parts/NewsFilter';
 
 export default {
   components: {
+    NewsFilter,
     PostCard
-
   },
   data() {
     return {
@@ -66,28 +78,58 @@ export default {
       posts: [],
       page: 1,
       hasMorePosts: true,
+      tagIds: []
     };
   },
+  watch: {
+    tagIds: {
+      deep: true,
+      handler() {
+        this.getFresh();
+      }
+    }
+  },
   created() {
-    this.getNews();
+    this.getFresh();
   },
   methods: {
-    getNews() {
+    getFresh() {
+      this.page = 1;
+      this.posts = [];
+
       this.isLoading = true;
       const params = {
         page: this.page,
-        items: 3
+        items: 3,
+        tagIds: this.tagIds
       };
 
       window.axios
         .get('posts', {params})
         .then((response) => {
           this.hasMorePosts = response.data.meta.last_page !== this.page;
-          this.page += 1;
+          this.posts = response.data.data;
+          this.page = 2;
+        })
+        .finally(() => this.isLoading = false);
+    },
+    getNews() {
+      this.isLoading = true;
+      const params = {
+        page: this.page,
+        items: 3,
+        tagIds: this.tagIds
+      };
+
+      window.axios
+        .get('posts', {params})
+        .then((response) => {
+          this.hasMorePosts = response.data.meta.last_page !== this.page;
           this.posts = [
             ...this.posts,
             ...response.data.data
           ];
+          this.page += 1;
         })
         .finally(() => this.isLoading = false);
     }

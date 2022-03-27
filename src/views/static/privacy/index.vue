@@ -268,6 +268,9 @@
 
 <script>
 export default {
+  metaInfo: {
+    title: 'Alles im Rudel | Datenschutz'
+  },
   data() {
     return {
       headlineClasses: 'text-h5 mb-4 pt-6',

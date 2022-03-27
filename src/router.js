@@ -50,7 +50,7 @@ const router = new Router({
       path: '/login',
       name: 'login',
       meta: {group: 'login'},
-      component: () => import('./views/LoginForm')
+      component: () => import('./views/login/Login')
     },
 
     /*

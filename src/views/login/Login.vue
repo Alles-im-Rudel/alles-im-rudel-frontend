@@ -4,7 +4,7 @@
       class="login-form mt-md-12"
       cols="12"
     >
-      <BaseCard>
+      <BaseCard class="white">
         <v-card-title class="primary white--text">
           Login
         </v-card-title>
@@ -59,6 +59,9 @@ import ValidationErrors from '@/mixins/ValidationErros';
 
 export default {
   mixins: [ValidationErrors],
+  metaInfo: {
+    title: 'Alles im Rudel | Login'
+  },
   data() {
     return {
       form: {

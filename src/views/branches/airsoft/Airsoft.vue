@@ -83,7 +83,7 @@
 
 <script>
 import BaseBranchHeader from '@/components/base/BaseBranchHeader';
-import leaders from '@/constants/leaders';
+import leaders from '@/constants/branchLeaders';
 
 export default {
   name: 'Airsoft',

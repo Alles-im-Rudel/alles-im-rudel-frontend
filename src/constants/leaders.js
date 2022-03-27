@@ -2,14 +2,14 @@
 import dayjs from 'dayjs';
 
 export default {
-  NICK_NICKELS: {
-    fullName: 'Nick Nickels',
-    image: '/assets/leading/branches/airsoft.jpg',
-    text: dayjs().diff('1998-12-28', 'years') + " Jahre alt\nSpartenleiter Airsoft",
+  SILAS_BECKMANN: {
+    fullName: 'Silas Beckmann',
+    image: '/assets/leading/left.png',
+    text: dayjs().diff('1998-04-20', 'years') + ' Jahre alt',
     socials: {
-      instagram: 'air_nj',
-      snapchat: 'nickels_nick',
-      linkedin: 'nick-nickels'
+      instagram: 'silas098',
+      snapchat: 'silas098',
+      linkedin: 'silas-beckmann'
     }
   },
   TIMM_VOLLBORN: {
@@ -22,24 +22,14 @@ export default {
       linkedin: 'timm-vollborn'
     }
   },
-  SILAS_BECKMANN: {
-    fullName: 'Silas Beckmann',
-    image: '/assets/leading/left.png',
-    text: dayjs().diff('1998-04-20', 'years') + ' Jahre alt',
+  NICK_NICKELS: {
+    fullName: 'Nick Nickels',
+    image: '/assets/leading/right.png',
+    text: dayjs().diff('1998-12-28', 'years') + " Jahre alt",
     socials: {
-      instagram: 'silas098',
-      snapchat: 'silas098',
-      linkedin: 'silas-beckmann'
+      instagram: 'air_nj',
+      snapchat: 'nickels_nick',
+      linkedin: 'nick-nickels'
     }
   },
-  CHRISTOPH_SCHOTTELIUS: {
-    fullName: 'Christoph Schottelius',
-    image: '/assets/leading/branches/e-sports.jpg',
-    text: dayjs().diff('2002-01-17', 'years') + " Jahre alt\nSpartenleiter E-Sports",
-    socials: {
-      instagram: 'cchhristoph',
-      snapchat: 'cchristoph4',
-      linkedin: null
-    }
-  }
 };

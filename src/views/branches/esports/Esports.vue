@@ -62,13 +62,13 @@
 
 <script>
 import BaseBranchHeader from '@/components/base/BaseBranchHeader';
-import leaders from '@/constants/leaders';
+import leaders from '@/constants/branchLeaders';
 import Clash from '@/components/clash/Clash';
 
 export default {
-  name: 'Airsoft',
+  name: 'ESports',
   metaInfo: {
-    title: 'Alles im Rudel | Airsoft',
+    title: 'Alles im Rudel | E-Sports',
   },
   components: {
     Clash,

@@ -1,23 +1,33 @@
 <template>
-  <v-autocomplete
-      v-model="selected"
-      :items="tags"
-      label="Tag auswählen"
-      return-object
-      color="primary"
-      item-value="id"
-      item-text="name"
-      chips
-      clearable
-      multiple
+  <v-select
+    v-model="selected"
+    :items="tags"
+    placeholder="Tag auswählen"
+    color="primary"
+    item-value="id"
+    item-text="name"
+    chips
+    clearable
+    multiple
+    :hide-details="!hasErrors"
   >
     <template v-slot:item="{ item }">
-      <v-chip :color="item.color">{{ item.name }}</v-chip>
+      <v-chip
+        :color="item.color"
+        class="white--text"
+      >
+        {{ item.name }}
+      </v-chip>
     </template>
     <template v-slot:selection="{ item }">
-      <v-chip :color="item.color">{{ item.name }}</v-chip>
+      <v-chip
+        :color="item.color"
+        class="white--text"
+      >
+        {{ item.name }}
+      </v-chip>
     </template>
-  </v-autocomplete>
+  </v-select>
 </template>
 
 <script>
@@ -64,7 +74,7 @@ export default {
     },
   },
   created() {
-    this.getTags()
+    this.getTags();
   },
   methods: {
     ...mapActions('tag', ['getTags']),
