@@ -1,30 +1,32 @@
 <template>
-  <base-card flat>
+  <BaseCard flat>
     <v-card-text>
       <v-row
-          justify="center"
-          v-for="clashTeam in clashTeams"
-          :key="clashTeam.id"
+        v-for="clashTeam in clashTeams"
+        :key="clashTeam.id"
+        justify="center"
       >
         <v-col cols="12">
-          <v-card-title class="pb-0 text-h5">{{ clashTeam.name }}</v-card-title>
+          <v-card-title class="pb-0 text-h5">
+            {{ clashTeam.name }}
+          </v-card-title>
         </v-col>
         <div class="container">
           <div
-              class="item"
-              v-for="clashMember in clashTeam.clashMembers"
-              :key="clashMember.id"
+            v-for="clashMember in clashTeam.clashMembers"
+            :key="clashMember.id"
+            class="item"
           >
             <clash-team-member :clash-member="clashMember" />
           </div>
         </div>
       </v-row>
     </v-card-text>
-  </base-card>
+  </BaseCard>
 </template>
 
 <script>
-import ClashTeamMember from "@/components/clash/ClashTeamMember";
+import ClashTeamMember from '@/components/clash/ClashTeamMember';
 
 export default {
   components: {
@@ -33,7 +35,7 @@ export default {
   data() {
     return {
       clashTeams: []
-    }
+    };
   },
   computed: {},
   created() {
@@ -43,11 +45,11 @@ export default {
     getClashTeams() {
       window.axios.get('clash')
           .then(response => {
-            this.clashTeams = response.data.data
-          }).finally(() => this.isLoading = false)
+            this.clashTeams = response.data.data;
+          }).finally(() => this.isLoading = false);
     }
   }
-}
+};
 </script>
 
 <style scoped>

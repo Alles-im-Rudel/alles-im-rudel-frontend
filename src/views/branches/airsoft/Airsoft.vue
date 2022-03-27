@@ -87,6 +87,9 @@ import leaders from '@/constants/leaders';
 
 export default {
   name: 'Airsoft',
+  metaInfo: {
+    title: 'Alles im Rudel | Airsoft',
+  },
   components: {
     BaseBranchHeader
   },

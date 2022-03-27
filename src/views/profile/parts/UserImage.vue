@@ -1,19 +1,28 @@
 <template>
-  <base-card>
+  <BaseCard>
     <v-card-title class="headline">
       Profilbild
     </v-card-title>
     <v-divider />
     <v-card-text>
       <v-row>
-        <v-col cols="12" lg="6">
-          <image-upload v-model="file" @clear="clear" />
+        <v-col
+          cols="12"
+          lg="6"
+        >
+          <image-upload
+            v-model="file"
+            @clear="clear"
+          />
         </v-col>
-        <v-col cols="12" lg="6">
+        <v-col
+          cols="12"
+          lg="6"
+        >
           <v-img
-              v-if="user.image"
-              class="black--text align-end"
-              :src="user.image.image"
+            v-if="user.image"
+            class="black--text align-end"
+            :src="user.image.image"
           >
             <v-card-title style="background-color: rgba(255, 255, 255, 0.2)">
               {{ user.image.title }}
@@ -24,19 +33,19 @@
     </v-card-text>
     <v-divider />
     <reset-save-action
-        :is-loading="isLoading"
-        :can-submit="canSubmit"
-        :has-changes="hasChanges"
-        @submit="submit"
-        @clear="clear"
+      :is-loading="isLoading"
+      :can-submit="canSubmit"
+      :has-changes="hasChanges"
+      @submit="submit"
+      @clear="clear"
     />
-  </base-card>
+  </BaseCard>
 </template>
 <script>
 import {cloneDeep} from 'lodash';
-import ValidationErrors from '@/mixins/ValidationErros'
+import ValidationErrors from '@/mixins/ValidationErros';
 import ResetSaveAction from '@/components/cardActions/ResetSaveAction';
-import ImageUpload from "@/components/images/ImageUpload";
+import ImageUpload from '@/components/images/ImageUpload';
 
 export default {
   components: {
@@ -89,7 +98,7 @@ export default {
           .post(`users/image/${this.originalUser.id}`, request, config)
           .then(response => {
             this.$root.$snackbar.open(response.data.message);
-            this.$emit('reload')
+            this.$emit('reload');
             this.clear();
           })
           .catch(this.syncErrors)
@@ -103,7 +112,7 @@ export default {
       this.file = {
         file: null,
         title: null
-      }
+      };
     },
   }
 };

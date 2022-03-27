@@ -2,7 +2,7 @@
   <v-container>
     <v-row justify="center">
       <v-col cols="12">
-        <base-card>
+        <BaseCard>
           <v-card-title>
             Benutzerverwaltung
             <v-spacer />
@@ -11,7 +11,10 @@
               dark
               @click="pushRouteTo('management-users-create')"
             >
-              <v-icon small class="mr-2">
+              <v-icon
+                small
+                class="mr-2"
+              >
                 fa-plus
               </v-icon>
               Benutzer erstellen
@@ -19,14 +22,14 @@
           </v-card-title>
           <v-card-text>
             <user-table
-                v-model="options"
-                :is-loading="isLoading"
-                :users="users"
-                :server-items-length="serverItemsLength"
-                @reload="getUsers"
+              v-model="options"
+              :is-loading="isLoading"
+              :users="users"
+              :server-items-length="serverItemsLength"
+              @reload="getUsers"
             />
           </v-card-text>
-        </base-card>
+        </BaseCard>
       </v-col>
     </v-row>
   </v-container>
@@ -34,7 +37,7 @@
 
 <script>
 import {zipObject} from 'lodash';
-import UserTable from "@/views/management/users/index/parts/UserTable";
+import UserTable from '@/views/management/users/index/parts/UserTable';
 
 export default {
   components: {
@@ -56,18 +59,18 @@ export default {
         withOnlyTrashed: false,
         userGroups: []
       }
-    }
+    };
   },
   computed: {},
-  created() {
-    this.getUsers();
-  },
   watch: {
     options: {
       handler() {
-        this.getUsers()
+        this.getUsers();
       }
     }
+  },
+  created() {
+    this.getUsers();
   },
   methods: {
     getUsers() {
@@ -83,10 +86,10 @@ export default {
       };
       window.axios.get('users', {params})
           .then(response => {
-            this.users = response.data.data
+            this.users = response.data.data;
             this.serverItemsLength = response.data.meta.total;
-          }).finally(() => this.isLoading = false)
+          }).finally(() => this.isLoading = false);
     }
   }
-}
+};
 </script>

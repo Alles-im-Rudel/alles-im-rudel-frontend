@@ -1,31 +1,31 @@
 <template>
-  <base-card>
+  <BaseCard>
     <v-card-title class="headline">
       {{ user.fullName }}
     </v-card-title>
     <v-divider />
     <v-card-text>
       <user-form
-          v-model="user"
-          is-profil
-          :password-form-labels="passwordFormLabels"
-          :validation-errors="errors"
+        v-model="user"
+        is-profil
+        :password-form-labels="passwordFormLabels"
+        :validation-errors="errors"
       />
     </v-card-text>
     <v-divider />
     <reset-save-action
-        :is-loading="isLoading"
-        :can-submit="canSubmit"
-        :has-changes="hasChanges"
-        @submit="submit"
-        @clear="clear"
+      :is-loading="isLoading"
+      :can-submit="canSubmit"
+      :has-changes="hasChanges"
+      @submit="submit"
+      @clear="clear"
     />
-  </base-card>
+  </BaseCard>
 </template>
 <script>
 import {cloneDeep} from 'lodash';
 import UserForm from '@/components/users/UserForm';
-import ValidationErrors from '@/mixins/ValidationErros'
+import ValidationErrors from '@/mixins/ValidationErros';
 import ResetSaveAction from '@/components/cardActions/ResetSaveAction';
 
 export default {
@@ -106,10 +106,10 @@ export default {
       }
 
       window.axios
-          .put(`profile`, params)
+          .put('profile', params)
           .then((response) => {
             this.$root.$snackbar.open(response.data.message);
-            this.$emit('updated')
+            this.$emit('updated');
           })
           .catch(this.syncErrors)
           .finally(() => (this.isLoading = false));

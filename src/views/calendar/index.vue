@@ -5,7 +5,7 @@
         cols="12"
         md="12"
       >
-        <base-card>
+        <BaseCard>
           <v-card-title>
             Kalender / Events
             <v-spacer />
@@ -29,7 +29,7 @@
               @reload="getAppointments"
             />
           </v-card-text>
-        </base-card>
+        </BaseCard>
       </v-col>
     </v-row>
   </v-container>

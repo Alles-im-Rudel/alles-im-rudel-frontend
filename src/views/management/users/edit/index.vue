@@ -1,23 +1,28 @@
 <template>
   <v-container>
-    <base-card v-if="!user.id">
+    <BaseCard v-if="!user.id">
       <v-card-title>
         Lädt den Benutzer
       </v-card-title>
       <v-card-text>
-        <v-skeleton-loader class="mx-auto" type="card"/>
+        <v-skeleton-loader
+          class="mx-auto"
+          type="card"
+        />
       </v-card-text>
-    </base-card>
-    <base-card v-else>
+    </BaseCard>
+    <BaseCard v-else>
       <v-card-title class="headline">
         Bearbeiten von: {{ user.fullName }}
-        <v-spacer/>
+        <v-spacer />
         <v-btn @click="pushRouteTo('management-users')">
-          <v-icon class="mr-1">fa-arrow-left</v-icon>
+          <v-icon class="mr-1">
+            fa-arrow-left
+          </v-icon>
           Zurück zur Benutzerübersicht
         </v-btn>
       </v-card-title>
-      <v-divider/>
+      <v-divider />
       <v-card-text>
         <user-form
           v-model="user"
@@ -25,7 +30,7 @@
           :validation-errors="errors"
         />
       </v-card-text>
-      <v-divider/>
+      <v-divider />
       <reset-save-action
         :is-loading="isLoading"
         :can-submit="canSubmit"
@@ -33,13 +38,13 @@
         @submit="submit"
         @clear="clear"
       />
-    </base-card>
+    </BaseCard>
   </v-container>
 </template>
 <script>
 import {cloneDeep} from 'lodash';
 import UserForm from '@/components/users/UserForm';
-import ValidationErrors from '@/mixins/ValidationErros'
+import ValidationErrors from '@/mixins/ValidationErros';
 import ResetSaveAction from '@/components/cardActions/ResetSaveAction';
 
 export default {

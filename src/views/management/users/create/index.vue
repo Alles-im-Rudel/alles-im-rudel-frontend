@@ -1,15 +1,17 @@
 <template>
   <v-container>
-    <base-card>
+    <BaseCard>
       <v-card-title class="headline">
         Benutzer erstellen
-        <v-spacer/>
+        <v-spacer />
         <v-btn @click="back">
-          <v-icon class="mr-1">fa-arrow-left</v-icon>
+          <v-icon class="mr-1">
+            fa-arrow-left
+          </v-icon>
           Zurück zur Benutzerübersicht
         </v-btn>
       </v-card-title>
-      <v-divider/>
+      <v-divider />
       <v-card-text>
         <user-form
           v-model="user"
@@ -17,19 +19,19 @@
           :validation-errors="errors"
         />
       </v-card-text>
-      <v-divider/>
+      <v-divider />
       <reset-save-action
         :is-loading="isLoading"
         :can-submit="canSubmit"
         @submit="submit"
         @clear="clear"
       />
-    </base-card>
+    </BaseCard>
   </v-container>
 </template>
 <script>
 import UserForm from '@/components/users/UserForm';
-import ValidationErrors from '@/mixins/ValidationErros'
+import ValidationErrors from '@/mixins/ValidationErros';
 import ResetSaveAction from '@/components/cardActions/ResetSaveAction';
 
 export default {
@@ -78,7 +80,7 @@ export default {
   },
   methods: {
     back() {
-      this.pushRouteTo('management-users')
+      this.pushRouteTo('management-users');
     },
     submit() {
       this.isLoading = true;
@@ -97,7 +99,7 @@ export default {
       };
 
       window.axios
-        .post(`users`, params)
+        .post('users', params)
         .then((response) => {
           this.$root.$snackbar.open(response.data.message);
           this.back();

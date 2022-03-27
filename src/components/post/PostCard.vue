@@ -1,5 +1,5 @@
 <template>
-  <base-card
+  <BaseCard
     height="100%"
     style="display: flex; flex-direction: column"
   >
@@ -26,7 +26,7 @@
         @reload="$emit('reload')"
       />
     </v-card-actions>
-  </base-card>
+  </BaseCard>
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <base-card>
+    <BaseCard>
       <v-card-title>
         Clash
         <v-spacer />
@@ -8,44 +8,53 @@
       </v-card-title>
       <v-card-text>
         <v-row>
-          <v-col cols="12" md="6"
-                 v-for="clashTeam in clashTeams"
-                 :key="clashTeam.id"
+          <v-col
+            v-for="clashTeam in clashTeams"
+            :key="clashTeam.id"
+            cols="12"
+            md="6"
           >
-            <base-card>
+            <BaseCard>
               <v-card-title>
                 {{ clashTeam.name }}
                 <v-spacer />
-                <clash-team-delete-button :clash-team="clashTeam" @clash-team-was-deleted="getClashTeams" />
-                <clash-team-edit-button :clash-team="clashTeam" @updated="getClashTeams" />
+                <clash-team-delete-button
+                  :clash-team="clashTeam"
+                  @clash-team-was-deleted="getClashTeams"
+                />
+                <clash-team-edit-button
+                  :clash-team="clashTeam"
+                  @updated="getClashTeams"
+                />
               </v-card-title>
               <v-card-text>
-                <v-col cols="12"
-                       v-for="clashMember in clashTeam.clashMembers"
-                       :key="clashMember.id"
+                <v-col
+                  v-for="clashMember in clashTeam.clashMembers"
+                  :key="clashMember.id"
+                  cols="12"
                 >
-                  <base-card>
+                  <BaseCard>
                     <v-card-text>
                       <strong>{{ clashMember.clashTeamRole.name }}:</strong> {{ clashMember.user.username }}
                     </v-card-text>
-                  </base-card>
+                  </BaseCard>
                 </v-col>
               </v-card-text>
-            </base-card>
+            </BaseCard>
           </v-col>
         </v-row>
       </v-card-text>
-    </base-card>
+    </BaseCard>
   </v-container>
 </template>
 
 <script>
 import ClashTeamCreateButton from '@/components/clash/ClashTeamCreateButton';
-import ClashTeamEditButton from "@/components/clash/ClashTeamEditButton";
-import ClashTeamDeleteButton from "@/components/clash/ClashTeamDeleteButton";
+import ClashTeamEditButton from '@/components/clash/ClashTeamEditButton';
+import ClashTeamDeleteButton from '@/components/clash/ClashTeamDeleteButton';
 
 export default {
-  name: "Clash",
+  name: 'Clash',
   components: {
     ClashTeamCreateButton,
     ClashTeamEditButton,
@@ -54,18 +63,18 @@ export default {
   data() {
     return {
       clashTeams: []
-    }
+    };
   },
   created() {
-    this.getClashTeams()
+    this.getClashTeams();
   },
   methods: {
     getClashTeams() {
       window.axios.get('clash')
           .then(response => {
-            this.clashTeams = response.data.data
-          }).finally(() => this.isLoading = false)
+            this.clashTeams = response.data.data;
+          }).finally(() => this.isLoading = false);
     }
   }
-}
+};
 </script>

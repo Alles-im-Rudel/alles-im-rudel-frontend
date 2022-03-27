@@ -22,7 +22,7 @@ import CookieBanner from '@/components/cookies/CookieBanner';
 export default {
   name: 'App',
   metaInfo: {
-    title: 'Alles im Rudel | Airsoft | E-Sports',
+    title: 'Alles im Rudel',
   },
   components: {
     CookieBanner,
