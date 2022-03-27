@@ -29,7 +29,7 @@
         </div>
 
         <div class="text-body-2 mt-2">
-          {{ new Date().getFullYear() }} — <strong>Alles Im Rudel</strong>
+          {{ new Date().getFullYear() }} — <strong>Alles im Rudel</strong>
         </div>
 
         <div class="d-block text-center d-md-flex justify-md-center mt-8">
@@ -57,25 +57,30 @@
 
 <script>
 import SocialFooterIcons from '@/components/footer/SocialFooterIcons';
+import {debounce} from 'lodash';
 
 export default {
   components: {SocialFooterIcons},
   data() {
     return {
-      footerHeight: 150
+      footerHeight: 375
     };
   },
   mounted() {
+    // noinspection JSValidateTypes
     this.getFooter();
+    // noinspection JSCheckFunctionSignatures
     window.addEventListener('resize', this.getFooter);
   },
   destroyed() {
+    // noinspection JSCheckFunctionSignatures
     window.removeEventListener('resize', this.getFooter);
   },
   methods: {
-    getFooter() {
-      this.footerHeight = document.getElementById('footer').clientHeight;
-    },
+    getFooter: debounce(function () {
+      this.footer = document.getElementById('footer');
+      this.footerHeight = this.footer.clientHeight;
+    }, 200)
   },
 };
 </script>

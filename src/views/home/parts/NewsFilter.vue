@@ -71,7 +71,7 @@ export default {
 .news-filter {
   .row-wrapper {
     display: flex;
-    align-items: end;
+    align-items: flex-end;
 
     .tag-select-container {
       width: 100%;

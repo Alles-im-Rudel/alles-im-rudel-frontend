@@ -39,20 +39,26 @@
         <v-divider />
         <v-list-item @click="pushRouteTo('profile')">
           <v-list-item-icon class="mr-2">
-            <v-icon small>fa-edit</v-icon>
+            <v-icon small>
+              fa-edit
+            </v-icon>
           </v-list-item-icon>
           <v-list-item-content>Profil bearbeiten</v-list-item-content>
         </v-list-item>
         <v-list-item @click="pushRouteTo('calendar')">
           <v-list-item-icon class="mr-2">
-            <v-icon small>fa-calendar-alt</v-icon>
+            <v-icon small>
+              fa-calendar-alt
+            </v-icon>
           </v-list-item-icon>
           <v-list-item-content>Kalender</v-list-item-content>
         </v-list-item>
-        <v-divider/>
+        <v-divider />
         <v-list-item @click="logout">
           <v-list-item-icon class="mr-2">
-            <v-icon small>fa-sign-out-alt</v-icon>
+            <v-icon small>
+              fa-sign-out-alt
+            </v-icon>
           </v-list-item-icon>
           <v-list-item-content>Abmelden</v-list-item-content>
         </v-list-item>
@@ -63,8 +69,8 @@
 
 <script>
 import {mapActions, mapGetters} from 'vuex';
-import Permissions from "@/mixins/Permissions";
-import CheckMobile from "@/mixins/CheckMobile";
+import Permissions from '@/mixins/Permissions';
+import CheckMobile from '@/mixins/CheckMobile';
 
 export default {
   mixins: [Permissions, CheckMobile],
@@ -74,8 +80,8 @@ export default {
   methods: {
     ...mapActions('auth', ['logout']),
     isActive(group) {
-      return this.$route.meta.group === group ? 'darkGrey' : ''
+      return this.$route.meta.group === group ? 'grey' : '';
     }
   }
-}
+};
 </script>
