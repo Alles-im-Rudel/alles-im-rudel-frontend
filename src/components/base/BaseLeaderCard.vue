@@ -9,7 +9,7 @@
     <div class="text-h5 text-center mt-4">
       {{ leader.fullName }}
     </div>
-    <div class="text-body-2 text--primary text-center mt-2">
+    <div class="text-body-2 text--primary text-center mt-2 text-pre-line">
       {{ leader.text }}
     </div>
     <BaseSocials

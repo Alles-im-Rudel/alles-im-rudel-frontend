@@ -28,8 +28,8 @@
 </template>
 
 <script>
-import dayjs from 'dayjs';
 import Branches from '@/views/home/parts/Branches';
+import leaders from '@/constants/leaders';
 
 export default {
   components: {
@@ -39,36 +39,9 @@ export default {
     return {
       activeTab: null,
       leaders: [
-        {
-          fullName: 'Silas Beckmann',
-          image: '/assets/leading/left.png',
-          text: dayjs().diff('1998-04-20', 'years') + ' Jahre alt',
-          socials: {
-            instagram: 'silas098',
-            snapchat: 'silas098',
-            linkedin: 'silas-beckmann'
-          }
-        },
-        {
-          fullName: 'Timm Vollborn',
-          image: '/assets/leading/center.png',
-          text: dayjs().diff('1999-01-30', 'years') + ' Jahre alt',
-          socials: {
-            instagram: 't.vollborn',
-            snapchat: 't.vollborn',
-            linkedin: 'timm-vollborn'
-          }
-        },
-        {
-          fullName: 'Nick Nickels',
-          image: '/assets/leading/right.png',
-          text: dayjs().diff('1998-12-28', 'years') + ' Jahre alt',
-          socials: {
-            instagram: 'air_nj',
-            snapchat: 'nickels_nick',
-            linkedin: 'nick-nickels'
-          }
-        },
+        leaders.SILAS_BECKMANN,
+        leaders.TIMM_VOLLBORN,
+        leaders.NICK_NICKELS
       ]
     };
   },

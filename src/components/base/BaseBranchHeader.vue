@@ -1,7 +1,7 @@
 <template>
   <v-parallax
     :src="background"
-    height="600"
+    :height="$vuetify.breakpoint.lgAndUp ? '600' : '500'"
     class="base-branch-header"
   >
     <div class="pb-10">
@@ -46,6 +46,18 @@ export default {
     font-family: "Roboto", sans-serif !important;
     letter-spacing: 18px !important;
     text-transform: uppercase;
+
+    @media only screen and (max-width: 1264px) {
+      & {
+        font-size: 6rem !important;
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      & {
+        font-size: 3rem !important;
+      }
+    }
   }
 
   .branch-header-image {
