@@ -1,6 +1,6 @@
 <template>
   <BaseCard flat>
-    <v-card-title class="justify-center py-16 greyBlue white--text">
+    <v-card-title class="justify-center py-16 greyBlue white--text text-break text-center">
       <h2 class="text-h2">
         <slot />
       </h2>

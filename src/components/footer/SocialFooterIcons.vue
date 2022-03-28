@@ -1,11 +1,11 @@
 <template>
-  <div class="d-flex justify-center">
+  <div class="social-footer d-flex justify-center">
     <a
       v-for="(icon, index) in icons"
       :key="index"
       :href="icon.link"
       target="_blank"
-      class="mx-2"
+      class="social-footer-link mx-2"
     >
       <v-btn
         dark
@@ -52,3 +52,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.social-footer {
+  .social-footer-link {
+    text-decoration: none;
+  }
+}
+</style>
