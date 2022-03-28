@@ -17,18 +17,6 @@ const router = new Router({
       component: () => import('./views/home')
     },
     {
-      path: '/legal-notice',
-      name: 'legal',
-      meta: {group: 'home', auth: false, permission: null},
-      component: () => import('./views/static/legal')
-    },
-    {
-      path: '/privacy-notice',
-      name: 'privacy',
-      meta: {group: 'home', auth: false, permission: null},
-      component: () => import('./views/static/privacy')
-    },
-    {
       path: '/branches/airsoft',
       name: 'airsoft',
       meta: {group: 'branch', auth: false, permission: null},
@@ -115,6 +103,24 @@ const router = new Router({
     /*
      * Static
      */
+    {
+      path: '/legal-notice',
+      name: 'legal',
+      meta: {group: 'home', auth: false, permission: null},
+      component: () => import('./views/static/legal')
+    },
+    {
+      path: '/privacy-notice',
+      name: 'privacy',
+      meta: {group: 'home', auth: false, permission: null},
+      component: () => import('./views/static/privacy')
+    },
+    {
+      path: '/articles-of-association',
+      name: 'articles-of-association',
+      meta: {group: 'home', auth: false, permission: null},
+      component: () => import('./views/static/articles-of-association/ArticlesOfAssociation')
+    },
     {
       path: '/permission-denied',
       name: 'permission-denied',

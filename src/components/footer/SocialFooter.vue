@@ -4,7 +4,7 @@
     dark
     padless
     absolute
-    :style="'margin-bottom: -'+footerHeight+'px'"
+    :style="'margin-bottom: -'+(footerHeight-1)+'px'"
   >
     <BaseCard
       class="flex"
@@ -32,23 +32,37 @@
           {{ new Date().getFullYear() }} — <strong>Alles im Rudel</strong>
         </div>
 
-        <div class="d-block text-center d-md-flex justify-md-center mt-8">
-          <v-btn
-            class="mx-1"
-            text
-            small
-            @click="pushRouteTo('legal')"
-          >
-            Impressum
-          </v-btn>
-          <v-btn
-            class="mx-1"
-            text
-            small
-            @click="pushRouteTo('privacy')"
-          >
-            Datenschutzerklärung
-          </v-btn>
+        <div class="d-block mt-12 text-center d-sm-flex justify-sm-center mt-sm-8">
+          <div class="my-1 my-sm-0">
+            <v-btn
+              class="mx-1"
+              text
+              small
+              @click="pushRouteTo('legal')"
+            >
+              Impressum
+            </v-btn>
+          </div>
+          <div class="my-1 my-sm-0">
+            <v-btn
+              class="mx-1"
+              text
+              small
+              @click="pushRouteTo('privacy')"
+            >
+              Datenschutzerklärung
+            </v-btn>
+          </div>
+          <div class="my-1 my-sm-0">
+            <v-btn
+              class="mx-1"
+              text
+              small
+              @click="pushRouteTo('articles-of-association')"
+            >
+              Satzung
+            </v-btn>
+          </div>
         </div>
       </div>
     </BaseCard>

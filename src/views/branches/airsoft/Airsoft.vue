@@ -19,9 +19,9 @@
           <BaseParagraph class="mt-6 mt-sm-8">
             Wir sind ein stetig wachsendes Airsoft-Team, das sich aus Mitgliedern aus dem Raum Schleswig-Holstein und
             Mecklenburg-Vorpommern zusammensetzt, und jeweils einen Sitz in Elmshorn (SH) und in Leizen (MV) hat. Es ist
-            unser vorrangiges Ziel, den Airsoft-Sport für neue Spieler zugänglicher zu machen, und bereits aktiven Spielern
-            schnell und unkompliziert ein erfahrenes Team anzubieten. Mit dem Fokus auf Teamplay, Fairness und vor allem
-            Spaß an dem Airsoft-Sport begrüßen wir auf herzliche Weise neue Spieler bei uns im Team.
+            unser vorrangiges Ziel, den Airsoft-Sport für neue Spieler zugänglicher zu machen, und bereits aktiven
+            Spielern schnell und unkompliziert ein erfahrenes Team anzubieten. Mit dem Fokus auf Teamplay, Fairness und
+            vor allem Spaß an dem Airsoft-Sport begrüßen wir auf herzliche Weise neue Spieler bei uns im Team.
             <br><br>
             Du findest uns übrigens auch im <a
               href="https://www.airsoft-verzeichnis.de/index.php?status=team&teamnummer=011712"
@@ -69,15 +69,27 @@
     </BaseSectionTitle>
 
     <div class="mt-14 mb-14">
-      <div class="begadi-banner">
+      <div class="banner henry-krohn-banner mb-8">
+        <img
+          src="/assets/sponsors/henry-krohn/henry-krohn.png"
+          alt="Henry-Krohn-Banner"
+        >
+      </div>
+
+      <div class="banner begadi-banner mb-8">
         <img
           src="/assets/sponsors/begadi/begadi_horizontal.jpg"
           alt="Begadi-Banner"
         >
       </div>
-    </div>
 
-    <BaseContainer />
+      <div class="banner bad-agency-banner">
+        <img
+          src="/assets/sponsors/bad-agency/bad-agency.png"
+          alt="Bad-Agency-Banner"
+        >
+      </div>
+    </div>
   </div>
 </template>
 
@@ -108,13 +120,26 @@ export default {
     margin: 0 auto;
   }
 
-  .begadi-banner {
-    margin: 0 auto;
-    max-width: 650px;
-
+  .banner {
     img {
       width: 100%;
     }
+  }
+
+  .henry-krohn-banner {
+    margin: 0 auto;
+    max-width: 650px;
+    width: 90%;
+  }
+
+  .begadi-banner {
+    margin: 0 auto;
+    max-width: 650px;
+  }
+
+  .bad-agency-banner {
+    margin: 0 auto;
+    max-width: 300px;
   }
 }
 </style>
