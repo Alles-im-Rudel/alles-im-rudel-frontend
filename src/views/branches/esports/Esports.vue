@@ -25,7 +25,7 @@
             Selbstverständlich ist aber auch jeder, der einfach nur so in seiner Freizeit ein wenig zocken möchte und auf
             der Suche nach einem freundlichen Team ist, bei uns herzlich willkommen! Um noch mehr über uns zu erfahren oder
             uns persönlich kennenzulernen, tretet gerne einfach unserem <a
-              href="https://www.discord.com/invite/sMzHHnFkTh/"
+              :href="discordUrl"
               target="_blank"
             >Discord-Server</a> bei.
           </BaseParagraph>
@@ -64,6 +64,7 @@
 import BaseBranchHeader from '@/components/base/BaseBranchHeader';
 import leaders from '@/constants/branchLeaders';
 import Clash from '@/components/clash/Clash';
+import links from '@/constants/links';
 
 export default {
   name: 'ESports',
@@ -76,7 +77,8 @@ export default {
   },
   data() {
     return {
-      leader: leaders.CHRISTOPH_SCHOTTELIUS
+      leader: leaders.CHRISTOPH_SCHOTTELIUS,
+      discordUrl: links.DISCORD
     };
   }
 };

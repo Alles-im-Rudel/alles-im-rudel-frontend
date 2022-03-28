@@ -24,7 +24,7 @@
             vor allem Spaß an dem Airsoft-Sport begrüßen wir auf herzliche Weise neue Spieler bei uns im Team.
             <br><br>
             Du findest uns übrigens auch im <a
-              href="https://www.airsoft-verzeichnis.de/index.php?status=team&teamnummer=011712"
+              :href="airsoftUrl"
               target="_blank"
             >Airsoft-Verzeichnis</a>!
           </BaseParagraph>
@@ -96,6 +96,7 @@
 <script>
 import BaseBranchHeader from '@/components/base/BaseBranchHeader';
 import leaders from '@/constants/branchLeaders';
+import links from '@/constants/links';
 
 export default {
   name: 'Airsoft',
@@ -107,7 +108,8 @@ export default {
   },
   data() {
     return {
-      leader: leaders.NICK_NICKELS
+      leader: leaders.NICK_NICKELS,
+      airsoftUrl: links.AIRSOFT_VERZEICHNIS
     };
   }
 };
