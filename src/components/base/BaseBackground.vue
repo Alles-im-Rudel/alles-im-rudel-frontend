@@ -12,5 +12,6 @@
 
   //noinspection CssUnknownTarget
   background: url("/assets/backgrounds/default.jpg");
+  background-size: cover;
 }
 </style>
