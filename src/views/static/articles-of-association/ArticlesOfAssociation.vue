@@ -258,7 +258,7 @@ export default {
   },
   data() {
     return {
-      headlineClasses: 'text-h5 mb-5 pt-12',
+      headlineClasses: 'text-h5 mb-6 pt-12 text-center',
       textClasses: ''
     };
   }
