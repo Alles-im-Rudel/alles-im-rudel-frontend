@@ -1,6 +1,6 @@
 <template>
   <v-card
-      flat
+    flat
   >
     <v-card-title class="pb-1 pt-1">
       {{ branch.name }}
@@ -9,14 +9,14 @@
         {{ label }}
       </div>
       <v-checkbox
-          class="ml-2"
-          v-model="checkbox"
-          :disabled="!branch.isSelectable"
-          @change="onChange"
+        v-model="checkbox"
+        class="ml-2"
+        :disabled="!branch.isSelectable"
+        @change="onChange"
       />
       <v-btn
-          icon
-          @click="show = !show"
+        icon
+        @click="show = !show"
       >
         <v-icon>{{ show ? 'fa-angle-up' : 'fa-angle-down' }}</v-icon>
       </v-btn>
@@ -37,7 +37,7 @@
   </v-card>
 </template>
 <script>
-import ValidationErrors from "@/mixins/ValidationErros";
+import ValidationErrors from '@/mixins/ValidationErros';
 
 export default {
   mixins: [ValidationErrors],
@@ -52,24 +52,24 @@ export default {
       default: () => ({})
     }
   },
-  computed: {
-    label() {
-      return this.checkbox ? `Ich nehme bei der Sparte ${this.branch.name} teil` : `Ich nehme bei der Sparte ${this.branch.name} nicht teil`
-    }
-  },
   data() {
     return {
       form: {},
       errors: {},
       show: false,
       checkbox: !this.branch.isSelectable,
+    };
+  },
+  computed: {
+    label() {
+      return this.checkbox ? `Ich nehme bei der Sparte ${this.branch.name} teil` : `Ich nehme bei der Sparte ${this.branch.name} nicht teil`;
     }
   },
+  watch: {},
   methods: {
     onChange() {
       this.$emit('branch-changed', this.branch);
     }
-  },
-  watch: {}
-}
+  }
+};
 </script>

@@ -1,13 +1,15 @@
 <template>
   <div>
-    <h1 class="py-6">Jetzt Mitglied werden!!</h1>
+    <h1 class="py-6">
+      Jetzt Mitglied werden!!
+    </h1>
     <v-stepper
-        v-model="step"
-        vertical
+      v-model="step"
+      vertical
     >
       <v-stepper-step
-          :complete="step > 1"
-          step="1"
+        :complete="step > 1"
+        step="1"
       >
         Wer bist du?
         <small>Gebe bitte deine Daten ein!</small>
@@ -16,14 +18,21 @@
       <v-stepper-content step="1">
         <v-card flat>
           <v-card-text class="ma-0 px-0">
-            <who-are-you v-model="form" :validation-errors="errors" />
+            <who-are-you
+              v-model="form"
+              :validation-errors="errors"
+            />
           </v-card-text>
-          <step-controls :is-valid="stepOneIsValid" @step-back="previousStep" @step-continue="nextStep" />
+          <step-controls
+            :is-valid="stepOneIsValid"
+            @step-back="previousStep"
+            @step-continue="nextStep"
+          />
         </v-card>
       </v-stepper-content>
       <v-stepper-step
-          :complete="step > 2"
-          step="2"
+        :complete="step > 2"
+        step="2"
       >
         Wo wohnst du?
         <small>Gebe bitte deine Addresse ein!</small>
@@ -32,15 +41,22 @@
       <v-stepper-content step="2">
         <v-card flat>
           <v-card-text class="ma-0 px-0">
-            <where-do-you-live v-model="form" :validation-errors="errors" />
+            <where-do-you-live
+              v-model="form"
+              :validation-errors="errors"
+            />
           </v-card-text>
-          <step-controls :is-valid="stepTwoIsValid" @step-back="previousStep" @step-continue="nextStep" />
+          <step-controls
+            :is-valid="stepTwoIsValid"
+            @step-back="previousStep"
+            @step-continue="nextStep"
+          />
         </v-card>
       </v-stepper-content>
 
       <v-stepper-step
-          :complete="step > 3"
-          step="3"
+        :complete="step > 3"
+        step="3"
       >
         Wie möchtest du deinen Mitgliedsbeitrag zahlen?
         <small>Gebe bitte deine Bankdaten ein von dem wir den Mitgliedsbeitrag Monatlich abbuchen!</small>
@@ -50,24 +66,31 @@
         <v-card flat>
           <v-card-text class="ma-0 px-0">
             <v-row justify="center">
-              <v-col cols="12" md="6">
+              <v-col
+                cols="12"
+                md="6"
+              >
                 <v-text-field
-                    v-model="form.iban"
-                    required
-                    label="Iban"
-                    :error="hasErrors('iban')"
-                    :error-messages="getErrors('iban')"
+                  v-model="form.iban"
+                  required
+                  label="Iban"
+                  :error="hasErrors('iban')"
+                  :error-messages="getErrors('iban')"
                 />
               </v-col>
             </v-row>
           </v-card-text>
-          <step-controls :is-valid="stepThreeIsValid" @step-back="previousStep" @step-continue="nextStep" />
+          <step-controls
+            :is-valid="stepThreeIsValid"
+            @step-back="previousStep"
+            @step-continue="nextStep"
+          />
         </v-card>
       </v-stepper-content>
 
       <v-stepper-step
-          :complete="step > 4"
-          step="4"
+        :complete="step > 4"
+        step="4"
       >
         Bei welchen Sparten möchtest du dabei sein?
         <small>Bitte wähle alle Sparten aus die dich Interessieren!</small>
@@ -77,17 +100,21 @@
         <v-card flat>
           <v-card-text class="ma-0 px-0">
             <branch-data
-                v-model="form"
-                :validation-errors="errors"
+              v-model="form"
+              :validation-errors="errors"
             />
           </v-card-text>
-          <step-controls :is-valid="stepFourIsValid" @step-back="previousStep" @step-continue="nextStep" />
+          <step-controls
+            :is-valid="stepFourIsValid"
+            @step-back="previousStep"
+            @step-continue="nextStep"
+          />
         </v-card>
       </v-stepper-content>
 
       <v-stepper-step
-          :complete="step > 5"
-          step="5"
+        :complete="step > 5"
+        step="5"
       >
         Website Login
         <small>Bitte gebe deine Gewünschten Website Logindaten an!</small>
@@ -96,15 +123,22 @@
       <v-stepper-content step="5">
         <v-card flat>
           <v-card-text class="ma-0 px-0">
-            <user v-model="form" :validation-errors="errors" />
+            <user
+              v-model="form"
+              :validation-errors="errors"
+            />
           </v-card-text>
-          <step-controls :is-valid="stepFiveIsValid" @step-back="previousStep" @step-continue="nextStep" />
+          <step-controls
+            :is-valid="stepFiveIsValid"
+            @step-back="previousStep"
+            @step-continue="nextStep"
+          />
         </v-card>
       </v-stepper-content>
 
       <v-stepper-step
-          :complete="step > 6"
-          step="6"
+        :complete="step > 6"
+        step="6"
       >
         Übersicht
         <small>Bitte korrigiere deine eingegebenen Daten!</small>
@@ -115,8 +149,12 @@
           <v-card-text class="ma-0 px-0">
             <overview v-model="form" />
           </v-card-text>
-          <step-controls :is-valid="stepSixIsValid" continue-label="Fertigstellen" @step-back="previousStep"
-                         @step-continue="submit" />
+          <step-controls
+            :is-valid="stepSixIsValid"
+            continue-label="Fertigstellen"
+            @step-back="previousStep"
+            @step-continue="submit"
+          />
         </v-card>
       </v-stepper-content>
     </v-stepper>
@@ -124,13 +162,13 @@
 </template>
 <script>
 
-import ValidationErrors from "@/mixins/ValidationErros";
-import BranchData from "@/views/joins/parts/MembershipApplication/steps/Branch/BranchesSelect";
-import StepControls from "@/views/joins/parts/MembershipApplication/parts/StepControls";
-import WhoAreYou from "@/views/joins/parts/MembershipApplication/steps/WhoAreYou/WhoAreYou";
-import WhereDoYouLive from "@/views/joins/parts/MembershipApplication/steps/WhereDoYouLive/WhereDoYouLive";
-import User from "@/views/joins/parts/MembershipApplication/steps/User/User";
-import Overview from "@/views/joins/parts/MembershipApplication/steps/Overview/Overview";
+import ValidationErrors from '@/mixins/ValidationErros';
+import BranchData from '@/views/join/parts/MembershipApplication/steps/Branch/BranchesSelect';
+import StepControls from '@/views/join/parts/MembershipApplication/parts/StepControls';
+import WhoAreYou from '@/views/join/parts/MembershipApplication/steps/WhoAreYou/WhoAreYou';
+import WhereDoYouLive from '@/views/join/parts/MembershipApplication/steps/WhereDoYouLive/WhereDoYouLive';
+import User from '@/views/join/parts/MembershipApplication/steps/User/User';
+import Overview from '@/views/join/parts/MembershipApplication/steps/Overview/Overview';
 
 export default {
   components: {
@@ -152,7 +190,7 @@ export default {
         branches: []
       },
       errors: {}
-    }
+    };
   },
   computed: {
     stepOneIsValid() {
@@ -219,7 +257,7 @@ export default {
           'wantsEmailNotification': this.form.wantsEmailNotification,
           'branches': this.form.branches.map(branch => branch.id)
         };
-        let {data} = await window.axios.post(`/members/register`, params);
+        let {data} = await window.axios.post('/members/register', params);
         this.$root.$snackbar.open(data.message);
         this.pushRouteTo('home');
       } catch (error) {
@@ -234,5 +272,5 @@ export default {
       }
     }
   }
-}
+};
 </script>

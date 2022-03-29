@@ -1,4 +1,4 @@
-import axios from "../../plugins/axios";
+import axios from '../../plugins/axios';
 
 const state = {
   isAuth: !!localStorage.getItem('isAuth'),
@@ -22,7 +22,7 @@ const getters = {
 
 const mutations = {
   SET_USER(state, userData) {
-    state.user = userData
+    state.user = userData;
   },
   SET_IS_AUTH(state, isAuth) {
     state.isAuth = isAuth;
@@ -38,7 +38,7 @@ const mutations = {
     localStorage.removeItem('isAuth');
   },
   SET_PERMISSIONS(state, permissions) {
-    state.permissions = permissions
+    state.permissions = permissions;
   },
   SET_IS_LOADING_AUTH(state, isLoadingAuth) {
     state.isLoadingAuth = isLoadingAuth;
@@ -70,7 +70,7 @@ const actions = {
           commit('SET_USER', response.data.user);
           commit('SET_PERMISSIONS', response.data.permissions);
           commit('SET_IS_AUTH', true);
-          resolve(response)
+          resolve(response);
         })
         .catch(error => {
           commit('UNSET_AUTH');
@@ -92,7 +92,7 @@ const actions = {
           commit('SET_USER', response.data.user);
           commit('SET_PERMISSIONS', response.data.permissions);
           commit('SET_IS_AUTH', true);
-          resolve(response)
+          resolve(response);
         })
         .catch(error => {
           commit('UNSET_AUTH');
@@ -109,7 +109,7 @@ const actions = {
       window.location.reload();
     }).finally(() => {
       commit('SET_IS_LOADING_AUTH', false);
-    })
+    });
   },
   getAuth({commit}) {
     return new Promise((resolve, reject) => {
@@ -124,7 +124,7 @@ const actions = {
             reject(error);
           });
       } else {
-       commit('UNSET_AUTH')
+       commit('UNSET_AUTH');
       }
     });
   }

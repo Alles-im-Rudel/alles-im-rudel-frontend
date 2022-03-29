@@ -1,23 +1,23 @@
 <template>
   <div>
     <branch-card
-        v-for="branch in branches"
-        :key="branch.id"
-        :validation-errors="errors"
-        :branch="branch"
-        @branch-changed="changeBranches"
+      v-for="branch in branches"
+      :key="branch.id"
+      :validation-errors="errors"
+      :branch="branch"
+      @branch-changed="changeBranches"
     />
   </div>
 </template>
 <script>
-import ValidationErrors from "@/mixins/ValidationErros";
-import BranchCard from "@/views/joins/parts/MembershipApplication/steps/Branch/BranchCard";
+import ValidationErrors from '@/mixins/ValidationErros';
+import BranchCard from '@/views/join/parts/MembershipApplication/steps/Branch/BranchCard';
 
 export default {
-  mixins: [ValidationErrors],
   components: {
     BranchCard
   },
+  mixins: [ValidationErrors],
   props: {
     value: {
       type: Object,
@@ -39,36 +39,7 @@ export default {
       errors: {},
       isLoading: false,
       branches: [],
-    }
-  },
-  created() {
-    this.getBranches();
-  },
-  methods: {
-    async getBranches() {
-      this.isLoading = true;
-      try {
-        let {data} = await window.axios.get(`/branches`)
-        this.branches = data.data;
-      } catch (error) {
-        this.errors = error;
-      } finally {
-        this.isLoading = false;
-      }
-    },
-    changeBranches(branch) {
-      if (this.form.branches && this.form.branches.length > 0) {
-        const index = this.form.branches.findIndex((item) => item.id === branch.id);
-        if (index >= 0) {
-          this.form.branches.splice(index, 1);
-        } else {
-          this.form.branches.push(branch)
-        }
-      } else {
-        this.form.branches = [];
-        this.form.branches.push(branch)
-      }
-    }
+    };
   },
   watch: {
     value: {
@@ -89,6 +60,35 @@ export default {
         this.$emit('input', this.form);
       }
     }
+  },
+  created() {
+    this.getBranches();
+  },
+  methods: {
+    async getBranches() {
+      this.isLoading = true;
+      try {
+        let {data} = await window.axios.get('/branches');
+        this.branches = data.data;
+      } catch (error) {
+        this.errors = error;
+      } finally {
+        this.isLoading = false;
+      }
+    },
+    changeBranches(branch) {
+      if (this.form.branches && this.form.branches.length > 0) {
+        const index = this.form.branches.findIndex((item) => item.id === branch.id);
+        if (index >= 0) {
+          this.form.branches.splice(index, 1);
+        } else {
+          this.form.branches.push(branch);
+        }
+      } else {
+        this.form.branches = [];
+        this.form.branches.push(branch);
+      }
+    }
   }
-}
+};
 </script>

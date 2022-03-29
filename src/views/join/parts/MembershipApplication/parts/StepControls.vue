@@ -5,9 +5,9 @@
     </v-btn>
     <v-spacer />
     <v-btn
-        color="primary"
-        @click="onCLickContinue"
-        :disabled="!isValid"
+      color="primary"
+      :disabled="!isValid"
+      @click="onCLickContinue"
     >
       {{ continueLabel }}
     </v-btn>
@@ -19,11 +19,11 @@ export default {
   props: {
     backLabel: {
       type: String,
-      default: "Zurück"
+      default: 'Zurück'
     },
     continueLabel: {
       type: String,
-      default: "Weiter"
+      default: 'Weiter'
     },
     isValid: {
       type: Boolean,
@@ -31,7 +31,7 @@ export default {
     }
   },
   data() {
-    return {}
+    return {};
   },
   methods: {
     onClickBack() {
@@ -41,5 +41,5 @@ export default {
       this.$emit('step-continue');
     }
   }
-}
+};
 </script>

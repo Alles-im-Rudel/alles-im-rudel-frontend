@@ -32,7 +32,7 @@ const router = new Router({
       path: '/join',
       name: 'join',
       meta: {group: 'join', auth: false, permission: null},
-      component: () => import('./views/joins')
+      component: () => import('./views/join')
     },
     {
       path: '/login',
