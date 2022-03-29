@@ -1,7 +1,7 @@
 <template>
   <div
-    v-if="isLoading"
-    class="d-flex justify-center py-16"
+      v-if="isLoading"
+      class="d-flex justify-center py-16"
   >
     <v-progress-circular indeterminate />
   </div>

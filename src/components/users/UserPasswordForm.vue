@@ -1,5 +1,5 @@
 <template>
-  <v-row class="pr-3 pl-3">
+  <v-row v-bind:class="{'pr-3': hasPadding, ' pl-3': hasPadding}">
     <v-col cols="12" md="6">
       <v-text-field
           v-model="user.password"
@@ -57,7 +57,12 @@ export default {
     },
     validationErrors: {
       type: Object,
-      default: () => {}
+      default: () => {
+      }
+    },
+    hasPadding: {
+      type: Boolean,
+      default: true
     }
   },
   data() {

@@ -88,6 +88,12 @@ const router = new Router({
       component: () => import('./views/management/users/edit')
     },
     {
+      path: '/management/members',
+      name: 'management-members',
+      meta: {group: 'management', auth: true, permission: 'members.mamage'},
+      component: () => import('./views/management/members/Members')
+    },
+    {
       path: '/management/permissions',
       name: 'management-permissions',
       meta: {group: 'management', auth: true, permission: 'permissions.index'},

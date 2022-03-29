@@ -12,9 +12,6 @@
       <v-tab href="#membership-application">
         Mitgliedsantrag
       </v-tab>
-      <v-tab href="#branch-membership-application">
-        Spartenzugehörigkeitsantrag
-      </v-tab>
     </v-tabs>
     <v-divider />
     <v-card-text
@@ -28,24 +25,19 @@
         <v-tab-item value="membership-application">
           <MembershipApplication />
         </v-tab-item>
-        <v-tab-item value="branch-membership-application">
-          <BranchMembershipApplication />
-        </v-tab-item>
       </v-tabs-items>
     </v-card-text>
   </v-card>
 </template>
 <script>
 
-import ArticalOfAssociation from './parts/ArticalOfAssociation';
-import BranchMembershipApplication from './parts/BranchMembershipApplication';
-import MembershipApplication from './parts/MembershipApplication';
+import ArticalOfAssociation from "./parts/ArticalOfAssociation";
+import MembershipApplication from "./parts/MembershipApplication/MembershipApplication";
 
 export default {
   name: 'Join',
   components: {
     ArticalOfAssociation,
-    BranchMembershipApplication,
     MembershipApplication
   },
   data() {
@@ -62,9 +54,6 @@ export default {
         });
       }
     }
-  },
-  created() {
-  },
-  methods: {}
+  }
 };
 </script>
