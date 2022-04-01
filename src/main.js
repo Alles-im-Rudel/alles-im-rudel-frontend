@@ -1,24 +1,23 @@
-import '@babel/polyfill';
-import '@fortawesome/fontawesome-free/css/all.css';
-import './plugins/axios';
-import './plugins/base';
 import Vue from 'vue';
 import App from './App.vue';
-import router from './router';
+import router from './plugins/router';
 import Dates from '@/mixins/Dates';
 import vuetify from './plugins/vuetify';
-import './plugins/dayjs';
 import store from './store';
 import Bool from '@/mixins/Bool';
 import PushRouteTo from './mixins/PushRouteTo';
 import VueMeta from 'vue-meta';
 import VueAnimations from 'vue-animations';
-
 import Vue2Editor from 'vue2-editor';
 import 'vue2-editor/dist/vue2-editor.css';
 import 'quill/dist/quill.core.css';
 import 'quill/dist/quill.bubble.css';
 import 'quill/dist/quill.snow.css';
+import '@babel/polyfill';
+import '@fortawesome/fontawesome-free/css/all.css';
+import './plugins/axios';
+import './plugins/base';
+import './plugins/dayjs';
 
 let app = null;
 

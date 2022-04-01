@@ -1,6 +1,6 @@
 'use strict';
 import store from './../store';
-import router from './../router';
+import router from './router';
 import Vue from 'vue';
 import Axios from 'axios';
 
