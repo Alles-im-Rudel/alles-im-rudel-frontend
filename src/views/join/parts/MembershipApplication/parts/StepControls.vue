@@ -1,20 +1,29 @@
 <template>
-  <v-card-actions class="ma-0 pa-0">
-    <v-btn @click="onClickBack">
-      {{ backLabel }}
-    </v-btn>
-    <v-spacer />
-    <v-btn
-      color="primary"
-      :disabled="!isValid"
-      @click="onCLickContinue"
+  <v-row class="px-0 py-2">
+    <v-col
+      v-if="hasBack"
+      cols="6"
     >
-      {{ continueLabel }}
-    </v-btn>
-  </v-card-actions>
+      <v-btn @click="onClickBack">
+        {{ backLabel }}
+      </v-btn>
+    </v-col>
+    <v-col
+      :cols="hasBack ? 6 : 12"
+      class="d-flex justify-end"
+    >
+      <v-btn
+        color="primary"
+        :disabled="!isValid"
+        @click="onClickContinue"
+      >
+        {{ continueLabel }}
+      </v-btn>
+    </v-col>
+  </v-row>
 </template>
-<script>
 
+<script>
 export default {
   props: {
     backLabel: {
@@ -24,6 +33,10 @@ export default {
     continueLabel: {
       type: String,
       default: 'Weiter'
+    },
+    hasBack: {
+      type: Boolean,
+      default: true
     },
     isValid: {
       type: Boolean,
@@ -37,7 +50,7 @@ export default {
     onClickBack() {
       this.$emit('step-back');
     },
-    onCLickContinue() {
+    onClickContinue() {
       this.$emit('step-continue');
     }
   }

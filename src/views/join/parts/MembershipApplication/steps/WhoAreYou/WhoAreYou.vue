@@ -4,9 +4,10 @@
       cols="12"
       md="2"
     >
-      <salutaion-select
+      <SalutationSelect
         v-model="form.salutation"
         :validation-errors="errors"
+        :hide-details="true"
       />
     </v-col>
     <v-col
@@ -19,6 +20,7 @@
         label="Vorname"
         :error="hasErrors('firstName')"
         :error-messages="getErrors('firstName')"
+        hide-details
       />
     </v-col>
     <v-col
@@ -31,6 +33,7 @@
         label="Nachname"
         :error="hasErrors('lastName')"
         :error-messages="getErrors('lastName')"
+        hide-details
       />
     </v-col>
     <v-col
@@ -43,6 +46,7 @@
         label="Telefon"
         :error="hasErrors('phone')"
         :error-messages="getErrors('phone')"
+        hide-details
       />
     </v-col>
     <v-col
@@ -53,19 +57,20 @@
         v-model="form.birthday"
         label="Geburtstag"
         :max-date="maxDate"
+        :hide-details="true"
       />
     </v-col>
   </v-row>
 </template>
 <script>
 import ValidationErrors from '@/mixins/ValidationErros';
-import SalutaionSelect from '@/components/selects/SalutaionSelect';
+import SalutationSelect from '@/components/selects/SalutationSelect';
 import DatePicker from '@/components/picker/DatePicker';
 import dayjs from 'dayjs';
 
 export default {
   components: {
-    SalutaionSelect,
+    SalutationSelect,
     DatePicker
   },
   mixins: [ValidationErrors],
