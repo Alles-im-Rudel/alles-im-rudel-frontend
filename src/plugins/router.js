@@ -40,6 +40,12 @@ const router = new Router({
       meta: {group: 'login'},
       component: () => import('../views/login/Login')
     },
+    {
+      path: '/posts/:id',
+      name: 'PostsShow',
+      meta: {group: 'posts', auth: false, permission: null},
+      component: () => import('../views/posts/show/PostsShow')
+    },
 
     /*
      *  Private

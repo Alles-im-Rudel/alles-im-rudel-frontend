@@ -142,7 +142,7 @@ export default {
         username: this.username
       };
       window.axios
-          .get('profils', {params})
+          .get('profile', {params})
           .then((response) => {
             this.user = response.data.data;
           })

@@ -5,7 +5,7 @@
   >
     <div
       class="post-thumbnail"
-      :style="'background-image: url(' + post.thumbnails[0].thumbnail + ');'"
+      :style="'background-image: url(' + post.thumbnail.thumbnail + ');'"
     >
       <div class="user">
         <user-chip :user="post.user" />
@@ -19,49 +19,39 @@
     </v-card-text>
     <v-divider />
     <v-card-actions class="px-3">
-      <post-tags :tags="post.tags" />
+      <PostTag :tag="post.tag" />
       <v-spacer />
-      <show-full-post-button
-        :post-id="post.id"
-        @reload="$emit('reload')"
-      />
+      <v-btn
+        color="darkGrey"
+        dark
+        @click="pushRouteTo('PostsShow', { id: post.id })"
+      >
+        Ansehen
+      </v-btn>
     </v-card-actions>
   </BaseCard>
 </template>
 
 <script>
 import UserChip from '@/components/users/UserChip';
-import PostTags from '@/components/post/PostTags';
-import ShowFullPostButton from '@/components/post/ShowFullPostButton';
+import PostTag from '@/components/post/PostTag';
 
 export default {
   components: {
     UserChip,
-    PostTags,
-    ShowFullPostButton
+    PostTag
   },
   props: {
     post: {
       required: true,
       type: Object
     },
-    textLength: {
-      type: Number,
-      required: false,
-      default: () => 200
-    }
   },
   data() {
     return {
       show: false
     };
   },
-  computed: {
-    text() {
-      return this.post.text.length > this.textLength ? this.post.text.substring(0, this.textLength - 3) + '...' : this.post.text;
-    }
-  },
-  methods: {}
 };
 </script>
 

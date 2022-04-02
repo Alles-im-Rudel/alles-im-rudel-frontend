@@ -2,14 +2,16 @@
   <v-tooltip top>
     <template v-slot:activator="{ on }">
       <v-btn
-          v-if="canSeeButton"
-          color="error"
-          icon
-          :loading="isLoading"
-          v-on="on"
-          @click="confirmDelete"
+        v-if="canSeeButton"
+        color="error"
+        icon
+        :loading="isLoading"
+        v-on="on"
+        @click="confirmDelete"
       >
-        <v-icon>fa-trash-alt</v-icon>
+        <v-icon small>
+          fa-trash-alt
+        </v-icon>
       </v-btn>
     </template>
     <span>Post löschen</span>
@@ -54,7 +56,7 @@ export default {
               'Post löschen?',
               'Möchten Sie diesen Post "' +
               this.selectedPost.title +
-              '" wirklich unwiederuflich löschen?',
+              '" wirklich unwiderruflich löschen?',
               'error'
           )
           .then((confirm) => confirm && this.delete());
@@ -63,12 +65,12 @@ export default {
       this.isLoading = true;
       window.axios
           .delete(`posts/${this.selectedPost.id}`)
-          .then((response) => {
-            this.$root.$snackbar.open(response.data.message);
+          .then(() => {
+            this.$root.$snackbar.open('Der Post wurde gelöscht.');
+            this.$emit('deleted');
           })
           .finally(() => {
             this.isLoading = false;
-            this.$emit('deleted');
           });
     }
   }
