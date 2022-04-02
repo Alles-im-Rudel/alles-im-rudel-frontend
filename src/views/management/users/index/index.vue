@@ -1,38 +1,41 @@
 <template>
-  <v-container>
-    <v-row justify="center">
-      <v-col cols="12">
-        <BaseCard>
-          <v-card-title>
-            Benutzerverwaltung
-            <v-spacer />
-            <v-btn
-              color="greyBlue"
-              dark
-              @click="pushRouteTo('management-users-create')"
-            >
-              <v-icon
-                small
-                class="mr-2"
+  <div>
+    <BaseBackground />
+    <v-container>
+      <v-row justify="center">
+        <v-col cols="12">
+          <BaseCard>
+            <v-card-title>
+              Benutzerverwaltung
+              <v-spacer />
+              <v-btn
+                color="greyBlue"
+                dark
+                @click="pushRouteTo('management-users-create')"
               >
-                fa-plus
-              </v-icon>
-              Benutzer erstellen
-            </v-btn>
-          </v-card-title>
-          <v-card-text>
-            <user-table
-              v-model="options"
-              :is-loading="isLoading"
-              :users="users"
-              :server-items-length="serverItemsLength"
-              @reload="getUsers"
-            />
-          </v-card-text>
-        </BaseCard>
-      </v-col>
-    </v-row>
-  </v-container>
+                <v-icon
+                  small
+                  class="mr-2"
+                >
+                  fa-plus
+                </v-icon>
+                Benutzer erstellen
+              </v-btn>
+            </v-card-title>
+            <v-card-text>
+              <user-table
+                v-model="options"
+                :is-loading="isLoading"
+                :users="users"
+                :server-items-length="serverItemsLength"
+                @reload="getUsers"
+              />
+            </v-card-text>
+          </BaseCard>
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
 </template>
 
 <script>
@@ -50,7 +53,7 @@ export default {
       options: {
         page: 1,
         itemsPerPage: 10,
-        sortBy: ['username'],
+        sortBy: ['lastName'],
         sortDesc: [false]
       },
       serverItemsLength: 0,

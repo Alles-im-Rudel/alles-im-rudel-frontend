@@ -56,7 +56,6 @@ export default {
       return (
           this.user.lastName &&
           this.user.firstName &&
-          this.user.username &&
           (((this.user.password === undefined ||
               this.user.password.length === 0) &&
               (this.user.passwordRepeat === undefined ||
@@ -69,7 +68,6 @@ export default {
       return (
           this.user.lastName !== this.originalUser.lastName ||
           this.user.firstName !== this.originalUser.firstName ||
-          this.user.username !== this.originalUser.username ||
           this.user.email !== this.originalUser.email ||
           this.user.birthday !== this.originalUser.birthday ||
           this.user.wantsEmailNotification !== this.originalUser.wantsEmailNotification ||
@@ -94,7 +92,6 @@ export default {
         userId: this.user.id,
         firstName: this.user.firstName,
         lastName: this.user.lastName,
-        username: this.user.username,
         email: this.user.email,
         wantsEmailNotification: this.user.wantsEmailNotification,
         birthday: this.user.birthday

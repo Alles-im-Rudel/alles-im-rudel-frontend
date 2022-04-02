@@ -28,9 +28,6 @@
                   {{ user.fullName }}
                 </v-list-item-title>
                 <v-list-item-subtitle class="text-h6">
-                  Benutzername: {{ user.username }}
-                </v-list-item-subtitle>
-                <v-list-item-subtitle class="text-h6">
                   Aktiv:
                   <v-icon :color="activeColor">
                     {{ user.isActive | boolIcon }}

@@ -1,45 +1,63 @@
 <template>
-  <v-card v-if="user.id" tile>
+  <v-card
+    v-if="user.id"
+    tile
+  >
     <v-card-title>
       Main Summoner von dem Benutzer {{ user.fullName }}
       <v-spacer />
-      <v-btn icon @click="close">
+      <v-btn
+        icon
+        @click="close"
+      >
         <v-icon>fa-times</v-icon>
       </v-btn>
     </v-card-title>
     <v-divider />
     <v-card-text>
       <v-row>
-        <v-col cols="12" md="6">
+        <v-col
+          cols="12"
+          md="6"
+        >
           <summoner-card
-              v-if="user.mainSummoner"
-              :summoner="user.mainSummoner"
-              can-detach-summoner
-              @summoner-detached="getUser"
-              @summoner-reloaded="getUser"
+            v-if="user.mainSummoner"
+            :summoner="user.mainSummoner"
+            can-detach-summoner
+            @summoner-detached="getUser"
+            @summoner-reloaded="getUser"
           />
           <v-card v-else>
             <v-card-title>
               Main Summoner hinzufügen
               <v-spacer />
-              <summoner-picker v-model="mainSummoner" free-main />
+              <summoner-picker
+                v-model="mainSummoner"
+                free-main
+              />
             </v-card-title>
           </v-card>
         </v-col>
       </v-row>
     </v-card-text>
   </v-card>
-  <v-card v-else tile>
+  <v-card
+    v-else
+    tile
+  >
     <v-card-text>
-      <v-skeleton-loader class="mx-auto" type="card" />
+      <v-skeleton-loader
+        class="mx-auto"
+        type="card"
+      />
     </v-card-text>
   </v-card>
 </template>
 
 <script>
 import Permissions from '@/mixins/Permissions';
-import SummonerCard from "@/components/summoners/SummonerCard";
-import SummonerPicker from '@/components/picker/SummonerPicker'
+import SummonerCard from '@/components/summoners/SummonerCard';
+import SummonerPicker from '@/components/picker/SummonerPicker';
 import {cloneDeep} from 'lodash';
 
 export default {
@@ -61,7 +79,6 @@ export default {
         fullName: null,
         firstName: null,
         lastName: null,
-        username: null,
         email: null,
         isActive: false,
       },
@@ -76,18 +93,18 @@ export default {
       return true;
     }
   },
-  created() {
-    this.getUser();
-  },
   watch: {
     mainSummoner: {
       deep: true,
       handler(value) {
         if (value.id) {
-          this.submit()
+          this.submit();
         }
       }
     }
+  },
+  created() {
+    this.getUser();
   },
   methods: {
     getUser() {

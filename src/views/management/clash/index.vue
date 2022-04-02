@@ -1,51 +1,54 @@
 <template>
-  <v-container>
-    <BaseCard>
-      <v-card-title>
-        Clash
-        <v-spacer />
-        <clash-team-create-button @created="getClashTeams" />
-      </v-card-title>
-      <v-card-text>
-        <v-row>
-          <v-col
-            v-for="clashTeam in clashTeams"
-            :key="clashTeam.id"
-            cols="12"
-            md="6"
-          >
-            <BaseCard>
-              <v-card-title>
-                {{ clashTeam.name }}
-                <v-spacer />
-                <clash-team-delete-button
-                  :clash-team="clashTeam"
-                  @clash-team-was-deleted="getClashTeams"
-                />
-                <clash-team-edit-button
-                  :clash-team="clashTeam"
-                  @updated="getClashTeams"
-                />
-              </v-card-title>
-              <v-card-text>
-                <v-col
-                  v-for="clashMember in clashTeam.clashMembers"
-                  :key="clashMember.id"
-                  cols="12"
-                >
-                  <BaseCard>
-                    <v-card-text>
-                      <strong>{{ clashMember.clashTeamRole.name }}:</strong> {{ clashMember.user.username }}
-                    </v-card-text>
-                  </BaseCard>
-                </v-col>
-              </v-card-text>
-            </BaseCard>
-          </v-col>
-        </v-row>
-      </v-card-text>
-    </BaseCard>
-  </v-container>
+  <div>
+    <BaseBackground />
+    <v-container>
+      <BaseCard>
+        <v-card-title>
+          Clash
+          <v-spacer />
+          <clash-team-create-button @created="getClashTeams" />
+        </v-card-title>
+        <v-card-text>
+          <v-row>
+            <v-col
+              v-for="clashTeam in clashTeams"
+              :key="clashTeam.id"
+              cols="12"
+              md="6"
+            >
+              <BaseCard>
+                <v-card-title>
+                  {{ clashTeam.name }}
+                  <v-spacer />
+                  <clash-team-delete-button
+                    :clash-team="clashTeam"
+                    @clash-team-was-deleted="getClashTeams"
+                  />
+                  <clash-team-edit-button
+                    :clash-team="clashTeam"
+                    @updated="getClashTeams"
+                  />
+                </v-card-title>
+                <v-card-text>
+                  <v-col
+                    v-for="clashMember in clashTeam.clashMembers"
+                    :key="clashMember.id"
+                    cols="12"
+                  >
+                    <BaseCard>
+                      <v-card-text>
+                        <strong>{{ clashMember.clashTeamRole.name }}:</strong> {{ clashMember.user.fullName }}
+                      </v-card-text>
+                    </BaseCard>
+                  </v-col>
+                </v-card-text>
+              </BaseCard>
+            </v-col>
+          </v-row>
+        </v-card-text>
+      </BaseCard>
+    </v-container>
+  </div>
 </template>
 
 <script>

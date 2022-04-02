@@ -45,7 +45,6 @@ export default {
         fullName: null,
         firstName: null,
         lastName: null,
-        username: null,
         email: null,
         isActive: false
       })

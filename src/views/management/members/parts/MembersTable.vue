@@ -1,30 +1,43 @@
 <template>
   <v-data-table
-      :loading="isLoading"
-      :headers="headers"
-      :items="members"
-      :options.sync="options"
-      :server-items-length="serverItemsLength"
-      :footer-props="footerProps"
-      no-data-text="Es wurden keine neu Anmeldungen gefunden"
-      multi-sort
+    :loading="isLoading"
+    :headers="headers"
+    :items="members"
+    :options.sync="options"
+    :server-items-length="serverItemsLength"
+    :footer-props="footerProps"
+    no-data-text="Es wurden keine neu Anmeldungen gefunden"
+    multi-sort
   >
     <template v-slot:item.emailVerifiedAt="{ item }">
-      <v-icon v-if="item.emailVerifiedAt" color="success">fa-check</v-icon>
-      <v-icon v-else color="error">fa-times</v-icon>
+      <v-icon
+        v-if="item.emailVerifiedAt"
+        color="success"
+      >
+        fa-check
+      </v-icon>
+      <v-icon
+        v-else
+        color="error"
+      >
+        fa-times
+      </v-icon>
     </template>
     <template v-slot:item.birthday="{ item }">
       {{ item.birthday | date }}
     </template>
     <template v-slot:item.actions="{ item }">
-      <member-accept-button :member="item" @reload="reload" />
+      <member-accept-button
+        :member="item"
+        @reload="reload"
+      />
     </template>
   </v-data-table>
 </template>
 <script>
 import Permissions from '@/mixins/Permissions';
 import DataTableMixin from '@/mixins/DataTableMixin';
-import MemberAcceptButton from "@/views/management/members/parts/MemberAcceptButton";
+import MemberAcceptButton from '@/views/management/members/parts/MemberAcceptButton';
 
 export default {
   components: {
@@ -38,7 +51,7 @@ export default {
       default: () => ({
         page: 1,
         itemsPerPage: 10,
-        sortBy: ['username'],
+        sortBy: ['lastName'],
         sortDesc: [false],
         totalItems: null
       })
@@ -69,10 +82,6 @@ export default {
         {
           text: 'Nachname',
           value: 'lastName'
-        },
-        {
-          text: 'Benutzername',
-          value: 'username'
         },
         {
           text: 'E-Mail',

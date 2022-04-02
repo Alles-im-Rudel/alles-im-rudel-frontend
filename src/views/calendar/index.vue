@@ -1,38 +1,41 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col
-        cols="12"
-        md="12"
-      >
-        <BaseCard>
-          <v-card-title>
-            Kalender / Events
-            <v-spacer />
-            <v-text-field
-              v-model="search"
-              append-icon="fa-search"
-              label="Suche"
-              clearable
-              @keydown.enter="getAppointments"
-              @click:append="getAppointments"
-              @click:clear="clearSearch"
-            />
-            <v-spacer />
-            <tag-select v-model="tags" />
-          </v-card-title>
-          <v-card-text>
-            <calender
-              v-model="range"
-              :appointments="appointments"
-              :is-loading="isLoading"
-              @reload="getAppointments"
-            />
-          </v-card-text>
-        </BaseCard>
-      </v-col>
-    </v-row>
-  </v-container>
+  <div>
+    <BaseBackground />
+    <v-container>
+      <v-row>
+        <v-col
+          cols="12"
+          md="12"
+        >
+          <BaseCard>
+            <v-card-title>
+              Kalender / Events
+              <v-spacer />
+              <v-text-field
+                v-model="search"
+                append-icon="fa-search"
+                label="Suche"
+                clearable
+                @keydown.enter="getAppointments"
+                @click:append="getAppointments"
+                @click:clear="clearSearch"
+              />
+              <v-spacer />
+              <tag-select v-model="tags" />
+            </v-card-title>
+            <v-card-text>
+              <calender
+                v-model="range"
+                :appointments="appointments"
+                :is-loading="isLoading"
+                @reload="getAppointments"
+              />
+            </v-card-text>
+          </BaseCard>
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
 </template>
 
 <script>

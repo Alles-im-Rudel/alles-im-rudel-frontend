@@ -62,13 +62,13 @@ const router = new Router({
       meta: {group: 'profile', auth: true, permission: null},
       component: () => import('../views/profile')
     },
-    {
+    /*{
       path: '/profile/:username',
       name: 'profile-show',
       props: true,
       meta: {group: 'home', auth: false, permission: null},
       component: () => import('../views/profile/show')
-    },
+    },*/
 
     /*
      * Management
