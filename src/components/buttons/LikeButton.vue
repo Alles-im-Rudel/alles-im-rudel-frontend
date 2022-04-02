@@ -1,14 +1,14 @@
 <template>
   <v-badge
-      color="greyBlue"
-      :content="selected.likes ? selected.likes : '0'"
-      overlap
+    color="greyBlue"
+    :content="selected.likes ? selected.likes : '0'"
+    overlap
   >
     <v-btn
-        :disabled="!canSeeButton"
-        :color="color"
-        icon
-        @click="change"
+      :disabled="!canSeeButton"
+      :color="color"
+      icon
+      @click="change"
     >
       <v-icon>fa-thumbs-up</v-icon>
     </v-btn>
@@ -60,9 +60,9 @@ export default {
       if(this.checkAuth) {
         this.isLoading = true;
         window.axios
-            .get(this.model+`/${this.selected.id}/check`)
+            .get(this.model+`/${this.selected.id}/like`)
             .then((response) => {
-              this.liked = response.data.liked
+              this.liked = response.data.liked;
             })
             .finally(() => {
               this.isLoading = false;

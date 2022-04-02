@@ -129,7 +129,7 @@ export default {
     async checkUsername() {
       this.isLoadingUsername = true;
       try {
-        let {data} = await window.axios.get(`/profils/check-username/${this.username}`);
+        let {data} = await window.axios.get(`/profile/check-username/${this.username}`);
         this.isUsernameFree = data[0];
         if (this.isUsernameFree && this.username) {
           this.form.username = this.username;
@@ -146,7 +146,7 @@ export default {
     async checkEmail() {
       this.isLoadingEmail = true;
       try {
-        let {data} = await window.axios.get(`/profils/check-email/${this.email}`);
+        let {data} = await window.axios.get(`/profile/check-email/${this.email}`);
         this.isEmailFree = data[0];
         if (this.isEmailFree && this.email) {
           this.form.email = this.email;

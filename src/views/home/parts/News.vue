@@ -5,7 +5,10 @@
     </BaseSectionTitle>
 
     <BaseContainer class="mt-8 mb-3">
-      <NewsFilter v-model="tagIds" />
+      <NewsFilter
+        v-model="tagIds"
+        @reload="getFresh"
+      />
     </BaseContainer>
 
     <v-card-text
@@ -100,7 +103,7 @@ export default {
       this.isLoading = true;
       const params = {
         page: this.page,
-        items: 3,
+        perPage: 3,
         tagIds: this.tagIds
       };
 
@@ -117,7 +120,7 @@ export default {
       this.isLoading = true;
       const params = {
         page: this.page,
-        items: 3,
+        perPage: 3,
         tagIds: this.tagIds
       };
 

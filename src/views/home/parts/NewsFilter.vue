@@ -16,6 +16,7 @@
       <v-btn
         text
         class="primary--text"
+        :class="canSeeCreateButton ? 'mr-2' : ''"
         @click="showSelect = !showSelect"
       >
         <v-icon
@@ -26,15 +27,22 @@
         </v-icon>
         Filter
       </v-btn>
+      <PostCreateButton
+        v-if="canSeeCreateButton"
+        @reload="reload"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import TagSelect from '@/components/selects/TagSelect';
+import PostCreateButton from '@/components/post/PostCreateButton';
+import Permissions from '@/mixins/Permissions';
 
 export default {
-  components: {TagSelect},
+  components: {PostCreateButton, TagSelect},
+  mixins: [Permissions],
   props: {
     value: {
       type: Array,
@@ -55,6 +63,9 @@ export default {
       set(value) {
         this.$emit('input', value);
       }
+    },
+    canSeeCreateButton() {
+      return this.can('posts.create');
     }
   },
   watch: {
@@ -62,6 +73,11 @@ export default {
       if (!this.showSelect && this.tagIds.length > 0) {
         this.$emit('input', []);
       }
+    }
+  },
+  methods: {
+    reload() {
+      this.$emit('reload');
     }
   }
 };
