@@ -1,45 +1,48 @@
 <template>
-  <v-container>
-    <BaseCard v-if="!user.id">
-      <v-card-title>
-        Lädt den Benutzer
-      </v-card-title>
-      <v-card-text>
-        <v-skeleton-loader
-          class="mx-auto"
-          type="card"
+  <div>
+    <BaseBackground />
+    <v-container>
+      <BaseCard v-if="!user.id">
+        <v-card-title>
+          Lädt den Benutzer
+        </v-card-title>
+        <v-card-text>
+          <v-skeleton-loader
+            class="mx-auto"
+            type="card"
+          />
+        </v-card-text>
+      </BaseCard>
+      <BaseCard v-else>
+        <v-card-title class="headline">
+          Bearbeiten von: {{ user.fullName }}
+          <v-spacer />
+          <v-btn @click="pushRouteTo('management-users')">
+            <v-icon class="mr-1">
+              fa-arrow-left
+            </v-icon>
+            Zurück zur Benutzerübersicht
+          </v-btn>
+        </v-card-title>
+        <v-divider />
+        <v-card-text>
+          <user-form
+            v-model="user"
+            :password-form-labels="passwordFormLabels"
+            :validation-errors="errors"
+          />
+        </v-card-text>
+        <v-divider />
+        <reset-save-action
+          :is-loading="isLoading"
+          :can-submit="canSubmit"
+          :has-changes="hasChanges"
+          @submit="submit"
+          @clear="clear"
         />
-      </v-card-text>
-    </BaseCard>
-    <BaseCard v-else>
-      <v-card-title class="headline">
-        Bearbeiten von: {{ user.fullName }}
-        <v-spacer />
-        <v-btn @click="pushRouteTo('management-users')">
-          <v-icon class="mr-1">
-            fa-arrow-left
-          </v-icon>
-          Zurück zur Benutzerübersicht
-        </v-btn>
-      </v-card-title>
-      <v-divider />
-      <v-card-text>
-        <user-form
-          v-model="user"
-          :password-form-labels="passwordFormLabels"
-          :validation-errors="errors"
-        />
-      </v-card-text>
-      <v-divider />
-      <reset-save-action
-        :is-loading="isLoading"
-        :can-submit="canSubmit"
-        :has-changes="hasChanges"
-        @submit="submit"
-        @clear="clear"
-      />
-    </BaseCard>
-  </v-container>
+      </BaseCard>
+    </v-container>
+  </div>
 </template>
 <script>
 import {cloneDeep} from 'lodash';
@@ -67,7 +70,6 @@ export default {
         fullName: null,
         firstName: null,
         lastName: null,
-        username: null,
         email: null,
         isActive: null,
         levelId: null,
@@ -79,7 +81,6 @@ export default {
         fullName: null,
         firstName: null,
         lastName: null,
-        username: null,
         email: null,
         isActive: null,
         levelId: null,
@@ -98,7 +99,6 @@ export default {
       return (
         this.user.lastName &&
         this.user.firstName &&
-        this.user.username &&
         this.user.levelId &&
         (((this.user.password === undefined ||
           this.user.password.length === 0) &&
@@ -112,7 +112,6 @@ export default {
       return (
         this.user.lastName !== this.originalUser.lastName ||
         this.user.firstName !== this.originalUser.firstName ||
-        this.user.username !== this.originalUser.username ||
         this.user.email !== this.originalUser.email ||
         this.user.isActive !== this.originalUser.isActive ||
         this.user.salutation !== this.originalUser.salutation ||
@@ -147,7 +146,6 @@ export default {
         userId: this.user.id,
         firstName: this.user.firstName,
         lastName: this.user.lastName,
-        username: this.user.username,
         email: this.user.email,
         isActive: this.user.isActive,
         levelId: this.user.levelId,

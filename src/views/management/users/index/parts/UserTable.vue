@@ -1,38 +1,60 @@
 <template>
   <v-data-table
-      :loading="isLoading"
-      :headers="headers"
-      :items="users"
-      :options.sync="options"
-      :server-items-length="serverItemsLength"
-      :footer-props="footerProps"
-      :no-data-text="'Es wurden keine Benutzer gefunden'"
-      multi-sort
+    :loading="isLoading"
+    :headers="headers"
+    :items="users"
+    :options.sync="options"
+    :server-items-length="serverItemsLength"
+    :footer-props="footerProps"
+    :no-data-text="'Es wurden keine Benutzer gefunden'"
+    multi-sort
   >
     <template v-slot:item.activatedAt="{ item }">
-      <v-icon v-if="item.isActive" color="success">fa-check</v-icon>
-      <v-icon v-else color="error">fa-times</v-icon>
+      <v-icon
+        v-if="item.isActive"
+        color="success"
+      >
+        fa-check
+      </v-icon>
+      <v-icon
+        v-else
+        color="error"
+      >
+        fa-times
+      </v-icon>
     </template>
     <template v-slot:item.updatedAt="{ item }">
       {{ item.updatedAt | dateTime }}
     </template>
     <template v-slot:item.actions="{ item }">
       <user-edit-button :user="item" />
-      <user-sync-user-groups-button :user="item" @reload="reload" />
-      <user-sync-permissions-button :user="item" @reload="reload" />
-      <user-sync-main-summoner-button :user="item" @reload="reload" />
-      <user-delete-button :selected-user="item" @user-was-deleted="reload" />
+      <user-sync-user-groups-button
+        :user="item"
+        @reload="reload"
+      />
+      <user-sync-permissions-button
+        :user="item"
+        @reload="reload"
+      />
+      <user-sync-main-summoner-button
+        :user="item"
+        @reload="reload"
+      />
+      <user-delete-button
+        :selected-user="item"
+        @user-was-deleted="reload"
+      />
     </template>
   </v-data-table>
 </template>
 <script>
 import Permissions from '@/mixins/Permissions';
 import DataTableMixin from '@/mixins/DataTableMixin';
-import UserEditButton from "@/views/management/users/index/parts/buttons/UserEditButton";
-import UserDeleteButton from "@/views/management/users/index/parts/buttons/UserDeleteButton";
-import UserSyncPermissionsButton from "@/views/management/users/index/parts/buttons/UserSyncPermissionsButton";
-import UserSyncUserGroupsButton from "@/views/management/users/index/parts/buttons/UserSyncUserGroupsButton";
-import UserSyncMainSummonerButton from "@/views/management/users/index/parts/buttons/UserSyncMainSummonerButton";
+import UserEditButton from '@/views/management/users/index/parts/buttons/UserEditButton';
+import UserDeleteButton from '@/views/management/users/index/parts/buttons/UserDeleteButton';
+import UserSyncPermissionsButton from '@/views/management/users/index/parts/buttons/UserSyncPermissionsButton';
+import UserSyncUserGroupsButton from '@/views/management/users/index/parts/buttons/UserSyncUserGroupsButton';
+import UserSyncMainSummonerButton from '@/views/management/users/index/parts/buttons/UserSyncMainSummonerButton';
 
 export default {
   components: {
@@ -50,7 +72,7 @@ export default {
       default: () => ({
         page: 1,
         itemsPerPage: 10,
-        sortBy: ['username'],
+        sortBy: ['lastName'],
         sortDesc: [false],
         totalItems: null
       })
@@ -81,10 +103,6 @@ export default {
         {
           text: 'Nachname',
           value: 'lastName'
-        },
-        {
-          text: 'Benutzername',
-          value: 'username'
         },
         {
           text: 'E-Mail',

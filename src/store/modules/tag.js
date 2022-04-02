@@ -16,7 +16,7 @@ const actions = {
   getTags({commit}) {
     return new Promise((resolve, reject) => {
       window.axios
-        .get('tags/all')
+        .get('tags')
         .then((response) => {
           commit('SET_TAGS', response.data.data);
           resolve(response);

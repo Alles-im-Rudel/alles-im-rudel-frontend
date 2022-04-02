@@ -8,7 +8,7 @@
     item-text="name"
     chips
     clearable
-    multiple
+    :multiple="multiple"
     :hide-details="!hasErrors"
   >
     <template v-slot:item="{ item }">
@@ -36,7 +36,7 @@ import {mapGetters, mapActions} from 'vuex';
 export default {
   props: {
     value: {
-      type: Array,
+      type: undefined,
       required: false,
       default: () => null
     },
@@ -49,6 +49,11 @@ export default {
       type: Array,
       required: false,
       default: () => []
+    },
+    multiple: {
+      type: Boolean,
+      required: false,
+      default: () => true
     }
   },
   data() {

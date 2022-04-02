@@ -1,13 +1,18 @@
 <template>
-  <v-dialog v-model="showDialog" fullscreen>
+  <v-dialog
+    v-model="showDialog"
+    fullscreen
+  >
     <template v-slot:activator="{ on: dialog }">
       <v-btn
-          v-if="canSeeButton"
-          color="darkGrey"
-          dark
-          v-on="{ ...dialog }"
+        v-if="canSeeButton"
+        color="darkGrey"
+        dark
+        v-on="{ ...dialog }"
       >
-        <v-icon left>fa-plus</v-icon>
+        <v-icon left>
+          fa-plus
+        </v-icon>
         Post
       </v-btn>
     </template>
@@ -20,37 +25,38 @@
       <v-divider />
       <v-card-text>
         <post-form
-            v-model="post"
-            :validation-errors="errors"
+          v-model="post"
+          :validation-errors="errors"
         />
       </v-card-text>
       <v-divider />
-      <reset-save-action
-          :has-changes="hasChanges"
+      <BaseContainer>
+        <reset-save-action
           :can-submit="canSubmit"
           :is-loading="isLoading"
           @submit="submit"
           @clear="clear"
-      />
+        />
+      </BaseContainer>
     </v-card>
   </v-dialog>
 </template>
 
 <script>
-import ResetSaveAction from "@/components/cardActions/ResetSaveAction";
-import PostForm from "@/components/post/PostForm";
-import ValidationErrors from "@/mixins/ValidationErros";
-import CloseButton from '@/components/cardActions/CloseButton'
-import {mapGetters} from "vuex";
-import Permissions from "@/mixins/Permissions";
+import ResetSaveAction from '@/components/cardActions/ResetSaveAction';
+import PostForm from '@/components/post/PostForm';
+import ValidationErrors from '@/mixins/ValidationErros';
+import CloseButton from '@/components/cardActions/CloseButton';
+import {mapGetters} from 'vuex';
+import Permissions from '@/mixins/Permissions';
 
 export default {
-  mixins: [ValidationErrors, Permissions],
   components: {
     ResetSaveAction,
     PostForm,
     CloseButton
   },
+  mixins: [ValidationErrors, Permissions],
   data() {
     return {
       showDialog: false,
@@ -58,8 +64,8 @@ export default {
       post: {
         title: null,
         text: null,
-        tags: [],
-        images: []
+        image: null,
+        tagId: null,
       }
     };
   },
@@ -67,15 +73,12 @@ export default {
   computed: {
     ...mapGetters('auth', ['user', 'isAuth']),
     canSubmit() {
-      return this.post.title &&
-          this.post.text &&
-          this.hasChanges;
-    },
-    hasChanges() {
-      return !!this.post.text ||
-          !!this.post.title ||
-          this.post.images.length > 0 ||
-          this.post.tags.length > 0;
+      return !!(
+        this.post.title &&
+        this.post.text &&
+        this.post.image &&
+        this.post.tagId
+      );
     },
     canSeeButton() {
       return this.can('posts.create');
@@ -85,59 +88,35 @@ export default {
     submit() {
       this.isLoading = true;
       this.clearErrors();
-      const params = {
-        title: this.post.title,
-        text: this.post.text,
-        tagIds: this.post.tags.map(tag => tag.id),
-      };
-      window.axios
-          .post('posts', params)
-          .then((response => {
-            if (this.post.images.length > 0) {
-              this.post.images.forEach((image, index) => {
-                this.uploadImage(response.data.postId, image, index);
-              });
-            } else {
-              this.$root.$snackbar.open('Der Post wurde erfolgreich erstellt.');
-              this.clear();
-              this.$emit('reload');
-              this.showDialog = false;
-            }
-          }))
-          .catch(this.syncErrors)
-          .finally(() => this.isLoading = false);
-    },
-    uploadImage(postId, image, index) {
-      this.isLoading = true;
+
       const request = new FormData();
       const config = {headers: {'Content-Type': 'multipart/form-data'}};
-      request.append('file', image.file);
-      if (image.title) {
-        request.append('title', image.title);
-      }
+      request.append('title', this.post.title);
+      request.append('text', this.post.text);
+      request.append('tagId', this.post.tagId);
+      request.append('image', this.post.image);
+
       window.axios
-          .post(`posts/${postId}/image`, request, config)
-          .then(() => {
-            if (this.post.images.length === ++index) {
-              this.isLoading = false;
-              this.clear();
-              this.$emit('reload');
-              this.showDialog = false;
-              this.$root.$snackbar.open('Der Post wurde erfolgreich erstellt.');
-            }
-          })
-          .catch(this.syncErrors);
+        .post('posts', request, config)
+        .then(() => {
+          this.clear();
+          this.$emit('reload');
+          this.showDialog = false;
+          this.$root.$snackbar.open('Der Post wurde erfolgreich erstellt.');
+        })
+        .catch(this.syncErrors)
+        .finally(() => this.isLoading = false);
     },
     clear() {
       this.post = {
         title: null,
         text: null,
-        tags: [],
-        images: []
-      }
+        tagId: null,
+        image: null
+      };
     },
     close() {
-      this.showDialog = false
+      this.showDialog = false;
     }
   }
 };

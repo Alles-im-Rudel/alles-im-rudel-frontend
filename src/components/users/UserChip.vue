@@ -6,7 +6,7 @@
     >
       <v-img :src="user.thumbnail.thumbnail" />
     </v-avatar>
-    {{ user.username }}
+    {{ user.fullName }}
   </v-chip>
 </template>
 

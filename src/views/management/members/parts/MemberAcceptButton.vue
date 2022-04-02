@@ -1,13 +1,16 @@
 <template>
-  <v-dialog v-model="showDialog" persistent>
+  <v-dialog
+    v-model="showDialog"
+    persistent
+  >
     <template v-slot:activator="{ on: dialog }">
       <v-tooltip top>
         <template v-slot:activator="{ on: tooltip }">
           <v-btn
-              v-if="canSeeButton"
-              color="primary"
-              icon
-              v-on="{ ...dialog, ...tooltip }"
+            v-if="canSeeButton"
+            color="primary"
+            icon
+            v-on="{ ...dialog, ...tooltip }"
           >
             <v-icon>fa-check</v-icon>
           </v-btn>
@@ -15,13 +18,17 @@
         <span>Anmeldung bearbeiten</span>
       </v-tooltip>
     </template>
-    <AcceptMember :user-id="member.id" @reload="reload" @close="close" />
+    <AcceptMember
+      :user-id="member.id"
+      @reload="reload"
+      @close="close"
+    />
   </v-dialog>
 </template>
 
 <script>
 import Permissions from '@/mixins/Permissions';
-import AcceptMember from "@/views/management/members/parts/AcceptMember";
+import AcceptMember from '@/views/management/members/parts/AcceptMember';
 
 export default {
   components: {
@@ -37,7 +44,6 @@ export default {
         fullName: null,
         firstName: null,
         lastName: null,
-        username: null,
         email: null,
         isActive: false
       })

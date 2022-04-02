@@ -183,8 +183,7 @@ export default {
       return true;
     },
     stepFiveIsValid() {
-      return !!this.form.username
-          && !!this.form.email
+      return !!this.form.email
           && !!this.form.password
           && (this.form.password === this.form.passwordRepeat);
     },
@@ -218,7 +217,6 @@ export default {
           'city': this.form.city,
           'country': this.form.country,
           'iban': this.form.iban,
-          'username': this.form.username,
           'email': this.form.email,
           'password': this.form.password,
           'passwordRepeat': this.form.passwordRepeat,
