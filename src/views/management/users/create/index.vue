@@ -1,33 +1,36 @@
 <template>
-  <v-container>
-    <BaseCard>
-      <v-card-title class="headline">
-        Benutzer erstellen
-        <v-spacer />
-        <v-btn @click="back">
-          <v-icon class="mr-1">
-            fa-arrow-left
-          </v-icon>
-          Zurück zur Benutzerübersicht
-        </v-btn>
-      </v-card-title>
-      <v-divider />
-      <v-card-text>
-        <user-form
-          v-model="user"
-          :password-form-labels="passwordFormLabels"
-          :validation-errors="errors"
+  <div>
+    <BaseBackground />
+    <v-container>
+      <BaseCard>
+        <v-card-title class="headline">
+          Benutzer erstellen
+          <v-spacer />
+          <v-btn @click="back">
+            <v-icon class="mr-1">
+              fa-arrow-left
+            </v-icon>
+            Zurück zur Benutzerübersicht
+          </v-btn>
+        </v-card-title>
+        <v-divider />
+        <v-card-text>
+          <user-form
+            v-model="user"
+            :password-form-labels="passwordFormLabels"
+            :validation-errors="errors"
+          />
+        </v-card-text>
+        <v-divider />
+        <reset-save-action
+          :is-loading="isLoading"
+          :can-submit="canSubmit"
+          @submit="submit"
+          @clear="clear"
         />
-      </v-card-text>
-      <v-divider />
-      <reset-save-action
-        :is-loading="isLoading"
-        :can-submit="canSubmit"
-        @submit="submit"
-        @clear="clear"
-      />
-    </BaseCard>
-  </v-container>
+      </BaseCard>
+    </v-container>
+  </div>
 </template>
 <script>
 import UserForm from '@/components/users/UserForm';
@@ -47,7 +50,6 @@ export default {
         fullName: null,
         firstName: null,
         lastName: null,
-        username: null,
         email: null,
         isActive: false,
         levelId: null,
@@ -69,7 +71,6 @@ export default {
       return (
         !!this.user.lastName &&
         !!this.user.firstName &&
-        !!this.user.username &&
         !!this.user.levelId &&
         !!this.user.email &&
         !!this.user.password &&
@@ -89,7 +90,6 @@ export default {
         userId: this.user.id,
         firstName: this.user.firstName,
         lastName: this.user.lastName,
-        username: this.user.username,
         email: this.user.email,
         isActive: this.user.isActive,
         levelId: this.user.levelId,
@@ -114,7 +114,6 @@ export default {
         fullName: null,
         firstName: null,
         lastName: null,
-        username: null,
         email: null,
         isActive: false,
         levelId: null,

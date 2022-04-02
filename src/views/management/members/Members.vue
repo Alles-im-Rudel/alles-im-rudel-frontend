@@ -1,29 +1,32 @@
 <template>
-  <v-container>
-    <v-row justify="center">
-      <v-col cols="12">
-        <base-card>
-          <v-card-title>
-            Neue Anmeldungen
-          </v-card-title>
-          <v-card-text>
-            <member-table
+  <div>
+    <BaseBackground />
+    <v-container>
+      <v-row justify="center">
+        <v-col cols="12">
+          <base-card>
+            <v-card-title>
+              Neue Anmeldungen
+            </v-card-title>
+            <v-card-text>
+              <member-table
                 v-model="options"
                 :is-loading="isLoading"
                 :members="members"
                 :server-items-length="serverItemsLength"
                 @reload="getMembers"
-            />
-          </v-card-text>
-        </base-card>
-      </v-col>
-    </v-row>
-  </v-container>
+              />
+            </v-card-text>
+          </base-card>
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
 </template>
 
 <script>
 import {zipObject} from 'lodash';
-import MemberTable from "@/views/management/members/parts/MembersTable";
+import MemberTable from '@/views/management/members/parts/MembersTable';
 
 export default {
   components: {
@@ -36,7 +39,7 @@ export default {
       options: {
         page: 1,
         itemsPerPage: 10,
-        sortBy: ['username'],
+        sortBy: ['lastName'],
         sortDesc: [false]
       },
       serverItemsLength: 0,
@@ -45,18 +48,18 @@ export default {
         withOnlyTrashed: false,
         userGroups: []
       }
-    }
+    };
   },
   computed: {},
-  created() {
-    this.getMembers();
-  },
   watch: {
     options: {
       handler() {
-        this.getMembers()
+        this.getMembers();
       }
     }
+  },
+  created() {
+    this.getMembers();
   },
   methods: {
     getMembers() {
@@ -72,10 +75,10 @@ export default {
       };
       window.axios.get('members', {params})
           .then(response => {
-            this.members = response.data.data
+            this.members = response.data.data;
             this.serverItemsLength = response.data.meta.total;
-          }).finally(() => this.isLoading = false)
+          }).finally(() => this.isLoading = false);
     }
   }
-}
+};
 </script>

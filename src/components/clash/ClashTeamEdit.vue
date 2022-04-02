@@ -31,7 +31,7 @@
           <BaseCard>
             <v-card-title>
               {{ clashMember.clashTeamRole.name }}:
-              {{ clashMember.user.username }}
+              {{ clashMember.user.fullName }}
               <v-spacer />
               <v-tooltip top>
                 <template v-slot:activator="{ on }">
@@ -66,7 +66,7 @@
           <BaseCard>
             <v-card-title>
               {{ newClashMember.clashTeamRole.name }}:
-              {{ newClashMember.user.username }}
+              {{ newClashMember.user.fullName }}
               <v-spacer />
               <v-tooltip top>
                 <template v-slot:activator="{ on }">

@@ -2,48 +2,63 @@
   <v-card>
     <v-card-text>
       <v-text-field
-          v-model="search"
-          append-icon="fa-search"
-          clearable
-          hide-details
-          label="Suche"
-          :loading="isLoading"
-          :disabled="isLoading"
-          @keydown.enter="startNewSearch"
-          @click:append="startNewSearch"
+        v-model="search"
+        append-icon="fa-search"
+        clearable
+        hide-details
+        label="Suche"
+        :loading="isLoading"
+        :disabled="isLoading"
+        @keydown.enter="startNewSearch"
+        @click:append="startNewSearch"
       />
     </v-card-text>
-    <v-card-text v-if="lastPage > 1" class="text-xs-center">
+    <v-card-text
+      v-if="lastPage > 1"
+      class="text-xs-center"
+    >
       <v-pagination
-          v-model="pagination.page"
-          :length="lastPage"
-          :total-visible="11"
+        v-model="pagination.page"
+        :length="lastPage"
+        :total-visible="11"
       />
     </v-card-text>
     <v-card-text v-if="showResults">
       <v-row>
         <v-col
-            v-for="item in clashMembers"
-            :key="item.id"
-            cols="12"
-            sm="6"
-            md="4"
-            lg="3"
-            class="pa-1"
+          v-for="item in clashMembers"
+          :key="item.id"
+          cols="12"
+          sm="6"
+          md="4"
+          lg="3"
+          class="pa-1"
         >
           <v-card height="100%">
-            <v-card-title class="py-2">
-              {{ item.username }}
-            </v-card-title>
-            <v-divider />
             <v-card-text>
               <v-row>
-                <v-col cols="12" md="2">E-Mail:</v-col>
-                <v-col cols="12" md="10">
+                <v-col
+                  cols="12"
+                  md="2"
+                >
+                  E-Mail:
+                </v-col>
+                <v-col
+                  cols="12"
+                  md="10"
+                >
                   {{ item.email }}
                 </v-col>
-                <v-col cols="12" md="2"> Name: </v-col>
-                <v-col cols="12" md="10">
+                <v-col
+                  cols="12"
+                  md="2"
+                >
+                  Name:
+                </v-col>
+                <v-col
+                  cols="12"
+                  md="10"
+                >
                   {{ item.fullName }}
                 </v-col>
               </v-row>
@@ -51,7 +66,11 @@
             <v-divider />
             <v-card-actions>
               <v-spacer />
-              <v-btn small color="primary" @click="clashMembersSelected(item)">
+              <v-btn
+                small
+                color="primary"
+                @click="clashMembersSelected(item)"
+              >
                 Auswählen
               </v-btn>
             </v-card-actions>
@@ -59,10 +78,16 @@
         </v-col>
       </v-row>
     </v-card-text>
-    <v-card-text v-if="showNoData" class="headline text-xs-center">
+    <v-card-text
+      v-if="showNoData"
+      class="headline text-xs-center"
+    >
       Keine Member gefunden!
     </v-card-text>
-    <v-card-text v-if="showStartNewSearch" class="headline text-xs-center">
+    <v-card-text
+      v-if="showStartNewSearch"
+      class="headline text-xs-center"
+    >
       Bitte geben Sie einen Suchbegriff ein und Starten Sie Ihre Suche!
     </v-card-text>
   </v-card>
