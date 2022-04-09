@@ -135,6 +135,10 @@
               v-model="form.wantsEmailNotification"
               label="Hiermit bestätige ich, dass ich per E-Mail benachrichtigt werden darf."
             />
+            <image-upload
+              v-model="form.signature"
+              label="Unterschrift hochalden"
+            />
           </v-card-text>
         </v-card>
       </v-col>
@@ -142,8 +146,10 @@
   </div>
 </template>
 <script>
+import ImageUpload from '@/components/images/ImageUpload';
 
 export default {
+  components: {ImageUpload},
   props: {
     value: {
       type: Object,

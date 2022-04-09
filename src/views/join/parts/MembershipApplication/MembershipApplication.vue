@@ -78,6 +78,18 @@
                   :error-messages="getErrors('iban')"
                 />
               </v-col>
+              <v-col
+                cols="12"
+                md="6"
+              >
+                <v-text-field
+                  v-model="form.bic"
+                  required
+                  label="Bic"
+                  :error="hasErrors('bic')"
+                  :error-messages="getErrors('bic')"
+                />
+              </v-col>
             </v-row>
           </v-card-text>
           <step-controls
@@ -211,7 +223,8 @@ export default {
           && !!this.form.country;
     },
     stepThreeIsValid() {
-      return !!this.form.iban;
+      return !!this.form.iban
+          && !!this.form.bic;
     },
     stepFourIsValid() {
       return true;
@@ -230,6 +243,7 @@ export default {
           && this.stepFiveIsValid
           && !!this.form.hasAcceptedDataProtection
           && !!this.form.hasAcceptedMonthlyDebits
+          && !!this.form.signature
           && !!this.form.wantsEmailNotification;
     },
   },
@@ -238,34 +252,40 @@ export default {
       this.step++;
     },
     async submit() {
-      this.isLoadingUsername = true;
+      this.isLoading = true;
       try {
-        const params = {
-          'salutation': this.form.salutation,
-          'firstName': this.form.firstName,
-          'lastName': this.form.lastName,
-          'phone': this.form.phone,
-          'birthday': this.form.birthday,
-          'street': this.form.street,
-          'postcode': this.form.postcode,
-          'city': this.form.city,
-          'country': this.form.country,
-          'iban': this.form.iban,
-          'email': this.form.email,
-          'password': this.form.password,
-          'passwordRepeat': this.form.passwordRepeat,
-          'hasAcceptedDataProtection': this.form.hasAcceptedDataProtection,
-          'hasAcceptedMonthlyDebits': this.form.hasAcceptedMonthlyDebits,
-          'wantsEmailNotification': this.form.wantsEmailNotification,
-          'branches': this.form.branches.map(branch => branch.id)
-        };
-        let {data} = await window.axios.post('/members/register', params);
+        const request = new FormData();
+        const config = {headers: {'Content-Type': 'multipart/form-data'}};
+
+        request.append('salutation', this.form.salutation,);
+        request.append('firstName', this.form.firstName);
+        request.append('lastName', this.form.lastName);
+        request.append('phone', this.form.phone);
+        request.append('birthday', this.form.birthday);
+        request.append('street', this.form.street);
+        request.append('postcode', this.form.postcode);
+        request.append('city', this.form.city);
+        request.append('country', this.form.country);
+        request.append('iban', this.form.iban);
+        request.append('bic', this.form.bic);
+        request.append('email', this.form.email);
+        request.append('password', this.form.password);
+        request.append('passwordRepeat', this.form.passwordRepeat);
+        request.append('hasAcceptedDataProtection', this.form.hasAcceptedDataProtection);
+        request.append('hasAcceptedMonthlyDebits', this.form.hasAcceptedMonthlyDebits);
+        request.append('wantsEmailNotification', this.form.wantsEmailNotification);
+        request.append('signature', this.form.signature);
+        request.append('branches', JSON.stringify(this.form.branches.map(branch => {
+          return branch.id;
+        })));
+
+        let {data} = await window.axios.post('/members/register', request, config);
         this.$root.$snackbar.open(data.message);
         this.pushRouteTo('home');
       } catch (error) {
         this.errors = error;
       } finally {
-        this.isLoadingUsername = false;
+        this.isLoading = false;
       }
     },
     previousStep() {

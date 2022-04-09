@@ -7,7 +7,7 @@
         counter
         :error="hasErrors('image')"
         :error-messages="getErrors('image')"
-        label="Bild auswählen"
+        :label="label"
         placeholder="Bild auswählen"
         prepend-icon=""
         :accept="allowedTypes.join(',')"
@@ -46,6 +46,11 @@ export default {
       type: undefined,
       required: false,
       default: null
+    },
+    label: {
+      type: String,
+      required: false,
+      default: 'Bild auswählen'
     }
   },
   data() {
