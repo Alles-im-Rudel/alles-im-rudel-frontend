@@ -187,7 +187,11 @@ export default {
         {}
       ],
       form: {
-        branches: []
+        branches: [
+          {
+            id: 1
+          }
+        ]
       },
       errors: {}
     };

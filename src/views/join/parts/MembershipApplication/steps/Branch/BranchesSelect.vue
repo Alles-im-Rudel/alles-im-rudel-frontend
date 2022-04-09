@@ -5,6 +5,7 @@
       :key="branch.id"
       :validation-errors="errors"
       :branch="branch"
+      :selected="selectedIds"
       @branch-changed="changeBranches"
     />
   </div>
@@ -22,7 +23,11 @@ export default {
     value: {
       type: Object,
       default: () => ({
-        branches: []
+        branches: [
+          {
+            id: 1
+          }
+        ]
       })
     },
     validationErrors: {
@@ -34,12 +39,21 @@ export default {
     return {
       date: null,
       form: {
-        branches: []
+        branches: [
+          {
+            id: 1
+          }
+        ]
       },
       errors: {},
       isLoading: false,
       branches: [],
     };
+  },
+  computed: {
+    selectedIds() {
+      return this.form.branches.map(item=>item.id);
+    }
   },
   watch: {
     value: {

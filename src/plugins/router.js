@@ -57,6 +57,12 @@ const router = new Router({
       component: () => import('../views/calendar')
     },
     {
+      path: '/profile/branches',
+      name: 'branches-edit',
+      meta: {group: 'branches', auth: true, permission: null},
+      component: () => import('../views/profile/branches/BranchesEdit')
+    },
+    {
       path: '/profile',
       name: 'profile',
       meta: {group: 'profile', auth: true, permission: null},

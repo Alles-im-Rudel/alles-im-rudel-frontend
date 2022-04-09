@@ -4,12 +4,14 @@
       <v-tooltip top>
         <template v-slot:activator="{ on:tooltip }">
           <v-btn
-              v-if="canSeeButton"
-              color="darkGrey"
-              outlined
-              v-on="{ ...dialog, ...tooltip}"
+            v-if="canSeeButton"
+            color="darkGrey"
+            outlined
+            v-on="{ ...dialog, ...tooltip}"
           >
-            <v-icon left>fa-plus</v-icon>
+            <v-icon left>
+              fa-plus
+            </v-icon>
             Event
           </v-btn>
         </template>
@@ -25,38 +27,38 @@
       <v-divider />
       <v-card-text>
         <appointment-form
-            v-model="appointment"
-            :validation-errors="errors"
+          v-model="appointment"
+          :validation-errors="errors"
         />
       </v-card-text>
       <v-divider />
       <reset-save-action
-          :has-changes="hasChanges"
-          :can-submit="canSubmit"
-          :is-loading="isLoading"
-          @submit="submit"
-          @clear="clear"
+        :has-changes="hasChanges"
+        :can-submit="canSubmit"
+        :is-loading="isLoading"
+        @submit="submit"
+        @clear="clear"
       />
     </v-card>
   </v-dialog>
 </template>
 
 <script>
-import ResetSaveAction from "@/components/cardActions/ResetSaveAction";
-import ValidationErrors from "@/mixins/ValidationErros";
-import CloseButton from '@/components/cardActions/CloseButton'
-import {mapGetters} from "vuex";
-import Permissions from "@/mixins/Permissions";
-import AppointmentForm from "@/components/ appointment/AppointmentForm";
-import HasArrayDifferenz from "@/mixins/HasArrayDifferenz";
+import ResetSaveAction from '@/components/cardActions/ResetSaveAction';
+import ValidationErrors from '@/mixins/ValidationErros';
+import CloseButton from '@/components/cardActions/CloseButton';
+import {mapGetters} from 'vuex';
+import Permissions from '@/mixins/Permissions';
+import AppointmentForm from '@/components/ appointment/AppointmentForm';
+import HasArrayDifferenz from '@/mixins/HasArrayDifferenz';
 
 export default {
-  mixins: [ValidationErrors, Permissions, HasArrayDifferenz],
   components: {
     ResetSaveAction,
     AppointmentForm,
     CloseButton
   },
+  mixins: [ValidationErrors, Permissions, HasArrayDifferenz],
   data() {
     return {
       showDialog: false,
@@ -112,7 +114,7 @@ export default {
         endAt: this.appointment.dates[1] ? this.appointment.dates[1] : this.appointment.dates[0] + ' ' + this.appointment.toTime
       };
       window.axios
-          .post(`appointments`, params)
+          .post('appointments', params)
           .then((response) => {
             this.$root.$snackbar.open(response.data.message);
             this.clear();
@@ -136,7 +138,7 @@ export default {
       };
     },
     close() {
-      this.showDialog = false
+      this.showDialog = false;
     }
   }
 };

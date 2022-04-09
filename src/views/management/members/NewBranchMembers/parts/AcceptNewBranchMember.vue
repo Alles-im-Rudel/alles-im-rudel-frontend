@@ -1,6 +1,6 @@
 <template>
   <v-card
-    v-if="member.id"
+    v-if="member"
     tile
   >
     <v-card-title>
@@ -72,21 +72,19 @@
         >
           <v-card>
             <v-card-title>
-              Sparten
+              Sparte
             </v-card-title>
             <v-divider />
             <v-card-text class="title text-left">
               <v-row>
                 <v-col
-                  v-for="branch in member.memberShip.branches"
-                  :key="branch.id"
                   cols="12"
                   lg="6"
                   md="6"
                   sm="12"
                 >
                   {{ branch.name }}<br>
-                  {{ branch.price }} €<br>
+                  {{ branch.description }}
                 </v-col>
               </v-row>
             </v-card-text>
@@ -113,17 +111,6 @@
       </v-btn>
     </v-card-actions>
   </v-card>
-  <v-card
-    v-else
-    tile
-  >
-    <v-card-text>
-      <v-skeleton-loader
-        class="mx-auto"
-        type="card"
-      />
-    </v-card-text>
-  </v-card>
 </template>
 
 <script>
@@ -134,21 +121,26 @@ import hasArrayDifferenz from '@/mixins/HasArrayDifferenz';
 export default {
   mixins: [Permissions, hasArrayDifferenz],
   props: {
-    userId: {
-      type: Number,
-      required: true
-    }
-  },
-  data() {
-    return {
-      member: {
+    member: {
+      type: Object,
+      required: true,
+      default: () => ({
         id: null,
         fullName: null,
         firstName: null,
         lastName: null,
         email: null,
-        isActive: false,
-      },
+        isActive: false
+      })
+    },
+    branch: {
+      type: Object,
+      required: true,
+      default: () => ({})
+    }
+  },
+  data() {
+    return {
       isLoading: false,
     };
   },
@@ -161,22 +153,15 @@ export default {
     }
   },
   created() {
-    this.getMember();
   },
   methods: {
-    getMember() {
-      this.isLoading = true;
-      window.axios
-          .get(`members/${this.userId}`)
-          .then((response) => {
-            this.member = response.data.data;
-          })
-          .finally(() => (this.isLoading = false));
-    },
     accept() {
       this.isLoading = true;
+      const params = {
+        pivotId: this.branch.pivotId
+      };
       window.axios
-          .put(`members/accept/${this.member.id}`)
+          .put(`branch-members/accept/${this.member.id}`, params)
           .then((response) => {
             this.$root.$snackbar.open(response.data.message);
             this.close();
@@ -186,20 +171,17 @@ export default {
     },
     reject() {
       this.isLoading = true;
+      const params = {
+        pivotId: this.branch.pivotId
+      };
       window.axios
-          .put(`members/reject/${this.member.id}`)
+          .put(`branch-members/reject/${this.member.id}`, params)
           .then((response) => {
             this.$root.$snackbar.open(response.data.message);
             this.close();
             this.$emit('reload');
           })
           .finally(() => (this.isLoading = false));
-    },
-    reset() {
-      this.user = cloneDeep(this.originalUser);
-      this.notSelectedUserGroups = cloneDeep(
-          this.originalNotSelectedUserGroups
-      );
     },
     close() {
       this.$emit('close');

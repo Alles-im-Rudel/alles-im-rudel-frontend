@@ -26,9 +26,19 @@
     <template v-slot:item.birthday="{ item }">
       {{ item.birthday | date }}
     </template>
+    <template v-slot:item.memberShip="{item}">
+      {{
+        item.memberShip.branches.map(branch => {
+          return branch.name
+        }).join(', ')
+      }}
+    </template>
     <template v-slot:item.actions="{ item }">
-      <member-accept-button
+      <NewBranchMemberAcceptButton
+        v-for="branch in item.memberShip.branches"
+        :key="branch.id"
         :member="item"
+        :branch="branch"
         @reload="reload"
       />
     </template>
@@ -37,11 +47,11 @@
 <script>
 import Permissions from '@/mixins/Permissions';
 import DataTableMixin from '@/mixins/DataTableMixin';
-import MemberAcceptButton from '@/views/management/members/parts/MemberAcceptButton';
+import NewBranchMemberAcceptButton from '@/views/management/members/NewBranchMembers/parts/NewBranchMemberAcceptButton';
 
 export default {
   components: {
-    MemberAcceptButton
+    NewBranchMemberAcceptButton
   },
   mixins: [Permissions, DataTableMixin],
   props: {
@@ -88,8 +98,8 @@ export default {
           value: 'email'
         },
         {
-          text: 'E-Mail bestätigt',
-          value: 'emailVerifiedAt'
+          text: 'Neue Sparten',
+          value: 'memberShip'
         },
         {
           text: 'Geburstag',

@@ -1,84 +1,57 @@
 <template>
-  <div>
-    <BaseBackground />
-    <v-container>
-      <v-row justify="center">
-        <v-col cols="12">
-          <base-card>
-            <v-card-title>
-              Neue Anmeldungen
-            </v-card-title>
-            <v-card-text>
-              <member-table
-                v-model="options"
-                :is-loading="isLoading"
-                :members="members"
-                :server-items-length="serverItemsLength"
-                @reload="getMembers"
-              />
-            </v-card-text>
-          </base-card>
-        </v-col>
-      </v-row>
-    </v-container>
-  </div>
+  <v-container>
+    <v-tabs
+      v-model="activeTab"
+      centered
+    >
+      <v-tab href="#new-members">
+        Neue Anmeldungen
+      </v-tab>
+      <v-tab href="#new-branch-members">
+        Neue Sparten Anmeldungen
+      </v-tab>
+    </v-tabs>
+    <v-divider />
+    <v-tabs-items
+      v-model="activeTab"
+      style="background-color:rgba(255, 255, 255, 0)"
+    >
+      <v-tab-item value="new-members">
+        <NewMembers />
+      </v-tab-item>
+      <v-tab-item value="new-branch-members">
+        <NewBranchMembers />
+      </v-tab-item>
+    </v-tabs-items>
+  </v-container>
 </template>
 
 <script>
-import {zipObject} from 'lodash';
-import MemberTable from '@/views/management/members/parts/MembersTable';
+import NewMembers from '@/views/management/members/NewMembers/NewMembers';
+import NewBranchMembers from '@/views/management/members/NewBranchMembers/NewBranchMembers';
 
 export default {
+  name: 'Members',
   components: {
-    MemberTable
+    NewMembers,
+    NewBranchMembers
   },
   data() {
     return {
-      members: [],
-      isLoading: false,
-      options: {
-        page: 1,
-        itemsPerPage: 10,
-        sortBy: ['lastName'],
-        sortDesc: [false]
-      },
-      serverItemsLength: 0,
-      filters: {
-        search: null,
-        withOnlyTrashed: false,
-        userGroups: []
-      }
+      activeTab: this.$route.query.activeTab || null
     };
   },
   computed: {},
   watch: {
-    options: {
-      handler() {
-        this.getMembers();
+    activeTab(activeTab) {
+      if (activeTab) {
+        this.$router.replace({
+          name: 'management-members',
+          query: {activeTab}
+        });
       }
     }
   },
-  created() {
-    this.getMembers();
-  },
-  methods: {
-    getMembers() {
-      this.isLoading = true;
-      const sortBy = zipObject(this.options.sortBy, this.options.sortDesc);
-      const params = {
-        ...(Object.keys(sortBy).length > 0 ? {sortBy} : {}),
-        search: this.filters.search,
-        userGroupIds: this.filters.userGroups.map((userGroup) => userGroup.id),
-        perPage: this.options.itemsPerPage,
-        page: this.options.page,
-        withOnlyTrashed: this.filters.withOnlyTrashed
-      };
-      window.axios.get('members', {params})
-          .then(response => {
-            this.members = response.data.data;
-            this.serverItemsLength = response.data.meta.total;
-          }).finally(() => this.isLoading = false);
-    }
-  }
+  methods: {}
 };
 </script>

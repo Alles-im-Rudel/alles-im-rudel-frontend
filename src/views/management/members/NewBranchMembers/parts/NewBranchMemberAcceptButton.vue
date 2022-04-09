@@ -15,11 +15,12 @@
             <v-icon>fa-check</v-icon>
           </v-btn>
         </template>
-        <span>Anmeldung bearbeiten</span>
+        <span>Sparten {{ branch.name }} Anmeldung bearbeiten</span>
       </v-tooltip>
     </template>
-    <AcceptMember
-      :user-id="member.id"
+    <AcceptNewBranchMember
+      :member="member"
+      :branch="branch"
       @reload="reload"
       @close="close"
     />
@@ -28,11 +29,11 @@
 
 <script>
 import Permissions from '@/mixins/Permissions';
-import AcceptMember from '@/views/management/members/parts/AcceptMember';
+import AcceptNewBranchMember from '@/views/management/members/NewBranchMembers/parts/AcceptNewBranchMember';
 
 export default {
   components: {
-    AcceptMember,
+    AcceptNewBranchMember,
   },
   mixins: [Permissions],
   props: {
@@ -47,6 +48,11 @@ export default {
         email: null,
         isActive: false
       })
+    },
+    branch: {
+      type: Object,
+      required: true,
+      default: () => ({})
     }
   },
   data() {

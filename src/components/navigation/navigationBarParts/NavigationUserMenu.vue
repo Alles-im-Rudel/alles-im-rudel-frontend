@@ -45,6 +45,14 @@
           </v-list-item-icon>
           <v-list-item-content>Profil bearbeiten</v-list-item-content>
         </v-list-item>
+        <v-list-item @click="pushRouteTo('branches-edit')">
+          <v-list-item-icon class="mr-2">
+            <v-icon small>
+              fa-exchange-alt
+            </v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>Sparten verwalten</v-list-item-content>
+        </v-list-item>
         <v-list-item @click="pushRouteTo('calendar')">
           <v-list-item-icon class="mr-2">
             <v-icon small>

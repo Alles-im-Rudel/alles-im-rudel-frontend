@@ -47,6 +47,10 @@ export default {
       default: () => {
       }
     },
+    selected: {
+      type: Array,
+      default: () => []
+    },
     validationErrors: {
       type: Object,
       default: () => ({})
@@ -57,7 +61,7 @@ export default {
       form: {},
       errors: {},
       show: false,
-      checkbox: !this.branch.isSelectable,
+      checkbox: false,
     };
   },
   computed: {
@@ -65,7 +69,17 @@ export default {
       return this.checkbox ? `Ich nehme bei der Sparte ${this.branch.name} teil` : `Ich nehme bei der Sparte ${this.branch.name} nicht teil`;
     }
   },
-  watch: {},
+  watch: {
+    selected: {
+      deep: true,
+      handler() {
+        this.checkbox = this.selected.includes(this.branch.id);
+      }
+    }
+  },
+  created() {
+    this.checkbox = this.selected.includes(this.branch.id);
+  },
   methods: {
     onChange() {
       this.$emit('branch-changed', this.branch);

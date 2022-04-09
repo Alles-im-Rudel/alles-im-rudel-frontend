@@ -5,11 +5,61 @@
     </v-card-title>
     <v-divider />
     <v-card-text>
-      <user-form
+      <v-row>
+        <v-col
+          cols="12"
+          md="6"
+          lg="3"
+        >
+          <v-text-field
+            v-model="user.email"
+            label="E-Mail"
+            :error="hasErrors('email')"
+            :error-messages="getErrors('email')"
+          >
+            <template slot="append">
+              <v-tooltip top>
+                <template v-slot:activator="{ on }">
+                  <v-icon
+                    v-if="!!user.emailVerifiedAt"
+                    color="success"
+                    v-on="on"
+                  >
+                    fa-check
+                  </v-icon>
+                  <v-icon
+                    v-else
+                    color="error"
+                    v-on="on"
+                  >
+                    fa-times
+                  </v-icon>
+                </template>
+                <span v-if="!!user.emailVerifiedAt">E-Mail verifiziert</span>
+                <span v-else>E-Mail nicht verifiziert</span>
+              </v-tooltip>
+            </template>
+          </v-text-field>
+        </v-col>
+        <v-col
+          v-if="user.memberShip"
+          cols="12"
+          md="6"
+          lg="3"
+        >
+          <v-text-field
+            v-model="user.memberShip.phone"
+            label="E-Mail"
+            :error="hasErrors('phone')"
+            :error-messages="getErrors('phone')"
+          />
+        </v-col>
+      </v-row>
+      <user-password-form
         v-model="user"
-        is-profil
-        :password-form-labels="passwordFormLabels"
+        :labels="passwordFormLabels"
         :validation-errors="errors"
+        :has-padding="false"
       />
     </v-card-text>
     <v-divider />
@@ -24,14 +74,14 @@
 </template>
 <script>
 import {cloneDeep} from 'lodash';
-import UserForm from '@/components/users/UserForm';
 import ValidationErrors from '@/mixins/ValidationErros';
 import ResetSaveAction from '@/components/cardActions/ResetSaveAction';
+import UserPasswordForm from '@/components/users/UserPasswordForm';
 
 export default {
   components: {
     ResetSaveAction,
-    UserForm
+    UserPasswordForm
   },
   mixins: [ValidationErrors],
   props: {
@@ -54,23 +104,18 @@ export default {
   computed: {
     canSubmit() {
       return (
-          this.user.lastName &&
-          this.user.firstName &&
           (((this.user.password === undefined ||
-              this.user.password.length === 0) &&
-              (this.user.passwordRepeat === undefined ||
-                  this.user.passwordRepeat.length === 0)) ||
+                      this.user.password.length === 0) &&
+                  (this.user.passwordRepeat === undefined ||
+                      this.user.passwordRepeat.length === 0)) ||
               this.user.password === this.user.passwordRepeat) &&
           this.hasChanges
       );
     },
     hasChanges() {
       return (
-          this.user.lastName !== this.originalUser.lastName ||
-          this.user.firstName !== this.originalUser.firstName ||
           this.user.email !== this.originalUser.email ||
-          this.user.birthday !== this.originalUser.birthday ||
-          this.user.wantsEmailNotification !== this.originalUser.wantsEmailNotification ||
+          this.user.memberShip && this.user.memberShip.phone !== this.originalUser.memberShip.phone ||
           !!this.user.password ||
           !!this.user.passwordRepeat
       );
@@ -90,8 +135,6 @@ export default {
       this.errors = {};
       let params = {
         userId: this.user.id,
-        firstName: this.user.firstName,
-        lastName: this.user.lastName,
         email: this.user.email,
         wantsEmailNotification: this.user.wantsEmailNotification,
         birthday: this.user.birthday
