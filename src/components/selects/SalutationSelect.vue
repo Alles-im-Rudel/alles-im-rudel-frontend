@@ -1,13 +1,15 @@
 <template>
   <v-combobox
-      v-model="selectedSalutation"
-      :label="label"
-      :items="salutations"
-      item-text="displayName"
-      :error="hasErrors('salutation')"
-      :error-messages="getErrors('salutation')"
+    v-model="selectedSalutation"
+    :label="label"
+    :items="salutations"
+    item-text="displayName"
+    :error="hasErrors('salutation')"
+    :error-messages="getErrors('salutation')"
+    :hide-details="hideDetails"
   />
 </template>
+
 <script>
 import ValidationErrors from '@/mixins/ValidationErros';
 
@@ -20,13 +22,15 @@ export default {
     },
     label: {
       type: String,
-      default: function () {
-        return 'Anrede auswählen';
-      }
+      default: 'Anrede'
     },
     validationErrors: {
       type: Object,
       default: () => {}
+    },
+    hideDetails: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
