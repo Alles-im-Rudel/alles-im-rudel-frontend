@@ -4,7 +4,6 @@
     dark
     padless
     absolute
-    :style="'margin-bottom: -'+(footerHeight-1)+'px'"
   >
     <BaseCard
       class="flex"
@@ -71,36 +70,16 @@
 
 <script>
 import SocialFooterIcons from '@/components/footer/SocialFooterIcons';
-import {debounce} from 'lodash';
 
 export default {
-  components: {SocialFooterIcons},
-  data() {
-    return {
-      footerHeight: 375
-    };
-  },
-  mounted() {
-    // noinspection JSValidateTypes
-    this.getFooter();
-    // noinspection JSCheckFunctionSignatures
-    window.addEventListener('resize', this.getFooter);
-  },
-  destroyed() {
-    // noinspection JSCheckFunctionSignatures
-    window.removeEventListener('resize', this.getFooter);
-  },
-  methods: {
-    getFooter: debounce(function () {
-      this.footer = document.getElementById('footer');
-      this.footerHeight = this.footer.clientHeight;
-    }, 200)
-  },
+  components: {SocialFooterIcons}
 };
 </script>
 
 <style lang="scss">
 #footer {
+  top: 100%;
+
   .footer-logo-container {
     width: 120px;
     margin: 0 auto;
