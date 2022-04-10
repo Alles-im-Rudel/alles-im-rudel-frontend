@@ -1,64 +1,57 @@
 <template>
-  <v-container>
-    <v-tabs
-      v-model="activeTab"
-      centered
-    >
-      <v-tab href="#user">
-        Benutzer
-      </v-tab>
-      <v-tab href="#image">
-        Profilbild
-      </v-tab>
-    </v-tabs>
-    <v-divider />
-    <v-tabs-items
-      v-model="activeTab"
-      style="background-color:rgba(255, 255, 255, 0)"
-    >
-      <v-tab-item value="user">
-        <user-profile
-          :original-user="user"
-          @updated="getUser"
-        />
-      </v-tab-item>
-      <v-tab-item value="image">
-        <user-image
-          v-if="user.id"
-          :original-user="user"
-          @reload="getUser"
-        />
-      </v-tab-item>
-    </v-tabs-items>
-  </v-container>
+  <div class="white">
+    <BaseContainer v-if="user">
+      <v-row
+        class="mt-6"
+        align="center"
+      >
+        <v-col cols="12">
+          <h2 class="text-h5 mb-2">
+            Mein Profil
+          </h2>
+        </v-col>
+        <v-col
+          cols="12"
+          md="3"
+        >
+          <ProfileImage v-model="user" />
+        </v-col>
+        <v-col
+          cols="12"
+          md="9"
+        >
+          <ProfileInfo
+            v-model="user"
+            class="pl-md-3"
+          />
+        </v-col>
+      </v-row>
+      <v-divider class="mt-14 mb-10" />
+      <v-row>
+        <v-col cols="12">
+          <h2 class="text-h5 mb-2">
+            Meine Sparten
+          </h2>
+          <ProfileBranches v-model="user" />
+        </v-col>
+      </v-row>
+    </BaseContainer>
+  </div>
 </template>
 
 <script>
-import UserProfile from '@/views/profile/parts/UserProfile';
-import UserImage from '@/views/profile/parts/UserImage';
+import ProfileImage from '@/views/profile/parts/ProfileImage';
+import ProfileInfo from '@/views/profile/parts/ProfileInfo';
+import ProfileBranches from '@/views/profile/parts/ProfileBranches';
 
 export default {
   name: 'Profile',
-  components: {
-    UserProfile,
-    UserImage
-  },
+  components: {ProfileBranches, ProfileImage, ProfileInfo},
   data() {
     return {
-      activeTab: this.$route.query.activeTab || null,
-      user: {},
+      user: null,
       isLoading: false
     };
-  },
-  watch: {
-    activeTab(activeTab) {
-      if (activeTab) {
-        this.$router.replace({
-          name: 'profile',
-          query: {activeTab}
-        });
-      }
-    }
   },
   created() {
     this.getUser();

@@ -10,10 +10,14 @@
       @unselect="unselect(branch.id)"
     />
   </div>
-  <v-progress-circular
+  <div
     v-else
-    indeterminate
-  />
+    class="text-center py-6"
+  >
+    <v-progress-circular
+      indeterminate
+    />
+  </div>
 </template>
 
 <script>

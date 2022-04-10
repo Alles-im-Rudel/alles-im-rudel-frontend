@@ -26,7 +26,8 @@ export default {
     },
     validationErrors: {
       type: Object,
-      default: () => {}
+      default: () => ({}),
+      required: false
     },
     hideDetails: {
       type: Boolean,
