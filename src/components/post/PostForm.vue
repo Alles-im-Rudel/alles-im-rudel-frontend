@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import ValidationErrors from '@/mixins/ValidationErros';
+import ValidationErrors from '@/mixins/ValidationErrors';
 import ImageUpload from '@/components/images/ImageUpload';
 import TagSelect from '@/components/selects/TagSelect';
 

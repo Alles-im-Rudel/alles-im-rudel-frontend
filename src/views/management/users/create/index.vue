@@ -34,7 +34,7 @@
 </template>
 <script>
 import UserForm from '@/components/users/UserForm';
-import ValidationErrors from '@/mixins/ValidationErros';
+import ValidationErrors from '@/mixins/ValidationErrors';
 import ResetSaveAction from '@/components/cardActions/ResetSaveAction';
 
 export default {

@@ -4,11 +4,11 @@
       <v-tooltip top>
         <template v-slot:activator="{ on:tooltip }">
           <v-btn
-              v-if="canSeeButton"
-              color="darkGrey"
-              dark
-              icon
-              v-on="{ ...dialog, ...tooltip}"
+            v-if="canSeeButton"
+            color="darkGrey"
+            dark
+            icon
+            v-on="{ ...dialog, ...tooltip}"
           >
             <v-icon>fa-edit</v-icon>
           </v-btn>
@@ -25,38 +25,38 @@
       <v-divider />
       <v-card-text>
         <appointment-form
-            v-model="appointment"
-            :validation-errors="errors"
+          v-model="appointment"
+          :validation-errors="errors"
         />
       </v-card-text>
       <v-divider />
       <reset-save-action
-          :has-changes="hasChanges"
-          :can-submit="canSubmit"
-          :is-loading="isLoading"
-          @submit="submit"
-          @clear="clear"
+        :has-changes="hasChanges"
+        :can-submit="canSubmit"
+        :is-loading="isLoading"
+        @submit="submit"
+        @clear="clear"
       />
     </v-card>
   </v-dialog>
 </template>
 
 <script>
-import ResetSaveAction from "@/components/cardActions/ResetSaveAction";
-import ValidationErrors from "@/mixins/ValidationErros";
-import CloseButton from '@/components/cardActions/CloseButton'
-import {mapGetters} from "vuex";
-import Permissions from "@/mixins/Permissions";
+import ResetSaveAction from '@/components/cardActions/ResetSaveAction';
+import ValidationErrors from '@/mixins/ValidationErrors';
+import CloseButton from '@/components/cardActions/CloseButton';
+import {mapGetters} from 'vuex';
+import Permissions from '@/mixins/Permissions';
 import {cloneDeep} from 'lodash';
-import AppointmentForm from "@/components/ appointment/AppointmentForm";
+import AppointmentForm from '@/components/ appointment/AppointmentForm';
 
 export default {
-  mixins: [ValidationErrors, Permissions],
   components: {
     ResetSaveAction,
     AppointmentForm,
     CloseButton
   },
+  mixins: [ValidationErrors, Permissions],
   props: {
     value: {
       type: Object,
@@ -115,7 +115,7 @@ export default {
       this.appointment = cloneDeep(this.originalAppointment);
     },
     close() {
-      this.showDialog = false
+      this.showDialog = false;
     }
   }
 };

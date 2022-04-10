@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <h1 class="py-6">
-      Jetzt Mitglied werden!!
-    </h1>
+  <div v-if="!isLoading">
     <v-stepper
       v-model="step"
       vertical
+      flat
     >
       <v-stepper-step
         :complete="step > 1"
@@ -14,17 +12,13 @@
         Wer bist du?
       </v-stepper-step>
 
-      <v-stepper-content step="1">
-        <who-are-you
-          v-model="form"
-          :validation-errors="errors"
-        />
-        <step-controls
-          :is-valid="stepOneIsValid"
-          :has-back="false"
-          @step-continue="nextStep"
-        />
-      </v-stepper-content>
+      <Personal
+        v-model="form"
+        :validation-errors="errors"
+        @step-back="previousStep"
+        @step-continue="nextStep"
+      />
+
       <v-stepper-step
         :complete="step > 2"
         step="2"
@@ -32,81 +26,40 @@
         Wo wohnst du?
       </v-stepper-step>
 
-      <v-stepper-content step="2">
-        <where-do-you-live
-          v-model="form"
-          :validation-errors="errors"
-        />
-        <step-controls
-          :is-valid="stepTwoIsValid"
-          @step-back="previousStep"
-          @step-continue="nextStep"
-        />
-      </v-stepper-content>
+      <Address
+        v-model="form"
+        :validation-errors="errors"
+        @step-back="previousStep"
+        @step-continue="nextStep"
+      />
 
       <v-stepper-step
         :complete="step > 3"
         step="3"
       >
-        Wie möchtest du deinen Mitgliedsbeitrag zahlen?
+        Bei welchen Sparten möchtest du dabei sein?
       </v-stepper-step>
 
-      <v-stepper-content step="3">
-        <v-card flat>
-          <v-card-text class="ma-0 px-0">
-            <v-row justify="center">
-              <v-col
-                cols="12"
-                md="6"
-              >
-                <v-text-field
-                  v-model="form.iban"
-                  required
-                  label="Iban"
-                  :error="hasErrors('iban')"
-                  :error-messages="getErrors('iban')"
-                />
-              </v-col>
-              <v-col
-                cols="12"
-                md="6"
-              >
-                <v-text-field
-                  v-model="form.bic"
-                  required
-                  label="Bic"
-                  :error="hasErrors('bic')"
-                  :error-messages="getErrors('bic')"
-                />
-              </v-col>
-            </v-row>
-          </v-card-text>
-          <step-controls
-            :is-valid="stepThreeIsValid"
-            @step-back="previousStep"
-            @step-continue="nextStep"
-          />
-        </v-card>
-      </v-stepper-content>
+      <Branch
+        v-model="form"
+        :validation-errors="errors"
+        @step-back="previousStep"
+        @step-continue="nextStep"
+      />
 
       <v-stepper-step
         :complete="step > 4"
         step="4"
       >
-        Bei welchen Sparten möchtest du dabei sein?
+        Wie möchtest du deinen Mitgliedsbeitrag zahlen?
       </v-stepper-step>
 
-      <v-stepper-content step="4">
-        <branch-data
-          v-model="form"
-          :validation-errors="errors"
-        />
-        <step-controls
-          :is-valid="stepFourIsValid"
-          @step-back="previousStep"
-          @step-continue="nextStep"
-        />
-      </v-stepper-content>
+      <Payment
+        v-model="form"
+        :validation-errors="errors"
+        @step-back="previousStep"
+        @step-continue="nextStep"
+      />
 
       <v-stepper-step
         :complete="step > 5"
@@ -115,17 +68,12 @@
         Welches Passwort möchtest du benutzten?
       </v-stepper-step>
 
-      <v-stepper-content step="5">
-        <user
-          v-model="form"
-          :validation-errors="errors"
-        />
-        <step-controls
-          :is-valid="stepFiveIsValid"
-          @step-back="previousStep"
-          @step-continue="nextStep"
-        />
-      </v-stepper-content>
+      <Password
+        v-model="form"
+        :validation-errors="errors"
+        @step-back="previousStep"
+        @step-continue="nextStep"
+      />
 
       <v-stepper-step
         :complete="step > 6"
@@ -134,99 +82,64 @@
         Abschließen
       </v-stepper-step>
 
-      <v-stepper-content step="6">
-        <overview v-model="form" />
-        <step-controls
-          :is-valid="stepSixIsValid"
-          continue-label="Fertigstellen"
-          @step-back="previousStep"
-          @step-continue="submit"
-        />
-      </v-stepper-content>
+      <overview
+        v-model="form"
+        @step-back="previousStep"
+        @step-continue="submit"
+      />
     </v-stepper>
+  </div>
+  <div
+    v-else
+    class="text-center py-16"
+  >
+    <v-progress-circular
+      indeterminate
+      color="greyBlue"
+      size="48"
+    />
+    <h5 class="text-h5 mt-8">
+      Deine Anfrage wird bearbeitet...
+    </h5>
   </div>
 </template>
 
 <script>
-import ValidationErrors from '@/mixins/ValidationErros';
-import BranchData from '@/views/join/parts/MembershipApplication/steps/Branch/BranchesSelect';
-import StepControls from '@/views/join/parts/MembershipApplication/parts/StepControls';
-import WhoAreYou from '@/views/join/parts/MembershipApplication/steps/WhoAreYou/WhoAreYou';
-import WhereDoYouLive from '@/views/join/parts/MembershipApplication/steps/WhereDoYouLive/WhereDoYouLive';
-import User from '@/views/join/parts/MembershipApplication/steps/User/User';
+import ValidationErrors from '@/mixins/ValidationErrors';
+import Branch from '@/views/join/parts/MembershipApplication/steps/Branch/Branch';
+import Personal from '@/views/join/parts/MembershipApplication/steps/Personal/Personal';
+import Address from '@/views/join/parts/MembershipApplication/steps/Address/Address';
+import Password from '@/views/join/parts/MembershipApplication/steps/Password/Password';
 import Overview from '@/views/join/parts/MembershipApplication/steps/Overview/Overview';
+import Payment from '@/views/join/parts/MembershipApplication/steps/Payment/Payment';
+import branches from '@/constants/branches';
 
 export default {
   components: {
-    WhoAreYou,
-    WhereDoYouLive,
-    BranchData,
-    StepControls,
-    User,
+    Payment,
+    Personal,
+    Address,
+    Branch,
+    Password,
     Overview
   },
   mixins: [ValidationErrors],
   data() {
     return {
       step: 1,
-      steps: [
-        {}
-      ],
+      isLoading: false,
       form: {
-        branches: [
-          {
-            id: 1
-          }
-        ]
+        branches: [branches.BASE],
+        country: 'Deutschland'
       },
       errors: {}
     };
   },
-  computed: {
-    stepOneIsValid() {
-      return !!this.form.salutation
-          && !!this.form.firstName
-          && !!this.form.lastName
-          && !!this.form.phone
-          && !!this.form.birthday;
-    },
-    stepTwoIsValid() {
-      return !!this.form.street
-          && !!this.form.postcode
-          && !!this.form.city
-          && !!this.form.country;
-    },
-    stepThreeIsValid() {
-      return !!this.form.iban
-          && !!this.form.bic;
-    },
-    stepFourIsValid() {
-      return true;
-    },
-    stepFiveIsValid() {
-      return !!this.form.email
-          && !!this.form.password
-          && (this.form.password === this.form.passwordRepeat);
-    },
-    stepSixIsValid() {
-      return this.stepOneIsValid
-          && this.stepTwoIsValid
-          && this.stepThreeIsValid
-          && this.stepFourIsValid
-          && this.stepFourIsValid
-          && this.stepFiveIsValid
-          && !!this.form.hasAcceptedDataProtection
-          && !!this.form.hasAcceptedMonthlyDebits
-          && !!this.form.signature
-          && !!this.form.wantsEmailNotification;
-    },
-  },
   methods: {
-    nextStep() {
-      this.step++;
-    },
     async submit() {
       this.isLoading = true;
+      window.scrollTo(0, 0);
+
       try {
         const request = new FormData();
         const config = {headers: {'Content-Type': 'multipart/form-data'}};
@@ -249,18 +162,19 @@ export default {
         request.append('hasAcceptedMonthlyDebits', this.form.hasAcceptedMonthlyDebits);
         request.append('wantsEmailNotification', this.form.wantsEmailNotification);
         request.append('signature', this.form.signature);
-        request.append('branches', JSON.stringify(this.form.branches.map(branch => {
-          return branch.id;
-        })));
+        request.append('branches', JSON.stringify(this.form.branches));
 
         let {data} = await window.axios.post('/members/register', request, config);
         this.$root.$snackbar.open(data.message);
         this.pushRouteTo('home');
       } catch (error) {
-        this.errors = error;
+        this.syncErrors(error);
       } finally {
         this.isLoading = false;
       }
+    },
+    nextStep() {
+      this.step++;
     },
     previousStep() {
       if (this.step > 1) {

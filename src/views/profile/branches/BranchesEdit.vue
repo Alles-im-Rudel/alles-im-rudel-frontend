@@ -15,7 +15,7 @@
         </v-alert>
       </v-card-text>
       <v-card-text>
-        <BranchesSelect
+        <BranchSelect
           v-model="user.memberShip"
         />
       </v-card-text>
@@ -47,14 +47,14 @@
 </template>
 
 <script>
-import BranchesSelect from '@/views/join/parts/MembershipApplication/steps/Branch/BranchesSelect';
 import HasArrayDifferenz from '@/mixins/HasArrayDifferenz';
 import {cloneDeep} from 'lodash';
+import BranchSelect from '@/components/branch/BranchSelect/BranchSelect';
 
 export default {
   name: 'BranchesEdit',
   components: {
-    BranchesSelect
+    BranchSelect
   },
   mixins: [HasArrayDifferenz],
   data() {

@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import ValidationErrors from '@/mixins/ValidationErros';
+import ValidationErrors from '@/mixins/ValidationErrors';
 
 export default {
   mixins: [ValidationErrors],

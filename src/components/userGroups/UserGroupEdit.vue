@@ -3,21 +3,27 @@
     <v-card-title class="headline">
       Bearbeiten von: {{ originUserGroup.displayName }}
       <v-spacer />
-      <v-btn icon @click="$emit('close')">
+      <v-btn
+        icon
+        @click="$emit('close')"
+      >
         <v-icon>fa-times</v-icon>
       </v-btn>
     </v-card-title>
     <v-divider />
     <v-card-text>
-      <user-group-form v-model="userGroup" :validation-errors="errors" />
+      <user-group-form
+        v-model="userGroup"
+        :validation-errors="errors"
+      />
     </v-card-text>
     <v-divider />
     <reset-save-action
-        :is-loading="isLoading"
-        :can-submit="canSubmit"
-        :has-changes="hasChanges"
-        @submit="submit"
-        @clear="clear"
+      :is-loading="isLoading"
+      :can-submit="canSubmit"
+      :has-changes="hasChanges"
+      @submit="submit"
+      @clear="clear"
     />
   </v-card>
 </template>
@@ -25,7 +31,7 @@
 <script>
 import ResetSaveAction from '@/components/cardActions/ResetSaveAction';
 import userGroupForm from '@/components/userGroups/UserGroupForm';
-import ValidationErros from '@/mixins/ValidationErros'
+import ValidationErrors from '@/mixins/ValidationErrors';
 import { cloneDeep } from 'lodash';
 
 export default {
@@ -33,7 +39,7 @@ export default {
     'user-group-form': userGroupForm,
     ResetSaveAction
   },
-  mixins: [ValidationErros],
+  mixins: [ValidationErrors],
   props: {
     value: {
       type: Object,

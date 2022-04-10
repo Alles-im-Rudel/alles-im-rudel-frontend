@@ -115,7 +115,7 @@
   </v-row>
 </template>
 <script>
-import ValidationErrors from '@/mixins/ValidationErros';
+import ValidationErrors from '@/mixins/ValidationErrors';
 import UserPasswordForm from '@/components/users/UserPasswordForm';
 import LevelSelect from '@/components/selects/LevelSelect';
 import DatePicker from '@/components/picker/DatePicker';

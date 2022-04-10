@@ -29,7 +29,7 @@
 </template>
 <script>
 import {cloneDeep} from 'lodash';
-import ValidationErrors from '@/mixins/ValidationErros';
+import ValidationErrors from '@/mixins/ValidationErrors';
 import ResetSaveAction from '@/components/cardActions/ResetSaveAction';
 import SummonerCard from '@/components/summoners/SummonerCard';
 import SummonerPicker from '@/components/picker/SummonerPicker';

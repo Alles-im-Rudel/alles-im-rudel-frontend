@@ -58,7 +58,7 @@
 
 <script>
 import {mapActions, mapGetters} from 'vuex';
-import ValidationErrors from '@/mixins/ValidationErros';
+import ValidationErrors from '@/mixins/ValidationErrors';
 
 export default {
   mixins: [ValidationErrors],

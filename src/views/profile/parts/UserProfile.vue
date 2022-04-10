@@ -74,7 +74,7 @@
 </template>
 <script>
 import {cloneDeep} from 'lodash';
-import ValidationErrors from '@/mixins/ValidationErros';
+import ValidationErrors from '@/mixins/ValidationErrors';
 import ResetSaveAction from '@/components/cardActions/ResetSaveAction';
 import UserPasswordForm from '@/components/users/UserPasswordForm';
 

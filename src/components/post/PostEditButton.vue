@@ -55,7 +55,7 @@
 <script>
 import ResetSaveAction from '@/components/cardActions/ResetSaveAction';
 import PostForm from '@/components/post/PostForm';
-import ValidationErrors from '@/mixins/ValidationErros';
+import ValidationErrors from '@/mixins/ValidationErrors';
 import CloseButton from '@/components/cardActions/CloseButton';
 import {mapGetters} from 'vuex';
 import Permissions from '@/mixins/Permissions';

@@ -1,15 +1,16 @@
 <template>
   <v-combobox
-      v-model="selectedCountry"
-      :label="label"
-      :items="countries"
-      item-text="name"
-      :error="hasErrors('country')"
-      :error-messages="getErrors('country')"
+    v-model="selectedCountry"
+    :label="label"
+    :items="countries"
+    item-text="name"
+    :error="hasErrors('country')"
+    :error-messages="getErrors('country')"
+    :hide-details="!hasErrors('country')"
   />
 </template>
 <script>
-import ValidationErrors from '@/mixins/ValidationErros';
+import ValidationErrors from '@/mixins/ValidationErrors';
 
 export default {
   mixins: [ValidationErrors],
