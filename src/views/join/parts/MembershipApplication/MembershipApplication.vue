@@ -161,6 +161,13 @@ export default {
         request.append('hasAcceptedDataProtection', this.form.hasAcceptedDataProtection);
         request.append('hasAcceptedMonthlyDebits', this.form.hasAcceptedMonthlyDebits);
         request.append('wantsEmailNotification', this.form.wantsEmailNotification);
+        request.append('accountFirstName', this.form.accountFirstName);
+        request.append('accountLastName', this.form.accountLastName);
+        request.append('accountStreet', this.form.accountStreet);
+        request.append('accountPostcode', this.form.accountPostcode);
+        request.append('accountCity', this.form.accountCity);
+        request.append('accountCountry', this.form.accountCountry);
+        request.append('accountSignatureCity', this.form.accountSignatureCity);
         request.append('signature', this.form.signature);
         request.append('branches', JSON.stringify(this.form.branches));
 
