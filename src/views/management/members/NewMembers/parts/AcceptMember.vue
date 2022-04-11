@@ -1,6 +1,5 @@
 <template>
   <v-card
-    v-if="member.id"
     tile
   >
     <v-card-title>
@@ -36,9 +35,9 @@
                   sm="12"
                 >
                   {{ member.fullName }}<br>
-                  {{ member.memberShip.street }}<br>
-                  {{ member.memberShip.city }}<br>
-                  {{ member.memberShip.country.name }}<br>
+                  {{ member.street }}<br>
+                  {{ member.city }}<br>
+                  {{ member.country.name }}<br>
                 </v-col>
                 <v-col
                   cols="12"
@@ -58,7 +57,7 @@
                     </v-tooltip>
                   </div>
                   {{ member.birthday | date }} {{ member.age }} Jahre alt<br>
-                  {{ member.memberShip.iban }}<br>
+                  {{ member.bankAccount.iban }}<br>
                 </v-col>
               </v-row>
             </v-card-text>
@@ -78,15 +77,15 @@
             <v-card-text class="title text-left">
               <v-row>
                 <v-col
-                  v-for="branch in member.memberShip.branches"
-                  :key="branch.id"
+                  v-for="branchUserMemberShip in member.branchUserMemberShips"
+                  :key="branchUserMemberShip.id"
                   cols="12"
                   lg="6"
                   md="6"
                   sm="12"
                 >
-                  {{ branch.name }}<br>
-                  {{ branch.price }} €<br>
+                  {{ branchUserMemberShip.branch.name }}<br>
+                  {{ branchUserMemberShip.branch.price }} €<br>
                 </v-col>
               </v-row>
             </v-card-text>
@@ -113,42 +112,22 @@
       </v-btn>
     </v-card-actions>
   </v-card>
-  <v-card
-    v-else
-    tile
-  >
-    <v-card-text>
-      <v-skeleton-loader
-        class="mx-auto"
-        type="card"
-      />
-    </v-card-text>
-  </v-card>
 </template>
 
 <script>
 import Permissions from '@/mixins/Permissions';
-import {cloneDeep} from 'lodash';
 import hasArrayDifferenz from '@/mixins/HasArrayDifferenz';
 
 export default {
   mixins: [Permissions, hasArrayDifferenz],
   props: {
-    userId: {
-      type: Number,
+    member: {
+      type: Object,
       required: true
     }
   },
   data() {
     return {
-      member: {
-        id: null,
-        fullName: null,
-        firstName: null,
-        lastName: null,
-        email: null,
-        isActive: false,
-      },
       isLoading: false,
     };
   },
@@ -160,23 +139,12 @@ export default {
       return this.member.emailVerifiedAt ? 'Email wurde Bestätigt' : 'Email wurde nicht Bestätigt';
     }
   },
-  created() {
-    this.getMember();
-  },
+  created() {},
   methods: {
-    getMember() {
-      this.isLoading = true;
-      window.axios
-          .get(`members/${this.userId}`)
-          .then((response) => {
-            this.member = response.data.data;
-          })
-          .finally(() => (this.isLoading = false));
-    },
     accept() {
       this.isLoading = true;
       window.axios
-          .put(`members/accept/${this.member.id}`)
+          .put(`manage-member-ship-applications/accept/${this.member.id}`)
           .then((response) => {
             this.$root.$snackbar.open(response.data.message);
             this.close();
@@ -187,7 +155,7 @@ export default {
     reject() {
       this.isLoading = true;
       window.axios
-          .put(`members/reject/${this.member.id}`)
+          .put(`manage-member-ship-applications/reject/${this.member.id}`)
           .then((response) => {
             this.$root.$snackbar.open(response.data.message);
             this.close();

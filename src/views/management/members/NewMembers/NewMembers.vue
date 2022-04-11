@@ -53,7 +53,7 @@ export default {
         perPage: this.options.itemsPerPage,
         page: this.options.page
       };
-      window.axios.get('members', {params})
+      window.axios.get('manage-member-ship-applications', {params})
           .then(response => {
             this.members = response.data.data;
             this.serverItemsLength = response.data.meta.total;

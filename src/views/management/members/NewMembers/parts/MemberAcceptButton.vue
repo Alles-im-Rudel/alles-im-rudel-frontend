@@ -19,7 +19,7 @@
       </v-tooltip>
     </template>
     <AcceptMember
-      :user-id="member.id"
+      :member="member"
       @reload="reload"
       @close="close"
     />
