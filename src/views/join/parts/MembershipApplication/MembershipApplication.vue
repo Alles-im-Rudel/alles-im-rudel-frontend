@@ -171,7 +171,7 @@ export default {
         request.append('signature', this.form.signature);
         request.append('branches', JSON.stringify(this.form.branches));
 
-        let {data} = await window.axios.post('/members/register', request, config);
+        let {data} = await window.axios.post('member-ship-application', request, config);
         this.$root.$snackbar.open(data.message);
         this.pushRouteTo('home');
       } catch (error) {
