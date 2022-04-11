@@ -9,7 +9,7 @@
         md="6"
       >
         <SalutationSelect
-          v-model="user.memberShip.salutation"
+          v-model="user.salutation"
           :validation-errors="errors"
           :hide-details="!hasErrors('salutation')"
         />
@@ -45,7 +45,7 @@
         md="6"
       >
         <v-text-field
-          v-model="user.memberShip.phone"
+          v-model="user.phone"
           label="Telefon"
           :error="hasErrors('phone')"
           :error-messages="getErrors('phone')"
@@ -114,8 +114,8 @@ export default {
         ) &&
         this.user.firstName &&
         this.user.lastName &&
-        this.user.memberShip.phone &&
-        this.user.memberShip.salutation &&
+        this.user.phone &&
+        this.user.salutation &&
         this.user.email &&
         this.hasChanges
       );
@@ -124,8 +124,8 @@ export default {
       return (
         this.user.firstName !== this.originalUser.firstName ||
         this.user.lastName !== this.originalUser.lastName ||
-        this.user.memberShip.salutation !== this.originalUser.memberShip.salutation ||
-        this.user.memberShip.phone !== this.originalUser.memberShip.phone ||
+        this.user.salutation !== this.originalUser.salutation ||
+        this.user.phone !== this.originalUser.phone ||
         this.user.email !== this.originalUser.email ||
         !!this.user.password
       );
@@ -153,8 +153,8 @@ export default {
       let params = {
         firstName: this.user.firstName,
         lastName: this.user.lastName,
-        salutation: this.user.memberShip.salutation,
-        phone: this.user.memberShip.phone,
+        salutation: this.user.salutation,
+        phone: this.user.phone,
         email: this.user.email,
       };
 

@@ -124,7 +124,7 @@ export default {
       this.userBranchIds = this.getUserBranchIds();
     },
     getUserBranchIds() {
-      return this.user.memberShip.branches.map(branch => branch.id);
+      return this.user.branchUserMemberShips.map(branchUserMemberShip => branchUserMemberShip.branch.id);
     },
     submit() {
       this.isLoading = true;
