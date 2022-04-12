@@ -29,10 +29,10 @@
       <v-divider class="mt-14 mb-10" />
       <v-row>
         <v-col cols="12">
-          <h2 class="text-h5 mb-2">
-            Meine Sparten
-          </h2>
-          <ProfileBranches v-model="user" />
+          <ProfileBranches
+            v-model="user"
+            @reload="getUser"
+          />
         </v-col>
       </v-row>
     </BaseContainer>
@@ -42,7 +42,7 @@
 <script>
 import ProfileImage from '@/views/profile/parts/ProfileImage';
 import ProfileInfo from '@/views/profile/parts/ProfileInfo';
-import ProfileBranches from '@/views/profile/parts/ProfileBranches';
+import ProfileBranches from '@/views/profile/parts/ProfileBranches/ProfileBranches';
 
 export default {
   name: 'Profile',
@@ -58,6 +58,7 @@ export default {
   },
   methods: {
     getUser() {
+      console.log('index.vue');
       this.isLoading = true;
       window.axios
           .get('profile')
