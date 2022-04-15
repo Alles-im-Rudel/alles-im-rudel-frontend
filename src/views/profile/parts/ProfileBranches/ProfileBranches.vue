@@ -16,13 +16,7 @@
           cols="6"
           md="3"
         >
-          Aktuelle monatliche Kosten:
-        </v-col>
-        <v-col
-          cols="6"
-          md="3"
-        >
-          {{ currentCost }} €
+          Aktuelle monatliche Beiträge: <strong>{{ currentCost }} €</strong>
         </v-col>
       </v-row>
     </div>

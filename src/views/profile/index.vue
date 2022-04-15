@@ -26,7 +26,18 @@
           />
         </v-col>
       </v-row>
-      <v-divider class="mt-14 mb-10" />
+      <v-alert
+        border="top"
+        color="eSports"
+        dark
+        class="mt-10"
+      >
+        Falls ihr anderweitige Profilanpassungswünsche habt, meldet euch bitte per Mail bei uns unter <a
+          style="color: white"
+          href="mailto:allesimrudel@gmail.com"
+        >allesimrudel@gmail.com</a>.
+      </v-alert>
+      <v-divider class="mt-3 mb-10" />
       <v-row>
         <v-col cols="12">
           <ProfileBranches

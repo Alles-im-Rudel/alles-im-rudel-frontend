@@ -5,8 +5,17 @@
         <v-card-title>
           {{ branch.name }}
         </v-card-title>
-        <v-card-subtitle class="text-left pb-1">
-          Kosten: {{ branch.price || '0' }} €
+        <v-card-subtitle
+          v-if="branch.id === 1"
+          class="text-left pb-1"
+        >
+          Vereinsbeitrag: {{ branch.price || '0' }} €
+        </v-card-subtitle>
+        <v-card-subtitle
+          v-else
+          class="text-left pb-1"
+        >
+          Spartenbeitrag: {{ branch.price || '0' }} €
         </v-card-subtitle>
       </v-card>
 
