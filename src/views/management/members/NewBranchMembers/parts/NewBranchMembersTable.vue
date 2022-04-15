@@ -2,7 +2,7 @@
   <v-data-table
     :loading="isLoading"
     :headers="headers"
-    :items="members"
+    :items="users"
     :options.sync="options"
     :server-items-length="serverItemsLength"
     :footer-props="footerProps"
@@ -26,19 +26,19 @@
     <template v-slot:item.birthday="{ item }">
       {{ item.birthday | date }}
     </template>
-    <template v-slot:item.memberShip="{item}">
+    <template v-slot:item.branchUserMemberShips="{item}">
       {{
-        item.memberShip.branches.map(branch => {
-          return branch.name
+        item.branchUserMemberShips.map(branchUserMemberShip => {
+          return branchUserMemberShip.branch.name
         }).join(', ')
       }}
     </template>
     <template v-slot:item.actions="{ item }">
-      <NewBranchMemberAcceptButton
-        v-for="branch in item.memberShip.branches"
-        :key="branch.id"
-        :member="item"
-        :branch="branch"
+      <new-branch-member-accept-button
+        v-for="branchUserMemberShip in item.branchUserMemberShips"
+        :key="branchUserMemberShip.id"
+        :user="item"
+        :branch-user-member-ship="branchUserMemberShip"
         @reload="reload"
       />
     </template>
@@ -71,7 +71,7 @@ export default {
       required: true,
       default: 0
     },
-    members: {
+    users: {
       type: Array,
       required: true,
       default: () => []
@@ -99,7 +99,7 @@ export default {
         },
         {
           text: 'Neue Sparten',
-          value: 'memberShip'
+          value: 'branchUserMemberShips'
         },
         {
           text: 'Geburstag',

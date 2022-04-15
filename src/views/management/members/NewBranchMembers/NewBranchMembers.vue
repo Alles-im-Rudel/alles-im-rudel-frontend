@@ -2,7 +2,7 @@
   <new-branch-members-table
     v-model="options"
     :is-loading="isLoading"
-    :members="members"
+    :users="users"
     :server-items-length="serverItemsLength"
     @reload="getNewBranchMembers"
   />
@@ -18,7 +18,7 @@ export default {
   },
   data() {
     return {
-      members: [],
+      users: [],
       isLoading: false,
       options: {
         page: 1,
@@ -53,9 +53,9 @@ export default {
         perPage: this.options.itemsPerPage,
         page: this.options.page
       };
-      window.axios.get('branch-members', {params})
+      window.axios.get('manage-branch-applications', {params})
           .then(response => {
-            this.members = response.data.data;
+            this.users = response.data.data;
             this.serverItemsLength = response.data.meta.total;
           }).finally(() => this.isLoading = false);
     }

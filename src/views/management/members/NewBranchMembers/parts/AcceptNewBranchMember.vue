@@ -1,10 +1,10 @@
 <template>
   <v-card
-    v-if="member"
+    v-if="user"
     tile
   >
     <v-card-title>
-      Neuanmeldung von: {{ member.fullName }} bestätigen
+      Neuanmeldung von: {{ user.fullName }} bestätigen
       <v-spacer />
       <v-btn
         icon
@@ -35,10 +35,10 @@
                   md="6"
                   sm="12"
                 >
-                  {{ member.fullName }}<br>
-                  {{ member.memberShip.street }}<br>
-                  {{ member.memberShip.city }}<br>
-                  {{ member.memberShip.country.name }}<br>
+                  {{ user.fullName }}<br>
+                  {{ user.street }}<br>
+                  {{ user.city }}<br>
+                  {{ user.country.name }}<br>
                 </v-col>
                 <v-col
                   cols="12"
@@ -47,7 +47,7 @@
                   sm="12"
                 >
                   <div class="flex align-center">
-                    {{ member.email }}
+                    {{ user.email }}
                     <v-tooltip top>
                       <template v-slot:activator="{ on: tooltip }">
                         <v-icon v-on="{ ...tooltip }">
@@ -57,8 +57,8 @@
                       <span>{{ getTooltip }}</span>
                     </v-tooltip>
                   </div>
-                  {{ member.birthday | date }} {{ member.age }} Jahre alt<br>
-                  {{ member.memberShip.iban }}<br>
+                  {{ user.birthday | date }} {{ user.age }} Jahre alt<br>
+                  {{ user.bankAccount.iban }}<br>
                 </v-col>
               </v-row>
             </v-card-text>
@@ -83,8 +83,7 @@
                   md="6"
                   sm="12"
                 >
-                  {{ branch.name }}<br>
-                  {{ branch.description }}
+                  {{ branchUserMemberShip.branch.name }}
                 </v-col>
               </v-row>
             </v-card-text>
@@ -121,19 +120,11 @@ import hasArrayDifferenz from '@/mixins/HasArrayDifferenz';
 export default {
   mixins: [Permissions, hasArrayDifferenz],
   props: {
-    member: {
+    user: {
       type: Object,
-      required: true,
-      default: () => ({
-        id: null,
-        fullName: null,
-        firstName: null,
-        lastName: null,
-        email: null,
-        isActive: false
-      })
+      required: true
     },
-    branch: {
+    branchUserMemberShip: {
       type: Object,
       required: true,
       default: () => ({})
@@ -146,10 +137,10 @@ export default {
   },
   computed: {
     getIcon() {
-      return this.member.emailVerifiedAt ? 'fa-check' : 'fa-times';
+      return this.user.emailVerifiedAt ? 'fa-check' : 'fa-times';
     },
     getTooltip() {
-      return this.member.emailVerifiedAt ? 'Email wurde Bestätigt' : 'Email wurde nicht Bestätigt';
+      return this.user.emailVerifiedAt ? 'Email wurde Bestätigt' : 'Email wurde nicht Bestätigt';
     }
   },
   created() {
@@ -157,11 +148,8 @@ export default {
   methods: {
     accept() {
       this.isLoading = true;
-      const params = {
-        pivotId: this.branch.pivotId
-      };
       window.axios
-          .put(`branch-members/accept/${this.member.id}`, params)
+          .put(`manage-branch-applications/accept/${this.branchUserMemberShip.id}`)
           .then((response) => {
             this.$root.$snackbar.open(response.data.message);
             this.close();
@@ -171,11 +159,8 @@ export default {
     },
     reject() {
       this.isLoading = true;
-      const params = {
-        pivotId: this.branch.pivotId
-      };
       window.axios
-          .put(`branch-members/reject/${this.member.id}`, params)
+          .put(`manage-branch-applications/reject/${this.branchUserMemberShip.id}`)
           .then((response) => {
             this.$root.$snackbar.open(response.data.message);
             this.close();

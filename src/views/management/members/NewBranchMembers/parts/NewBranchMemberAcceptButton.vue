@@ -15,12 +15,12 @@
             <v-icon>fa-check</v-icon>
           </v-btn>
         </template>
-        <span>Sparten {{ branch.name }} Anmeldung bearbeiten</span>
+        <span>Sparten {{ branchUserMemberShip.branch.name }} Anmeldung bearbeiten</span>
       </v-tooltip>
     </template>
     <AcceptNewBranchMember
-      :member="member"
-      :branch="branch"
+      :user="user"
+      :branch-user-member-ship="branchUserMemberShip"
       @reload="reload"
       @close="close"
     />
@@ -37,19 +37,11 @@ export default {
   },
   mixins: [Permissions],
   props: {
-    member: {
+    user: {
       type: Object,
-      required: true,
-      default: () => ({
-        id: null,
-        fullName: null,
-        firstName: null,
-        lastName: null,
-        email: null,
-        isActive: false
-      })
+      required: true
     },
-    branch: {
+    branchUserMemberShip: {
       type: Object,
       required: true,
       default: () => ({})
