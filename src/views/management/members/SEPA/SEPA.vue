@@ -1,12 +1,14 @@
 <template>
   <v-row class="justify-center">
     <v-col
-      v-if="members"
+      v-if="sepaChanges"
       cols="12"
-      md="6"
+      md="8"
     >
       <sepa-members-table
-        :members="members"
+        :sepa-changes="sepaChanges"
+        :is-loading="isLoading"
+        @reload="getSepaData"
       />
     </v-col>
   </v-row>
@@ -22,7 +24,7 @@ export default {
   },
   data() {
     return {
-      members: [],
+      sepaChanges: [],
       isLoading: false,
     };
   },
@@ -30,19 +32,19 @@ export default {
   watch: {
     options: {
       handler() {
-        this.getMembers();
+        this.getSepaData();
       }
     }
   },
   created() {
-    this.getMembers();
+    this.getSepaData();
   },
   methods: {
-    getMembers() {
+    getSepaData() {
       this.isLoading = true;
-      window.axios.get('sepa-members')
+      window.axios.get('sepa-data')
           .then(response => {
-            this.members = response.data.members;
+            this.sepaChanges = response.data.sepaChanges;
           }).finally(() => this.isLoading = false);
     }
   }

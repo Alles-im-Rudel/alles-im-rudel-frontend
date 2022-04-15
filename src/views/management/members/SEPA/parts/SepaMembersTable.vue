@@ -1,67 +1,72 @@
 <template>
-  <v-simple-table>
-    <template v-slot:default>
-      <thead>
-        <tr>
-          <th class="text-left">
-            Name
-          </th>
-          <th class="text-left">
-            IBAN
-          </th>
-          <th class="text-left">
-            Mandatsrefernz
-          </th>
-          <th class="text-left">
-            Mandatsdatum
-          </th>
-          <th class="text-left">
-            Abbuchungsdatum
-          </th>
-          <th class="text-left">
-            Betrag in Euro
-          </th>
-          <th class="text-left">
-            Actions
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="member in members"
-          :key="member.id"
-        >
-          <td>{{ member.name }}</td>
-          <td>{{ member.iban }}</td>
-          <td>{{ member.mandate }}</td>
-          <td>{{ member.mandateDate | date }}</td>
-          <td>{{ member.sepaDate | date }}</td>
-          <td>{{ member.value }}</td>
-          <td />
-        </tr>
-      </tbody>
+  <v-data-table
+    :headers="headers"
+    :items="sepaChanges"
+    :expanded.sync="expanded"
+    :loading="isLoading"
+    item-key="mandate"
+    show-expand
+    class="elevation-1"
+  >
+    <template v-slot:item.mandateDate="{ item }">
+      {{ item.mandateDate | date }}
     </template>
-  </v-simple-table>
+    <template v-slot:expanded-item="{ headers, item }">
+      <td
+        :colspan="headers.length"
+        class="pa-0"
+      >
+        <sepa-row
+          :sepa-change="item"
+          @reload="reload"
+        />
+      </td>
+    </template>
+  </v-data-table>
 </template>
 
 <script>
 
-export default {
+import SepaRow from '@/views/management/members/SEPA/parts/SepaRow';
 
+export default {
+  components: {
+    SepaRow
+  },
   props: {
-    members: {
+    sepaChanges: {
       type: Array,
       required: true,
       default: () => [],
     },
+    isLoading: {
+      type: Boolean,
+      required: true
+    }
   },
   data() {
-    return {};
+    return {
+      expanded: [],
+      headers: [
+        {
+          text: 'Name',
+          value: 'user.fullName',
+        },
+        {text: 'IBAN', value: 'user.bankAccount.iban'},
+        {text: 'Mandatsrefernz', value: 'mandate'},
+        {text: 'Mandatsdatum', value: 'mandateDate'},
+        {text: 'Betrag in Euro', value: 'value'},
+        {text: '', value: 'data-table-expand'},
+      ],
+    };
   },
   computed: {},
   watch: {},
-  created() {
-  },
-  methods: {}
+  created() {},
+  methods: {
+    reload() {
+      this.$emit('reload');
+    },
+  }
 };
 </script>
