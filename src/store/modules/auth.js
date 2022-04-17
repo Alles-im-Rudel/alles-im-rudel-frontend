@@ -80,28 +80,6 @@ const actions = {
       });
     });
   },
-  register({commit}, registerForm) {
-    commit('SET_IS_LOADING_AUTH', true);
-    this.isLoading = true;
-    return new Promise((resolve, reject) => {
-      axios.post('/register', registerForm)
-        .then((response) => {
-          commit('SET_ACCESS_TOKEN', response.data.tokens.access_token);
-          commit('SET_REFRESH_TOKEN', response.data.tokens.refresh_token);
-          commit('SET_TOKEN_EXPIRES_IN', response.data.tokens.expires_in);
-          commit('SET_USER', response.data.user);
-          commit('SET_PERMISSIONS', response.data.permissions);
-          commit('SET_IS_AUTH', true);
-          resolve(response);
-        })
-        .catch(error => {
-          commit('UNSET_AUTH');
-          reject(error);
-        }).finally(() => {
-        commit('SET_IS_LOADING_AUTH', false);
-      });
-    });
-  },
   logout({commit}) {
     commit('SET_IS_LOADING_AUTH', true);
     axios.post('/logout').then(() => {

@@ -90,7 +90,10 @@ export default {
       window.axios
         .post('profile/image', request, config)
         .catch(() => {
-          this.$root.$snackbar.open('Hochladen fehlgeschlagen.', 'error');
+          this.$root.$notifications.open({
+            type: 'error',
+            message: 'Hochladen fehlgeschlagen.'
+          });
         })
         .finally(() => {
           this.isLoading = false;

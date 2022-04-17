@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!isLoading">
+  <div v-if="!isLoading && !isSuccessful">
     <v-stepper
       v-model="step"
       vertical
@@ -90,6 +90,29 @@
     </v-stepper>
   </div>
   <div
+    v-else-if="isSuccessful"
+    class="text-center pt-12 pb-16"
+  >
+    <v-icon
+      size="80"
+      color="success"
+    >
+      fa-check
+    </v-icon>
+    <BaseParagraph class="mt-6">
+      Dein Antrag wurde abgeschickt!
+      <br>
+      Bitte bestätige deine E-Mail, damit wir fortfahren können.
+    </BaseParagraph>
+    <v-btn
+      color="primary"
+      class="mt-6"
+      @click="pushRouteTo('home')"
+    >
+      Zur Startseite
+    </v-btn>
+  </div>
+  <div
     v-else
     class="text-center py-16"
   >
@@ -128,6 +151,7 @@ export default {
     return {
       step: 1,
       isLoading: false,
+      isSuccessful: true,
       form: {
         branches: [branches.BASE],
         country: 'Deutschland'
@@ -171,9 +195,8 @@ export default {
         request.append('signature', this.form.signature);
         request.append('branches', JSON.stringify(this.form.branches));
 
-        let {data} = await window.axios.post('member-ship-application', request, config);
-        this.$root.$snackbar.open(data.message);
-        this.pushRouteTo('home');
+        await window.axios.post('member-ship-applications', request, config);
+        this.isSuccessful = true;
       } catch (error) {
         this.syncErrors(error);
       } finally {

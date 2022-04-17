@@ -38,7 +38,7 @@
         >allesimrudel@gmail.com</a>.
       </v-alert>
       <v-divider class="mt-3 mb-10" />
-      <v-row>
+      <v-row class="mb-14">
         <v-col cols="12">
           <ProfileBranches
             v-model="user"

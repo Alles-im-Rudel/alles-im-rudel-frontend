@@ -5,12 +5,14 @@
       <confirm-modal ref="confirm" />
       <alert-modal ref="alert" />
       <snackbar ref="snackbar" />
+      <Notifications ref="notifications" />
       <router-view />
       <social-footer />
       <cookie-banner />
     </v-main>
   </v-app>
 </template>
+
 <script>
 import ConfirmModal from './components/dialogs/ConfirmModal';
 import AlertModal from './components/dialogs/AlertModal';
@@ -18,6 +20,7 @@ import Snackbar from './components/dialogs/Snackbar';
 import Navigation from './components/navigation/Navigation';
 import SocialFooter from './components/footer/SocialFooter';
 import CookieBanner from '@/components/cookies/CookieBanner';
+import Notifications from '@/components/notifications/Notifications';
 
 export default {
   name: 'App',
@@ -25,6 +28,7 @@ export default {
     title: 'Alles im Rudel',
   },
   components: {
+    Notifications,
     CookieBanner,
     AlertModal,
     ConfirmModal,
@@ -42,6 +46,7 @@ export default {
     this.$root.$confirm = this.$refs.confirm;
     this.$root.$alert = this.$refs.alert;
     this.$root.$snackbar = this.$refs.snackbar;
+    this.$root.$notifications = this.$refs.notifications;
   },
 };
 </script>
