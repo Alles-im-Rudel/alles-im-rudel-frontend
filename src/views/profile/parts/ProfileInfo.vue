@@ -58,11 +58,21 @@
       >
         <v-text-field
           v-model="user.email"
+          required
           label="E-Mail"
           :error="hasErrors('email')"
           :error-messages="getErrors('email')"
           :hide-details="!hasErrors('email')"
-        />
+        >
+          <template #append>
+            <v-icon
+              v-if="user"
+              :class="user.emailVerifiedAt ? 'success--text' : 'error--text'"
+            >
+              {{ user.emailVerifiedAt ? 'fa-check' : 'fa-times' }}
+            </v-icon>
+          </template>
+        </v-text-field>
       </v-col>
       <user-password-form
         v-model="user"
