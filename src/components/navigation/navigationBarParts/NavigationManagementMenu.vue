@@ -11,10 +11,9 @@
     <template v-slot:activator="{ on, attrs }">
       <v-btn
         icon
-        class="ml-1 ml-sm-4"
         v-bind="attrs"
-        v-on="on"
         :color="isActive('management')"
+        v-on="on"
       >
         <v-icon>fa-cog</v-icon>
       </v-btn>
@@ -24,19 +23,31 @@
       <v-list-item-group>
         <v-list-item @click="pushRouteTo('management-users')">
           <v-list-item-icon class="mr-2">
-            <v-icon small>fa-users</v-icon>
+            <v-icon small>
+              fa-users
+            </v-icon>
           </v-list-item-icon>
           <v-list-item-content>Benutzer</v-list-item-content>
         </v-list-item>
+        <v-list-item @click="pushRouteTo('management-members')">
+          <v-list-item-icon class="mr-2">
+            <v-icon small>fa-user-plus</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>Neue Mitglieder</v-list-item-content>
+        </v-list-item>
         <v-list-item @click="pushRouteTo('management-permissions')">
           <v-list-item-icon class="mr-2">
-            <v-icon small>fa-shield-alt</v-icon>
+            <v-icon small>
+              fa-shield-alt
+            </v-icon>
           </v-list-item-icon>
           <v-list-item-content>Berechtigungen</v-list-item-content>
         </v-list-item>
         <v-list-item @click="pushRouteTo('management-clash')">
           <v-list-item-icon class="mr-2">
-            <v-icon small>fa-cogs</v-icon>
+            <v-icon small>
+              fa-cogs
+            </v-icon>
           </v-list-item-icon>
           <v-list-item-content>Clash</v-list-item-content>
         </v-list-item>
@@ -47,8 +58,8 @@
 
 <script>
 import {mapGetters} from 'vuex';
-import Permissions from "@/mixins/Permissions";
-import CheckMobile from "@/mixins/CheckMobile";
+import Permissions from '@/mixins/Permissions';
+import CheckMobile from '@/mixins/CheckMobile';
 
 export default {
   mixins: [Permissions, CheckMobile],
@@ -57,8 +68,8 @@ export default {
   },
   methods: {
     isActive(group) {
-      return this.$route.meta.group === group ? 'darkGrey' : ''
+      return this.$route.meta.group === group ? 'grey' : '';
     }
   }
-}
+};
 </script>

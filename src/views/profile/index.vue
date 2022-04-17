@@ -1,70 +1,83 @@
 <template>
-  <v-container>
-    <v-tabs
-        v-model="activeTab"
-        centered
-    >
-      <v-tab href="#user">Benutzer</v-tab>
-      <v-tab href="#image">Profilbild</v-tab>
-      <v-tab href="#summoner">Summoner</v-tab>
-    </v-tabs>
-    <v-divider />
-    <v-tabs-items style="background-color:rgba(255, 255, 255, 0)" v-model="activeTab">
-      <v-tab-item value="user">
-        <user-profile :original-user="user" @updated="getUser" />
-      </v-tab-item>
-      <v-tab-item value="image">
-        <user-image v-if="user.id" :original-user="user" @reload="getUser" />
-      </v-tab-item>
-      <v-tab-item value="summoner">
-        <main-summoner :original-user="user" @updated="getUser" />
-      </v-tab-item>
-    </v-tabs-items>
-  </v-container>
+  <div class="white">
+    <BaseContainer v-if="user">
+      <v-row
+        class="mt-6"
+        align="center"
+      >
+        <v-col cols="12">
+          <h2 class="text-h5 mb-2">
+            Mein Profil
+          </h2>
+        </v-col>
+        <v-col
+          cols="12"
+          md="3"
+        >
+          <ProfileImage v-model="user" />
+        </v-col>
+        <v-col
+          cols="12"
+          md="9"
+        >
+          <ProfileInfo
+            v-model="user"
+            class="pl-md-3"
+          />
+        </v-col>
+      </v-row>
+      <v-alert
+        border="top"
+        color="eSports"
+        dark
+        class="mt-10"
+      >
+        Falls du anderweitige Profilanpassungswünsche hast, melde dich bitte per Mail bei uns unter <a
+          style="color: white"
+          href="mailto:allesimrudel@gmail.com"
+        >allesimrudel@gmail.com</a>.
+      </v-alert>
+      <v-divider class="mt-3 mb-10" />
+      <v-row class="mb-14">
+        <v-col cols="12">
+          <ProfileBranches
+            v-model="user"
+            @reload="getUser"
+          />
+        </v-col>
+      </v-row>
+    </BaseContainer>
+  </div>
 </template>
 
 <script>
-import UserProfile from "@/views/profile/parts/UserProfile";
-import MainSummoner from "@/views/profile/parts/MainSummoner";
-import UserImage from "@/views/profile/parts/UserImage";
+import ProfileImage from '@/views/profile/parts/ProfileImage';
+import ProfileInfo from '@/views/profile/parts/ProfileInfo';
+import ProfileBranches from '@/views/profile/parts/ProfileBranches/ProfileBranches';
 
 export default {
-  name: "Profile",
-  components: {
-    UserProfile,
-    MainSummoner,
-    UserImage
-  },
+  name: 'Profile',
+  components: {ProfileBranches, ProfileImage, ProfileInfo},
   data() {
     return {
-      activeTab: this.$route.query.activeTab || null,
-      user: {},
+      user: null,
       isLoading: false
-    }
-  },
-  watch: {
-    activeTab(activeTab) {
-      if (activeTab) {
-        this.$router.replace({
-          name: 'profile',
-          query: {activeTab}
-        });
-      }
-    }
+    };
   },
   created() {
     this.getUser();
   },
   methods: {
     getUser() {
+      console.log('index.vue');
       this.isLoading = true;
       window.axios
-          .get(`profile`)
+          .get('profile')
           .then((response) => {
             this.user = response.data.data;
           })
           .finally(() => (this.isLoading = false));
     },
   }
-}
+};
 </script>

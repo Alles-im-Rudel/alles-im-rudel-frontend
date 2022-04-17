@@ -1,14 +1,14 @@
 <template>
   <v-img
-      :src="summoner.profileIcon"
-      class="white--text align-end"
-      style="border-radius: 50%"
+    :src="summoner.profileIcon"
+    class="white--text align-end rounded-circle"
   >
-    <div style="background: #495056">
+    <div class="text-center greyBlue">
       {{ summoner.summonerLevel }}
     </div>
   </v-img>
 </template>
+
 <script>
 export default {
   components: {},
@@ -18,5 +18,5 @@ export default {
       required: true
     }
   }
-}
+};
 </script>

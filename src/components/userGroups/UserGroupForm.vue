@@ -1,37 +1,49 @@
 <template>
   <v-row>
-    <v-col cols="12" class="pb-0">
+    <v-col
+      cols="12"
+      class="pb-0"
+    >
       <v-text-field
-          v-model="userGroup.displayName"
-          label="Name"
-          :error="hasErrors('displayName')"
-          :error-messages="getErrors('displayName')"
+        v-model="userGroup.displayName"
+        label="Name"
+        :error="hasErrors('displayName')"
+        :error-messages="getErrors('displayName')"
       />
     </v-col>
-    <v-col cols="12" class="pb-0">
+    <v-col
+      cols="12"
+      class="pb-0"
+    >
       <v-text-field
-          v-model="userGroup.color"
-          label="Farbe"
-          :error="hasErrors('color')"
-          :error-messages="getErrors('color')"
+        v-model="userGroup.color"
+        label="Farbe"
+        :error="hasErrors('color')"
+        :error-messages="getErrors('color')"
       />
     </v-col>
-    <v-col class="pt-0" cols="12">
-      <level-select v-model="userGroup.levelId" @input="updateLevel" />
+    <v-col
+      class="pt-0"
+      cols="12"
+    >
+      <level-select
+        v-model="userGroup.levelId"
+        @input="updateLevel"
+      />
     </v-col>
     <v-col cols="12">
       <v-textarea
-          v-model="userGroup.description"
-          label="Beschreibung"
-          :error="hasErrors('description')"
-          :error-messages="getErrors('description')"
+        v-model="userGroup.description"
+        label="Beschreibung"
+        :error="hasErrors('description')"
+        :error-messages="getErrors('description')"
       />
     </v-col>
   </v-row>
 </template>
 
 <script>
-import ValidationErrors from '@/mixins/ValidationErros';
+import ValidationErrors from '@/mixins/ValidationErrors';
 import LevelSelect from '@/components/selects/LevelSelect';
 
 export default {

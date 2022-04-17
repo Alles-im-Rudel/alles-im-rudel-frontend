@@ -1,40 +1,46 @@
 <template>
-  <v-container>
-    <v-row justify="center">
-      <v-col cols="12">
-        <base-card>
-          <v-card-title>
-            Benutzerverwaltung
-            <v-spacer />
-            <v-btn
-              color="greyBlue"
-              dark
-              @click="pushRouteTo('management-users-create')"
-            >
-              <v-icon small class="mr-2">
-                fa-plus
-              </v-icon>
-              Benutzer erstellen
-            </v-btn>
-          </v-card-title>
-          <v-card-text>
-            <user-table
+  <div>
+    <BaseBackground />
+    <v-container>
+      <v-row justify="center">
+        <v-col cols="12">
+          <BaseCard>
+            <v-card-title>
+              Benutzerverwaltung
+              <v-spacer />
+              <v-btn
+                color="greyBlue"
+                dark
+                @click="pushRouteTo('management-users-create')"
+              >
+                <v-icon
+                  small
+                  class="mr-2"
+                >
+                  fa-plus
+                </v-icon>
+                Benutzer erstellen
+              </v-btn>
+            </v-card-title>
+            <v-card-text>
+              <user-table
                 v-model="options"
                 :is-loading="isLoading"
                 :users="users"
                 :server-items-length="serverItemsLength"
                 @reload="getUsers"
-            />
-          </v-card-text>
-        </base-card>
-      </v-col>
-    </v-row>
-  </v-container>
+              />
+            </v-card-text>
+          </BaseCard>
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
 </template>
 
 <script>
 import {zipObject} from 'lodash';
-import UserTable from "@/views/management/users/index/parts/UserTable";
+import UserTable from '@/views/management/users/index/parts/UserTable';
 
 export default {
   components: {
@@ -47,7 +53,7 @@ export default {
       options: {
         page: 1,
         itemsPerPage: 10,
-        sortBy: ['username'],
+        sortBy: ['lastName'],
         sortDesc: [false]
       },
       serverItemsLength: 0,
@@ -56,18 +62,18 @@ export default {
         withOnlyTrashed: false,
         userGroups: []
       }
-    }
+    };
   },
   computed: {},
-  created() {
-    this.getUsers();
-  },
   watch: {
     options: {
       handler() {
-        this.getUsers()
+        this.getUsers();
       }
     }
+  },
+  created() {
+    this.getUsers();
   },
   methods: {
     getUsers() {
@@ -83,10 +89,10 @@ export default {
       };
       window.axios.get('users', {params})
           .then(response => {
-            this.users = response.data.data
+            this.users = response.data.data;
             this.serverItemsLength = response.data.meta.total;
-          }).finally(() => this.isLoading = false)
+          }).finally(() => this.isLoading = false);
     }
   }
-}
+};
 </script>

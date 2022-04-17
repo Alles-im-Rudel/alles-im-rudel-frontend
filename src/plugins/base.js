@@ -1,37 +1,24 @@
 import Vue from 'vue';
-import upperFirst from 'lodash/upperFirst';
-import camelCase from 'lodash/camelCase';
 
-const requireComponent = require.context(
-  // The relative path of the components folder
-  '@/components/base',
-  // Whether or not to look in subfolders
-  false,
-  // The regular expression used to match base component filenames
-  /Base[A-Z]\w+\.(vue|js)$/
-);
+import BaseContainer from '@/components/base/BaseContainer';
+import BaseCard from '@/components/base/BaseCard';
+import BaseParagraph from '@/components/base/BaseParagraph';
+import BaseSectionTitle from '@/components/base/BaseSectionTitle';
+import BaseSocials from '@/components/base/BaseSocials';
+import BaseLeaderCard from '@/components/base/BaseLeaderCard';
+import BaseBackground from '@/components/base/BaseBackground';
+import BaseEditor from '@/components/base/BaseEditor';
 
-requireComponent.keys().forEach((fileName) => {
-  // Get component config
-  const componentConfig = requireComponent(fileName);
+// The components are imported each for IDE support
 
-  // Get PascalCase name of component
-  const componentName = upperFirst(
-    camelCase(
-      // Gets the file name regardless of folder depth
-      fileName
-        .split('/')
-        .pop()
-        .replace(/\.\w+$/, '')
-    )
-  );
+// Components
+Vue.component('BaseContainer', BaseContainer);
+Vue.component('BaseCard', BaseCard);
+Vue.component('BaseSocials', BaseSocials);
+Vue.component('BaseLeaderCard', BaseLeaderCard);
+Vue.component('BaseBackground', BaseBackground);
+Vue.component('BaseEditor', BaseEditor);
 
-  // Register component globally
-  Vue.component(
-    componentName,
-    // Look for the component options on `.default`, which will
-    // exist if the component was exported with `export default`,
-    // otherwise fall back to module's root.
-    componentConfig.default || componentConfig
-  );
-});
+// Texts
+Vue.component('BaseParagraph', BaseParagraph);
+Vue.component('BaseSectionTitle', BaseSectionTitle);

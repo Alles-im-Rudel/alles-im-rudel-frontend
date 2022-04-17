@@ -1,53 +1,69 @@
 <template>
-  <v-dialog v-model="showDialog" persistent max-width="1900px">
+  <v-dialog
+    v-model="showDialog"
+    persistent
+    max-width="1900px"
+  >
     <template #activator="{ on }">
       <v-btn
-          color="primary"
-          :disabled="canSeeButton"
-          block
-          v-on="on"
+        color="primary"
+        :disabled="canSeeButton"
+        block
+        v-on="on"
       >
         Member hinzufügen
       </v-btn>
     </template>
     <v-card>
       <v-card-title>
-        Memeber hinzufügen
+        Member hinzufügen
         <v-spacer />
-        <v-btn icon @click="showDialog = false">
+        <v-btn
+          icon
+          @click="showDialog = false"
+        >
           <v-icon>fa-times</v-icon>
         </v-btn>
       </v-card-title>
       <v-divider />
       <v-card-text>
         <v-row>
-          <v-col cols="12" md="3">
+          <v-col
+            cols="12"
+            md="3"
+          >
             <v-select
-                v-model="selectedRole"
-                :items="selectable"
-                label="Rolle"
+              v-model="selectedRole"
+              :items="selectable"
+              label="Rolle"
             />
           </v-col>
-          <v-col cols="12" md="3">
+          <v-col
+            cols="12"
+            md="3"
+          >
             <v-text-field
-                v-model="selectedMember.username"
-                label="Member"
-                readonly
+              v-model="selectedMember.fullName"
+              label="Member"
+              readonly
             />
           </v-col>
-          <v-col cols="12" md="6">
+          <v-col
+            cols="12"
+            md="6"
+          >
             <clash-member-picker
-                v-model="selectedMember"
-                :clash-member-ids="memberIds"
+              v-model="selectedMember"
+              :clash-member-ids="memberIds"
             />
           </v-col>
         </v-row>
       </v-card-text>
       <v-divider />
       <reset-save-action
-          :can-submit="canSubmit"
-          @submit="submit"
-          @clear="clear"
+        :can-submit="canSubmit"
+        @submit="submit"
+        @clear="clear"
       />
     </v-card>
   </v-dialog>
@@ -55,25 +71,23 @@
 
 <script>
 import Permissions from '@/mixins/Permissions';
-import ResetSaveAction from "@/components/cardActions/ResetSaveAction";
-import ClashMemberPicker from '@/components/picker/ClashMemberPicker'
+import ResetSaveAction from '@/components/cardActions/ResetSaveAction';
+import ClashMemberPicker from '@/components/picker/ClashMemberPicker';
 
 export default {
-  mixins: [Permissions],
   components: {
     ResetSaveAction,
     ClashMemberPicker
   },
+  mixins: [Permissions],
   props: {
     value: {
       type: Array,
       required: true
     },
     clashTeam: {
-      value: {
-        type: Object,
-        required: true
-      }
+      type: Object,
+      required: true
     },
   },
   data() {
@@ -89,7 +103,7 @@ export default {
         'Botlane',
         'Support'
       ]
-    }
+    };
   },
   computed: {
     canSeeButton() {
@@ -97,14 +111,14 @@ export default {
     },
     selectable() {
       return this.roles.filter(role => {
-        return !this.clashTeam.clashMembers.some(clashMember => clashMember.clashTeamRole.name === role) && !this.newClashMembers.some(clashMember => clashMember.clashTeamRole.name === role)
-      })
+        return !this.clashTeam.clashMembers.some(clashMember => clashMember.clashTeamRole.name === role) && !this.newClashMembers.some(clashMember => clashMember.clashTeamRole.name === role);
+      });
     },
     memberIds() {
       return this.clashTeam.clashMembers.map(clashMember => clashMember.user.id).concat(this.newClashMembers.map(clashMember => clashMember.user.id));
     },
     canSubmit() {
-      return !!this.selectedRole && !!this.selectedMember.id
+      return !!this.selectedRole && !!this.selectedMember.id;
     }
   },
   watch: {

@@ -1,33 +1,39 @@
 <template>
-  <v-row class="pr-3 pl-3">
-    <v-col cols="12" md="6">
+  <v-row :class="{'pr-3': hasPadding, ' pl-3': hasPadding}">
+    <v-col
+      cols="12"
+      md="6"
+    >
       <v-text-field
-          v-model="user.password"
-          :append-icon="showIcon ? 'fa-eye' : 'fa-eye-slash'"
-          :type="showIcon ? 'text' : 'password'"
-          :label="labels.first"
-          counter
-          :error="hasErrors('password')"
-          :error-messages="getErrors('password')"
-          @click:append="showIcon = !showIcon"
+        v-model="user.password"
+        :append-icon="showIcon ? 'fa-eye' : 'fa-eye-slash'"
+        :type="showIcon ? 'text' : 'password'"
+        :label="labels.first"
+        counter
+        :error="hasErrors('password')"
+        :error-messages="getErrors('password')"
+        @click:append="showIcon = !showIcon"
       />
     </v-col>
-    <v-col cols="12" md="6">
+    <v-col
+      cols="12"
+      md="6"
+    >
       <v-text-field
-          v-model="user.passwordRepeat"
-          :append-icon="showIcon ? 'fa-eye' : 'fa-eye-slash'"
-          :type="showIcon ? 'text' : 'password'"
-          :label="labels.second"
-          counter
-          :error="hasErrors('passwordRepeat')"
-          :error-messages="getErrors('passwordRepeat')"
-          @click:append="showIcon = !showIcon"
+        v-model="user.passwordRepeat"
+        :append-icon="showIcon ? 'fa-eye' : 'fa-eye-slash'"
+        :type="showIcon ? 'text' : 'password'"
+        :label="labels.second"
+        counter
+        :error="hasErrors('passwordRepeat')"
+        :error-messages="getErrors('passwordRepeat')"
+        @click:append="showIcon = !showIcon"
       />
     </v-col>
   </v-row>
 </template>
 <script>
-import ValidationErrors from '@/mixins/ValidationErros'
+import ValidationErrors from '@/mixins/ValidationErrors';
 
 export default {
   mixins: [ValidationErrors],
@@ -40,7 +46,6 @@ export default {
         fullName: null,
         firstName: null,
         lastName: null,
-        username: null,
         password: null,
         passwordRepeat: null,
         email: null,
@@ -57,7 +62,12 @@ export default {
     },
     validationErrors: {
       type: Object,
-      default: () => {}
+      default: () => {
+      }
+    },
+    hasPadding: {
+      type: Boolean,
+      default: true
     }
   },
   data() {

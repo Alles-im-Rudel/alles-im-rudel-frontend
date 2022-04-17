@@ -1,72 +1,45 @@
 <template>
-  <v-container>
+  <BaseContainer>
     <v-row>
-      <v-col cols="12">
-        <tag-select v-model="post.tags" />
-      </v-col>
-      <v-col cols="12" md="6">
-        <v-row>
-          <v-col cols="12" md="12" lg="6">
-            <v-text-field
-                v-model="post.title"
-                label="Titel"
-                :error="hasErrors('title')"
-                :error-messages="getErrors('title')"
-            />
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col cols="12" md="12">
-            <vue-editor v-model="post.text" />
-          </v-col>
-        </v-row>
-      </v-col>
-      <v-col cols="12" md="6">
-        <image-upload
-            v-model="newImage"
-        />
-        <v-btn
-            color="darkGrey"
-            dark
-            :disabled="canUseImage"
-            @click="useImage"
-        >
-          Bild benutzen
-        </v-btn>
-      </v-col>
       <v-col
-          v-for="(image, index) in post.images"
-          :key="index"
-          cols="12"
-          lg="2"
+        cols="12"
+        md="3"
       >
-        <image-preview
-            :file="image.file"
-            :title="image.title"
+        <tag-select
+          v-model="post.tagId"
+          :multiple="false"
         />
-        <v-btn
-            @click="removeImage(index)"
-        >
-          Entfernen
-        </v-btn>
+      </v-col>
+      <v-col cols="12">
+        <v-text-field
+          v-model="post.title"
+          label="Titel"
+          :error="hasErrors('title')"
+          :error-messages="getErrors('title')"
+        />
+
+        <BaseEditor v-model="post.text" />
+      </v-col>
+      <v-col cols="12">
+        <image-upload
+          v-model="post.image"
+        />
       </v-col>
     </v-row>
-  </v-container>
+  </BaseContainer>
 </template>
 
 <script>
-import ValidationErrors from "@/mixins/ValidationErros";
-import ImageUpload from "@/components/images/ImageUpload";
-import ImagePreview from "@/components/images/ImagePreview";
-import TagSelect from "@/components/selects/TagSelect";
+import ValidationErrors from '@/mixins/ValidationErrors';
+import ImageUpload from '@/components/images/ImageUpload';
+import TagSelect from '@/components/selects/TagSelect';
 
 export default {
-  mixins: [ValidationErrors],
   components: {
     ImageUpload,
-    ImagePreview,
     TagSelect
   },
+  mixins: [ValidationErrors],
   props: {
     value: {
       type: Object,
@@ -80,16 +53,7 @@ export default {
   data() {
     return {
       post: this.value,
-      newImage: {
-        title: null,
-        file: null
-      }
     };
-  },
-  computed: {
-    canUseImage() {
-      return !this.newImage.file
-    }
   },
   watch: {
     value: {
@@ -111,17 +75,5 @@ export default {
       deep: true
     },
   },
-  methods: {
-    useImage() {
-      this.post.images.push(this.newImage);
-      this.newImage = {
-        title: null,
-        file: null
-      }
-    },
-    removeImage(index) {
-      this.post.images.splice(index, 1)
-    }
-  }
 };
 </script>

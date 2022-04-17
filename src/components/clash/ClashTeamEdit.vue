@@ -3,36 +3,43 @@
     <v-card-title>
       Clash Team {{ value.name }}
       <v-spacer />
-      <v-btn icon @click="$emit('close')">
+      <v-btn
+        icon
+        @click="$emit('close')"
+      >
         <v-icon>fa-times</v-icon>
       </v-btn>
     </v-card-title>
     <v-divider />
     <v-card-text>
       <v-row>
-        <v-col cols="12" md="6" lg="4">
+        <v-col
+          cols="12"
+          md="6"
+          lg="4"
+        >
           <v-text-field
-              v-model="clashTeam.name"
-              label="Teamname"
-
+            v-model="clashTeam.name"
+            label="Teamname"
           />
         </v-col>
-        <v-col cols="12"
-               v-for="clashMember in clashTeam.clashMembers"
-               :key="clashMember.id"
+        <v-col
+          v-for="clashMember in clashTeam.clashMembers"
+          :key="clashMember.id"
+          cols="12"
         >
-          <base-card>
+          <BaseCard>
             <v-card-title>
               {{ clashMember.clashTeamRole.name }}:
-              {{ clashMember.user.username }}
+              {{ clashMember.user.fullName }}
               <v-spacer />
               <v-tooltip top>
                 <template v-slot:activator="{ on }">
                   <v-btn
-                      icon
-                      color="error"
-                      v-on="on"
-                      @click="deleteMember(clashMember)"
+                    icon
+                    color="error"
+                    v-on="on"
+                    @click="deleteMember(clashMember)"
                   >
                     <v-icon>fa-trash-alt</v-icon>
                   </v-btn>
@@ -40,30 +47,34 @@
                 <span>Member entfernen</span>
               </v-tooltip>
             </v-card-title>
-          </base-card>
+          </BaseCard>
         </v-col>
       </v-row>
-      <clash-add-member v-model="newClashMembers" :clash-team="clashTeam" />
+      <clash-add-member
+        v-model="newClashMembers"
+        :clash-team="clashTeam"
+      />
       <v-row>
         <v-card-title v-if="newClashMembers.length > 0">
           Neue Member:
         </v-card-title>
-        <v-col cols="12"
-               v-for="newClashMember in newClashMembers"
-               :key="newClashMember.user.id"
+        <v-col
+          v-for="newClashMember in newClashMembers"
+          :key="newClashMember.user.id"
+          cols="12"
         >
-          <base-card>
+          <BaseCard>
             <v-card-title>
               {{ newClashMember.clashTeamRole.name }}:
-              {{ newClashMember.user.username }}
+              {{ newClashMember.user.fullName }}
               <v-spacer />
               <v-tooltip top>
                 <template v-slot:activator="{ on }">
                   <v-btn
-                      icon
-                      color="error"
-                      v-on="on"
-                      @click="deleteNewMember(newClashMember)"
+                    icon
+                    color="error"
+                    v-on="on"
+                    @click="deleteNewMember(newClashMember)"
                   >
                     <v-icon>fa-trash-alt</v-icon>
                   </v-btn>
@@ -71,23 +82,23 @@
                 <span>Member entfernen</span>
               </v-tooltip>
             </v-card-title>
-          </base-card>
+          </BaseCard>
         </v-col>
       </v-row>
     </v-card-text>
     <v-divider />
     <reset-save-action
-        :can-submit="canSubmit"
-        :is-loading="isLoading"
-        :has-changes="hasChanges"
-        @submit="submit"
-        @clear="clear"
+      :can-submit="canSubmit"
+      :is-loading="isLoading"
+      :has-changes="hasChanges"
+      @submit="submit"
+      @clear="clear"
     />
   </v-card>
 </template>
 <script>
-import ResetSaveAction from "@/components/cardActions/ResetSaveAction";
-import ClashAddMember from "@/components/clash/ClashAddMember";
+import ResetSaveAction from '@/components/cardActions/ResetSaveAction';
+import ClashAddMember from '@/components/clash/ClashAddMember';
 import {cloneDeep} from 'lodash';
 
 export default {
@@ -107,16 +118,16 @@ export default {
       clashTeam: cloneDeep(this.value),
       newClashMembers: [],
       deletedMembers: []
-    }
+    };
   },
   computed: {
     canSubmit() {
-      return !!this.clashTeam.name && this.hasChanges
+      return !!this.clashTeam.name && this.hasChanges;
     },
     hasChanges() {
       return this.clashTeam.name !== this.value.name ||
           this.deletedMembers.length > 0 ||
-          this.newClashMembers.length > 0
+          this.newClashMembers.length > 0;
     }
   },
   watch: {
@@ -163,8 +174,8 @@ export default {
     clear() {
       this.clashTeam = cloneDeep(this.value);
       this.newClashMembers = [];
-      this.deletedMembers = []
+      this.deletedMembers = [];
     }
   }
-}
+};
 </script>

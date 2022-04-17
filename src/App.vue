@@ -1,31 +1,34 @@
 <template>
   <v-app>
-    <span class="bg" />
     <navigation />
     <v-main>
       <confirm-modal ref="confirm" />
       <alert-modal ref="alert" />
       <snackbar ref="snackbar" />
-      <router-view class="effects fade-in-main" />
+      <Notifications ref="notifications" />
+      <router-view />
       <social-footer />
       <cookie-banner />
     </v-main>
   </v-app>
 </template>
+
 <script>
 import ConfirmModal from './components/dialogs/ConfirmModal';
 import AlertModal from './components/dialogs/AlertModal';
 import Snackbar from './components/dialogs/Snackbar';
-import Navigation from "./components/navigation/Navigation";
+import Navigation from './components/navigation/Navigation';
 import SocialFooter from './components/footer/SocialFooter';
-import CookieBanner from "@/components/cookies/CookieBanner";
+import CookieBanner from '@/components/cookies/CookieBanner';
+import Notifications from '@/components/notifications/Notifications';
 
 export default {
   name: 'App',
   metaInfo: {
-    title: 'Alles im Rudel | Airsoft | E-Sports',
+    title: 'Alles im Rudel',
   },
   components: {
+    Notifications,
     CookieBanner,
     AlertModal,
     ConfirmModal,
@@ -43,6 +46,7 @@ export default {
     this.$root.$confirm = this.$refs.confirm;
     this.$root.$alert = this.$refs.alert;
     this.$root.$snackbar = this.$refs.snackbar;
+    this.$root.$notifications = this.$refs.notifications;
   },
 };
 </script>
@@ -52,19 +56,6 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-.bg {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: url('./assets/backgrounds/blank.jpg') no-repeat center center;
-  background-size: cover;
-  transform: scale(1.1);
 }
 
 .fade-enter-active,

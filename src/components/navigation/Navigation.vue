@@ -1,12 +1,17 @@
 <template>
-  <v-app-bar color="primary" dark app clipped-left>
+  <v-app-bar
+    color="primary"
+    dark
+    app
+    clipped-left
+  >
     <v-toolbar-title
-        @click="pushRouteTo('home')"
-        class="cursor-pointer pl-0 pl-sm-1 d-flex align-center"
+      class="cursor-pointer pl-0 pl-sm-1 d-flex align-center"
+      @click="pushRouteTo('home')"
     >
       <v-icon
-          :size="isMobile ? 56 : 64"
-          class="mr-3"
+        :size="isMobile ? 56 : 64"
+        class="mr-3"
       >
         $vuetify.icons.allesimrudel
       </v-icon>
@@ -16,70 +21,105 @@
     </v-toolbar-title>
 
     <v-spacer />
-
     <v-btn
-        :text="!isMedium"
-        :icon="isMedium"
-        @click="pushRouteTo('news')"
-        :color="isActive('news')"
-        class="mr-0 mr-sm-1"
+      :text="!isMedium"
+      :icon="isMedium"
+      @click="pushToShop"
     >
-      <v-icon :left="!isMedium">fa-newspaper</v-icon>
-      {{ !isMedium ? 'News' : '' }}
+      <v-icon :left="!isMedium">
+        fa-shopping-cart
+      </v-icon>
+      {{ !isMedium ? 'Shop' : '' }}
     </v-btn>
+    <v-menu
+      bottom
+      offset-y
+      close-on-content-click
+    >
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          :color="isActive('branch')"
+          class="mr-0 mr-sm-1"
+          :text="!isMedium"
+          :icon="isMedium"
+          dark
+          v-bind="attrs"
+          v-on="on"
+        >
+          <v-icon :left="!isMedium">
+            fa-code-branch
+          </v-icon>
+          {{ !isMedium ? 'Sparten' : '' }}
+        </v-btn>
+      </template>
+
+      <v-list>
+        <v-list-item
+          link
+          @click="pushRouteTo('airsoft')"
+        >
+          Airsoft
+        </v-list-item>
+        <v-list-item
+          link
+          @click="pushRouteTo('esports')"
+        >
+          E-Sports
+        </v-list-item>
+      </v-list>
+    </v-menu>
 
     <v-btn
-        :text="!isMedium"
-        :icon="isMedium"
-        @click="pushRouteTo('branches')"
-        :color="isActive('branch')"
-        class="mr-0 mr-sm-1"
+      v-if="!isAuth"
+      :text="!isMedium"
+      :icon="isMedium"
+      :color="isActive('join')"
+      @click="pushRouteTo('join')"
     >
-      <v-icon :left="!isMedium">fa-code-branch</v-icon>
-      {{ !isMedium ? 'Sparten' : '' }}
-    </v-btn>
-
-    <v-btn
-        :text="!isMedium"
-        :icon="isMedium"
-        @click="pushRouteTo('join')"
-        :color="isActive('join')"
-        class="mr-1 mr-sm-4"
-    >
-      <v-icon :left="!isMedium">fa-award</v-icon>
+      <v-icon :left="!isMedium">
+        fa-award
+      </v-icon>
       {{ !isMedium ? 'Beitritt' : '' }}
     </v-btn>
 
-    <v-divider vertical inset />
+    <v-divider
+      vertical
+      inset
+      class="mx-2"
+    />
 
     <!-- Ohne Auth -->
     <v-btn
-        :text="!isMedium"
-        :icon="isMedium"
-        v-if="!isAuth"
-        @click="pushRouteTo('login')"
-        :color="isActive('login')"
-        class="mr-1 ml-2"
+      v-if="!isAuth"
+      :text="!isMedium"
+      :icon="isMedium"
+      :color="isActive('login')"
+      class="mr-1"
+      @click="pushRouteTo('login')"
     >
-      <v-icon :left="!isMedium">fa-sign-in-alt</v-icon>
+      <v-icon :left="!isMedium">
+        fa-sign-in-alt
+      </v-icon>
       {{ !isMedium ? 'Login' : '' }}
     </v-btn>
 
     <!-- Auth -->
-    <navigation-management-menu />
-    <navigation-user-menu />
+    <NavigationManagementMenu />
+    <NavigationUserMenu />
   </v-app-bar>
 </template>
 
 <script>
 import {mapActions, mapGetters} from 'vuex';
-import Permissions from "@/mixins/Permissions";
-import CheckMobile from "@/mixins/CheckMobile";
+import Permissions from '@/mixins/Permissions';
+import CheckMobile from '@/mixins/CheckMobile';
+import NavigationManagementMenu from '@/components/navigation/navigationBarParts/NavigationManagementMenu';
+import NavigationUserMenu from '@/components/navigation/navigationBarParts/NavigationUserMenu';
 
 export default {
   components: {
-    NavigationManagementMenu: () => import("./navigationBarParts/NavigationManagementMenu"),
-    NavigationUserMenu: () => import("./navigationBarParts/NavigationUserMenu")
+    NavigationUserMenu,
+    NavigationManagementMenu
   },
   mixins: [Permissions, CheckMobile],
   computed: {
@@ -88,7 +128,10 @@ export default {
   methods: {
     ...mapActions('auth', ['logout']),
     isActive(group) {
-      return this.$route.meta.group === group ? 'darkGrey' : ''
+      return this.$route.meta.group === group ? 'grey' : '';
+    },
+    pushToShop(){
+      window.location = 'https://www.teamstolz.de/vereinsshop/alles-im-rudel/';
     }
   }
 };

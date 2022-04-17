@@ -1,48 +1,56 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col cols="12" lg="6">
-        <v-file-input
-            v-model="file.file"
-            color="primary"
-            counter
-            :error="hasErrors('image')"
-            :error-messages="getErrors('image')"
-            label="Bild auswählen"
-            placeholder="Bild auswählen"
-            prepend-icon=""
-            :accept="allowedTypes.join(',')"
-            prepend-inner-icon="fa-file-image"
-            outlined
-            :show-size="1000"
-            @change="transformToBase64"
-            @click:clear="clear"
-        />
-        <v-text-field
-            v-model="file.title"
-            label="Bild Titel"
-            :error="hasErrors('title')"
-            :error-messages="getErrors('title')"
+  <v-row>
+    <v-col cols="12">
+      <v-file-input
+        v-model="file"
+        color="primary"
+        counter
+        :error="hasErrors('image')"
+        :error-messages="getErrors('image')"
+        :label="label"
+        placeholder="Bild auswählen"
+        prepend-icon=""
+        :accept="allowedTypes.join(',')"
+        prepend-inner-icon="fa-file-image"
+        outlined
+        :show-size="1000"
+        class="rounded-0"
+        @change="transformToBase64"
+        @click:clear="clear"
+      />
+    </v-col>
+    <v-scale-transition>
+      <v-col
+        v-if="imageBase64"
+        cols="12"
+        class="image-preview"
+      >
+        <v-img
+          contain
+          max-height="400"
+          class="preview"
+          :src="imageBase64"
         />
       </v-col>
-      <v-scale-transition>
-        <v-col v-if="imageBase64" cols="12" lg="6" class="image-preview">
-          Preview
-          <v-img contain max-height="400" class="preview" :src="imageBase64" />
-        </v-col>
-      </v-scale-transition>
-    </v-row>
-  </v-container>
+    </v-scale-transition>
+  </v-row>
 </template>
+
 <script>
-import ValidationErrors from '@/mixins/ValidationErros';
+import ValidationErrors from '@/mixins/ValidationErrors';
 
 export default {
   mixins: [ValidationErrors],
   props: {
     value: {
-      type: Object,
-      rquired: true
+      type: undefined,
+      required: false,
+      default: null
+    },
+    label: {
+      type: String,
+      required: false,
+      default: 'Bild auswählen'
     }
   },
   data() {
@@ -58,8 +66,8 @@ export default {
       deep: true,
       handler(value) {
         this.file = value;
-        if (!value.file) {
-          this.imageBase64 = null
+        if (!value) {
+          this.imageBase64 = null;
         }
       }
     },
@@ -83,7 +91,7 @@ export default {
     },
     clear() {
       this.imageBase64 = null;
-      this.$emit('clear')
+      this.$emit('clear');
     }
   }
 };

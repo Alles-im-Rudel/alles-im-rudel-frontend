@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuetify from 'vuetify/lib/framework';
 
 Vue.use(Vuetify);
+
 export default new Vuetify({
   theme: {
     dark: false,
@@ -14,7 +15,7 @@ export default new Vuetify({
         yellow: '#fff697',
         black: '#010101',
         error: '#F44336',
-        info: '#FF5500',
+        info: '#4FC3F7',
         success: '#4CAF50',
         warning: '#DBBB00',
         white: '#ffffff',
@@ -37,7 +38,7 @@ export default new Vuetify({
         yellow: '#fff697',
         black: '#010101',
         error: '#F44336',
-        info: '#FF5500',
+        info: '#4FC3F7',
         success: '#4CAF50',
         warning: '#DBBB00',
         white: '#ffffff',

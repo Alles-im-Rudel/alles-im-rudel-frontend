@@ -1,42 +1,64 @@
 <template>
-  <v-card v-if="user.id" tile>
+  <v-card
+    v-if="user.id"
+    tile
+  >
     <v-card-title>
       Benutzergruppen dem Benutzer: {{ user.fullName }} hinzufügen
       <v-spacer />
-      <v-btn icon @click="close">
+      <v-btn
+        icon
+        @click="close"
+      >
         <v-icon>fa-times</v-icon>
       </v-btn>
     </v-card-title>
     <v-divider />
     <v-card-text>
       <v-row>
-        <v-col cols="12" lg="6" md="6" sm="10">
+        <v-col
+          cols="12"
+          lg="6"
+          md="6"
+          sm="10"
+        >
           <user-groups-table
-              v-model="user.userGroups"
-              :is-loading="isLoading"
-              @remove-user-group="removeUserGroup"
+            v-model="user.userGroups"
+            :is-loading="isLoading"
+            @remove-user-group="removeUserGroup"
           />
         </v-col>
-        <v-col cols="12" lg="6" md="6" sm="10">
+        <v-col
+          cols="12"
+          lg="6"
+          md="6"
+          sm="10"
+        >
           <add-user-groups-table
-              v-model="notSelectedUserGroups"
-              :is-loading="isLoading"
-              @add-user-group="addUserGroup"
+            v-model="notSelectedUserGroups"
+            :is-loading="isLoading"
+            @add-user-group="addUserGroup"
           />
         </v-col>
       </v-row>
     </v-card-text>
     <v-divider />
     <reset-save-action
-        :is-loading="isLoading"
-        :can-submit="canSubmit"
-        @submit="submit"
-        @clear="reset"
+      :is-loading="isLoading"
+      :can-submit="canSubmit"
+      @submit="submit"
+      @clear="reset"
     />
   </v-card>
-  <v-card v-else tile>
+  <v-card
+    v-else
+    tile
+  >
     <v-card-text>
-      <v-skeleton-loader class="mx-auto" type="card" />
+      <v-skeleton-loader
+        class="mx-auto"
+        type="card"
+      />
     </v-card-text>
   </v-card>
 </template>
@@ -44,8 +66,8 @@
 <script>
 import ResetSaveAction from '@/components/cardActions/ResetSaveAction';
 import Permissions from '@/mixins/Permissions';
-import UserGroupsTable from "@/components/userGroups/UserGroupsTable";
-import AddUserGroupsTable from "@/components/userGroups/AddUserGroupsTable";
+import UserGroupsTable from '@/components/userGroups/UserGroupsTable';
+import AddUserGroupsTable from '@/components/userGroups/AddUserGroupsTable';
 
 import {cloneDeep} from 'lodash';
 import hasArrayDifferenz from '@/mixins/HasArrayDifferenz';
@@ -70,7 +92,6 @@ export default {
         fullName: null,
         firstName: null,
         lastName: null,
-        username: null,
         email: null,
         isActive: false,
         userGroups: [],
@@ -81,7 +102,6 @@ export default {
         fullName: null,
         firstName: null,
         lastName: null,
-        username: null,
         email: null,
         isActive: false,
         userGroups: [],
@@ -128,7 +148,7 @@ export default {
         )
       };
       window.axios
-          .get(`user-groups/all`, {params})
+          .get('user-groups/all', {params})
           .then((response) => {
             this.notSelectedUserGroups = cloneDeep(response.data.data);
             this.originalNotSelectedUserGroups = cloneDeep(response.data.data);

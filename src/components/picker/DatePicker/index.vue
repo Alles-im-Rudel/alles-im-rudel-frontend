@@ -1,37 +1,49 @@
 <template>
-  <v-dialog v-model="showDialog" max-width="400">
+  <v-dialog
+    v-model="showDialog"
+    max-width="400"
+  >
     <template v-slot:activator="{ on }">
       <v-text-field
-          v-model="value"
-          type="date"
-          v-on="on"
-          :label="label"
-          readonly
+        v-model="value"
+        type="date"
+        :label="label"
+        readonly
+        :hide-details="hideDetails"
+        v-on="on"
       />
     </template>
     <v-card>
       <v-card-text class="ma-0 pa-0">
         <v-date-picker
-            v-model="date"
-            color="darkGrey"
-            locale="de"
-            :max="maxDate"
-            full-width
+          v-model="date"
+          color="darkGrey"
+          locale="de"
+          :max="maxDate"
+          full-width
         />
       </v-card-text>
       <v-card-actions class="ma-0 pa-1 pt-0">
-        <v-btn text small @click="reset">
+        <v-btn
+          text
+          small
+          @click="reset"
+        >
           Zurücksetzen
         </v-btn>
         <v-spacer />
-        <v-btn text small @click="clear">
+        <v-btn
+          text
+          small
+          @click="clear"
+        >
           Leeren
         </v-btn>
         <v-spacer />
         <v-btn
-            text
-            small
-            @click="submit"
+          text
+          small
+          @click="submit"
         >
           auswählen
         </v-btn>
@@ -58,6 +70,10 @@ export default {
       type: String,
       default: () => ''
     },
+    hideDetails: {
+      type: Boolean,
+      default: () => false
+    }
   },
   data() {
     return {

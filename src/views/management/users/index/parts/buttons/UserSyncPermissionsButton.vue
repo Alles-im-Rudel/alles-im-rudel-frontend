@@ -1,13 +1,17 @@
 <template>
-  <v-dialog v-model="showDialog" persistent fullscreen>
+  <v-dialog
+    v-model="showDialog"
+    persistent
+    fullscreen
+  >
     <template v-slot:activator="{ on: dialog }">
       <v-tooltip top>
         <template v-slot:activator="{ on: tooltip }">
           <v-btn
-              v-if="canSeeButton"
-              color="primary"
-              icon
-              v-on="{ ...dialog, ...tooltip }"
+            v-if="canSeeButton"
+            color="primary"
+            icon
+            v-on="{ ...dialog, ...tooltip }"
           >
             <v-icon>fa-link</v-icon>
           </v-btn>
@@ -15,7 +19,11 @@
         <span>Verknüpfen mit Berechtigungen</span>
       </v-tooltip>
     </template>
-    <user-sync-permissions :user-id="user.id" @reload="reload" @close="close" />
+    <user-sync-permissions
+      :user-id="user.id"
+      @reload="reload"
+      @close="close"
+    />
   </v-dialog>
 </template>
 
@@ -37,7 +45,6 @@ export default {
         fullName: null,
         firstName: null,
         lastName: null,
-        username: null,
         email: null,
         isActive: false
       })

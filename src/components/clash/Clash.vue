@@ -1,30 +1,29 @@
 <template>
-  <base-card flat>
-    <v-card-text>
-      <v-row
-          justify="center"
-          v-for="clashTeam in clashTeams"
-          :key="clashTeam.id"
-      >
-        <v-col cols="12">
-          <v-card-title class="pb-0 text-h5">{{ clashTeam.name }}</v-card-title>
-        </v-col>
-        <div class="container">
-          <div
-              class="item"
-              v-for="clashMember in clashTeam.clashMembers"
-              :key="clashMember.id"
-          >
-            <clash-team-member :clash-member="clashMember" />
-          </div>
+  <BaseCard flat>
+    <div
+      v-for="clashTeam in clashTeams"
+      :key="clashTeam.id"
+      class="clash-wrapper"
+    >
+      <v-card-title class="px-0 text-h5">
+        {{ clashTeam.name }}
+      </v-card-title>
+
+      <div class="clash-container">
+        <div
+          v-for="clashMember in clashTeam.clashMembers"
+          :key="clashMember.id"
+          class="item"
+        >
+          <clash-team-member :clash-member="clashMember" />
         </div>
-      </v-row>
-    </v-card-text>
-  </base-card>
+      </div>
+    </div>
+  </BaseCard>
 </template>
 
 <script>
-import ClashTeamMember from "@/components/clash/ClashTeamMember";
+import ClashTeamMember from '@/components/clash/ClashTeamMember';
 
 export default {
   components: {
@@ -33,7 +32,7 @@ export default {
   data() {
     return {
       clashTeams: []
-    }
+    };
   },
   computed: {},
   created() {
@@ -42,42 +41,61 @@ export default {
   methods: {
     getClashTeams() {
       window.axios.get('clash')
-          .then(response => {
-            this.clashTeams = response.data.data
-          }).finally(() => this.isLoading = false)
+        .then(({data}) => this.clashTeams = data.data)
+        .finally(() => this.isLoading = false);
     }
   }
-}
+};
 </script>
 
-<style scoped>
-.container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-}
-.item {
-  max-width: 19%;
-  margin: 5px;
-}
+<style lang="scss" scoped>
+.clash-wrapper {
+  margin-top: 24px;
 
-@media (max-width: 1264px) {
-  .container {
+  &:nth-child(1) {
+    margin-top: 0;
+  }
+
+  .clash-container {
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-between;
   }
-  .item {
-    max-width: 47%;
-  }
-}
 
-@media (max-width: 960px) {
-  .container {
-    display: flex;
-    flex-flow: row wrap;
-  }
   .item {
-    max-width: 100%;
+    max-width: 19%;
+    margin: 5px;
+  }
+
+  .item:nth-child(1) {
+    margin-left: 0;
+  }
+
+  .item:nth-last-child(1) {
+    margin-right: 0;
+  }
+
+  @media (max-width: 1264px) {
+    .clash-container {
+      justify-content: center;
+    }
+
+    .item {
+      max-width: 32%;
+      margin: 5px !important;
+    }
+  }
+
+  @media (max-width: 960px) {
+    .item {
+      max-width: 47%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .item {
+      max-width: 100%;
+    }
   }
 }
 </style>

@@ -1,14 +1,17 @@
 <template>
   <v-card-actions>
-    <v-btn :disabled="!hasChanges && !isLoading" @click="clear">
+    <v-btn
+      :disabled="!hasChanges && !isLoading"
+      @click="clear"
+    >
       Zurücksetzen
     </v-btn>
     <v-spacer />
     <v-btn
-        color="success"
-        :loading="isLoading"
-        :disabled="!canSubmit"
-        @click="submit"
+      color="success"
+      :loading="isLoading"
+      :disabled="!canSubmit"
+      @click="submit"
     >
       {{ submitText }}
     </v-btn>

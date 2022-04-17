@@ -1,4 +1,4 @@
-import Vue from 'vue'
-import dayjs from 'dayjs'
+import Vue from 'vue';
+import dayjs from 'dayjs';
 
-Vue.prototype.$day = dayjs
+Vue.prototype.$day = dayjs;
