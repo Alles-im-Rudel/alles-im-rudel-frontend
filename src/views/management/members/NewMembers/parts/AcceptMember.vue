@@ -104,6 +104,7 @@
       </v-btn>
       <v-spacer />
       <v-btn
+        :disabled="!member.emailVerifiedAt"
         color="success"
         :loading="isLoading"
         @click="accept"
