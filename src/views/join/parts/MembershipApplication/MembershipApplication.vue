@@ -1,5 +1,12 @@
 <template>
   <div v-if="!isLoading && !isSuccessful">
+    <BaseParagraph class="mb-8">
+      Wir konnten dein Interesse wecken und du möchtest dem Verein beitreten? Dann fülle einfach diesen
+      Beitrittsantrag aus!<br>
+      Im nächsten Schritt prüfen wir deinen Beitrittswunsch und teilen dir im Anschluss mit, ob du dich in Zukunft als
+      stolzer Teil des Rudels bezeichnen kannst.
+    </BaseParagraph>
+
     <v-stepper
       v-model="step"
       vertical

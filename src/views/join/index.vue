@@ -4,8 +4,8 @@
       Interesse?
     </BaseSectionTitle>
 
-    <BaseContainer class="py-8">
-      <MembershipApplication />
+    <BaseContainer class="my-12">
+      <MembershipApplication/>
     </BaseContainer>
   </div>
 </template>
@@ -15,6 +15,9 @@ import MembershipApplication from './parts/MembershipApplication/MembershipAppli
 
 export default {
   name: 'Join',
+  metaInfo: {
+    title: 'Alles im Rudel | Beitritt'
+  },
   components: {
     MembershipApplication
   }

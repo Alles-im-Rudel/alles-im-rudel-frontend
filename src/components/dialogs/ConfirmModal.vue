@@ -11,7 +11,7 @@
                 </v-toolbar-title>
             </v-toolbar>
             <v-card-text v-show="!!message">
-                <p class="subtitle-2 mt-3">{{ message }}</p>
+                <p class="subtitle-2 mt-3 text-pre-line">{{ message }}</p>
             </v-card-text>
             <v-card-actions>
                 <v-spacer />

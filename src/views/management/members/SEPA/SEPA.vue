@@ -1,17 +1,9 @@
 <template>
-  <v-row class="justify-center">
-    <v-col
-      v-if="sepaChanges"
-      cols="12"
-      md="8"
-    >
-      <sepa-members-table
-        :sepa-changes="sepaChanges"
-        :is-loading="isLoading"
-        @reload="getSepaData"
-      />
-    </v-col>
-  </v-row>
+  <sepa-members-table
+    :sepa-changes="sepaChanges"
+    :is-loading="isLoading"
+    @reload="getSepaData"
+  />
 </template>
 
 <script>

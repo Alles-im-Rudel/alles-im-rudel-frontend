@@ -9,14 +9,14 @@
           Deutschland
         </p>
         <p>Gläubiger-ID: DE20AIR00002493867</p><br>
-        <p>Mandatsrefernz: {{ mandateReferenceId }}</p>
+        <p>Mandatsreferenz: {{ mandateReferenceId }}</p>
         <h1>SEPA-Lastschrift-Mandat</h1><br>
         <p>
           Ich ermächtige Alles im Rudel e.V., Zahlungen von meinem Konto mittels Lastschrift einzuziehen. <br>
-          Zugliech weise ich mein Kreditinsitut an, die von Alles im Rudel e.V. auf mein Konto gezogenen Lastschriften
+          Zugleich weise ich mein Kreditinstitut an, die von Alles im Rudel e.V. auf mein Konto gezogenen Lastschriften
           einzulösen. <br>
-          Hinweis: ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten
-          Betrags verlangen. Es gelten dabei die mit meinem Kreditinsitut vereinbarten Bedingungen.
+          Hinweis: Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten
+          Betrags verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen.
         </p>
         <p>Daten des Kontoinhabers</p>
         <v-row>

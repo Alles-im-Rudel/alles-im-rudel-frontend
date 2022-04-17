@@ -53,7 +53,7 @@ export default {
               'Sparte beitreten',
               'Möchtest du der Sparte "' +
               this.branch.name +
-              '" wirklich einen Beitritsantrag schicken?',
+              '" wirklich einen Beitrittsantrag schicken?',
               'primary',
           ).then((confirm) => confirm && this.joinBranch());
     },

@@ -102,7 +102,7 @@ export default {
           value: 'branchUserMemberShips'
         },
         {
-          text: 'Geburstag',
+          text: 'Geburtstag',
           value: 'birthday'
         },
         {

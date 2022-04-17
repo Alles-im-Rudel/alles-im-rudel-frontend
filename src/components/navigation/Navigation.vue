@@ -70,6 +70,7 @@
     </v-menu>
 
     <v-btn
+      v-if="!isAuth"
       :text="!isMedium"
       :icon="isMedium"
       :color="isActive('join')"

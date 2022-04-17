@@ -92,7 +92,7 @@ export default {
           value: 'emailVerifiedAt'
         },
         {
-          text: 'Geburstag',
+          text: 'Geburtstag',
           value: 'birthday'
         },
         {

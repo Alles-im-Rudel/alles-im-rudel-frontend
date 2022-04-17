@@ -105,6 +105,9 @@
               class="pb-2"
             >
               Hiermit akzeptiere ich die&nbsp;<a
+                href="/articles-of-association"
+                target="_blank"
+              >Vereinssatzung</a> und die&nbsp;<a
                 href="/privacy-notice"
                 target="_blank"
               >Datenschutzerklärung</a>.

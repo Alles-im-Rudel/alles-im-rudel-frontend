@@ -11,7 +11,7 @@
         Neue Sparten Anmeldungen
       </v-tab>
       <v-tab href="#sepa-members">
-        SEPA Daten
+        SEPA-Daten
       </v-tab>
     </v-tabs>
     <v-divider />
