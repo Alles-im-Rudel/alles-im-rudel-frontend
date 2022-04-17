@@ -28,7 +28,7 @@
         </div>
 
         <div class="text-body-2 mt-2">
-          {{ new Date().getFullYear() }} — <strong>Alles im Rudel</strong>
+          {{ new Date().getFullYear() }} — <strong>Alles im Rudel e.V.</strong>
         </div>
 
         <div class="d-block mt-12 text-center d-sm-flex justify-sm-center mt-sm-8">

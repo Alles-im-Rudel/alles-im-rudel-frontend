@@ -17,11 +17,11 @@
     </v-parallax>
     <BaseContainer class="mt-14 mb-16 text-center">
       <VueAnimation type="fade-in">
-        <h1 class="text-h2">
+        <h1 class="text-h3 text-sm-h2">
           Willkommen
         </h1>
         <BaseParagraph class="mt-4 mb-0">
-          bei Alles im Rudel e.V.!
+          bei Alles im Rudel e.V.
         </BaseParagraph>
       </VueAnimation>
       <VueAnimation type="fade-in">

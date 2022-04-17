@@ -44,7 +44,7 @@
           class="mt-3"
           @click="confirmCancelJoin"
         >
-          Sparten beitritt abbrechen
+          Spartenbeitritt abbrechen
         </v-btn>
       </div>
     </div>

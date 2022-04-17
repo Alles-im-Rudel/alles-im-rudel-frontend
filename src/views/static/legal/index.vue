@@ -9,7 +9,7 @@
         Angaben gem&auml;&szlig; &sect; 5 TMG
       </h3>
       <p :class="textClasses">
-        Alles im Rudel<br>
+        Alles im Rudel e.V.<br>
         Norderstraße 23<br>
         25335 Elmshorn<br>
         Deutschland

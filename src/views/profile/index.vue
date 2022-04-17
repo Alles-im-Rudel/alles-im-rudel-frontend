@@ -32,7 +32,7 @@
         dark
         class="mt-10"
       >
-        Falls ihr anderweitige Profilanpassungswünsche habt, meldet euch bitte per Mail bei uns unter <a
+        Falls du anderweitige Profilanpassungswünsche hast, melde dich bitte per Mail bei uns unter <a
           style="color: white"
           href="mailto:allesimrudel@gmail.com"
         >allesimrudel@gmail.com</a>.

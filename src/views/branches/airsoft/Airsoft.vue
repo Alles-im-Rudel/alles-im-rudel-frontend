@@ -45,7 +45,7 @@
         Interesse?
       </h2>
       <BaseParagraph class="mt-6 mt-md-8">
-        Du hast Interesse? Das können wir bieten:
+        Das können wir bieten:
         <ul class="mt-4">
           <li>Sponsorings mit exklusiven Rabatten</li>
           <li>Ausrüstung zum Leihen, um einen ersten Eindruck zu gewinnen</li>
@@ -57,7 +57,7 @@
         Folgendes solltet ihr mitbringen:
         <ul class="mt-4">
           <li>Teamgeist</li>
-          <li>... & vor allem Interesse an dem Airsoft-Sport!</li>
+          <li>... und vor allem Interesse an dem Airsoft-Sport!</li>
         </ul>
       </BaseParagraph>
 

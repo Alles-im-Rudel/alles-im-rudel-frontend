@@ -16,7 +16,7 @@
         Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
       </p>
       <p :class="textClasses">
-        Alles im Rudel<br>
+        Alles im Rudel e.V.<br>
         Norderstraße 23<br>
         25335 Elmshorn<br>
         Deutschland<br>

@@ -7,7 +7,7 @@
       <div class="flexBox">
         <div>
           {{ branchUserMemberShip.branch.name }}
-          {{ branchUserMemberShip.branch.price }}€
+          {{ branchUserMemberShip.branch.price }}&nbsp;€
           {{ branchUserMemberShip.sepaDate | date }}
         </div>
         <set-exported-button

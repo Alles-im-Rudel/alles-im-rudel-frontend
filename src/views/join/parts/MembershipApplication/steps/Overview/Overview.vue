@@ -21,7 +21,13 @@
                 cols="12"
                 class="py-0"
               >
-                {{ form.postcode }} {{ form.city }} {{ form.street }}
+                {{ form.street }}
+              </v-col>
+              <v-col
+                  cols="12"
+                  class="py-0"
+              >
+                {{ form.postcode }} {{ form.city }}
               </v-col>
               <v-col
                 cols="12"
@@ -72,7 +78,7 @@
                 cols="12"
                 class="py-0"
               >
-                Gesamtbetrag: {{ totalPrice }} €
+                Gesamtbeitrag: {{ totalPrice }} €
               </v-col>
             </v-row>
           </v-card-text>

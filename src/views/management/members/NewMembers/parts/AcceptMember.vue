@@ -137,7 +137,7 @@ export default {
       return this.member.emailVerifiedAt ? 'fa-check' : 'fa-times';
     },
     getTooltip() {
-      return this.member.emailVerifiedAt ? 'Email wurde Bestätigt' : 'Email wurde nicht Bestätigt';
+      return this.member.emailVerifiedAt ? 'E-Mail wurde bestätigt' : 'E-Mail wurde nicht bestätigt';
     }
   },
   created() {},
