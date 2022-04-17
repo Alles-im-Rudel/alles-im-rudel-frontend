@@ -158,7 +158,7 @@ export default {
     return {
       step: 1,
       isLoading: false,
-      isSuccessful: true,
+      isSuccessful: false,
       form: {
         branches: [branches.BASE],
         country: 'Deutschland'
