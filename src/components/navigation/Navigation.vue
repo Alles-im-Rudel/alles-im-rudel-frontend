@@ -21,7 +21,16 @@
     </v-toolbar-title>
 
     <v-spacer />
-
+    <v-btn
+      :text="!isMedium"
+      :icon="isMedium"
+      @click="pushToShop"
+    >
+      <v-icon :left="!isMedium">
+        fa-shopping-cart
+      </v-icon>
+      {{ !isMedium ? 'Shop' : '' }}
+    </v-btn>
     <v-menu
       bottom
       offset-y
@@ -119,6 +128,9 @@ export default {
     ...mapActions('auth', ['logout']),
     isActive(group) {
       return this.$route.meta.group === group ? 'grey' : '';
+    },
+    pushToShop(){
+      window.location = 'https://www.teamstolz.de/vereinsshop/alles-im-rudel/';
     }
   }
 };
