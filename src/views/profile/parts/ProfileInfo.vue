@@ -64,6 +64,10 @@
           :hide-details="!hasErrors('email')"
         />
       </v-col>
+      <user-password-form
+        v-model="user"
+        :validation-errors="errors"
+      />
       <v-col
         cols="12"
         class="d-flex justify-end"
@@ -87,10 +91,11 @@
 <script>
 import SalutationSelect from '@/components/selects/SalutationSelect';
 import ValidationErrors from '@/mixins/ValidationErrors';
+import UserPasswordForm from '@/components/users/UserPasswordForm';
 import {cloneDeep} from 'lodash';
 
 export default {
-  components: {SalutationSelect},
+  components: {SalutationSelect, UserPasswordForm},
   mixins: [ValidationErrors],
   props: {
     value: {
