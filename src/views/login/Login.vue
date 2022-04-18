@@ -3,7 +3,7 @@
     <BaseBackground />
     <v-row justify="center">
       <v-col
-        class="login-form mt-md-12"
+        class="login-form mt-12"
         cols="12"
       >
         <BaseCard class="white">

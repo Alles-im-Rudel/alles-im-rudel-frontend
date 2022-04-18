@@ -50,7 +50,7 @@
         Link stellt eine Liste der Datenschutzbeauftragten sowie deren Kontaktdaten bereit: <a
           href="https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html"
           target="_blank"
-        >https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html</a>.
+        >https://www.bfdi.bund.de</a>.
       </p>
 
       <h3 :class="headlineClasses">

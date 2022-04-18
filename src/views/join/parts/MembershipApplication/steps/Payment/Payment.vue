@@ -131,15 +131,22 @@
             />
           </v-col>
           <v-col
-            cols="2"
+            cols="12"
+            lg="2"
+            md="6"
           >
             <v-text-field
               v-model="now"
               disabled
               label="Datum"
+              hide-details
             />
           </v-col>
-          <v-col cols="4">
+          <v-col
+            cols="12"
+            lg="4"
+            md="6"
+          >
             <v-text-field
               v-model="form.accountSignatureCity"
               required
@@ -149,7 +156,10 @@
               :hide-details="!hasErrors('accountSignatureCity')"
             />
           </v-col>
-          <v-col cols="6">
+          <v-col
+            cols="12"
+            md="6"
+          >
             <ImageUpload
               v-model="form.signature"
               label="Unterschrift hochladen"
