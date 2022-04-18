@@ -58,7 +58,7 @@
             <v-text-field
               v-model="form.accountStreet"
               required
-              label="Straße"
+              label="Straße & Hausnummer"
               :error="hasErrors('accountStreet')"
               :error-messages="getErrors('accountStreet')"
               :hide-details="!hasErrors('accountStreet')"
