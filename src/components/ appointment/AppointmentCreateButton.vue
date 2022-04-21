@@ -107,7 +107,7 @@ export default {
       const params = {
         title: this.appointment.title,
         text: this.appointment.text,
-        tagIds: this.appointment.tags.map(tag => tag.id),
+        tagIds: this.appointment.tags.map(tag => tag),
         color: this.appointment.color,
         isAllDay: this.appointment.isAllDay,
         startAt: this.appointment.dates[0] + ' ' + this.appointment.fromTime,

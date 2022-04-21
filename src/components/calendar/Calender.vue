@@ -3,18 +3,21 @@
     <v-col>
       <v-sheet height="64">
         <v-toolbar
-            flat
+          flat
         >
           <v-btn
-              outlined
-              class="mr-4"
-              color="grey darken-2"
-              @click="setToday"
+            outlined
+            class="mr-4"
+            color="grey darken-2"
+            @click="setToday"
           >
             Heute
           </v-btn>
           <template v-if="isLoading">
-            <div class="d-flex justify-center align-center" style="width: 80px">
+            <div
+              class="d-flex justify-center align-center"
+              style="width: 80px"
+            >
               <v-progress-circular
                 color="greyBlue"
                 indeterminate
@@ -56,15 +59,15 @@
           <appointment-create-button @reload="$emit('reload')" />
           <v-spacer />
           <v-menu
-              bottom
-              right
+            bottom
+            right
           >
             <template v-slot:activator="{ on, attrs }">
               <v-btn
-                  outlined
-                  color="grey darken-2"
-                  v-bind="attrs"
-                  v-on="on"
+                outlined
+                color="grey darken-2"
+                v-bind="attrs"
+                v-on="on"
               >
                 <span>{{ typeToLabel[type] }}</span>
                 <v-icon right>
@@ -88,38 +91,38 @@
       </v-sheet>
       <v-sheet height="600">
         <v-calendar
-            ref="calendar"
-            v-model="focus"
-            color="primary"
-            event-name="title"
-            event-start="startAt"
-            event-end="endAt"
-            event-timed="isAllDay"
-            :events="events"
-            :event-color="getEventColor"
-            :type="type"
-            locale="de"
-            @click:event="showEvent"
-            @click:more="viewDay"
-            @click:date="viewDay"
-            @change="updateRange"
+          ref="calendar"
+          v-model="focus"
+          color="primary"
+          event-name="title"
+          event-start="startAt"
+          event-end="endAt"
+          event-timed="isAllDay"
+          :events="events"
+          :event-color="getEventColor"
+          :type="type"
+          locale="de"
+          @click:event="showEvent"
+          @click:more="viewDay"
+          @click:date="viewDay"
+          @change="updateRange"
         />
         <v-menu
-            v-model="selectedOpen"
-            :close-on-content-click="false"
-            :activator="selectedElement"
-            offset-x
+          v-model="selectedOpen"
+          :close-on-content-click="false"
+          :activator="selectedElement"
+          offset-x
         >
           <appointment-birthday-card
-              v-if="selectedEvent.isBirthday"
-              :appointment="selectedEvent"
-              @close="selectedOpen = false"
+            v-if="selectedEvent.isBirthday"
+            :appointment="selectedEvent"
+            @close="selectedOpen = false"
           />
           <appointment-card
-              v-else
-              :selected-appointment="selectedEvent"
-              @reload="$emit('reload')"
-              @close="selectedOpen = false"
+            v-else
+            :selected-appointment="selectedEvent"
+            @reload="$emit('reload')"
+            @close="selectedOpen = false"
           />
         </v-menu>
       </v-sheet>
@@ -127,9 +130,9 @@
   </v-row>
 </template>
 <script>
-import AppointmentCreateButton from "@/components/ appointment/AppointmentCreateButton";
-import AppointmentCard from "@/components/ appointment/AppointmentCard";
-import AppointmentBirthdayCard from "@/components/ appointment/AppointmentBirthdayCard";
+import AppointmentCreateButton from '@/components/ appointment/AppointmentCreateButton';
+import AppointmentCard from '@/components/ appointment/AppointmentCard';
+import AppointmentBirthdayCard from '@/components/ appointment/AppointmentBirthdayCard';
 
 export default {
   components: {
@@ -168,15 +171,12 @@ export default {
         month: null,
         year: null
       }
-    }
-  },
-  mounted() {
-    this.$refs.calendar.checkChange()
+    };
   },
   watch: {
     appointments: {
       handler(value) {
-        this.events = value
+        this.events = value;
       }
     },
     range: {
@@ -185,49 +185,52 @@ export default {
       }
     },
   },
+  mounted() {
+    this.$refs.calendar.checkChange();
+  },
   methods: {
     viewDay({date}) {
-      this.focus = date
-      this.type = 'day'
+      this.focus = date;
+      this.type = 'day';
     },
     getEventColor(event) {
-      return event.color
+      return event.color;
     },
     setToday() {
       this.focus = '';
-      this.type = 'month'
+      this.type = 'month';
     },
     prev() {
-      this.$refs.calendar.prev()
+      this.$refs.calendar.prev();
     },
     next() {
-      this.$refs.calendar.next()
+      this.$refs.calendar.next();
     },
     showEvent({nativeEvent, event}) {
       const open = () => {
-        this.selectedEvent = event
-        this.selectedElement = nativeEvent.target
+        this.selectedEvent = event;
+        this.selectedElement = nativeEvent.target;
         setTimeout(() => {
-          this.selectedOpen = true
-        }, 10)
-      }
+          this.selectedOpen = true;
+        }, 10);
+      };
 
       if (this.selectedOpen) {
-        this.selectedOpen = false
-        setTimeout(open, 10)
+        this.selectedOpen = false;
+        setTimeout(open, 10);
       } else {
-        open()
+        open();
       }
 
-      nativeEvent.stopPropagation()
+      nativeEvent.stopPropagation();
     },
     updateRange(range) {
       this.range = {
         month: range.start.month,
         year: range.start.year
-      }
-      this.events = this.appointments
+      };
+      this.events = this.appointments;
     },
   },
-}
+};
 </script>
