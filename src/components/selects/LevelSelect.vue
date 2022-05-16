@@ -27,20 +27,15 @@ export default {
       required: false,
       default: () => 'Level auswählen'
     },
-    hasErrors: {
-      type: Boolean,
-      required: false,
-      default: () => false
+    validationErrors: {
+      type: Object,
+      default: () => ({})
     },
-    errors: {
-      type: Array,
-      required: false,
-      default: () => []
-    }
   },
   data() {
     return {
-      level: null
+      level: this.value,
+      errors: this.validationErrors,
     };
   },
   computed: {

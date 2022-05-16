@@ -59,15 +59,6 @@
           :error-messages="getErrors('signatureCity')"
         />
       </v-col>
-      <v-col
-        cols="12"
-        md="6"
-      >
-        <ImageUpload
-          v-model="bankAccount.signature.image"
-          label="Unterschrift hochladen"
-        />
-      </v-col>
     </v-row>
   </div>
 </template>
@@ -75,12 +66,10 @@
 import ValidationErrors from '@/mixins/ValidationErrors';
 import AddressForm from '@/components/Address/AddressForm';
 import dayjs from 'dayjs';
-import ImageUpload from '@/components/images/ImageUpload';
 
 export default {
   components: {
-    AddressForm,
-    ImageUpload
+    AddressForm
   },
   mixins: [ValidationErrors],
   props: {
