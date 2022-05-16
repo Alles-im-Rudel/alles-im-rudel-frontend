@@ -54,7 +54,7 @@ export default {
       options: {
         page: 1,
         itemsPerPage: 10,
-        sortBy: ['lastName'],
+        sortBy: ['firstName'],
         sortDesc: [false]
       },
       serverItemsLength: 0,

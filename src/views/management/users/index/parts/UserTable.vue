@@ -119,13 +119,11 @@ export default {
         },
         {
           text: 'Benutzergruppen',
-          value: 'userGroupsCount',
-          sortable: false
+          value: 'userGroupsCount'
         },
         {
           text: 'Sparten',
-          value: 'branchUserMemberShipsCount',
-          sortable: false
+          value: 'branchUserMemberShipsCount'
         },
         {
           text: 'Aktiv',
