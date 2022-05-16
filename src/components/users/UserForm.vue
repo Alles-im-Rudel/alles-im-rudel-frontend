@@ -1,118 +1,115 @@
 <template>
-  <v-row>
-    <v-col
-      cols="12"
-      md="6"
-      lg="3"
-    >
-      <v-text-field
-        v-model="user.firstName"
-        label="Vorname"
-        :error="hasErrors('firstName')"
-        :error-messages="getErrors('firstName')"
-      />
-    </v-col>
-    <v-col
-      cols="12"
-      md="6"
-      lg="3"
-    >
-      <v-text-field
-        v-model="user.lastName"
-        label="Nachname"
-        :error="hasErrors('lastName')"
-        :error-messages="getErrors('lastName')"
-      />
-    </v-col>
-    <v-col
-      cols="12"
-      md="6"
-      lg="3"
-    >
-      <v-text-field
-        v-model="user.email"
-        label="E-Mail"
-        :error="hasErrors('email')"
-        :error-messages="getErrors('email')"
+  <div>
+    <address-form
+      v-model="user"
+      :validation-errors="errors"
+    />
+    <v-row>
+      <v-col
+        cols="12"
+        md="6"
+        lg="2"
       >
-        <template slot="append">
-          <v-tooltip top>
-            <template v-slot:activator="{ on }">
-              <v-icon
-                v-if="!!user.emailVerifiedAt"
-                color="success"
-                v-on="on"
-              >
-                fa-check
-              </v-icon>
-              <v-icon
-                v-else
-                color="error"
-                v-on="on"
-              >
-                fa-times
-              </v-icon>
-            </template>
-            <span v-if="!!user.emailVerifiedAt">E-Mail verifiziert</span>
-            <span v-else>E-Mail nicht verifiziert</span>
-          </v-tooltip>
-        </template>
-      </v-text-field>
-    </v-col>
-    <v-col
-      cols="12"
-      md="6"
-      lg="3"
-    >
-      <v-switch
-        v-model="user.wantsEmailNotification"
-        :label="wantsEmailLabel"
-        :error="hasErrors('wantsEmailNotification')"
-        :error-messages="getErrors('wantsEmailNotification')"
-      />
-    </v-col>
-    <v-col
-      cols="12"
-      md="6"
-      lg="3"
-    >
-      <date-picker
-        v-model="user.birthday"
-        label="Geburtsdatum"
-        :max-date="maxDate"
-      />
-    </v-col>
-    <v-col
-      v-if="!isProfil"
-      cols="12"
-      md="6"
-      lg="3"
-    >
-      <level-select
-        v-model="user.levelId"
-        @input="updateLevel"
-      />
-    </v-col>
-    <v-col
-      v-if="!isProfil"
-      cols="12"
-      md="6"
-      lg="3"
-    >
-      <v-switch
-        v-model="user.isActive"
-        class="my-1"
-        :label="activeLabel"
-        :error="hasErrors('isActive')"
-        :error-messages="getErrors('isActive')"
-      />
-    </v-col>
+        <date-picker
+          v-model="user.birthday"
+          label="Geburtsdatum"
+          :max-date="maxDate"
+        />
+      </v-col>
+      <v-col
+        cols="12"
+        md="6"
+        lg="2"
+      >
+        <v-text-field
+          v-model="user.email"
+          label="E-Mail"
+          :error="hasErrors('email')"
+          :error-messages="getErrors('email')"
+        >
+          <template slot="append">
+            <v-tooltip top>
+              <template v-slot:activator="{ on }">
+                <v-icon
+                  v-if="!!user.emailVerifiedAt"
+                  color="success"
+                  v-on="on"
+                >
+                  fa-check
+                </v-icon>
+                <v-icon
+                  v-else
+                  color="error"
+                  v-on="on"
+                >
+                  fa-times
+                </v-icon>
+              </template>
+              <span v-if="!!user.emailVerifiedAt">E-Mail verifiziert</span>
+              <span v-else>E-Mail nicht verifiziert</span>
+            </v-tooltip>
+          </template>
+        </v-text-field>
+      </v-col>
+      <v-col
+        cols="12"
+        md="6"
+        lg="2"
+      >
+        <v-text-field
+          v-model="user.phone"
+          label="Telefon"
+          :error="hasErrors('phone')"
+          :error-messages="getErrors('phone')"
+        />
+      </v-col>
+      <v-col
+        cols="12"
+        md="6"
+        lg="3"
+      >
+        <v-switch
+          v-model="user.wantsEmailNotification"
+          :label="wantsEmailLabel"
+          :error="hasErrors('wantsEmailNotification')"
+          :error-messages="getErrors('wantsEmailNotification')"
+        />
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col
+        v-if="!isProfil"
+        cols="12"
+        md="6"
+        lg="2"
+      >
+        <v-switch
+          v-model="user.isActive"
+          class="my-1"
+          :label="activeLabel"
+          :error="hasErrors('isActive')"
+          :error-messages="getErrors('isActive')"
+        />
+      </v-col>
+      <v-col
+        v-if="!isProfil"
+        cols="12"
+        md="6"
+        lg="3"
+      >
+        <level-select
+          v-model="user.levelId"
+          :validation-errors="errors"
+        />
+      </v-col>
+    </v-row>
     <user-password-form
       v-model="user"
       :labels="passwordFormLabels"
       :validation-errors="errors"
+      :has-padding="false"
     />
-  </v-row>
+  </div>
 </template>
 <script>
 import ValidationErrors from '@/mixins/ValidationErrors';
@@ -120,12 +117,14 @@ import UserPasswordForm from '@/components/users/UserPasswordForm';
 import LevelSelect from '@/components/selects/LevelSelect';
 import DatePicker from '@/components/picker/DatePicker';
 import dayjs from 'dayjs';
+import AddressForm from '@/components/Address/AddressForm';
 
 export default {
   components: {
     LevelSelect,
     UserPasswordForm,
-    DatePicker
+    DatePicker,
+    AddressForm
   },
   mixins: [ValidationErrors],
   props: {
@@ -196,10 +195,6 @@ export default {
       }
     }
   },
-  methods: {
-    updateLevel(data) {
-      this.user.levelId = data;
-    }
-  }
+  methods: {}
 };
 </script>

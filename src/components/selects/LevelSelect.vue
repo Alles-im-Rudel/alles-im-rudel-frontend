@@ -1,20 +1,21 @@
 <template>
   <v-combobox
-      v-model="level"
-      :items="levels"
-      :label="label"
-      :hide-details="!hasErrors"
-      :error="hasErrors"
-      :error-messages="errors"
-      item-text="displayName"
-      single-line
+    v-model="level"
+    :label="label"
+    :items="levels"
+    item-text="displayName"
+    :error="hasErrors('level')"
+    :error-messages="getErrors('level')"
+    :hide-details="!hasErrors('level')"
   />
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
+import ValidationErrors from '@/mixins/ValidationErrors';
 
 export default {
+  mixins: [ValidationErrors],
   props: {
     value: {
       type: Number,

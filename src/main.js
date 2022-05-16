@@ -9,6 +9,8 @@ import PushRouteTo from './mixins/PushRouteTo';
 import VueMeta from 'vue-meta';
 import VueAnimations from 'vue-animations';
 import Vue2Editor from 'vue2-editor';
+import VueMask from 'v-mask';
+import VueJsonLD from 'vue-jsonld';
 import 'vue2-editor/dist/vue2-editor.css';
 import 'quill/dist/quill.core.css';
 import 'quill/dist/quill.bubble.css';
@@ -27,6 +29,13 @@ Vue.mixin(PushRouteTo);
 
 Vue.use(Vue2Editor);
 Vue.use(VueMeta);
+Vue.use(VueMask, {
+  placeholders: {
+    F: /[A-Z]/,
+    N: /[A-Z,\d]/,
+  }
+});
+Vue.use(VueJsonLD);
 
 Vue.component('VueAnimation', VueAnimations.VueAnimation);
 

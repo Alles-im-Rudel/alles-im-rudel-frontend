@@ -4,9 +4,9 @@
     :label="label"
     :items="countries"
     item-text="name"
-    :error="hasErrors('country')"
-    :error-messages="getErrors('country')"
-    :hide-details="!hasErrors('country')"
+    :error="hasErrors(isBankAccount ? 'bankAccountCountry' : 'country')"
+    :error-messages="getErrors(isBankAccount ? 'bankAccountCountry' : 'country')"
+    :hide-details="!hasErrors(isBankAccount ? 'bankAccountCountry' : 'country')"
   />
 </template>
 <script>
@@ -28,7 +28,12 @@ export default {
     validationErrors: {
       type: Object,
       default: () => {}
-    }
+    },
+    isBankAccount: {
+      type: Boolean,
+      required: false,
+      default: () => false
+    },
   },
   data() {
     return {

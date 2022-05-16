@@ -71,6 +71,7 @@
           >
             <v-text-field
               v-model="form.accountPostcode"
+              v-mask="'######'"
               required
               label="Postleitzahl"
               :error="hasErrors('accountPostcode')"
@@ -110,6 +111,7 @@
           >
             <v-text-field
               v-model="form.iban"
+              v-mask="'FF## #### #### #### #### ##'"
               required
               label="IBAN"
               :error="hasErrors('iban')"
@@ -123,6 +125,7 @@
           >
             <v-text-field
               v-model="form.bic"
+              v-mask="'NNNNNNNNNNN'"
               required
               label="BIC"
               :error="hasErrors('bic')"

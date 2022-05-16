@@ -17,6 +17,7 @@
       >
         <v-text-field
           v-model="form.postcode"
+          v-mask="'######'"
           required
           label="PLZ"
           :error="hasErrors('postcode')"

@@ -13,27 +13,27 @@
             icon
             v-on="{ ...dialog, ...tooltip }"
           >
-            <v-icon>fa-crown</v-icon>
+            <v-icon>fa-search</v-icon>
           </v-btn>
         </template>
-        <span>Verknüpfen Main Summoner</span>
+        <span>{{ user.fullName }} ansehen</span>
       </v-tooltip>
     </template>
-    <user-sync-main-summoner
+    <user-detail
       :user-id="user.id"
-      @reload="reload"
       @close="close"
+      @reload="reload"
     />
   </v-dialog>
 </template>
 
 <script>
 import Permissions from '@/mixins/Permissions';
-import UserSyncMainSummoner from '@/components/users/UserSyncMainSummoner';
+import UserDetail from '@/components/users/UserDetail/UserDetail';
 
 export default {
   components: {
-    UserSyncMainSummoner
+    UserDetail
   },
   mixins: [Permissions],
   props: {
@@ -49,15 +49,15 @@ export default {
   },
   computed: {
     canSeeButton() {
-      return this.can('summoners.main');
+      return this.can('users.show');
     }
   },
   methods: {
-    reload() {
-      this.$emit('reload');
-    },
     close() {
       this.showDialog = false;
+    },
+    reload() {
+      this.$emit('reload');
     }
   }
 };

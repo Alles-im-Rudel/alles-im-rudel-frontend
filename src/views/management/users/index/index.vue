@@ -8,19 +8,18 @@
             <v-card-title>
               Benutzerverwaltung
               <v-spacer />
-              <v-btn
-                color="greyBlue"
-                dark
-                @click="pushRouteTo('management-users-create')"
-              >
-                <v-icon
-                  small
-                  class="mr-2"
-                >
-                  fa-plus
-                </v-icon>
-                Benutzer erstellen
-              </v-btn>
+              <v-text-field
+                v-model="filters.search"
+                append-icon="fa-search"
+                label="Suche"
+                clearable
+                @keydown.enter="getUsers"
+                @click:append="getUsers"
+                @click:clear="clearSearch"
+              />
+              <v-spacer />
+              <branch-select v-model="filters.branchId" />
+              <v-spacer />
             </v-card-title>
             <v-card-text>
               <user-table
@@ -41,10 +40,12 @@
 <script>
 import {zipObject} from 'lodash';
 import UserTable from '@/views/management/users/index/parts/UserTable';
+import BranchSelect from '@/components/selects/BranchSelect';
 
 export default {
   components: {
-    UserTable
+    UserTable,
+    BranchSelect
   },
   data() {
     return {
@@ -60,7 +61,7 @@ export default {
       filters: {
         search: null,
         withOnlyTrashed: false,
-        userGroups: []
+        branchId: null
       }
     };
   },
@@ -70,19 +71,28 @@ export default {
       handler() {
         this.getUsers();
       }
+    },
+    'filters.branchId': {
+      handler() {
+        this.getUsers();
+      }
     }
   },
   created() {
     this.getUsers();
   },
   methods: {
+    clearSearch() {
+      this.filters.search = null;
+      this.getUsers();
+    },
     getUsers() {
       this.isLoading = true;
       const sortBy = zipObject(this.options.sortBy, this.options.sortDesc);
       const params = {
         ...(Object.keys(sortBy).length > 0 ? {sortBy} : {}),
         search: this.filters.search,
-        userGroupIds: this.filters.userGroups.map((userGroup) => userGroup.id),
+        branchId: this.filters.branchId,
         perPage: this.options.itemsPerPage,
         page: this.options.page,
         withOnlyTrashed: this.filters.withOnlyTrashed

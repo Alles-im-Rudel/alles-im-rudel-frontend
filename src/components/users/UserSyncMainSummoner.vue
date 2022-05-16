@@ -109,11 +109,8 @@ export default {
   methods: {
     getUser() {
       this.isLoading = true;
-      const params = {
-        userId: this.userId
-      };
       window.axios
-          .get(`users/${this.userId}`, {params})
+          .get(`users/${this.userId}`)
           .then((response) => {
             this.user = cloneDeep(response.data.data);
           })

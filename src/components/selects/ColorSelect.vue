@@ -1,15 +1,24 @@
 <template>
   <v-autocomplete
-      v-model="color"
-      :items="colors"
-      :label="label"
-      item-value="displayName"
-      item-text="displayName"
-      :hide-details="!hasErrors"
-      :error="hasErrors"
-      :error-messages="errors"
-      single-line
-  />
+    v-model="color"
+    :items="colors"
+    :label="label"
+    item-value="displayName"
+    item-text="displayName"
+    :hide-details="!hasErrors"
+    :error="hasErrors"
+    :error-messages="errors"
+    single-line
+  >
+    <template v-slot:item="{ item }">
+      <v-chip
+        :color="item.displayName"
+        :class="item.displayName === 'white' ? 'black--text' : 'white--text'"
+      >
+        {{ item.displayName }}
+      </v-chip>
+    </template>
+  </v-autocomplete>
 </template>
 
 <script>
@@ -65,7 +74,7 @@ export default {
   },
   watch: {
     value(value) {
-      this.color = value
+      this.color = value;
     },
     color(value) {
       this.$emit('input', value);

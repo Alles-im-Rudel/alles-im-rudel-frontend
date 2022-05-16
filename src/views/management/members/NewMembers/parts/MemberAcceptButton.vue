@@ -18,8 +18,8 @@
         <span>Anmeldung bearbeiten</span>
       </v-tooltip>
     </template>
-    <AcceptMember
-      :member="member"
+    <user-detail
+      :user-id="member.id"
       @reload="reload"
       @close="close"
     />
@@ -28,11 +28,11 @@
 
 <script>
 import Permissions from '@/mixins/Permissions';
-import AcceptMember from '@/views/management/members/NewMembers/parts/AcceptMember';
+import UserDetail from '@/components/users/UserDetail/UserDetail';
 
 export default {
   components: {
-    AcceptMember,
+    UserDetail,
   },
   mixins: [Permissions],
   props: {

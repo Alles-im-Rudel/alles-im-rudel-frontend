@@ -26,7 +26,14 @@
     <template v-slot:item.updatedAt="{ item }">
       {{ item.updatedAt | dateTime }}
     </template>
+    <template v-slot:item.createdAt="{ item }">
+      {{ item.createdAt | dateTime }}
+    </template>
     <template v-slot:item.actions="{ item }">
+      <user-show-button
+        :user="item"
+        @reload="reload"
+      />
       <user-edit-button :user="item" />
       <user-sync-user-groups-button
         :user="item"
@@ -55,6 +62,7 @@ import UserDeleteButton from '@/views/management/users/index/parts/buttons/UserD
 import UserSyncPermissionsButton from '@/views/management/users/index/parts/buttons/UserSyncPermissionsButton';
 import UserSyncUserGroupsButton from '@/views/management/users/index/parts/buttons/UserSyncUserGroupsButton';
 import UserSyncMainSummonerButton from '@/views/management/users/index/parts/buttons/UserSyncMainSummonerButton';
+import UserShowButton from '@/views/management/users/index/parts/buttons/UserShowButton';
 
 export default {
   components: {
@@ -62,7 +70,8 @@ export default {
     UserDeleteButton,
     UserSyncPermissionsButton,
     UserSyncUserGroupsButton,
-    UserSyncMainSummonerButton
+    UserSyncMainSummonerButton,
+    UserShowButton
   },
   mixins: [Permissions, DataTableMixin],
   props: {
@@ -114,13 +123,8 @@ export default {
           sortable: false
         },
         {
-          text: 'Rollen',
-          value: 'rolesCount',
-          sortable: false
-        },
-        {
-          text: 'Berechtigungen',
-          value: 'permissionsCount',
+          text: 'Sparten',
+          value: 'branchUserMemberShipsCount',
           sortable: false
         },
         {
@@ -130,6 +134,10 @@ export default {
         {
           text: 'Bearbeitet am',
           value: 'updatedAt'
+        },
+        {
+          text: 'Erstellt am',
+          value: 'createdAt'
         },
         {
           text: 'Aktionen',

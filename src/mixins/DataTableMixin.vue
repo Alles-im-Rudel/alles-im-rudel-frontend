@@ -3,7 +3,7 @@ export default {
   data() {
     return {
       footerProps: {
-        itemsPerPageOptions: [10, 20, 30]
+        itemsPerPageOptions: [10, 30, 50]
       }
     };
   }

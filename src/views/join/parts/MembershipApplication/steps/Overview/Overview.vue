@@ -24,8 +24,8 @@
                 {{ form.street }}
               </v-col>
               <v-col
-                  cols="12"
-                  class="py-0"
+                cols="12"
+                class="py-0"
               >
                 {{ form.postcode }} {{ form.city }}
               </v-col>
@@ -66,7 +66,7 @@
                 cols="12"
                 class="py-0"
               >
-                {{ form.iban }}
+                {{ form.iban | VMask('FF## #### #### #### #### ##') }}
               </v-col>
               <v-col
                 cols="12"
