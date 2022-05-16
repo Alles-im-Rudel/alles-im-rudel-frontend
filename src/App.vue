@@ -25,7 +25,7 @@ import Notifications from '@/components/notifications/Notifications';
 export default {
   name: 'App',
   metaInfo: {
-    title: 'Alles im Rudel',
+    title: 'Alles im Rudel e.V.',
   },
   components: {
     Notifications,

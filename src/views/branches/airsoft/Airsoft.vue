@@ -101,7 +101,7 @@ import links from '@/constants/links';
 export default {
   name: 'Airsoft',
   metaInfo: {
-    title: 'Alles im Rudel | Airsoft',
+    title: 'Alles im Rudel e.V. | Airsoft',
   },
   components: {
     BaseBranchHeader

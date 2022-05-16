@@ -254,7 +254,7 @@ import ListItem from '@/views/static/articles-of-association/parts/ListItem';
 export default {
   components: {ListItem},
   metaInfo: {
-    title: 'Alles im Rudel | Vereinssatzung'
+    title: 'Alles im Rudel e.V. | Vereinssatzung'
   },
   data() {
     return {

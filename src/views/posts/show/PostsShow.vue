@@ -74,7 +74,7 @@ export default {
   name: 'PostsShow',
   components: {PostTag, PostDeleteButton, PostEditButton, UserChip},
   metaInfo: {
-    title: 'Alles im Rudel | Posts',
+    title: 'Alles im Rudel e.V. | Posts',
   },
   data() {
     return {

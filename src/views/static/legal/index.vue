@@ -93,7 +93,7 @@
 <script>
 export default {
   metaInfo: {
-    title: 'Alles im Rudel | Impressum'
+    title: 'Alles im Rudel e.V. | Impressum'
   },
   data() {
     return {

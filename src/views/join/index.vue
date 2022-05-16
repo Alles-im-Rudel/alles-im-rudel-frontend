@@ -5,7 +5,7 @@
     </BaseSectionTitle>
 
     <BaseContainer class="my-12">
-      <MembershipApplication/>
+      <MembershipApplication />
     </BaseContainer>
   </div>
 </template>
@@ -16,7 +16,7 @@ import MembershipApplication from './parts/MembershipApplication/MembershipAppli
 export default {
   name: 'Join',
   metaInfo: {
-    title: 'Alles im Rudel | Beitritt'
+    title: 'Alles im Rudel e.V. | Beitritt'
   },
   components: {
     MembershipApplication

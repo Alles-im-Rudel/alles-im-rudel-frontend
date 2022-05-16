@@ -269,7 +269,7 @@
 <script>
 export default {
   metaInfo: {
-    title: 'Alles im Rudel | Datenschutz'
+    title: 'Alles im Rudel e.V. | Datenschutz'
   },
   data() {
     return {

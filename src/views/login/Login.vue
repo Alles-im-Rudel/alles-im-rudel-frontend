@@ -63,7 +63,7 @@ import ValidationErrors from '@/mixins/ValidationErrors';
 export default {
   mixins: [ValidationErrors],
   metaInfo: {
-    title: 'Alles im Rudel | Login'
+    title: 'Alles im Rudel e.V. | Login'
   },
   data() {
     return {

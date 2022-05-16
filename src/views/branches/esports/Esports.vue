@@ -69,7 +69,7 @@ import links from '@/constants/links';
 export default {
   name: 'ESports',
   metaInfo: {
-    title: 'Alles im Rudel | E-Sports',
+    title: 'Alles im Rudel e.V. | E-Sports',
   },
   components: {
     Clash,
