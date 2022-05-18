@@ -17,8 +17,8 @@ export default {
     image: '/assets/leading/center.png',
     text: dayjs().diff('1999-01-30', 'years') + ' Jahre alt',
     socials: {
-      instagram: 't.vollborn',
-      snapchat: 't.vollborn',
+      instagram: 'timm.vollborn',
+      snapchat: 'timm.vollborn',
       linkedin: 'timm-vollborn'
     }
   },
