@@ -6,7 +6,7 @@
     :options.sync="options"
     :server-items-length="serverItemsLength"
     :footer-props="footerProps"
-    no-data-text="Es wurden keine neu Anmeldungen gefunden"
+    no-data-text="Es wurden keine neuen Spartenanträge gefunden."
     multi-sort
   >
     <template v-slot:item.emailVerifiedAt="{ item }">

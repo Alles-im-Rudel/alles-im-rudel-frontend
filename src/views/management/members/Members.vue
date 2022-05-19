@@ -8,7 +8,7 @@
         Neue Anmeldungen
       </v-tab>
       <v-tab href="#new-branch-members">
-        Neue Sparten Anmeldungen
+        Neue Spartenanträge
       </v-tab>
       <v-tab href="#sepa-members">
         SEPA-Daten
