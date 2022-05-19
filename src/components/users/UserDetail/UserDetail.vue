@@ -50,7 +50,6 @@
                   {{ user.city }}<br>
                   {{ user.country.name }}<br><br>
 
-
                   <div class="flex align-center">
                     {{ user.email }}
                     <v-tooltip top>
@@ -62,12 +61,13 @@
                       <span>{{ getTooltip }}</span>
                     </v-tooltip>
                   </div>
-                  <br>
+
+                  {{ user.phone }}<br><br>
 
                   {{ user.birthday | date }}<br>
                   {{ user.age }} Jahre alt<br> <br>
 
-                  Möchte E-mail Benachritigungen: {{ user.wantsEmailNotification ? 'Ja' : 'Nein' }}<br>
+                  Möchte E-Mail Benachrichtigungen: {{ user.wantsEmailNotification ? 'Ja' : 'Nein' }}<br>
                   Erstellt am: {{ user.createdAt | dateTime }} <br>
                   Bearbeitet am: {{ user.updatedAt | dateTime }} <br>
                   Aktiviert am: {{ user.activatedAt | dateTime }} <br>
