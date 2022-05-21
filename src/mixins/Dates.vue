@@ -13,7 +13,7 @@ export default {
       return date ? dayjs(date).format('HH:mm') : defaultVal;
     },
     dateTime: function (date, defaultVal = '-') {
-      return date ? dayjs(date).format('HH:mm DD.MM.YYYY') : defaultVal;
+      return date ? dayjs(date).format('DD.MM.YYYY, HH:mm') : defaultVal;
     },
     dateTimeSek: function (date, defaultVal = '-') {
       return date ? dayjs(date).format('DD.MM.YYYY HH:mm:ss') : defaultVal;

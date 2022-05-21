@@ -45,12 +45,17 @@
                   md="6"
                   sm="12"
                 >
-                  {{ user.fullName }}<br>
-                  {{ user.street }}<br>
-                  {{ user.city }}<br>
-                  {{ user.country.name }}<br><br>
-
-                  <div class="flex align-center">
+                  <p>
+                    {{ user.fullName }}<br>
+                    {{ user.street }}<br>
+                    {{ user.city }}<br>
+                    {{ user.country.name }}
+                  </p>
+                  <p>
+                    {{ user.birthday | date }}<br>
+                    {{ user.age }} Jahre alt
+                  </p>
+                  <p>
                     {{ user.email }}
                     <v-tooltip top>
                       <template v-slot:activator="{ on: tooltip }">
@@ -60,18 +65,18 @@
                       </template>
                       <span>{{ getTooltip }}</span>
                     </v-tooltip>
-                  </div>
-
-                  {{ user.phone }}<br><br>
-
-                  {{ user.birthday | date }}<br>
-                  {{ user.age }} Jahre alt<br> <br>
-
-                  Möchte E-Mail Benachrichtigungen: {{ user.wantsEmailNotification ? 'Ja' : 'Nein' }}<br>
-                  Erstellt am: {{ user.createdAt | dateTime }} <br>
-                  Bearbeitet am: {{ user.updatedAt | dateTime }} <br>
-                  Aktiviert am: {{ user.activatedAt | dateTime }} <br>
-                  E-mail bestätigt am: {{ user.emailVerifiedAt | dateTime }} <br>
+                    <br>
+                    {{ user.phone }}
+                  </p>
+                  <p>
+                    Möchte E-Mail Benachrichtigungen: {{ user.wantsEmailNotification ? 'Ja' : 'Nein' }}<br>
+                    E-Mail bestätigt am: {{ user.emailVerifiedAt | dateTime }}
+                  </p>
+                  <p>
+                    Erstellt am: {{ user.createdAt | dateTime }}<br>
+                    Aktiviert am: {{ user.activatedAt | dateTime }}<br>
+                    Zuletzt bearbeitet: {{ user.updatedAt | dateTime }}
+                  </p>
                 </v-col>
               </v-row>
             </v-card-text>
@@ -99,16 +104,20 @@
                       md="6"
                       sm="12"
                     >
-                      {{ user.bankAccount.fullName }}<br>
-                      {{ user.bankAccount.street }}<br>
-                      {{ user.bankAccount.city }}<br>
-                      {{ user.bankAccount.country.name }}<br><br>
-                      Konto: <br>
-                      {{ user.bankAccount.iban | VMask('FF## #### #### #### #### ##') }}<br>
-                      {{ user.bankAccount.bic }} <br> <br>
-
-                      Erstellt am: {{ user.bankAccount.createdAt | dateTime }} <br>
-                      Bearbeitet am: {{ user.bankAccount.updatedAt | dateTime }} <br>
+                      <p>
+                        {{ user.bankAccount.fullName }}<br>
+                        {{ user.bankAccount.street }}<br>
+                        {{ user.bankAccount.city }}<br>
+                        {{ user.bankAccount.country.name }}
+                      </p>
+                      <p>
+                        {{ user.bankAccount.iban | VMask('FF## #### #### #### #### ##') }}<br>
+                        {{ user.bankAccount.bic }}
+                      </p>
+                      <p>
+                        Erstellt am: {{ user.bankAccount.createdAt | dateTime }}<br>
+                        Zuletzt bearbeitet: {{ user.bankAccount.updatedAt | dateTime }}
+                      </p>
                     </v-col>
                     <v-col
                       cols="12"
@@ -121,7 +130,8 @@
                           v-if="user.bankAccount.signature && user.bankAccount.signature.image"
                           :src="user.bankAccount.signature.image"
                         />
-                        {{ user.bankAccount.signatureCity }}
+                        {{ user.bankAccount.signatureCity }},
+                        {{ user.bankAccount.createdAt | date }}
                       </SignatureContainer>
                     </v-col>
                   </v-row>
@@ -150,14 +160,16 @@
                           {{ branchUserMemberShip.branch.name }}
                         </v-card-title>
                         <v-card-text>
-                          <div class="title">
-                            Status: <branch-user-member-ship-state :branch-user-member-ship="branchUserMemberShip" />  <br>
-                          </div>
-                          Erstellt am: {{ branchUserMemberShip.createdAt | dateTime }} <br>
-                          Bearbeitet am: {{ branchUserMemberShip.updatedAt | dateTime }} <br>
-                          Exportiert zu Sepa: {{ branchUserMemberShip.exportedAt | date }} <br>
-                          Sepa Datum: {{ branchUserMemberShip.sepaDate | date }} <br>
-                          Möchte die Sparte Verlassen: {{ branchUserMemberShip.watsToLeaveAt | dateTime }} <br>
+                          <p class="title">
+                            Status: <branch-user-member-ship-state :branch-user-member-ship="branchUserMemberShip" />
+                          </p>
+                          <p>
+                            Zugehörig seit: {{ branchUserMemberShip.createdAt | dateTime }}<br>
+                            Zuletzt bearbeitet: {{ branchUserMemberShip.updatedAt | dateTime }}<br>
+                            Erste Zahlung: {{ branchUserMemberShip.exportedAt | date }}<br>
+                            Nächste Zahlung: {{ branchUserMemberShip.sepaDate | date }}<br>
+                            Möchte die Sparte verlassen: {{ branchUserMemberShip.wantsToLeaveAt | dateTime }}
+                          </p>
                         </v-card-text>
                       </v-card>
                     </v-col>
