@@ -45,22 +45,17 @@
                   md="6"
                   sm="12"
                 >
-                  <div>
+                  <p>
                     {{ user.fullName }}<br>
                     {{ user.street }}<br>
                     {{ user.city }}<br>
-                    {{ user.country.name }}<br>
-                  </div>
-                  <br>
-                  <div>
+                    {{ user.country.name }}
+                  </p>
+                  <p>
                     {{ user.birthday | date }}<br>
-                    {{ user.age }} Jahre alt<br>
-                  </div>
-                  <br>
-                  <div>
-                    {{ user.phone }}
-                  </div>
-                  <div class="flex align-center">
+                    {{ user.age }} Jahre alt
+                  </p>
+                  <p>
                     {{ user.email }}
                     <v-tooltip top>
                       <template v-slot:activator="{ on: tooltip }">
@@ -70,18 +65,18 @@
                       </template>
                       <span>{{ getTooltip }}</span>
                     </v-tooltip>
-                  </div>
-                  <br>
-                  <div>
+                    <br>
+                    {{ user.phone }}
+                  </p>
+                  <p>
                     Möchte E-Mail Benachrichtigungen: {{ user.wantsEmailNotification ? 'Ja' : 'Nein' }}<br>
-                    E-Mail bestätigt am: {{ user.emailVerifiedAt | dateTime }}<br>
-                  </div>
-                  <br>
-                  <div>
+                    E-Mail bestätigt am: {{ user.emailVerifiedAt | dateTime }}
+                  </p>
+                  <p>
                     Erstellt am: {{ user.createdAt | dateTime }}<br>
                     Aktiviert am: {{ user.activatedAt | dateTime }}<br>
-                    Zuletzt bearbeitet: {{ user.updatedAt | dateTime }}<br>
-                  </div>
+                    Zuletzt bearbeitet: {{ user.updatedAt | dateTime }}
+                  </p>
                 </v-col>
               </v-row>
             </v-card-text>
@@ -109,22 +104,20 @@
                       md="6"
                       sm="12"
                     >
-                      <div>
+                      <p>
                         {{ user.bankAccount.fullName }}<br>
                         {{ user.bankAccount.street }}<br>
                         {{ user.bankAccount.city }}<br>
-                        {{ user.bankAccount.country.name }}<br>
-                      </div>
-                      <br>
-                      <div>
+                        {{ user.bankAccount.country.name }}
+                      </p>
+                      <p>
                         {{ user.bankAccount.iban | VMask('FF## #### #### #### #### ##') }}<br>
-                        {{ user.bankAccount.bic }} <br>
-                      </div>
-                      <br>
-                      <div>
+                        {{ user.bankAccount.bic }}
+                      </p>
+                      <p>
                         Erstellt am: {{ user.bankAccount.createdAt | dateTime }}<br>
-                        Zuletzt bearbeitet: {{ user.bankAccount.updatedAt | dateTime }}<br>
-                      </div>
+                        Zuletzt bearbeitet: {{ user.bankAccount.updatedAt | dateTime }}
+                      </p>
                     </v-col>
                     <v-col
                       cols="12"
@@ -167,17 +160,16 @@
                           {{ branchUserMemberShip.branch.name }}
                         </v-card-title>
                         <v-card-text>
-                          <div class="title">
+                          <p class="title">
                             Status: <branch-user-member-ship-state :branch-user-member-ship="branchUserMemberShip" />
-                          </div>
-                          <br>
-                          <div>
+                          </p>
+                          <p>
                             Zugehörig seit: {{ branchUserMemberShip.createdAt | dateTime }}<br>
                             Zuletzt bearbeitet: {{ branchUserMemberShip.updatedAt | dateTime }}<br>
                             Erste Zahlung: {{ branchUserMemberShip.exportedAt | date }}<br>
                             Nächste Zahlung: {{ branchUserMemberShip.sepaDate | date }}<br>
-                            Möchte die Sparte verlassen: {{ branchUserMemberShip.wantsToLeaveAt | dateTime }}<br>
-                          </div>
+                            Möchte die Sparte verlassen: {{ branchUserMemberShip.wantsToLeaveAt | dateTime }}
+                          </p>
                         </v-card-text>
                       </v-card>
                     </v-col>
