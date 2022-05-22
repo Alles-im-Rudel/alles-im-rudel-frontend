@@ -31,7 +31,9 @@
         </v-list-item>
         <v-list-item @click="pushRouteTo('management-members')">
           <v-list-item-icon class="mr-2">
-            <v-icon small>fa-user-plus</v-icon>
+            <v-icon small>
+              fa-user-plus
+            </v-icon>
           </v-list-item-icon>
           <v-list-item-content>Neue Mitglieder</v-list-item-content>
         </v-list-item>
@@ -49,7 +51,7 @@
               fa-cogs
             </v-icon>
           </v-list-item-icon>
-          <v-list-item-content>Clash</v-list-item-content>
+          <v-list-item-content>Teamverwaltung</v-list-item-content>
         </v-list-item>
       </v-list-item-group>
     </v-list>

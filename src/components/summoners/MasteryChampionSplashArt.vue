@@ -1,12 +1,15 @@
 <template>
   <v-card>
     <v-img
-        :src="champion.splashArt"
-        class="white--text align-end"
+      :src="champion.splashArt"
+      class="white--text align-end"
     >
       <v-card-text>
         <v-row no-gutters>
-          <v-col cols="6" class="text-body-1">
+          <v-col
+            cols="6"
+            class="text-body-1"
+          >
             {{ champion.name }}
           </v-col>
           <v-col cols="5">
@@ -33,15 +36,15 @@ export default {
     }
   },
   data() {
-    return {}
-  },
-  created() {
+    return {};
   },
   computed: {},
+  created() {
+  },
   methods: {
     getWithPoints(number) {
-      return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
     }
   }
-}
+};
 </script>

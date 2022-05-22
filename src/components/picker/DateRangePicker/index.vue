@@ -1,36 +1,47 @@
 <template>
-  <v-dialog v-model="showDialog" max-width="400">
+  <v-dialog
+    v-model="showDialog"
+    max-width="400"
+  >
     <template v-slot:activator="{ on }">
       <v-text-field
-          v-on="on"
-          :label="label"
-          readonly
-          v-model="value"
+        v-model="value"
+        :label="label"
+        readonly
+        v-on="on"
       />
     </template>
     <v-card>
       <v-card-text class="ma-0 pa-0">
         <v-date-picker
-            v-model="date"
-            color="darkGrey"
-            range
-            :min="minDate"
-            full-width
+          v-model="date"
+          color="darkGrey"
+          range
+          :min="minDate"
+          full-width
         />
       </v-card-text>
       <v-card-actions class="ma-0 pa-1 pt-0">
-        <v-btn text small @click="reset">
+        <v-btn
+          text
+          small
+          @click="reset"
+        >
           Zurücksetzen
         </v-btn>
         <v-spacer />
-        <v-btn text small @click="clear">
+        <v-btn
+          text
+          small
+          @click="clear"
+        >
           Leeren
         </v-btn>
         <v-spacer />
         <v-btn
-            text
-            small
-            @click="submit"
+          text
+          small
+          @click="submit"
         >
           auswählen
         </v-btn>

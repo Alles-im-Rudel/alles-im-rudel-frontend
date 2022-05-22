@@ -13,8 +13,8 @@
         icon
         color="white"
         v-bind="attrs"
-        @click="hideSnackbar"
         class="mr-2"
+        @click="hideSnackbar"
       >
         <v-icon>fa-times</v-icon>
       </v-btn>
@@ -27,13 +27,13 @@ export default {
   data() {
     return {
       snackbar: localStorage.getItem('cookies') !== 'true'
-    }
+    };
   },
   methods: {
     hideSnackbar() {
-      this.snackbar = false
+      this.snackbar = false;
       localStorage.setItem('cookies', 'true');
     }
   }
-}
+};
 </script>

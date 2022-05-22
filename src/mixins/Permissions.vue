@@ -5,7 +5,7 @@ export default {
   computed: {
     ...mapGetters('auth', ['permissions', 'isAuth']),
     checkAuth() {
-      return this.isAuth
+      return this.isAuth;
     }
   },
   methods: {

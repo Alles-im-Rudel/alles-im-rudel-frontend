@@ -1,16 +1,30 @@
 <template>
   <div v-if="summoner && summoner.summoner.summonerId">
     <v-row>
-      <v-col cols="2" class="text-center">
+      <v-col
+        cols="2"
+        class="text-center"
+      >
         <v-img
-            class="rounded-circle"
-            :src="summoner.champion.icon"
+          class="rounded-circle"
+          :src="summoner.champion.icon"
         />
-        <div class="pt-1">{{ summoner.champion.name }}</div>
+        <div class="pt-1">
+          {{ summoner.champion.name }}
+        </div>
       </v-col>
-      <v-col cols="10" class="pa-0">
-        <v-card flat color="rgb(0,0,0,0)">
-          <v-card-title v-bind:style="{color: activeColor}" class="text-h5 pa-0">
+      <v-col
+        cols="10"
+        class="pa-0"
+      >
+        <v-card
+          flat
+          color="rgb(0,0,0,0)"
+        >
+          <v-card-title
+            :style="{color: activeColor}"
+            class="text-h5 pa-0"
+          >
             {{ hasWon ? 'Gewonnen' : 'Verloren' }}
           </v-card-title>
           <v-card-title class="subtitle-2">
@@ -28,8 +42,8 @@
                     <v-tooltip top>
                       <template v-slot:activator="{ on }">
                         <v-img
-                            :src="summoner.spell1.image"
-                            v-on="on"
+                          :src="summoner.spell1.image"
+                          v-on="on"
                         />
                       </template>
                       <span v-html="summoner.spell1.tooltip" />
@@ -39,8 +53,8 @@
                     <v-tooltip top>
                       <template v-slot:activator="{ on }">
                         <v-img
-                            :src="summoner.spell2.image"
-                            v-on="on"
+                          :src="summoner.spell2.image"
+                          v-on="on"
                         />
                       </template>
                       <span v-html="summoner.spell2.tooltip" />
@@ -48,7 +62,10 @@
                   </v-col>
                 </v-row>
               </v-col>
-              <v-col cols="10" class="text-h6">
+              <v-col
+                cols="10"
+                class="text-h6"
+              >
                 {{ summoner.stats.kills }} / {{ summoner.stats.assists }} / {{ summoner.stats.deaths }}
               </v-col>
             </v-row>
@@ -75,7 +92,7 @@ export default {
   data() {
     return {
       summoner: this.getSummoner(),
-    }
+    };
   },
   computed: {
     hasWon() {
@@ -87,9 +104,9 @@ export default {
   },
   methods: {
     getSummoner() {
-      let array = this.match.teams[0].summoners.concat(this.match.teams[1].summoners)
+      let array = this.match.teams[0].summoners.concat(this.match.teams[1].summoners);
       return array.filter(summoner => summoner.summoner.summonerId === this.summonerId)[0];
     },
   }
-}
+};
 </script>

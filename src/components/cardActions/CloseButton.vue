@@ -1,5 +1,9 @@
 <template>
-  <v-btn icon :color="color" @click="$emit('close')">
+  <v-btn
+    icon
+    :color="color"
+    @click="$emit('close')"
+  >
     <v-icon>fa-times</v-icon>
   </v-btn>
 </template>
@@ -11,5 +15,5 @@ export default {
       default: () => 'darkGrey'
     }
   }
-}
+};
 </script>

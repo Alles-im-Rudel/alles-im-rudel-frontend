@@ -1,29 +1,39 @@
 <template>
-    <v-dialog
-            v-model="isVisible"
-            :max-width="options.width"
-            @keydown.esc="cancel"
-    >
-        <v-card>
-            <v-toolbar dark :color="color" dense flat>
-                <v-toolbar-title class="headline white--text">
-                    {{ title }}
-                </v-toolbar-title>
-            </v-toolbar>
-            <v-card-text v-show="!!message">
-                <p class="subtitle-2 mt-3 text-pre-line">{{ message }}</p>
-            </v-card-text>
-            <v-card-actions>
-                <v-spacer />
-                <v-btn @click.native="cancel">
-                    {{ options.cancelText }}
-                </v-btn>
-                <v-btn :color="color" @click.native="confirm">
-                    {{ options.confirmText }}
-                </v-btn>
-            </v-card-actions>
-        </v-card>
-    </v-dialog>
+  <v-dialog
+    v-model="isVisible"
+    :max-width="options.width"
+    @keydown.esc="cancel"
+  >
+    <v-card>
+      <v-toolbar
+        dark
+        :color="color"
+        dense
+        flat
+      >
+        <v-toolbar-title class="headline white--text">
+          {{ title }}
+        </v-toolbar-title>
+      </v-toolbar>
+      <v-card-text v-show="!!message">
+        <p class="subtitle-2 mt-3 text-pre-line">
+          {{ message }}
+        </p>
+      </v-card-text>
+      <v-card-actions>
+        <v-spacer />
+        <v-btn @click.native="cancel">
+          {{ options.cancelText }}
+        </v-btn>
+        <v-btn
+          :color="color"
+          @click.native="confirm"
+        >
+          {{ options.confirmText }}
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </template>
 
 <script>

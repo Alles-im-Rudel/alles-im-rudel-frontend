@@ -2,12 +2,12 @@
   <v-tooltip top>
     <template v-slot:activator="{ on }">
       <v-btn
-          v-if="canSeeButton"
-          color="error"
-          icon
-          :loading="isLoading"
-          v-on="on"
-          @click="confirmDelete"
+        v-if="canSeeButton"
+        color="error"
+        icon
+        :loading="isLoading"
+        v-on="on"
+        @click="confirmDelete"
       >
         <v-icon>fa-trash-alt</v-icon>
       </v-btn>

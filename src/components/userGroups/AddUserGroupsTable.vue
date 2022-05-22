@@ -1,21 +1,24 @@
 <template>
   <v-data-table
-      :headers="headers"
-      :items="notSelectedUserGroups"
-      :search="search"
-      :no-data-text="'Es wurden keine Benutzergruppen gefunden'"
+    :headers="headers"
+    :items="notSelectedUserGroups"
+    :search="search"
+    :no-data-text="'Es wurden keine Benutzergruppen gefunden'"
   >
     <template v-slot:top>
       <v-text-field
-          v-model="search"
-          label="Suche"
-          single-line
-          hide-details
-          clearable
+        v-model="search"
+        label="Suche"
+        single-line
+        hide-details
+        clearable
       />
     </template>
     <template v-slot:item.actions="{ item }">
-      <v-btn :disabled="isLoading" @click="addUserGroup(item)">
+      <v-btn
+        :disabled="isLoading"
+        @click="addUserGroup(item)"
+      >
         hinzufügen
       </v-btn>
     </template>

@@ -1,42 +1,64 @@
 <template>
-  <v-card v-if="userGroup.id" tile>
+  <v-card
+    v-if="userGroup.id"
+    tile
+  >
     <v-card-title>
       Benutzer der Benutzergruppe {{ userGroup.displayName }} hinzufügen
       <v-spacer />
-      <v-btn icon @click="close">
+      <v-btn
+        icon
+        @click="close"
+      >
         <v-icon>fa-times</v-icon>
       </v-btn>
     </v-card-title>
     <v-divider />
     <v-card-text>
       <v-row>
-        <v-col cols="12" lg="6" md="6" sm="10">
+        <v-col
+          cols="12"
+          lg="6"
+          md="6"
+          sm="10"
+        >
           <users-table
-              v-model="userGroup.users"
-              :is-loading="isLoading"
-              @remove-user="removeUser"
+            v-model="userGroup.users"
+            :is-loading="isLoading"
+            @remove-user="removeUser"
           />
         </v-col>
-        <v-col cols="12" lg="6" md="6" sm="10">
+        <v-col
+          cols="12"
+          lg="6"
+          md="6"
+          sm="10"
+        >
           <add-users-table
-              v-model="notSelectedUsers"
-              :is-loading="isLoading"
-              @add-user="addUser"
+            v-model="notSelectedUsers"
+            :is-loading="isLoading"
+            @add-user="addUser"
           />
         </v-col>
       </v-row>
     </v-card-text>
     <v-divider />
     <reset-save-action
-        :is-loading="isLoading"
-        :can-submit="canSubmit"
-        @submit="submit"
-        @clear="reset"
+      :is-loading="isLoading"
+      :can-submit="canSubmit"
+      @submit="submit"
+      @clear="reset"
     />
   </v-card>
-  <v-card v-else tile>
+  <v-card
+    v-else
+    tile
+  >
     <v-card-text>
-      <v-skeleton-loader class="mx-auto" type="card" />
+      <v-skeleton-loader
+        class="mx-auto"
+        type="card"
+      />
     </v-card-text>
   </v-card>
 </template>
@@ -44,8 +66,8 @@
 <script>
 import ResetSaveAction from '@/components/cardActions/ResetSaveAction';
 import Permissions from '@/mixins/Permissions';
-import UsersTable from "@/components/users/UsersTable";
-import AddUsersTable from "@/components/users/AddUsersTable";
+import UsersTable from '@/components/users/UsersTable';
+import AddUsersTable from '@/components/users/AddUsersTable';
 
 import {cloneDeep} from 'lodash';
 import hasArrayDifferenz from '@/mixins/HasArrayDifferenz';
@@ -116,7 +138,7 @@ export default {
         )
       };
       window.axios
-          .get(`users/all`, {params})
+          .get('users/all', {params})
           .then((response) => {
             this.notSelectedUsers = cloneDeep(response.data.data);
             this.originalNotSelectedUsers = cloneDeep(response.data.data);
