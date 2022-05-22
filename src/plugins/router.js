@@ -63,10 +63,10 @@ const router = new Router({
       component: () => import('../views/calendar')
     },
     {
-      path: '/internal',
-      name: 'internal',
+      path: '/sponsoring',
+      name: 'sponsoring',
       meta: {group: 'profile', auth: true, permission: null},
-      component: () => import('../views/internal')
+      component: () => import('../views/sponsoring')
     },
     /*{
       path: '/profile/:username',

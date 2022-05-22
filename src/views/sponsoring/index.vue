@@ -14,7 +14,7 @@
           <a
             href="https://www.autoreparatur-krohn.de"
             target="_blank"
-          >Autoreparatur Herny Krohn</a>
+          >Autoreparatur Henry Krohn</a>
           <p>
             10% Rabatt auf alle Reparaturen und Dienstleistungen
           </p>
