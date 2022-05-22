@@ -103,11 +103,13 @@
                 lg="10"
                 class="d-flex align-center"
               >
-                <h2>Bad Agency</h2>
-                <SponsoringAvailableLabel
-                  :available="hasAirsoft"
-                  branch="Airsoft"
-                />
+                <div>
+                  <h2>Bad Agency</h2>
+                  <SponsoringAvailableLabel
+                    :available="hasAirsoft"
+                    branch="Airsoft"
+                  />
+                </div>
               </v-col>
             </v-row>
           </v-expansion-panel-header>
