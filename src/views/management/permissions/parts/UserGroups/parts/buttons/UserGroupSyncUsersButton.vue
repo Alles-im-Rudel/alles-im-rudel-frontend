@@ -1,13 +1,17 @@
 <template>
-  <v-dialog v-model="showDialog" persistent fullscreen>
+  <v-dialog
+    v-model="showDialog"
+    persistent
+    fullscreen
+  >
     <template v-slot:activator="{ on: dialog }">
       <v-tooltip top>
         <template v-slot:activator="{ on: tooltip }">
           <v-btn
-              v-if="canSeeButton"
-              color="primary"
-              icon
-              v-on="{ ...dialog, ...tooltip }"
+            v-if="canSeeButton"
+            color="primary"
+            icon
+            v-on="{ ...dialog, ...tooltip }"
           >
             <v-icon>fa-user</v-icon>
           </v-btn>
@@ -15,13 +19,17 @@
         <span>Verknüpfen mit Benutzern</span>
       </v-tooltip>
     </template>
-    <user-group-sync-users :user-group-id="userGroup.id" @reload="reload" @close="close" />
+    <user-group-sync-users
+      :user-group-id="userGroup.id"
+      @reload="reload"
+      @close="close"
+    />
   </v-dialog>
 </template>
 
 <script>
 import Permissions from '@/mixins/Permissions';
-import UserGroupSyncUsers from "@/components/userGroups/UserGroupSyncUsers";
+import UserGroupSyncUsers from '@/components/userGroups/UserGroupSyncUsers';
 
 export default {
   components: {

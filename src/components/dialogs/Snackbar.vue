@@ -1,11 +1,15 @@
 <template>
-  <v-snackbar :value="isVisible" :color="color" @input="close">
+  <v-snackbar
+    :value="isVisible"
+    :color="color"
+    @input="close"
+  >
     {{ message }}
     <template v-slot:action="{ attrs }">
       <v-btn
-          icon
-          @click="close"
-          v-bind="attrs"
+        icon
+        v-bind="attrs"
+        @click="close"
       >
         <v-icon>fa-times</v-icon>
       </v-btn>

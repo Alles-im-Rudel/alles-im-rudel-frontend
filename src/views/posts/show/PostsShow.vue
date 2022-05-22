@@ -9,7 +9,7 @@
         />
       </BaseSectionTitle>
 
-      <BaseContainer class="mt-8 pb-8">
+      <BaseContainer class="mt-8 pb-14">
         <div class="d-flex mb-8 align-center justify-space-between">
           <v-btn
             text
@@ -109,15 +109,15 @@ export default {
   .content-container {
     h1 {
       color: #495056;
-      margin-bottom: 12px;
+      margin-bottom: 0;
     }
     h2 {
       color: #495056;
-      margin-bottom: 12px;
+      margin-bottom: 0;
     }
     p {
       color: #111;
-      margin-bottom: 24px;
+      margin-bottom: 0;
     }
     img {
       width: 100%;

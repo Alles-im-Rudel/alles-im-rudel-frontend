@@ -1,24 +1,24 @@
 <template>
   <v-data-table
-      :headers="headers"
-      :items="selectedUserGroups"
-      :search="search"
-      :no-data-text="'Es wurden keine Berechtigungen gefunden'"
+    :headers="headers"
+    :items="selectedUserGroups"
+    :search="search"
+    :no-data-text="'Es wurden keine Berechtigungen gefunden'"
   >
     <template v-slot:top>
       <v-text-field
-          v-model="search"
-          label="Suche"
-          single-line
-          hide-details
-          clearable
+        v-model="search"
+        label="Suche"
+        single-line
+        hide-details
+        clearable
       />
     </template>
     <template v-slot:item.actions="{ item }">
       <v-btn
-          :disabled="isLoading"
-          color="error"
-          @click="removeUserGroup(item)"
+        :disabled="isLoading"
+        color="error"
+        @click="removeUserGroup(item)"
       >
         entfernen
       </v-btn>

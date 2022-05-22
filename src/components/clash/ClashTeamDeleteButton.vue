@@ -2,11 +2,11 @@
   <v-tooltip top>
     <template v-slot:activator="{ on }">
       <v-btn
-          icon
-          v-if="canSeeButton"
-          color="error"
-          v-on="on"
-          @click="confirmDelete"
+        v-if="canSeeButton"
+        icon
+        color="error"
+        v-on="on"
+        @click="confirmDelete"
       >
         <v-icon>fa-trash-alt</v-icon>
       </v-btn>
@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       showDialog: false
-    }
+    };
   },
   computed: {
     canSeeButton() {

@@ -8,8 +8,8 @@ export default {
       })
         .catch(() => {
           window.scrollTo(0, 0);
-        })
+        });
     }
   }
-}
+};
 </script>

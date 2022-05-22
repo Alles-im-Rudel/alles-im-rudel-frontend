@@ -1,6 +1,9 @@
 <template>
   <v-hover v-slot="{ hover }">
-    <v-card height="100%" tile>
+    <v-card
+      height="100%"
+      tile
+    >
       <v-img
         class="align-end"
         max-height="400"
@@ -8,8 +11,8 @@
       >
         <v-expand-transition>
           <v-card
-            tile
             v-if="hover"
+            tile
             class="transition-in-out"
             color="greyBlue"
             style="color: white;"
@@ -27,7 +30,7 @@
                 {{ user.text }}
               </h5>
             </v-card-text>
-            <v-divider/>
+            <v-divider />
             <v-card-actions
               v-if="user.socials"
               class="justify-center"
