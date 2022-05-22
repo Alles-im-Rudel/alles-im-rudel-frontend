@@ -56,6 +56,7 @@
                     {{ user.age }} Jahre alt
                   </p>
                   <p>
+                    {{ user.phone }}<br>
                     {{ user.email }}
                     <v-tooltip top>
                       <template v-slot:activator="{ on: tooltip }">
@@ -65,8 +66,6 @@
                       </template>
                       <span>{{ getTooltip }}</span>
                     </v-tooltip>
-                    <br>
-                    {{ user.phone }}
                   </p>
                   <p>
                     Möchte E-Mail Benachrichtigungen: {{ user.wantsEmailNotification ? 'Ja' : 'Nein' }}<br>

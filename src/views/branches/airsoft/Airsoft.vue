@@ -65,30 +65,13 @@
     </BaseContainer>
 
     <BaseSectionTitle class="mt-12">
-      Partner
+      Unsere Partner
     </BaseSectionTitle>
-
-    <div class="mt-14 mb-14">
-      <div class="banner henry-krohn-banner mb-8">
-        <img
-          src="/assets/sponsors/henry-krohn/henry-krohn.png"
-          alt="Henry-Krohn-Banner"
-        >
-      </div>
-
-      <div class="banner begadi-banner mb-8">
-        <img
-          src="/assets/sponsors/begadi/begadi_horizontal.jpg"
-          alt="Begadi-Banner"
-        >
-      </div>
-
-      <div class="banner bad-agency-banner">
-        <img
-          src="/assets/sponsors/bad-agency/bad-agency.png"
-          alt="Bad-Agency-Banner"
-        >
-      </div>
+    <div>
+      <PartnerLogos
+        :show-only="['airsoft']"
+        class="mt-14 mb-14"
+      />
     </div>
   </div>
 </template>
@@ -97,6 +80,7 @@
 import BaseBranchHeader from '@/components/base/BaseBranchHeader';
 import leaders from '@/constants/branchLeaders';
 import links from '@/constants/links';
+import PartnerLogos from '@/components/partners/PartnerLogos';
 
 export default {
   name: 'Airsoft',
@@ -104,6 +88,7 @@ export default {
     title: 'Alles im Rudel e.V. | Airsoft',
   },
   components: {
+    PartnerLogos,
     BaseBranchHeader
   },
   data() {
@@ -120,28 +105,6 @@ export default {
   .branch-leader-container {
     max-width: 70vw;
     margin: 0 auto;
-  }
-
-  .banner {
-    img {
-      width: 100%;
-    }
-  }
-
-  .henry-krohn-banner {
-    margin: 0 auto;
-    max-width: 650px;
-    width: 90%;
-  }
-
-  .begadi-banner {
-    margin: 0 auto;
-    max-width: 650px;
-  }
-
-  .bad-agency-banner {
-    margin: 0 auto;
-    max-width: 300px;
   }
 }
 </style>

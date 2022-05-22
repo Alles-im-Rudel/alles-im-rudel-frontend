@@ -19,6 +19,13 @@
     </BaseContainer>
 
     <BaseSectionTitle class="mt-14">
+      Unsere Partner
+    </BaseSectionTitle>
+    <div>
+      <PartnerLogos class="mt-14" />
+    </div>
+
+    <BaseSectionTitle class="mt-14">
       Unsere Sparten
     </BaseSectionTitle>
     <div>
@@ -30,14 +37,15 @@
 <script>
 import Branches from '@/views/home/parts/Branches';
 import leaders from '@/constants/leaders';
+import PartnerLogos from '@/components/partners/PartnerLogos';
 
 export default {
   components: {
+    PartnerLogos,
     Branches
   },
   data() {
     return {
-      activeTab: null,
       leaders: [
         leaders.SILAS_BECKMANN,
         leaders.TIMM_VOLLBORN,
@@ -47,4 +55,3 @@ export default {
   },
 };
 </script>
-
