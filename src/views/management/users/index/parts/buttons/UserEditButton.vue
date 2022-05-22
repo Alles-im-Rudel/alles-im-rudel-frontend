@@ -2,11 +2,11 @@
   <v-tooltip top>
     <template v-slot:activator="{ on }">
       <v-btn
-          v-if="canSeeButton"
-          color="primary"
-          icon
-          :to="`/management/users/${user.id}/edit`"
-          v-on="on"
+        v-if="canSeeButton"
+        color="primary"
+        icon
+        :to="`/management/users/${user.id}/edit`"
+        v-on="on"
       >
         <v-icon>fa-user-edit</v-icon>
       </v-btn>

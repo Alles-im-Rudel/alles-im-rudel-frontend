@@ -1,11 +1,14 @@
 <template>
-  <v-dialog v-model="showDialog" max-width="500">
+  <v-dialog
+    v-model="showDialog"
+    max-width="500"
+  >
     <template v-slot:activator="{ on: dialog }">
       <v-btn
-          v-if="canSeeButton"
-          color="darkGrey"
-          icon
-          v-on="{ ...dialog }"
+        v-if="canSeeButton"
+        color="darkGrey"
+        icon
+        v-on="{ ...dialog }"
       >
         <v-icon>fa-plus</v-icon>
       </v-btn>
@@ -16,24 +19,24 @@
       </v-card-title>
       <v-card-text>
         <v-textarea
-            v-model="comment"
-            label="Kommentar"
+          v-model="comment"
+          label="Kommentar"
         />
       </v-card-text>
       <reset-save-action
-          :has-changes="hasChanges"
-          :can-submit="canSubmit"
-          :is-loading="isLoading"
-          @submit="submit"
-          @clear="clear"
+        :has-changes="hasChanges"
+        :can-submit="canSubmit"
+        :is-loading="isLoading"
+        @submit="submit"
+        @clear="clear"
       />
     </v-card>
   </v-dialog>
 </template>
 
 <script>
-import ResetSaveAction from "@/components/cardActions/ResetSaveAction";
-import Permissions from "@/mixins/Permissions";
+import ResetSaveAction from '@/components/cardActions/ResetSaveAction';
+import Permissions from '@/mixins/Permissions';
 
 export default {
   components: {
@@ -79,11 +82,11 @@ export default {
       };
       if (this.postId) {
         params.modelId = this.postId;
-        params.modelType = 'App\\Models\\Post'
+        params.modelType = 'App\\Models\\Post';
       }
       if (this.commentId) {
         params.modelId = this.commentId;
-        params.modelType = 'App\\Models\\Comment'
+        params.modelType = 'App\\Models\\Comment';
       }
       window.axios
           .post('comments', params)

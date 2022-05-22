@@ -1,15 +1,18 @@
 <template>
-  <v-btn v-if="isLoading" icon>
+  <v-btn
+    v-if="isLoading"
+    icon
+  >
     <v-icon>fa-circle-notch fa-spin</v-icon>
   </v-btn>
   <v-alert
-      tile
-      style="background-color: rgba(255, 255, 255, 0.6)"
-      v-else-if="end"
-      border="top"
-      colored-border
-      color="darkGrey"
-      elevation="2"
+    v-else-if="end"
+    tile
+    style="background-color: rgba(255, 255, 255, 0.6)"
+    border="top"
+    colored-border
+    color="darkGrey"
+    elevation="2"
   >
     {{ loadedText }}
   </v-alert>
@@ -41,8 +44,8 @@ export default {
         if (Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) + window.innerHeight >= document.documentElement.offsetHeight) {
           this.$emit('load');
         }
-      }
+      };
     }
   }
-}
+};
 </script>

@@ -7,7 +7,6 @@
 </template>
 
 <script>
-
 import SepaMembersTable from '@/views/management/members/SEPA/parts/SepaMembersTable';
 
 export default {

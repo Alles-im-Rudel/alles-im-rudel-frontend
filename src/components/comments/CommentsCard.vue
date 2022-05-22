@@ -1,17 +1,25 @@
 <template>
-  <v-card v-if="comments" :max-height="maxHeight" class="scroll" tile>
+  <v-card
+    v-if="comments"
+    :max-height="maxHeight"
+    class="scroll"
+    tile
+  >
     <v-card-title>
       Kommentare
       <v-spacer />
-      <comment-create-button :post-id="value" @reload="getComments" />
+      <comment-create-button
+        :post-id="value"
+        @reload="getComments"
+      />
     </v-card-title>
     <v-divider />
     <v-card-text v-if="comments.length > 0">
       <comment-card
-          v-for="comment in comments"
-          :key="comment.id"
-          :comment="comment"
-          @reload="getComments"
+        v-for="comment in comments"
+        :key="comment.id"
+        :comment="comment"
+        @reload="getComments"
       />
     </v-card-text>
     <v-card-text v-else>
@@ -19,13 +27,16 @@
     </v-card-text>
   </v-card>
   <v-card v-else>
-    <v-skeleton-loader class="mx-auto" type="card" />
+    <v-skeleton-loader
+      class="mx-auto"
+      type="card"
+    />
   </v-card>
 </template>
 
 <script>
-import CommentCard from "@/components/comments/CommentCard";
-import CommentCreateButton from "@/components/comments/CommentCreateButton";
+import CommentCard from '@/components/comments/CommentCard';
+import CommentCreateButton from '@/components/comments/CommentCreateButton';
 
 export default {
   components: {

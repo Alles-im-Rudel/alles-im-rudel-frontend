@@ -10,19 +10,16 @@ export default {
       allItems: []
     };
   },
-  created() {
-    this.setActiveItem();
-  },
   computed: {
     ...mapGetters('auth', ['user', 'isAuth']),
     currentRouteName() {
-      return this.$route.name
+      return this.$route.name;
     },
     items() {
       return this.allItems.filter(item => {
         return this.can(item.permission) &&
-            (item.auth && this.isAuth) ||
-            !item.auth
+          (item.auth && this.isAuth) ||
+          !item.auth;
       });
     }
   },
@@ -41,6 +38,9 @@ export default {
       }
     },
   },
+  created() {
+    this.setActiveItem();
+  },
   mounted() {
     this.setActiveItem();
   },
@@ -50,9 +50,9 @@ export default {
       this.activeItem = null;
       this.items.forEach((item, index) => {
         if (item.action === this.currentRouteName) {
-          this.activeItem = --index
+          this.activeItem = --index;
         }
-      })
+      });
     }
   }
 };

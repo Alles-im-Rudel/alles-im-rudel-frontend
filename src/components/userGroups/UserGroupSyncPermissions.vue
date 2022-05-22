@@ -1,42 +1,64 @@
 <template>
-  <v-card v-if="userGroup.id" tile>
+  <v-card
+    v-if="userGroup.id"
+    tile
+  >
     <v-card-title>
       Berechtigungen der Benutzergruppe {{ userGroup.displayName }} hinzufügen
       <v-spacer />
-      <v-btn icon @click="close">
+      <v-btn
+        icon
+        @click="close"
+      >
         <v-icon>fa-times</v-icon>
       </v-btn>
     </v-card-title>
     <v-divider />
     <v-card-text>
       <v-row>
-        <v-col cols="12" lg="6" md="6" sm="10">
+        <v-col
+          cols="12"
+          lg="6"
+          md="6"
+          sm="10"
+        >
           <permissions-table
-              v-model="userGroup.permissions"
-              :is-loading="isLoading"
-              @remove-permission="removePermission"
+            v-model="userGroup.permissions"
+            :is-loading="isLoading"
+            @remove-permission="removePermission"
           />
         </v-col>
-        <v-col cols="12" lg="6" md="6" sm="10">
+        <v-col
+          cols="12"
+          lg="6"
+          md="6"
+          sm="10"
+        >
           <add-permissions-table
-              v-model="notSelectedPermissions"
-              :is-loading="isLoading"
-              @add-permission="addPermission"
+            v-model="notSelectedPermissions"
+            :is-loading="isLoading"
+            @add-permission="addPermission"
           />
         </v-col>
       </v-row>
     </v-card-text>
     <v-divider />
     <reset-save-action
-        :is-loading="isLoading"
-        :can-submit="canSubmit"
-        @submit="submit"
-        @clear="reset"
+      :is-loading="isLoading"
+      :can-submit="canSubmit"
+      @submit="submit"
+      @clear="reset"
     />
   </v-card>
-  <v-card v-else tile>
+  <v-card
+    v-else
+    tile
+  >
     <v-card-text>
-      <v-skeleton-loader class="mx-auto" type="card" />
+      <v-skeleton-loader
+        class="mx-auto"
+        type="card"
+      />
     </v-card-text>
   </v-card>
 </template>
@@ -115,7 +137,7 @@ export default {
         )
       };
       window.axios
-          .get(`permissions`, {params})
+          .get('permissions', {params})
           .then((response) => {
             this.notSelectedPermissions = cloneDeep(response.data.data);
             this.originalNotSelectedPermissions = cloneDeep(response.data.data);

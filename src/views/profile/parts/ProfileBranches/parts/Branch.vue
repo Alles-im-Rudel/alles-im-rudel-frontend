@@ -82,7 +82,7 @@ export default {
               'Sparte verlassen?',
               'Möchtest du die Sparte "' +
               this.branchUserMemberShip.branch.name +
-              "\" wirklich verlassen?\n Der Austritt erfolgt zum Ende des Folgemonats.",
+              '" wirklich verlassen?\n Der Austritt erfolgt zum Ende des Folgemonats.',
               'error',
           ).then((confirm) => confirm && this.leaveBranch());
     },

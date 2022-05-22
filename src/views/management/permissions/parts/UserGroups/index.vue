@@ -1,18 +1,18 @@
 <template>
   <v-container>
     <user-group-table
-        v-model="options"
-        :is-loading="isLoading"
-        :user-groups="userGroups"
-        :server-items-length="serverItemsLength"
-        @reload="getUserGroups"
+      v-model="options"
+      :is-loading="isLoading"
+      :user-groups="userGroups"
+      :server-items-length="serverItemsLength"
+      @reload="getUserGroups"
     />
   </v-container>
 </template>
 
 <script>
 import {zipObject} from 'lodash';
-import UserGroupTable from "@/views/management/permissions/parts/UserGroups/parts/UserGroupTable";
+import UserGroupTable from '@/views/management/permissions/parts/UserGroups/parts/UserGroupTable';
 
 export default {
   components: {
@@ -33,18 +33,18 @@ export default {
         search: null,
         withOnlyTrashed: false
       }
-    }
+    };
   },
   computed: {},
-  created() {
-    this.getUserGroups();
-  },
   watch: {
     options: {
       handler() {
-        this.getUserGroups()
+        this.getUserGroups();
       }
     }
+  },
+  created() {
+    this.getUserGroups();
   },
   methods: {
     getUserGroups() {
@@ -59,10 +59,10 @@ export default {
       };
       window.axios.get('user-groups', {params})
           .then(response => {
-            this.userGroups = response.data.data
+            this.userGroups = response.data.data;
             this.serverItemsLength = response.data.meta.total;
-          }).finally(() => this.isLoading = false)
+          }).finally(() => this.isLoading = false);
     }
   }
-}
+};
 </script>

@@ -1,26 +1,48 @@
 <template>
   <v-data-table
-      :loading="isLoading"
-      :headers="headers"
-      :items="userGroups"
-      :options.sync="options"
-      :server-items-length="serverItemsLength"
-      :footer-props="footerProps"
-      :no-data-text="'Es wurden keine Benutzer gefunden'"
-      multi-sort
+    :loading="isLoading"
+    :headers="headers"
+    :items="userGroups"
+    :options.sync="options"
+    :server-items-length="serverItemsLength"
+    :footer-props="footerProps"
+    :no-data-text="'Es wurden keine Benutzer gefunden'"
+    multi-sort
   >
     <template v-slot:item.activatedAt="{ item }">
-      <v-icon v-if="item.isActive" color="success">fa-check</v-icon>
-      <v-icon v-else color="error">fa-times</v-icon>
+      <v-icon
+        v-if="item.isActive"
+        color="success"
+      >
+        fa-check
+      </v-icon>
+      <v-icon
+        v-else
+        color="error"
+      >
+        fa-times
+      </v-icon>
     </template>
     <template v-slot:item.updatedAt="{ item }">
       {{ item.updatedAt | dateTime }}
     </template>
     <template v-slot:item.actions="{ item }">
-      <user-group-edit-button :user-group="item" @reload="reload" />
-      <user-group-sync-users-button :user-group="item" @reload="reload" />
-      <user-group-sync-permissions-button :user-group="item" @reload="reload" />
-      <user-group-delete-button :selected-user-group="item" @user-group-was-deleted="reload" />
+      <user-group-edit-button
+        :user-group="item"
+        @reload="reload"
+      />
+      <user-group-sync-users-button
+        :user-group="item"
+        @reload="reload"
+      />
+      <user-group-sync-permissions-button
+        :user-group="item"
+        @reload="reload"
+      />
+      <user-group-delete-button
+        :selected-user-group="item"
+        @user-group-was-deleted="reload"
+      />
     </template>
   </v-data-table>
 </template>
@@ -28,7 +50,7 @@
 import Permissions from '@/mixins/Permissions';
 import DataTableMixin from '@/mixins/DataTableMixin';
 import UserGroupEditButton from '@/views/management/permissions/parts/UserGroups/parts/buttons/UserGroupEditButton';
-import UserGroupDeleteButton from "@/views/management/permissions/parts/UserGroups/parts/buttons/UserGroupDeleteButton";
+import UserGroupDeleteButton from '@/views/management/permissions/parts/UserGroups/parts/buttons/UserGroupDeleteButton';
 import UserGroupSyncPermissionsButton
   from '@/views/management/permissions/parts/UserGroups/parts/buttons/UserGroupSyncPermissionsButton';
 import UserGroupSyncUsersButton

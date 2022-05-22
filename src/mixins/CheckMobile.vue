@@ -7,14 +7,14 @@ export default {
     };
   },
   beforeDestroy() {
-    if (typeof window === 'undefined') return
+    if (typeof window === 'undefined') return;
 
-    window.removeEventListener('resize', this.onResize, {passive: true})
+    window.removeEventListener('resize', this.onResize, {passive: true});
   },
   mounted() {
-    this.onResize()
+    this.onResize();
 
-    window.addEventListener('resize', this.onResize, {passive: true})
+    window.addEventListener('resize', this.onResize, {passive: true});
   },
   methods: {
     onResize() {

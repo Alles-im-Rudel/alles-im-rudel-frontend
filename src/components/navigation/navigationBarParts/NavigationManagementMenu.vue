@@ -31,7 +31,9 @@
         </v-list-item>
         <v-list-item @click="pushRouteTo('management-members')">
           <v-list-item-icon class="mr-2">
-            <v-icon small>fa-user-plus</v-icon>
+            <v-icon small>
+              fa-user-plus
+            </v-icon>
           </v-list-item-icon>
           <v-list-item-content>Neue Mitglieder</v-list-item-content>
         </v-list-item>

@@ -1,13 +1,17 @@
 <template>
-  <v-dialog v-model="showDialog" persistent max-width="800px">
+  <v-dialog
+    v-model="showDialog"
+    persistent
+    max-width="800px"
+  >
     <template v-slot:activator="{ on: dialog }">
       <v-tooltip top>
         <template v-slot:activator="{ on: tooltip }">
           <v-btn
-              v-if="canSeeButton"
-              color="primary"
-              icon
-              v-on="{ ...dialog, ...tooltip }"
+            v-if="canSeeButton"
+            color="primary"
+            icon
+            v-on="{ ...dialog, ...tooltip }"
           >
             <v-icon>fa-edit</v-icon>
           </v-btn>
@@ -15,13 +19,17 @@
         <span>Benutzergruppe bearbeiten</span>
       </v-tooltip>
     </template>
-    <user-group-edit v-model="userGroup" @reload="reload" @close="close" />
+    <user-group-edit
+      v-model="userGroup"
+      @reload="reload"
+      @close="close"
+    />
   </v-dialog>
 </template>
 
 <script>
 import Permissions from '@/mixins/Permissions';
-import UserGroupEdit from "@/components/userGroups/UserGroupEdit";
+import UserGroupEdit from '@/components/userGroups/UserGroupEdit';
 
 export default {
   components: {

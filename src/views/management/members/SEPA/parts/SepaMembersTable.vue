@@ -1,6 +1,6 @@
 <template>
   <v-data-table
-    :headers="headers"
+    :headers="tableHeaders"
     :items="sepaChanges"
     :expanded.sync="expanded"
     :loading="isLoading"
@@ -47,7 +47,7 @@ export default {
   data() {
     return {
       expanded: [],
-      headers: [
+      tableHeaders: [
         {
           text: 'Name',
           value: 'user.fullName',
