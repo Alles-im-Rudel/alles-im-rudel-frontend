@@ -13,7 +13,7 @@
         <v-icon left>
           fa-plus
         </v-icon>
-        Neues Clashteam erstellen
+        Neues Team erstellen
       </v-btn>
     </template>
     <clash-team-create

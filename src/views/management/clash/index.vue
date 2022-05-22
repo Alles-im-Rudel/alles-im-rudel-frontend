@@ -4,7 +4,7 @@
     <v-container>
       <BaseCard>
         <v-card-title>
-          Clash
+          Teamverwaltung
           <v-spacer />
           <clash-team-create-button @created="getClashTeams" />
         </v-card-title>

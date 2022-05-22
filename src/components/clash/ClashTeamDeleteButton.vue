@@ -11,7 +11,7 @@
         <v-icon>fa-trash-alt</v-icon>
       </v-btn>
     </template>
-    <span>Clash Team löschen</span>
+    <span>Team löschen</span>
   </v-tooltip>
 </template>
 

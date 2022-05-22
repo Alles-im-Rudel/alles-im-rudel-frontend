@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-card-title>
-      Clashteam erstellen
+      Team erstellen
       <v-spacer />
       <v-btn
         icon

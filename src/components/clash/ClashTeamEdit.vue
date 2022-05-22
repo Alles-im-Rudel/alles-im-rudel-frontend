@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-card-title>
-      Clash Team {{ value.name }}
+      Team {{ value.name }}
       <v-spacer />
       <v-btn
         icon

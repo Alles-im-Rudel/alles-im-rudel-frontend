@@ -16,7 +16,7 @@
             <v-icon>fa-edit</v-icon>
           </v-btn>
         </template>
-        <span>Clash Team bearbeiten</span>
+        <span>Team bearbeiten</span>
       </v-tooltip>
     </template>
     <clash-team-edit
