@@ -1,33 +1,41 @@
 <template>
-  <v-dialog v-model="showDialog" max-width="600px">
+  <v-dialog
+    v-model="showDialog"
+    max-width="600px"
+  >
     <template #activator="{ on }">
       <v-btn
-          v-if="canSeeButton"
-          color="greyBlue"
-          dark
-          v-on="on"
+        v-if="canSeeButton"
+        color="greyBlue"
+        dark
+        v-on="on"
       >
-        <v-icon left>fa-plus</v-icon>
-        Neues Clashteam erstellen
+        <v-icon left>
+          fa-plus
+        </v-icon>
+        Neues Team erstellen
       </v-btn>
     </template>
-    <clash-team-create @close="close" @created="$emit('created')" />
+    <clash-team-create
+      @close="close"
+      @created="$emit('created')"
+    />
   </v-dialog>
 </template>
 
 <script>
 import Permissions from '@/mixins/Permissions';
-import ClashTeamCreate from '@/components/clash/ClashTeamCreate'
+import ClashTeamCreate from '@/components/clash/ClashTeamCreate';
 
 export default {
-  mixins: [Permissions],
   components: {
     ClashTeamCreate
   },
+  mixins: [Permissions],
   data() {
     return {
       showDialog: false
-    }
+    };
   },
   computed: {
     canSeeButton() {
