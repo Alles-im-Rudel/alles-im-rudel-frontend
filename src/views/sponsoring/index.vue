@@ -6,12 +6,10 @@
 
     <BaseContainer class="mt-14 mb-14">
       <BaseParagraph class="mb-12">
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-        kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-        sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-        sanctus est Lorem ipsum dolor sit amet.
+        <strong>Hier siehst du alle Sponsoren unseres Vereins.</strong><br>
+        Während auf manche Sponsorings alle Vereinsmitglieder Zugriff haben, gibt es auch Sponsorings auf die lediglich
+        die Mitglieder bestimmter Sparten Zugriff haben. Um Zugriff auf diese zu erhalten, tritt einfach der
+        entsprechenden Sparte bei!
       </BaseParagraph>
 
       <v-expansion-panels>
@@ -60,10 +58,11 @@
                 <p>
                   <b>Wie komme ich an die Vorteile?</b>
                 </p>
-
-                <p>
-                  Gib einfach beim Bezahlen oder bei Kontoerstellung an, dass du Vereinsmitglied bist!
-                </p>
+                <ul>
+                  <li>
+                    Gib einfach beim Bezahlen an, dass du Vereinsmitglied bist.
+                  </li>
+                </ul>
               </v-col>
             </v-row>
           </v-expansion-panel-content>
@@ -107,7 +106,6 @@
                 <p>
                   <b>Welche Vorteile hab ich?</b>
                 </p>
-
                 <ul>
                   <li>
                     15% Rabatt auf das gesamte Sortiment
@@ -120,7 +118,6 @@
                   </li>
                 </ul>
               </v-col>
-
               <v-col
                 v-if="hasAirsoft"
                 cols="12"
@@ -129,16 +126,15 @@
                 <p>
                   <b>Wie komme ich an die Vorteile?</b>
                 </p>
-
                 <p>
-                  Über den Link <a href="https://www.begadi.com/teamsponsoring/front/teamsponsoring">https://www.begadi.com/teamsponsoring/front/teamsponsoring</a> könnt ihr euer Begadi-Konto zum Sponsoring freischalten.<br>
-                  Ihr müsst euch nur vorher einloggen.
+                  Über das <a
+                    href="https://www.begadi.com/teamsponsoring/front/teamsponsoring"
+                    target="_blank"
+                  >Begadi Teamsponsoring</a> dein Begadi-Konto zum Sponsoring freischalten, wozu du dich jedoch vorher einloggen musst.
                 </p>
-
                 <p>
-                  Danach tragt ihr folgende Daten unter „Mein Konto“ im Reiter „Teamsponsoring“ ein:
+                  Danach trägst du folgende Daten unter „Mein Konto“ im Reiter „Teamsponsoring“ ein:
                 </p>
-
                 <ul>
                   <li>Name des Teams: Alles im Rudel</li>
                   <li>Website des Teams: https://www.facebook.com/allesimrudel</li>
@@ -190,7 +186,7 @@
                 </p>
                 <ul>
                   <li>
-                    5% bis 10% Rabatt beim Einkauf
+                    5% bis 10% Rabatt auf ausgewählte Produkte
                   </li>
                   <li>
                     Support Patches
@@ -211,23 +207,23 @@
                 <p>
                   <b>Wie komme ich an die Vorteile?</b>
                 </p>
-
                 <p>
-                  Bei der <a href="https://badagency.de">https://badagency.de</a> haben wir nun auch ein Sponsoring.<br>
-                  Um eure Konto für den Rabatt freizuschalten, müsst ihr folgende Schritte berücksichtigen:
+                  Um dein Konto für die Rabatte freizuschalten, musst du folgende Schritte berücksichtigen:
                 </p>
-
                 <ol>
                   <li>
-                    ein Kundenkonto anlegen (falls noch nicht geschehen)
+                    Falls noch nicht geschehen, Kundenkonto anlegen
                   </li>
                   <li>
-                    sich bei mir über www.badagency.de/teamanmeldung melden.
+                    Über die <a
+                      href="https://www.badagency.de/teamanmeldung"
+                      target="_blank"
+                    >
+                      Bad Agency Teamanmeldung</a> anmelden
                   </li>
                 </ol>
-
                 <p class="mt-4">
-                  Anschließend werden die Teamanmeldungen mit der Mitgliederliste abgeglichen und manuell freigeschaltet.
+                  Anschließend wird deine Teamanmeldungen mit der Mitgliederliste abgeglichen und manuell freigeschaltet.
                 </p>
               </v-col>
             </v-row>
