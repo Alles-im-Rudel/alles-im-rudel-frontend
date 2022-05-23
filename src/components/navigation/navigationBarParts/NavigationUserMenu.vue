@@ -53,6 +53,14 @@
           </v-list-item-icon>
           <v-list-item-content>Kalender</v-list-item-content>
         </v-list-item>
+        <v-list-item @click="pushRouteTo('sponsoring')">
+          <v-list-item-icon class="mr-2">
+            <v-icon small>
+              fa-gem
+            </v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>Sponsoring</v-list-item-content>
+        </v-list-item>
         <v-divider />
         <v-list-item @click="logout">
           <v-list-item-icon class="mr-2">

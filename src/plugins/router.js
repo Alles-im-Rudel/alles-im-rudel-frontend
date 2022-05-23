@@ -51,16 +51,22 @@ const router = new Router({
      *  Private
      */
     {
+      path: '/profile',
+      name: 'profile',
+      meta: {group: 'profile', auth: true, permission: null},
+      component: () => import('../views/profile')
+    },
+    {
       path: '/calendar',
       name: 'calendar',
       meta: {group: 'profile', auth: true, permission: null},
       component: () => import('../views/calendar')
     },
     {
-      path: '/profile',
-      name: 'profile',
+      path: '/sponsoring',
+      name: 'sponsoring',
       meta: {group: 'profile', auth: true, permission: null},
-      component: () => import('../views/profile')
+      component: () => import('../views/sponsoring')
     },
     /*{
       path: '/profile/:username',

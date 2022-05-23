@@ -69,7 +69,6 @@ export default {
   },
   methods: {
     getUser() {
-      console.log('index.vue');
       this.isLoading = true;
       window.axios
           .get('profile')
