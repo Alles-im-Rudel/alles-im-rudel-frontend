@@ -54,7 +54,7 @@ export default {
   },
   computed: {
     canSeeButton() {
-      return this.can('members.mamage');
+      return this.can('members.manage');
     }
   },
   methods: {

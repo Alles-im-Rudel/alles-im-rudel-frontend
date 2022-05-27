@@ -20,6 +20,7 @@
     </template>
     <user-detail
       :user-id="member.id"
+      is-new-user
       @reload="reload"
       @close="close"
     />
@@ -56,7 +57,7 @@ export default {
   },
   computed: {
     canSeeButton() {
-      return this.can('members.mamage');
+      return this.can('members.manage');
     }
   },
   methods: {

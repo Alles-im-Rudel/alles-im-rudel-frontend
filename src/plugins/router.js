@@ -102,7 +102,7 @@ const router = new Router({
     {
       path: '/management/members',
       name: 'management-members',
-      meta: {group: 'management', auth: true, permission: 'members.mamage'},
+      meta: {group: 'management', auth: true, permission: 'members.manage'},
       component: () => import('../views/management/members/Members')
     },
     {

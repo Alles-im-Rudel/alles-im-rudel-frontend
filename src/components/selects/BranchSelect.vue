@@ -5,6 +5,7 @@
     :items="branches"
     item-text="name"
     clearable
+    :loading="isLoading"
     :error="hasErrors('branch')"
     :error-messages="getErrors('branch')"
     @click:clear="clearBranch"
@@ -12,7 +13,6 @@
 </template>
 
 <script>
-import {mapGetters, mapActions} from 'vuex';
 import ValidationErrors from '@/mixins/ValidationErrors';
 
 export default {
@@ -36,11 +36,10 @@ export default {
   },
   data() {
     return {
-      branch: null
+      brancehs: [],
+      branch: null,
+      isLoading: false,
     };
-  },
-  computed: {
-    ...mapGetters('branch', ['branches']),
   },
   watch: {
     branch(value) {
@@ -51,7 +50,14 @@ export default {
     this.getBranches();
   },
   methods: {
-    ...mapActions('branch', ['getBranches']),
+    getBranches() {
+      this.isLoading = true;
+      window.axios.get('branches/filterd')
+          .then(({data}) => {
+            this.branches = data.data;
+          })
+          .finally(() => this.isLoading = false);
+    },
     clearBranch() {
       this.branch = null;
     }

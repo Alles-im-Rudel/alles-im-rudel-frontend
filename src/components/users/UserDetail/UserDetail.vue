@@ -4,7 +4,7 @@
     tile
   >
     <v-card-title>
-      Neuanmeldung von: {{ user.fullName }} bestätigen
+      {{ getHeadline }}
       <v-spacer />
       <v-btn
         icon
@@ -17,6 +17,7 @@
     <v-card-text>
       <v-row>
         <v-col
+          v-if="canSeeUserData"
           cols="12"
           lg="6"
           md="6"
@@ -89,6 +90,7 @@
         >
           <v-row>
             <v-col
+              v-if="canSeeBankAccounts"
               cols="12"
             >
               <v-card>
@@ -138,6 +140,7 @@
               </v-card>
             </v-col>
             <v-col
+              v-if="canSeeBranches"
               cols="12"
             >
               <v-card>
@@ -214,6 +217,11 @@ export default {
     userId: {
       type: Number,
       required: true
+    },
+    isNewUser: {
+      type: Boolean,
+      required: false,
+      default: () => false
     }
   },
   data() {
@@ -230,6 +238,21 @@ export default {
     },
     getTooltip() {
       return this.user.emailVerifiedAt ? 'E-Mail wurde bestätigt' : 'E-Mail wurde nicht bestätigt';
+    },
+    getHeadline() {
+      if(this.isNewUser) {
+        return  `Neuanmeldung von: ${ this.user.fullName } bestätigen`;
+      }
+      return this.user.fullName;
+    },
+    canSeeUserData() {
+      return this.can('users.show');
+    },
+    canSeeBankAccounts() {
+      return this.can('users.show.bank_accounts');
+    },
+    canSeeBranches() {
+      return this.can('users.show.branches');
     }
   },
   watch: {

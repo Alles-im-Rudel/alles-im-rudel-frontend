@@ -58,10 +58,10 @@ export default {
 
     },
     canSeeRejectButton() {
-      return this.can('members.mamage');
+      return this.can('members.manage');
     },
     canSeeAcceptButton() {
-      return this.can('members.mamage');
+      return this.can('members.manage');
     }
   },
   created() {

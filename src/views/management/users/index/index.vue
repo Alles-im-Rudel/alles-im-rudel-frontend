@@ -20,6 +20,9 @@
               <v-spacer />
               <branch-select v-model="filters.branchId" />
               <v-spacer />
+              <user-download-button
+                :filters="filters"
+              />
             </v-card-title>
             <v-card-text>
               <user-table
@@ -41,11 +44,13 @@
 import {zipObject} from 'lodash';
 import UserTable from '@/views/management/users/index/parts/UserTable';
 import BranchSelect from '@/components/selects/BranchSelect';
+import UserDownloadButton from '@/views/management/users/index/parts/buttons/UserDownloadButton';
 
 export default {
   components: {
     UserTable,
-    BranchSelect
+    BranchSelect,
+    UserDownloadButton
   },
   data() {
     return {
