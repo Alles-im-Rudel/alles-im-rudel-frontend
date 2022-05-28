@@ -37,7 +37,10 @@
           </v-list-item-icon>
           <v-list-item-content>Neue Mitglieder</v-list-item-content>
         </v-list-item>
-        <v-list-item @click="pushRouteTo('management-permissions')">
+        <v-list-item
+          v-if="can('permissions.index')"
+          @click="pushRouteTo('management-permissions')"
+        >
           <v-list-item-icon class="mr-2">
             <v-icon small>
               fa-shield-alt
