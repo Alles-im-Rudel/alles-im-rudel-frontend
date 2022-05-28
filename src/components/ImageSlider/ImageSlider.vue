@@ -121,9 +121,9 @@ export default {
 
   .image-slider__index {
     position: absolute;
-    bottom: 10px;
+    bottom: 16px;
     left: 50%;
-    transform: translate(0, -50%);
+    transform: translate(-50%, 0);
     z-index: 5;
     display: flex;
 
