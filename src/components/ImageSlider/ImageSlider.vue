@@ -118,6 +118,7 @@ export default {
 .image-slider {
   position: relative;
   width: 100%;
+  user-select: none;
 
   .image-slider__index {
     position: absolute;
@@ -151,7 +152,7 @@ export default {
     .image-slider__background {
       position: relative;
       width: 100%;
-      height: 700px;
+      height: 750px;
       overflow: hidden;
       filter: blur(15px);
 
@@ -167,7 +168,7 @@ export default {
 
     .image-slider__content {
       width: 95%;
-      max-width: 800px;
+      max-width: 900px;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -199,7 +200,7 @@ export default {
         }
 
         &.image-slider__left {
-          margin-right: 6px;
+          margin-right: 10px;
 
           div {
             transform: rotate(-45deg);
@@ -208,7 +209,7 @@ export default {
         }
 
         &.image-slider__right {
-          margin-left: 6px;
+          margin-left: 10px;
 
           div {
             transform: rotate(135deg);
