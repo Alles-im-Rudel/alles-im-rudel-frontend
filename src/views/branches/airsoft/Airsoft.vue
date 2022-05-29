@@ -73,6 +73,13 @@
         class="mt-14 mb-14"
       />
     </div>
+
+    <BaseSectionTitle class="mt-12">
+      Galerie
+    </BaseSectionTitle>
+    <div>
+      <ImageSlider :images="sliderImages" />
+    </div>
   </div>
 </template>
 
@@ -81,6 +88,7 @@ import BaseBranchHeader from '@/components/base/BaseBranchHeader';
 import leaders from '@/constants/branchLeaders';
 import links from '@/constants/links';
 import PartnerLogos from '@/components/partners/PartnerLogos';
+import ImageSlider from '@/components/ImageSlider/ImageSlider';
 
 export default {
   name: 'Airsoft',
@@ -88,13 +96,20 @@ export default {
     title: 'Alles im Rudel e.V. | Airsoft',
   },
   components: {
+    ImageSlider,
     PartnerLogos,
     BaseBranchHeader
   },
   data() {
     return {
       leader: leaders.NICK_NICKELS,
-      airsoftUrl: links.AIRSOFT_VERZEICHNIS
+      airsoftUrl: links.AIRSOFT_VERZEICHNIS,
+      sliderImages: [
+        '/assets/branches/airsoft/slider/airsoft-1.jpg',
+        '/assets/branches/airsoft/slider/airsoft-2.jpg',
+        '/assets/branches/airsoft/slider/airsoft-3.jpg',
+        '/assets/branches/airsoft/slider/airsoft-4.jpg',
+      ]
     };
   }
 };
