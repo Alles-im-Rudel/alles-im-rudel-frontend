@@ -66,7 +66,7 @@ export default {
     autoTimeout: {
       type: Number,
       required: false,
-      default: 3000
+      default: 6000
     }
   },
   data() {

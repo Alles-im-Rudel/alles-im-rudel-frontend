@@ -65,13 +65,6 @@
     </BaseContainer>
 
     <BaseSectionTitle class="mt-12">
-      Bilder
-    </BaseSectionTitle>
-    <div>
-      <ImageSlider :images="sliderImages" />
-    </div>
-
-    <BaseSectionTitle>
       Unsere Partner
     </BaseSectionTitle>
     <div>
@@ -79,6 +72,13 @@
         :show-only="['airsoft']"
         class="mt-14 mb-14"
       />
+    </div>
+
+    <BaseSectionTitle class="mt-12">
+      Galerie
+    </BaseSectionTitle>
+    <div>
+      <ImageSlider :images="sliderImages" />
     </div>
   </div>
 </template>
@@ -109,7 +109,6 @@ export default {
         '/assets/branches/airsoft/slider/airsoft-2.jpg',
         '/assets/branches/airsoft/slider/airsoft-3.jpg',
         '/assets/branches/airsoft/slider/airsoft-4.jpg',
-        '/assets/branches/airsoft/slider/airsoft-5.jpg',
       ]
     };
   }
