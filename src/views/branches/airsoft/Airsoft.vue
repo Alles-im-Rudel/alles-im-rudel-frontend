@@ -17,13 +17,14 @@
             Moin!
           </h2>
           <BaseParagraph class="mt-6 mt-sm-8">
-            Wir sind ein stetig wachsendes Airsoft-Team, das sich aus Mitgliedern aus dem Raum Schleswig-Holstein und
-            Mecklenburg-Vorpommern zusammensetzt, und jeweils einen Sitz in Elmshorn (SH) und in Leizen (MV) hat. Es ist
-            unser vorrangiges Ziel, den Airsoft-Sport für neue Spieler zugänglicher zu machen, und bereits aktiven
-            Spielern schnell und unkompliziert ein erfahrenes Team anzubieten. Mit dem Fokus auf Teamplay, Fairness und
-            vor allem Spaß an dem Airsoft-Sport begrüßen wir auf herzliche Weise neue Spieler bei uns im Team.
+            Wir sind eines der größten und am meisten organisierten Airsoft-Teams im Norden Deutschlands. Mit
+            Mitgliedern aus dem Raum Schleswig-Holstein, Hamburg, Niedersachsen und Mecklenburg-Vorpommern. Mit breit
+            aufgestellten, kompetenten, lokalen Ansprechpartnern.<br>
+            Unsere vorrangige Mission ist es, den Airsoft-Sport für neue Spieler zugänglicher zu machen und bereits
+            aktiven Spielern ein organisiertes Team zu bieten. Dabei legen wir den Fokus auf Teamplay, Taktik und in
+            erster Linie Spaß und begrüßen auf herzliche Weise neue Spieler bei uns im Team.
             <br><br>
-            Du findest uns übrigens auch im <a
+            Du findest uns auch im <a
               :href="airsoftUrl"
               target="_blank"
             >Airsoft-Verzeichnis</a>!
@@ -47,17 +48,21 @@
       <BaseParagraph class="mt-6 mt-md-8">
         Das können wir bieten:
         <ul class="mt-4">
-          <li>Sponsorings mit exklusiven Rabatten</li>
+          <li>Sponsoring durch Begadi mit exklusiven Rabatten</li>
+          <li>Sponsoring durch die B.A.D. Agency mit Rabatten und weiterer Unterstützung</li>
           <li>Ausrüstung zum Leihen, um einen ersten Eindruck zu gewinnen</li>
           <li>Beratung beim Kauf und Tuning von Ausrüstung</li>
           <li>Organisation von Events, Fahrgemeinschaften, etc.</li>
         </ul>
       </BaseParagraph>
       <BaseParagraph class="mt-8">
-        Folgendes solltet ihr mitbringen:
+        Folgendes solltest du mitbringen:
         <ul class="mt-4">
+          <li>Discord oder WhatsApp für einfache Kommunikation</li>
+          <li>Account im Airsoft-Verzeichnis</li>
           <li>Teamgeist</li>
-          <li>... und vor allem Interesse an dem Airsoft-Sport!</li>
+          <li>Motivation</li>
+          <li>... und vor allem Interesse am Airsoft-Sport!</li>
         </ul>
       </BaseParagraph>
 
