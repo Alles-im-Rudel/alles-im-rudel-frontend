@@ -125,7 +125,7 @@ export default {
     bottom: 16px;
     left: 50%;
     transform: translate(-50%, 0);
-    z-index: 5;
+    z-index: 2;
     display: flex;
 
     .image-slider__dot {
