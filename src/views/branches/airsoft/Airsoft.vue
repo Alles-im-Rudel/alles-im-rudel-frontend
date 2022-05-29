@@ -105,10 +105,7 @@ export default {
       leader: leaders.NICK_NICKELS,
       airsoftUrl: links.AIRSOFT_VERZEICHNIS,
       sliderImages: [
-        'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwallpaperheart.com%2Fwp-content%2Fuploads%2F2018%2F04%2FHD-Wallpaper-Pictures-hd-walpaper.jpg&f=1&nofb=1',
-        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F4.bp.blogspot.com%2F-JTVZ2ajkvrU%2FUiIb8LLrIII%2FAAAAAAAAGb4%2FioF8FtLFzR0%2Fs1600%2F1307306470-nature_wallpaper_hd_hd_nature_3.jpg&f=1&nofb=1',
-        'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fgetwallpapers.com%2Fwallpaper%2Ffull%2F3%2Fd%2F3%2F1193570-vivid-wallpaper-1920x1080-for-phone.jpg&f=1&nofb=1',
-        'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F4.bp.blogspot.com%2F-fpEFUD90X9o%2FTwg7Tt2NZSI%2FAAAAAAAAA2s%2FU74mr-bYVMA%2Fs1600%2Fhd%2Bwallpapers%2B%2525287%252529.jpg&f=1&nofb=1'
+        '/assets/image-slider/branches/airsoft'
       ]
     };
   }
