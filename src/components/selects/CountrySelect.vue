@@ -27,7 +27,8 @@ export default {
     },
     validationErrors: {
       type: Object,
-      default: () => {}
+      default: () => {
+      }
     },
     isBankAccount: {
       type: Boolean,
@@ -39,7 +40,54 @@ export default {
     return {
       selectedCountry: this.value,
       errors: this.validationErrors,
-      countries: ['Deutschland']
+      countries: [
+        'Belgien',
+        'Albanien',
+        'Andorra',
+        'Belarus',
+        'Bosnien und Herzegowina',
+        'Bulgarien',
+        'Dänemark',
+        'Deutschland',
+        'Estland',
+        'Finnland',
+        'Frankreich',
+        'Griechenland',
+        'Irland',
+        'Island',
+        'Italien',
+        'Kroatien',
+        'Lettland',
+        'Liechtenstein',
+        'Litauen',
+        'Luxemburg',
+        'Malta',
+        'Moldau',
+        'Monaco',
+        'Montenegro',
+        'Niederlande',
+        'Nordmazedonien',
+        'Norwegen',
+        'Österreich',
+        'Polen',
+        'Portugal',
+        'Rumänien',
+        'Russische Föderation',
+        'San Marino',
+        'Schweden',
+        'Schweiz',
+        'Serbien',
+        'Slowakei',
+        'Slowenien',
+        'Spanien',
+        'Tschechien',
+        'Türkei',
+        'Ukraine',
+        'Ungarn',
+        'Vatikanstadt',
+        'Vereinigtes Königreich',
+        'Zypern',
+      ]
     };
   },
   watch: {
