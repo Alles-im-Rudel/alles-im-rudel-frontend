@@ -114,6 +114,7 @@ export default {
         '/assets/branches/airsoft/slider/airsoft-2.jpg',
         '/assets/branches/airsoft/slider/airsoft-3.jpg',
         '/assets/branches/airsoft/slider/airsoft-4.jpg',
+        '/assets/branches/airsoft/slider/airsoft-5.jpg',
       ]
     };
   }
