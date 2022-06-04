@@ -7,13 +7,13 @@
         </v-card-title>
         <v-card-subtitle
           v-if="branchUserMemberShip.branch.id === 1"
-          class="text-left pb-1"
+          class="text-left pb-5"
         >
           Vereinsbeitrag: {{ branchUserMemberShip.branch.price || '0' }} €
         </v-card-subtitle>
         <v-card-subtitle
           v-else
-          class="text-left pb-1"
+          class="text-left pb-5"
         >
           Spartenbeitrag: {{ branchUserMemberShip.branch.price || '0' }} €
         </v-card-subtitle>
