@@ -43,6 +43,9 @@ export default {
       if (this.branchUserMemberShip.state === 'isMember') {
         return 'success';
       }
+      if (this.branchUserMemberShip.branchId === 1) {
+        return 'error';
+      }
       return 'warning';
     }
   },

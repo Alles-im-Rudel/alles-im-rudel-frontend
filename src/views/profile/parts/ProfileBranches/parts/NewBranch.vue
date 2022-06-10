@@ -24,6 +24,7 @@
         class="mt-3"
         color="primary"
         :loading="isLoading"
+        :disabled="!wantsToLeaveAssocioation"
         @click="confirmJoin"
       >
         Sparte beitreten
@@ -40,11 +41,20 @@ export default {
       type: Object,
       required: true,
     },
+    user: {
+      type: Object,
+      required: true
+    }
   },
   data() {
     return {
       isLoading: false
     };
+  },
+  computed: {
+    wantsToLeaveAssocioation() {
+      return !this.user.branchUserMemberShips.find(item => item.branch.id === 1 && item.state === 'wantsToLeave');
+    }
   },
   methods: {
     confirmJoin() {

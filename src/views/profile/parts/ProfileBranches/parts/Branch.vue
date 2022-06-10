@@ -20,27 +20,30 @@
       </v-card>
 
       <v-spacer />
-      <div v-if="branchUserMemberShip.branch.id !== 1">
+      <div>
         <v-btn
           v-if="isMember"
           :loading="isLoading"
+          :disabled="!wantsToLeaveAssocioation"
           class="mt-3"
           color="error"
           @click="confirmLeave"
         >
-          Sparte verlassen
+          {{ isBranchOrAssociation }} verlassen
         </v-btn>
         <v-btn
           v-if="wantsToLeave"
           :loading="isLoading"
+          :disabled="!wantsToLeaveAssocioation"
           class="mt-3"
           @click="confirmCancelLeave"
         >
-          Sparte doch nicht verlassen
+          {{ isBranchOrAssociation }} doch nicht verlassen
         </v-btn>
         <v-btn
           v-if="wantsToJoin"
           :loading="isLoading"
+          :disabled="!wantsToLeaveAssocioation"
           class="mt-3"
           @click="confirmCancelJoin"
         >
@@ -55,6 +58,10 @@
 export default {
   props: {
     branchUserMemberShip: {
+      type: Object,
+      required: true
+    },
+    user: {
       type: Object,
       required: true
     }
@@ -73,14 +80,26 @@ export default {
     },
     wantsToJoin() {
       return this.branchUserMemberShip.state === 'wantsToJoin';
+    },
+    isBranchOrAssociation() {
+      return this.branchUserMemberShip.branch.id === 1 ? 'Verein' : 'Sparte';
+    },
+    isBranchOrAssociationWithArticle() {
+      return this.branchUserMemberShip.branch.id === 1 ? 'den Verein' : 'die Sparte';
+    },
+    wantsToLeaveAssocioation() {
+      if(this.branchUserMemberShip.branch.id === 1) {
+        return true;
+      }
+      return !this.user.branchUserMemberShips.find(item => item.branch.id === 1 && item.state === 'wantsToLeave');
     }
   },
   methods: {
     confirmLeave() {
       this.$root.$confirm
           .open(
-              'Sparte verlassen?',
-              'Möchtest du die Sparte "' +
+              `${this.isBranchOrAssociation} verlassen?`,
+              `Möchtest du ${this.isBranchOrAssociationWithArticle} "` +
               this.branchUserMemberShip.branch.name +
               '" wirklich verlassen?\n Der Austritt erfolgt zum Ende des Folgemonats.',
               'error',
@@ -88,7 +107,7 @@ export default {
     },
     leaveBranch() {
       this.isLoading = true;
-       window.axios
+      window.axios
           .put(`profile/leave-branch/${this.branchUserMemberShip.id}`)
           .then((response) => {
             this.$root.$snackbar.open(response.data.message);
@@ -98,11 +117,20 @@ export default {
     },
     confirmCancelLeave() {
       this.$root.$confirm
-          .open(
-              'Spartenaustritt abbrechen?',
-              'Möchtest du den Austritt aus der Sparte "' +
-              this.branchUserMemberShip.branch.name +
-              '" wirklich abbrechen?',
+          .open(this.branchUserMemberShip.branchId === 1
+                  ?
+                  'Vereinsaustritt abbrechen?'
+                  :
+                  'Spartenaustritt abbrechen?',
+              this.branchUserMemberShip.branchId === 1
+                  ?
+                  'Möchtest du den Austritt aus dem Verein "' +
+                  this.branchUserMemberShip.branch.name +
+                  '" wirklich abbrechen?'
+                  :
+                  'Möchtest du den Austritt aus der Sparte "' +
+                  this.branchUserMemberShip.branch.name +
+                  '" wirklich abbrechen?',
               'error',
           ).then((confirm) => confirm && this.cancelBranch());
     },

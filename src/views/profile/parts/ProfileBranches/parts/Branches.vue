@@ -4,12 +4,14 @@
       v-for="branchUserMemberShip in branchUserMemberShips"
       :key="branchUserMemberShip.id"
       :branch-user-member-ship="branchUserMemberShip"
+      :user="user"
       @reload="reload"
     />
     <new-branch
       v-for="branch in newBranchUserMemberShips"
       :key="branch.id"
       :branch="branch"
+      :user="user"
       @reload="reload"
     />
   </div>
@@ -38,6 +40,10 @@ export default {
       type: Array,
       required: true,
       default: () => []
+    },
+    user: {
+      type: Object,
+      required: true
     }
   },
   data() {

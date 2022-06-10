@@ -6,6 +6,7 @@
     <div class="profile-branches">
       <Branches
         v-model="user.branchUserMemberShips"
+        :user="user"
         @reload="reload"
       />
       <v-row
@@ -42,7 +43,7 @@ export default {
   computed: {
     currentCost() {
       return this.user.branchUserMemberShips.reduce((acc, branchUserMemberShip) => {
-        if(branchUserMemberShip.state === 'isMember') {
+        if (branchUserMemberShip.state === 'isMember') {
           acc += branchUserMemberShip.branch.price;
         }
         return acc;
