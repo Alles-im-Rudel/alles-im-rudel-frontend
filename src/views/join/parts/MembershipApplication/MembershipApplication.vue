@@ -109,7 +109,7 @@
     <BaseParagraph class="mt-6">
       Dein Antrag wurde abgeschickt!
       <br>
-      Bitte bestätige deine E-Mail, damit wir fortfahren können.
+      <strong>Bitte bestätige deine E-Mail, damit wir fortfahren können.</strong>
     </BaseParagraph>
     <v-btn
       color="primary"
