@@ -1,5 +1,5 @@
 <template>
-  <div class="white">
+  <div class="white pb-6">
     <BaseContainer v-if="user">
       <v-row
         class="mt-6"
@@ -37,15 +37,13 @@
           href="mailto:allesimrudel@gmail.com"
         >allesimrudel@gmail.com</a>.
       </v-alert>
-      <v-divider class="mt-3 mb-10" />
-      <v-row class="mb-14">
-        <v-col cols="12">
-          <ProfileBranches
-            v-model="user"
-            @reload="getUser"
-          />
-        </v-col>
-      </v-row>
+      <v-divider class="mt-10 mb-6" />
+      <ProfileBranches
+        v-model="user"
+        @reload="getUser"
+      />
+      <v-divider class="mt-10 mb-6" />
+      <MinecraftPlayers class="mb-14" />
     </BaseContainer>
   </div>
 </template>
@@ -54,10 +52,11 @@
 import ProfileImage from '@/views/profile/parts/ProfileImage';
 import ProfileInfo from '@/views/profile/parts/ProfileInfo';
 import ProfileBranches from '@/views/profile/parts/ProfileBranches/ProfileBranches';
+import MinecraftPlayers from '@/views/profile/parts/MinecraftPlayers/MinecraftPlayers';
 
 export default {
   name: 'Profile',
-  components: {ProfileBranches, ProfileImage, ProfileInfo},
+  components: {MinecraftPlayers, ProfileBranches, ProfileImage, ProfileInfo},
   data() {
     return {
       user: null,
