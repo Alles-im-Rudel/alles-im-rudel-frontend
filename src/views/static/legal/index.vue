@@ -16,6 +16,14 @@
       </p>
 
       <h3 :class="headlineClasses">
+        Eintragung im Vereinsregister
+      </h3>
+      <p :class="textClasses">
+        Amtsgericht Pinneberg<br>
+        VR 2355 PI
+      </p>
+
+      <h3 :class="headlineClasses">
         Kontakt
       </h3>
       <p :class="textClasses">
