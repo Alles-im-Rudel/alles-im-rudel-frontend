@@ -50,7 +50,7 @@ export default {
       tableHeaders: [
         {
           text: 'Name',
-          value: 'user.fullName',
+          value: 'user.bankAccount.fullName',
         },
         {text: 'IBAN', value: 'user.bankAccount.iban'},
         {text: 'Mandatsrefernz', value: 'mandate'},
