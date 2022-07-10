@@ -136,10 +136,10 @@
                   Danach trägst du folgende Daten unter „Mein Konto“ im Reiter „Teamsponsoring“ ein:
                 </p>
                 <ul>
-                  <li>Name des Teams: Alles im Rudel</li>
+                  <li>Name des Teams: Alles im Rudel e.V.</li>
                   <li>Website des Teams: https://www.facebook.com/allesimrudel</li>
-                  <li>Verantwortliche Person: Philipp Gottwald</li>
-                  <li>Kontaktmöglichkeiten des Ansprechpartners: gottwald.philipp@gmx.de</li>
+                  <li>Verantwortliche Person: Nick Nickels</li>
+                  <li>Kontaktmöglichkeiten des Ansprechpartners: allesimrudel@gmail.com</li>
                 </ul>
               </v-col>
             </v-row>

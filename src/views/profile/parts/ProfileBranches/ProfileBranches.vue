@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="text-h5 mb-2">
+    <h2 class="text-h5 mb-6">
       Meine Sparten
     </h2>
     <div class="profile-branches">
@@ -10,7 +10,7 @@
         @reload="reload"
       />
       <v-row
-        class="mt-4"
+        class="my-4"
         dense
       >
         <v-col
