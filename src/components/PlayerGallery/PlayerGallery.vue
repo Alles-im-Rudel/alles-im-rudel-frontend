@@ -15,6 +15,15 @@
           >
         </div>
 
+        <div class="player-gallery__badges">
+          <PlayerBadge
+            v-for="(badge, badgeIndex) in entry.badges"
+            :key="badgeIndex"
+            :badge="badge"
+            class="mx-1"
+          />
+        </div>
+
         <div class="player-gallery__overlay">
           <div
             class="player-gallery__contents text-center"
@@ -54,14 +63,6 @@
           </div>
         </div>
       </div>
-
-      <div class="player-gallery__badges mt-2">
-        <PlayerBadge
-          v-for="(badge, badgeIndex) in entry.badges"
-          :key="badgeIndex"
-          :badge="badge"
-        />
-      </div>
     </v-col>
   </v-row>
 </template>
@@ -85,6 +86,7 @@ export default {
 .player-gallery {
   &__entry {
     position: relative;
+    overflow: hidden;
   }
 
   &__image {
@@ -105,13 +107,12 @@ export default {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    overflow: hidden;
   }
 
   &__contents {
     color: #ddd;
     padding: 16px;
-    background-image: radial-gradient(#0009 5%, #0000 70%);
+    background-image: radial-gradient(#0007 5%, #0000 70%);
     margin-bottom: -48px;
     transition: 0.2s ease-in-out;
   }
@@ -120,17 +121,30 @@ export default {
     margin-bottom: 40px;
   }
 
-  &__overlay:hover &__contents {
-    margin-bottom: 0;
-  }
-
   &__button {
     margin-top: 8px;
   }
 
   &__badges {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding: 16px;
+    margin-top: -48px;
+    transition: 0.2s ease-in-out;
+  }
+
+  &__entry:hover &__contents {
+    margin-bottom: 0;
+  }
+
+  &__entry:hover &__badges {
+    margin-top: 0;
   }
 }
 </style>

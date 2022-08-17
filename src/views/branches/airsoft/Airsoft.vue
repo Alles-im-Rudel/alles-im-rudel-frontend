@@ -66,17 +66,29 @@
         </ul>
       </BaseParagraph>
 
-      {{ /* todo: join branch button */ }}
-    </BaseContainer>
+      <v-expansion-panels
+        flat
+        class="mt-14 mb-4"
+      >
+        <v-expansion-panel>
+          <v-expansion-panel-header>
+            <div>
+              <h3 class="text-h3">
+                Unser Team
+              </h3>
+            </div>
+          </v-expansion-panel-header>
 
-    <BaseSectionTitle class="mt-12">
-      Unsere Spieler
-    </BaseSectionTitle>
-    <BaseContainer>
-      <PlayerGallery
-        :entries="airsoftMembers"
-        class="mt-8"
-      />
+          <v-divider />
+
+          <v-expansion-panel-content>
+            <PlayerGallery
+              :entries="airsoftMembers"
+              class="mt-10"
+            />
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+      </v-expansion-panels>
     </BaseContainer>
 
     <BaseSectionTitle class="mt-12">

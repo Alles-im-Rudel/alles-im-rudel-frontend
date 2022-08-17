@@ -1,19 +1,21 @@
 <template>
-  <v-tooltip bottom>
-    <template v-slot:activator="{ on, attrs }">
-      <div
-        class="player-badge"
-        v-bind="attrs"
-        v-on="on"
-      >
-        <img
-          :src="badge.image"
-          alt=""
+  <div class="player-badge">
+    <v-tooltip bottom>
+      <template v-slot:activator="{ on, attrs }">
+        <div
+          class="player-badge__image"
+          v-bind="attrs"
+          v-on="on"
         >
-      </div>
-    </template>
-    <span>{{ badge.name }}</span>
-  </v-tooltip>
+          <img
+            :src="badge.image"
+            alt=""
+          >
+        </div>
+      </template>
+      <span>{{ badge.name }}</span>
+    </v-tooltip>
+  </div>
 </template>
 
 <script>
@@ -33,12 +35,14 @@ export default {
 
 <style lang="scss">
 .player-badge {
-  display: flex;
-  user-select: none;
-  width: 16px;
+  &__image {
+    display: flex;
+    user-select: none;
+    width: 16px;
 
-  img {
-    width: 100%;
+    img {
+      width: 100%;
+    }
   }
 }
 </style>
