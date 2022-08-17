@@ -70,6 +70,16 @@
     </BaseContainer>
 
     <BaseSectionTitle class="mt-12">
+      Unsere Spieler
+    </BaseSectionTitle>
+    <BaseContainer>
+      <PlayerGallery
+        :entries="airsoftMembers"
+        class="mt-8"
+      />
+    </BaseContainer>
+
+    <BaseSectionTitle class="mt-12">
       Unsere Partner
     </BaseSectionTitle>
     <div>
@@ -91,9 +101,11 @@
 <script>
 import BaseBranchHeader from '@/components/base/BaseBranchHeader';
 import leaders from '@/constants/branchLeaders';
+import airsoftMembers from '@/constants/airsoftMembers';
 import links from '@/constants/links';
 import PartnerLogos from '@/components/partners/PartnerLogos';
 import ImageSlider from '@/components/ImageSlider/ImageSlider';
+import PlayerGallery from '@/components/PlayerGallery/PlayerGallery';
 
 export default {
   name: 'Airsoft',
@@ -101,6 +113,7 @@ export default {
     title: 'Alles im Rudel e.V. | Airsoft',
   },
   components: {
+    PlayerGallery,
     ImageSlider,
     PartnerLogos,
     BaseBranchHeader
@@ -109,6 +122,7 @@ export default {
     return {
       leader: leaders.NICK_NICKELS,
       airsoftUrl: links.AIRSOFT_VERZEICHNIS,
+      airsoftMembers: airsoftMembers,
       sliderImages: [
         '/assets/branches/airsoft/slider/airsoft-1.jpg',
         '/assets/branches/airsoft/slider/airsoft-2.jpg',
