@@ -28,7 +28,7 @@ export default [
   {
     firstName: 'Oliver',
     title: 'Anwärter Betreuung',
-    tag: null,
+    tag: 'Brinick',
     image: null,
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=153898',
     joinYear: 2018,
@@ -224,9 +224,7 @@ export default [
     image: '/assets/branches/airsoft/members/jan-niklas.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=172653',
     joinYear: 2022,
-    badges: [
-      airsoftBadges.DARK_EMERGENCY_10
-    ]
+    badges: []
   },
   {
     firstName: 'Malte',
