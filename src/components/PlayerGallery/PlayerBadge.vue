@@ -38,7 +38,7 @@ export default {
   &__image {
     display: flex;
     user-select: none;
-    width: 16px;
+    width: 22px;
 
     img {
       width: 100%;

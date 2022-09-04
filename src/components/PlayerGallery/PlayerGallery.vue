@@ -10,39 +10,47 @@
       <div class="player-gallery__entry">
         <div class="player-gallery__image">
           <img
-            :src="entry.image"
+            :src="entry.image || '/assets/branches/airsoft/members/default.jpg'"
             alt=""
           >
         </div>
 
-        <div class="player-gallery__badges">
-          <PlayerBadge
-            v-for="(badge, badgeIndex) in entry.badges"
-            :key="badgeIndex"
-            :badge="badge"
-            class="mx-1"
-          />
+        <div class="player-gallery__header">
+          <div class="player-gallery__badges">
+            <PlayerBadge
+              v-for="(badge, badgeIndex) in entry.badges"
+              :key="badgeIndex"
+              :badge="badge"
+              class="player-gallery__badge"
+            />
+          </div>
+
+          <div class="player-gallery__join-year white--text text-center">
+            {{ entry.joinYear }}
+          </div>
         </div>
 
         <div class="player-gallery__overlay">
-          <div
-            class="player-gallery__contents text-center"
-            :class="{'player-gallery__contents--no-name': !entry.lastName}"
-          >
+          <div class="player-gallery__contents text-center">
+            <h3
+              v-if="entry.tag"
+              class="text-h4 white--text player-gallery__tag"
+            >
+              "{{ entry.tag }}"
+            </h3>
+
             <h3
               v-if="entry.firstName"
-              class="text-h6 pb-0"
+              class="text-h6 pb-0 player-gallery__first-name"
             >
               {{ entry.firstName }}
             </h3>
-            <h3 class="text-h4 white--text player-gallery__tag">
-              "{{ entry.tag }}"
-            </h3>
+
             <h3
-              v-if="entry.lastName"
-              class="text-h6"
+              v-if="entry.title"
+              class="player-gallery__title"
             >
-              {{ entry.lastName }}
+              {{ entry.title }}
             </h3>
 
             <div class="player-gallery__button">
@@ -117,33 +125,54 @@ export default {
     transition: 0.2s ease-in-out;
   }
 
-  &__contents--no-name &__tag {
-    margin-bottom: 40px;
+  &__title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.0125em;
+    font-family: "Roboto", sans-serif;
   }
 
   &__button {
     margin-top: 8px;
   }
 
-  &__badges {
+  &__header {
     z-index: 2;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
+    padding: 16px;
+    margin-top: -64px;
+    transition: 0.2s ease-in-out;
+    background-image: radial-gradient(#0002 5%, #0000 70%);
+  }
+
+  &__badges {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 16px;
-    margin-top: -48px;
-    transition: 0.2s ease-in-out;
+  }
+
+  &__badge {
+    margin: 0 3px;
+  }
+
+  &__join-year {
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.0125em;
+    font-family: "Roboto", sans-serif;
+    margin-top: 6px;
   }
 
   &__entry:hover &__contents {
     margin-bottom: 0;
   }
 
-  &__entry:hover &__badges {
+  &__entry:hover &__header {
     margin-top: 0;
   }
 }
