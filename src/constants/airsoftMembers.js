@@ -29,7 +29,7 @@ export default [
     firstName: 'Oliver',
     title: 'Anwärter Betreuung',
     tag: 'Brinick',
-    image: null,
+    image: '/assets/branches/airsoft/members/oliver.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=153898',
     joinYear: 2018,
     badges: [
