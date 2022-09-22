@@ -13,6 +13,7 @@ export default [
     badges: [
       airsoftBadges.DARK_EMERGENCY_10,
       airsoftBadges.DARK_EMERGENCY_9,
+      airsoftBadges.MISSION_24H,
       airsoftBadges.FOUNDATION_MEMBER,
     ]
   },
@@ -33,7 +34,8 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=153898',
     joinYear: 2018,
     badges: [
-      airsoftBadges.DARK_EMERGENCY_10
+      airsoftBadges.DARK_EMERGENCY_10,
+      airsoftBadges.MISSION_24H
     ]
   },
   {
@@ -111,7 +113,8 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=173016',
     joinYear: 2022,
     badges: [
-      airsoftBadges.DARK_EMERGENCY_10
+      airsoftBadges.DARK_EMERGENCY_10,
+      airsoftBadges.MISSION_24H
     ]
   },
   {
@@ -272,7 +275,9 @@ export default [
     image: '/assets/branches/airsoft/members/leon.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=177464',
     joinYear: 2022,
-    badges: []
+    badges: [
+      airsoftBadges.MISSION_24H
+    ]
   },
   {
     firstName: 'Philipp',
