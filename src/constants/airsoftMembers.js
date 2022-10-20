@@ -19,7 +19,7 @@ export default [
   },
   {
     firstName: 'Jerome',
-    title: 'stv. Teamleiter | B1-1',
+    title: 'stv. Teamleiter | A1-2',
     tag: 'Maverick',
     image: '/assets/branches/airsoft/members/jerome.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=161569',
@@ -63,7 +63,9 @@ export default [
     image: '/assets/branches/airsoft/members/philipp.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=112370',
     joinYear: 2018,
-    badges: []
+    badges: [
+      airsoftBadges.FOUNDATION_MEMBER,
+    ]
   },
   {
     firstName: 'Paul',
@@ -87,7 +89,7 @@ export default [
   },
   {
     firstName: 'Simon',
-    title: 'Operator',
+    title: 'U18 Betreuer',
     tag: null,
     image: '/assets/branches/airsoft/members/simon.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=151084',
@@ -139,7 +141,7 @@ export default [
     firstName: 'Tamino',
     title: 'Operator',
     tag: null,
-    image: null,
+    image: '/assets/branches/airsoft/members/tamino.png',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=173634',
     joinYear: 2022,
     badges: []
