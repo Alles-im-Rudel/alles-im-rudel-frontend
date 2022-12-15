@@ -35,14 +35,24 @@ export default [
     joinYear: 2018,
     badges: [
       airsoftBadges.DARK_EMERGENCY_10,
-      airsoftBadges.MISSION_24H
+      airsoftBadges.MISSION_24H,
+      airsoftBadges.OP
     ]
+  },
+  {
+    firstName: 'Simon',
+    title: 'U18 Betreuer',
+    tag: null,
+    image: '/assets/branches/airsoft/members/simon.jpg',
+    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=151084',
+    joinYear: 2022,
+    badges: []
   },
   {
     firstName: 'Jan',
     title: 'Squadleader | W1-1',
     tag: 'Jerky',
-    image: null,
+    image: '/assets/branches/airsoft/members/jan.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=100900',
     joinYear: 2022,
     badges: []
@@ -88,15 +98,6 @@ export default [
     badges: []
   },
   {
-    firstName: 'Simon',
-    title: 'U18 Betreuer',
-    tag: null,
-    image: '/assets/branches/airsoft/members/simon.jpg',
-    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=151084',
-    joinYear: 2022,
-    badges: []
-  },
-  {
     firstName: 'Tim',
     title: 'Operator',
     tag: null,
@@ -116,7 +117,8 @@ export default [
     joinYear: 2022,
     badges: [
       airsoftBadges.DARK_EMERGENCY_10,
-      airsoftBadges.MISSION_24H
+      airsoftBadges.MISSION_24H,
+      airsoftBadges.OP
     ]
   },
   {
@@ -280,6 +282,24 @@ export default [
     badges: [
       airsoftBadges.MISSION_24H
     ]
+  },
+  {
+    firstName: 'Niclas',
+    title: 'Operator',
+    tag: null,
+    image: null,
+    link: null,
+    joinYear: 2022,
+    badges: []
+  },
+  {
+    firstName: 'Arne',
+    title: 'Operator',
+    tag: null,
+    image: null,
+    link: null,
+    joinYear: 2022,
+    badges: []
   },
   {
     firstName: 'Philipp',
