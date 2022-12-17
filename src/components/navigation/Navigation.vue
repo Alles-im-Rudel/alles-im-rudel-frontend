@@ -16,7 +16,7 @@
         $vuetify.icons.allesimrudel
       </v-icon>
       <span v-if="!isMedium">
-        Alles im Rudel
+        Alles im Rudel e.V.
       </span>
     </v-toolbar-title>
 
