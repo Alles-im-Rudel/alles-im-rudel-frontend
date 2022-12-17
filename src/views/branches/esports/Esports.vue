@@ -77,7 +77,7 @@ export default {
   },
   data() {
     return {
-      leader: leaders.CHRISTOPH_SCHOTTELIUS,
+      leader: leaders.MARCEL_NAGL,
       discordUrl: links.DISCORD
     };
   }

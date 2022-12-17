@@ -12,14 +12,14 @@ export default {
       linkedin: 'nick-nickels'
     }
   },
-  CHRISTOPH_SCHOTTELIUS: {
-    fullName: 'Christoph Schottelius',
+  MARCEL_NAGL: {
+    fullName: 'Marcel Nagl',
     image: '/assets/leading/branches/e-sports.jpg',
-    text: dayjs().diff('2002-01-17', 'years') + " Jahre alt\nSpartenleiter E-Sports",
+    text: dayjs().diff('1992-12-24', 'years') + " Jahre alt\nSpartenleiter E-Sports",
     socials: {
-      instagram: 'cchhristoph',
-      snapchat: 'cchristoph4',
-      linkedin: null
+      instagram: 'naglschere',
+      snapchat: 'marcel.nagl',
+      linkedin: 'marcelnagl'
     }
   }
 };
