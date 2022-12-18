@@ -6,7 +6,7 @@ export default [
   {
     firstName: 'Nick',
     title: 'Teamleiter | A1-1',
-    tag: 'Vancouver',
+    tag: 'NJ',
     image: '/assets/branches/airsoft/members/nick-nickels.png',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=113385',
     joinYear: 2018,

@@ -66,6 +66,19 @@
         </ul>
       </BaseParagraph>
 
+      <h2 class="text-h3 mt-14 pt-md-4">
+        Nach meinem Beitritt?
+      </h2>
+
+      <BaseParagraph class="mt-6 mt-md-8">
+        Nach deinem Beitritt zum Verein erhältst du von deinem Spartenleiter einen Patch und einen Satz Teambinden, in
+        drei Farben.
+        Zuzügliche Patches und Teambinden kannst du käuflich von deinem Spartenleiter erwerben.
+        <br>
+        Außerdem erhältst du Zugriff auf die „Waffenkammer“ bzw. Leihausrüstung des Vereins, falls du noch keine eigene
+        Ausstattung besitzt.
+      </BaseParagraph>
+
       <v-expansion-panels
         flat
         class="mt-14 mb-4"

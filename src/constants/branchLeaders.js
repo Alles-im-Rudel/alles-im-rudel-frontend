@@ -14,7 +14,7 @@ export default {
   },
   MARCEL_NAGL: {
     fullName: 'Marcel Nagl',
-    image: '/assets/leading/branches/e-sports.jpg',
+    image: '/assets/leading/branches/marcel.jpg',
     text: dayjs().diff('1992-12-24', 'years') + " Jahre alt\nSpartenleiter E-Sports",
     socials: {
       instagram: 'naglschere',
