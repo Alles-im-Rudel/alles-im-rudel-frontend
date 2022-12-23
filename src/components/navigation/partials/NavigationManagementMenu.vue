@@ -1,8 +1,8 @@
 <template>
   <v-menu
     v-if="permissions && can('headline.management')"
-    :open-on-hover="!isMobile"
-    :open-on-click="isMobile"
+    :open-on-hover="!$vuetify.breakpoint.smAndDown"
+    :open-on-click="$vuetify.breakpoint.smAndDown"
     bottom
     offset-y
     rounded="0"
@@ -27,16 +27,20 @@
               fa-users
             </v-icon>
           </v-list-item-icon>
+
           <v-list-item-content>Benutzer</v-list-item-content>
         </v-list-item>
+
         <v-list-item @click="pushRouteTo('management-members')">
           <v-list-item-icon class="mr-2">
             <v-icon small>
               fa-user-plus
             </v-icon>
           </v-list-item-icon>
+
           <v-list-item-content>Neue Mitglieder</v-list-item-content>
         </v-list-item>
+
         <v-list-item
           v-if="can('permissions.index')"
           @click="pushRouteTo('management-permissions')"
@@ -46,14 +50,17 @@
               fa-shield-alt
             </v-icon>
           </v-list-item-icon>
+
           <v-list-item-content>Berechtigungen</v-list-item-content>
         </v-list-item>
+
         <v-list-item @click="pushRouteTo('management-clash')">
           <v-list-item-icon class="mr-2">
             <v-icon small>
               fa-cogs
             </v-icon>
           </v-list-item-icon>
+
           <v-list-item-content>Teamverwaltung</v-list-item-content>
         </v-list-item>
       </v-list-item-group>
@@ -64,10 +71,9 @@
 <script>
 import {mapGetters} from 'vuex';
 import Permissions from '@/mixins/Permissions';
-import CheckMobile from '@/mixins/CheckMobile';
 
 export default {
-  mixins: [Permissions, CheckMobile],
+  mixins: [Permissions],
   computed: {
     ...mapGetters('auth', ['permissions'])
   },
