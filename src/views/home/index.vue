@@ -9,7 +9,7 @@
         <div class="d-flex justify-center align-center">
           <img
             src="/assets/logos/logo-grey-slim.png"
-            style="width: 95%; max-width: 825px"
+            class="hero-logo"
             alt="Alles im Rudel Wölfe"
           >
         </div>
@@ -130,3 +130,14 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.hero-logo {
+  width: 75vw;
+  max-width: 800px;
+
+  @media only screen and (max-width: 600px) {
+    width: 90vw;
+  }
+}
+</style>
