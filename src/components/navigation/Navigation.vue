@@ -1,144 +1,102 @@
 <template>
-  <v-app-bar
-    color="primary"
-    dark
-    app
-    clipped-left
-  >
-    <v-toolbar-title
-      class="cursor-pointer pl-0 pl-sm-1 d-flex align-center"
-      @click="pushRouteTo('home')"
+  <div class="navigation">
+    <v-app-bar
+      class="navigation__app-bar"
+      color="primary"
+      dark
+      app
     >
-      <v-icon
-        :size="isMobile ? 56 : 64"
-        class="mr-3"
-      >
-        $vuetify.icons.allesimrudel
-      </v-icon>
-      <span v-if="!isMedium">
-        Alles im Rudel e.V.
-      </span>
-    </v-toolbar-title>
+      <NavigationTitle />
 
-    <v-spacer />
-    <v-btn
-      :text="!isMedium"
-      :icon="isMedium"
-      @click="pushToShop"
-    >
-      <v-icon :left="!isMedium">
-        fa-shopping-cart
-      </v-icon>
-      {{ !isMedium ? 'Shop' : '' }}
-    </v-btn>
-    <v-menu
-      bottom
-      offset-y
-      close-on-content-click
-    >
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          :color="isActive('branch')"
-          class="mr-0 mr-sm-1"
-          :text="!isMedium"
-          :icon="isMedium"
-          dark
-          v-bind="attrs"
-          v-on="on"
+      <v-spacer />
+
+      <div class="navigation-menu align-center d-block d-md-none">
+        <div
+          class="navigation-menu__mobile-button"
+          @click="modalShouldOpen = !modalShouldOpen"
         >
-          <v-icon :left="!isMedium">
-            fa-code-branch
-          </v-icon>
-          {{ !isMedium ? 'Sparten' : '' }}
-        </v-btn>
-      </template>
+          <div class="navigation-menu__mobile-button-bar" />
+          <div class="navigation-menu__mobile-button-bar" />
+          <div class="navigation-menu__mobile-button-bar" />
+        </div>
+      </div>
 
-      <v-list>
-        <v-list-item
-          link
-          @click="pushRouteTo('airsoft')"
-        >
-          Airsoft
-        </v-list-item>
-        <v-list-item
-          link
-          @click="pushRouteTo('esports')"
-        >
-          E-Sports
-        </v-list-item>
-      </v-list>
-    </v-menu>
+      <div class="d-none d-md-block">
+        <NavigationContent />
+      </div>
+    </v-app-bar>
 
-    <v-btn
-      v-if="!isAuth"
-      :text="!isMedium"
-      :icon="isMedium"
-      :color="isActive('join')"
-      @click="pushRouteTo('join')"
+    <div
+      v-if="modalShouldOpen"
+      class="navigation-menu__content d-block d-md-none"
     >
-      <v-icon :left="!isMedium">
-        fa-award
-      </v-icon>
-      {{ !isMedium ? 'Beitritt' : '' }}
-    </v-btn>
-
-    <v-divider
-      vertical
-      inset
-      class="mx-2"
-    />
-
-    <!-- Ohne Auth -->
-    <v-btn
-      v-if="!isAuth"
-      :text="!isMedium"
-      :icon="isMedium"
-      :color="isActive('login')"
-      class="mr-1"
-      @click="pushRouteTo('login')"
-    >
-      <v-icon :left="!isMedium">
-        fa-sign-in-alt
-      </v-icon>
-      {{ !isMedium ? 'Login' : '' }}
-    </v-btn>
-
-    <!-- Auth -->
-    <NavigationManagementMenu />
-    <NavigationUserMenu />
-  </v-app-bar>
+      <NavigationContent />
+    </div>
+  </div>
 </template>
 
 <script>
-import {mapActions, mapGetters} from 'vuex';
-import Permissions from '@/mixins/Permissions';
-import CheckMobile from '@/mixins/CheckMobile';
-import NavigationManagementMenu from '@/components/navigation/navigationBarParts/NavigationManagementMenu';
-import NavigationUserMenu from '@/components/navigation/navigationBarParts/NavigationUserMenu';
+import NavigationTitle from '@/components/navigation/partials/NavigationTitle';
+import NavigationContent from '@/components/navigation/partials/NavigationContent';
 
 export default {
-  components: {
-    NavigationUserMenu,
-    NavigationManagementMenu
+  components: {NavigationContent, NavigationTitle},
+  data() {
+    return {
+      modalShouldOpen: false
+    };
   },
-  mixins: [Permissions, CheckMobile],
   computed: {
-    ...mapGetters('auth', ['user', 'isAuth', 'permissions']),
+    routeName() {
+      return this.$route.name;
+    }
   },
-  methods: {
-    ...mapActions('auth', ['logout']),
-    isActive(group) {
-      return this.$route.meta.group === group ? 'grey' : '';
-    },
-    pushToShop(){
-      window.location = 'https://www.teamstolz.de/vereinsshop/alles-im-rudel/';
+  watch: {
+    routeName() {
+      this.modalShouldOpen = false;
     }
   }
 };
 </script>
 
-<style>
-.cursor-pointer {
-  cursor: pointer;
+<style lang="scss">
+.navigation {
+  &__app-bar {
+    z-index: 20 !important;
+  }
+
+  &__app-bar-wrapper {
+    width: 100%;
+  }
+
+  .navigation-menu {
+    &__mobile-button {
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+    }
+
+    &__mobile-button-bar {
+      background: #fff;
+      width: 100%;
+      height: 5px;
+      margin: 7px 0;
+      border-radius: 5px;
+
+      &:first-child {
+        margin-top: 3px;
+      }
+    }
+
+    &__content {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      z-index: 15;
+      background: #eee;
+    }
+  }
 }
 </style>
