@@ -8,7 +8,7 @@
       <VueAnimation type="fade-in">
         <div class="d-flex justify-center align-center">
           <img
-            src="/assets/logos/logo-slim.png"
+            src="/assets/logos/logo-grey-slim.png"
             style="width: 95%; max-width: 825px"
             alt="Alles im Rudel Wölfe"
           >
