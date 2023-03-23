@@ -68,9 +68,9 @@ export default {
           route: 'airsoft'
         },
         {
-          title: 'E-Sports',
+          title: 'Gaming',
           icon: 'fa-laptop',
-          route: 'esports'
+          route: 'gaming'
         }
       ]
     };

@@ -12,14 +12,14 @@ export default {
       linkedin: 'nick-nickels'
     }
   },
-  MARCEL_NAGL: {
-    fullName: 'Marcel Nagl',
-    image: '/assets/leading/branches/marcel.jpg',
-    text: dayjs().diff('1992-12-24', 'years') + " Jahre alt\nSpartenleiter E-Sports",
+  SILAS_BECKMANN: {
+    fullName: 'Silas Beckmann',
+    image: '/assets/leading/branches/silasGaming.png',
+    text: dayjs().diff('1998-04-20', 'years') + " Jahre alt\nSpartenleiter Gaming",
     socials: {
-      instagram: 'naglschere',
-      snapchat: 'marcel.nagl',
-      linkedin: 'marcelnagl'
+      instagram: 'silas098',
+      snapchat: 'silas098',
+      linkedin: 'silas-beckmann'
     }
   }
 };

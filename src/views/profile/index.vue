@@ -28,7 +28,7 @@
       </v-row>
       <v-alert
         border="top"
-        color="eSports"
+        color="gaming"
         dark
         class="mt-10"
       >

@@ -39,7 +39,7 @@ export default {
     showOnly:{
       required: false,
       type: Array,
-      default: () => ['general', 'airsoft', 'esports'],
+      default: () => ['general', 'airsoft', 'gaming'],
     }
   },
   computed: {
@@ -49,8 +49,8 @@ export default {
     showAirsoft(){
       return this.showOnly.includes('airsoft');
     },
-    showESports(){
-      return this.showOnly.includes('esports');
+    showGaming(){
+      return this.showOnly.includes('gaming');
     },
   }
 };

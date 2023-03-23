@@ -23,10 +23,9 @@ export default new Vuetify({
         admin: '#fccf03',
         moderator: '#8403fc',
         member: '#c6c6c6',
-        eSports: '#0362fc',
+        gaming: '#0362fc',
         airsoft: '#00a125',
         prospect: '#05ff3f',
-        gaming: '#B8B8B5',
         default: '#FF5500',
         liked: '#0362fc',
       },
@@ -46,10 +45,9 @@ export default new Vuetify({
         admin: '#fccf03',
         moderator: '#8403fc',
         member: '#c6c6c6',
-        eSports: '#0362fc',
+        gaming: '#0362fc',
         airsoft: '#00a125',
         prospect: '#05ff3f',
-        gaming: '#B8B8B5',
         default: '#FF5500'
       }
     }

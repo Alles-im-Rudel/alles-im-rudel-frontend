@@ -45,10 +45,10 @@ export default {
           text: 'Wir spielen gerne Airsoft. Und wir würden uns freuen, wenn wir dich auch dafür begeistern könnten.<br>Schau doch mal bei unserer Sparte Airsoft vorbei!'
         },
         {
-          branch: 'esports',
-          img: '/assets/home/esports.jpg',
-          title: 'E-Sports',
-          text: 'Wir zocken gerne, sowohl casual als auch kompetitiv. Und wir würden uns freuen, wenn wir dich auch dafür begeistern könnten.<br>Schau doch mal bei unserer Sparte E-Sports vorbei!'
+          branch: 'gaming',
+          img: '/assets/home/gaming.jpg',
+          title: 'Gaming',
+          text: 'Wir zocken gerne, sowohl casual als auch kompetitiv. Und wir würden uns freuen, wenn wir dich auch dafür begeistern könnten.<br>Schau doch mal bei unserer Sparte Gaming vorbei!'
         },
       ]
     };

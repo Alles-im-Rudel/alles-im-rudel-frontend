@@ -23,10 +23,10 @@ const router = new Router({
       component: () => import('../views/branches/airsoft/Airsoft')
     },
     {
-      path: '/branches/e-sports',
-      name: 'esports',
+      path: '/branches/gaming',
+      name: 'gaming',
       meta: {group: 'branch', auth: false, permission: null},
-      component: () => import('../views/branches/esports/Esports')
+      component: () => import('../views/branches/gaming/Gaming')
     },
     {
       path: '/join',
