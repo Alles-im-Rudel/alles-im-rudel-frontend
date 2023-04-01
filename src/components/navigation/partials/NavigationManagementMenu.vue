@@ -15,7 +15,9 @@
         :color="isActive('management')"
         v-on="on"
       >
-        <v-icon>fa-cog</v-icon>
+        <v-icon size="20">
+          fa-cog
+        </v-icon>
       </v-btn>
     </template>
 

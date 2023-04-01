@@ -1,23 +1,21 @@
 <template>
-  <div class="navigation-sub-buttons d-md-flex">
-    <v-divider
-      :vertical="!$vuetify.breakpoint.smAndDown"
-      class="my-4 my-md-0 mx-md-2"
-    />
-
+  <div class="d-flex align-center">
     <v-btn
       v-if="!isAuth"
+      class="mx-1"
       icon
       :color="getNavigationGroupColor('login')"
       @click="pushRouteTo('login')"
     >
-      <v-icon>
+      <v-icon size="20">
         fa-sign-in-alt
       </v-icon>
     </v-btn>
 
-    <NavigationUserMenu />
-    <NavigationManagementMenu />
+    <div class="mx-1">
+      <NavigationUserMenu />
+      <NavigationManagementMenu />
+    </div>
   </div>
 </template>
 
@@ -37,9 +35,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-.navigation-sub-buttons {
-
-}
-</style>

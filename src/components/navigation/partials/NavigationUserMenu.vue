@@ -16,7 +16,9 @@
         v-bind="attrs"
         v-on="on"
       >
-        <v-icon>fa-user</v-icon>
+        <v-icon size="20">
+          fa-user
+        </v-icon>
       </v-btn>
     </template>
 

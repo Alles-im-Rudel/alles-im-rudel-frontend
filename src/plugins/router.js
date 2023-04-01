@@ -19,13 +19,25 @@ const router = new Router({
     {
       path: '/branches/airsoft',
       name: 'airsoft',
-      meta: {group: 'branch', auth: false, permission: null},
-      component: () => import('../views/branches/airsoft/Airsoft')
+      meta: {group: 'airsoft', auth: false, permission: null},
+      component: () => import('../views/branches/airsoft/home/Airsoft')
+    },
+    {
+      path: '/branches/airsoft/players',
+      name: 'airsoftPlayers',
+      meta: {group: 'airsoft', auth: false, permission: null},
+      component: () => import('../views/branches/airsoft/players/Players')
+    },
+    {
+      path: '/branches/airsoft/guides',
+      name: 'airsoftGuides',
+      meta: {group: 'airsoft', auth: false, permission: null},
+      component: () => import('../views/branches/airsoft/guides/Guides')
     },
     {
       path: '/branches/gaming',
       name: 'gaming',
-      meta: {group: 'branch', auth: false, permission: null},
+      meta: {group: 'gaming', auth: false, permission: null},
       component: () => import('../views/branches/gaming/Gaming')
     },
     {
@@ -68,13 +80,6 @@ const router = new Router({
       meta: {group: 'profile', auth: true, permission: null},
       component: () => import('../views/sponsoring')
     },
-    /*{
-      path: '/profile/:username',
-      name: 'profile-show',
-      props: true,
-      meta: {group: 'home', auth: false, permission: null},
-      component: () => import('../views/profile/show')
-    },*/
 
     /*
      * Management
