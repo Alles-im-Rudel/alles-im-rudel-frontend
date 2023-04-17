@@ -47,7 +47,7 @@
                 </p>
                 <ul>
                   <li>
-                    10% Rabatt auf alle Reparaturen und Dienstleistungen
+                    10% Rabatt auf alle KFZ-Ersatzteile
                   </li>
                 </ul>
               </v-col>
