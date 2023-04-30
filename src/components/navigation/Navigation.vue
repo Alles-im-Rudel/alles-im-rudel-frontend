@@ -22,7 +22,7 @@
       </div>
 
       <div class="d-none d-md-block">
-        <NavigationContent />
+        <DesktopNavigation />
       </div>
     </v-app-bar>
 
@@ -30,17 +30,22 @@
       v-if="modalShouldOpen"
       class="navigation-menu__content d-block d-md-none"
     >
-      <NavigationContent />
+      <MobileNavigation />
     </div>
   </div>
 </template>
 
 <script>
 import NavigationTitle from '@/components/navigation/partials/NavigationTitle';
-import NavigationContent from '@/components/navigation/partials/NavigationContent';
+import MobileNavigation from '@/components/navigation/partials/MobileNavigation/MobileNavigation';
+import DesktopNavigation from '@/components/navigation/partials/DesktopNavigation/DesktopNavigation';
 
 export default {
-  components: {NavigationContent, NavigationTitle},
+  components: {
+    DesktopNavigation,
+    MobileNavigation,
+    NavigationTitle
+  },
   data() {
     return {
       modalShouldOpen: false
@@ -79,7 +84,7 @@ export default {
     &__mobile-button-bar {
       background: #fff;
       width: 100%;
-      height: 5px;
+      height: 4px;
       margin: 7px 0;
       border-radius: 5px;
 

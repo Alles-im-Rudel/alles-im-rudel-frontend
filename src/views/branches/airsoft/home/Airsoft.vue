@@ -78,33 +78,9 @@
         Außerdem erhältst du Zugriff auf die „Waffenkammer“ bzw. Leihausrüstung des Vereins, falls du noch keine eigene
         Ausstattung besitzt.
       </BaseParagraph>
-
-      <v-expansion-panels
-        flat
-        class="mt-14 mb-4"
-      >
-        <v-expansion-panel>
-          <v-expansion-panel-header>
-            <div>
-              <h3 class="text-h3">
-                Unser Team
-              </h3>
-            </div>
-          </v-expansion-panel-header>
-
-          <v-divider />
-
-          <v-expansion-panel-content>
-            <PlayerGallery
-              :entries="airsoftMembers"
-              class="mt-10"
-            />
-          </v-expansion-panel-content>
-        </v-expansion-panel>
-      </v-expansion-panels>
     </BaseContainer>
 
-    <BaseSectionTitle class="mt-12">
+    <BaseSectionTitle class="mt-14">
       Unsere Partner
     </BaseSectionTitle>
     <div>
@@ -114,7 +90,7 @@
       />
     </div>
 
-    <BaseSectionTitle class="mt-12">
+    <BaseSectionTitle class="mt-14">
       Galerie
     </BaseSectionTitle>
     <div>
@@ -126,11 +102,9 @@
 <script>
 import BaseBranchHeader from '@/components/base/BaseBranchHeader';
 import leaders from '@/constants/branchLeaders';
-import airsoftMembers from '@/constants/airsoftMembers';
 import links from '@/constants/links';
 import PartnerLogos from '@/components/partners/PartnerLogos';
 import ImageSlider from '@/components/ImageSlider/ImageSlider';
-import PlayerGallery from '@/components/PlayerGallery/PlayerGallery';
 
 export default {
   name: 'Airsoft',
@@ -138,7 +112,6 @@ export default {
     title: 'Alles im Rudel e.V. | Airsoft',
   },
   components: {
-    PlayerGallery,
     ImageSlider,
     PartnerLogos,
     BaseBranchHeader
@@ -147,7 +120,6 @@ export default {
     return {
       leader: leaders.NICK_NICKELS,
       airsoftUrl: links.AIRSOFT_VERZEICHNIS,
-      airsoftMembers: airsoftMembers,
       sliderImages: [
         '/assets/branches/airsoft/slider/airsoft-1.jpg',
         '/assets/branches/airsoft/slider/airsoft-2.jpg',
