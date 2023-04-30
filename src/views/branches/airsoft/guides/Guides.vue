@@ -10,5 +10,25 @@
         helfen könnten. Wenn wir alle mit kompatibler Ausrüstung ausgestattet sind, macht das Spielen am meisten Spaß!
       </BaseParagraph>
     </BaseContainer>
+
+    <v-divider />
+
+    <RadioCommunicationGuide />
+
+    <v-divider />
+
+    <RadioGuide />
   </div>
 </template>
+
+<script>
+import RadioGuide from './parts/RadioGuide.vue';
+import RadioCommunicationGuide from './parts/RadioCommunicationGuide.vue';
+
+export default {
+  components: {
+    RadioCommunicationGuide,
+    RadioGuide
+  }
+};
+</script>
