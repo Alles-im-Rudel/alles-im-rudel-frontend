@@ -5,7 +5,7 @@ import airsoftBadges from '@/constants/airsoftBadges';
 export default [
   {
     firstName: 'Nick',
-    title: 'Teamleiter | A1-1',
+    title: 'Teamleiter | W2-1',
     tag: 'NJ',
     image: '/assets/branches/airsoft/members/nick-nickels.png',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=113385',
@@ -18,26 +18,13 @@ export default [
     ]
   },
   {
-    firstName: 'Jerome',
-    title: 'stv. Teamleiter | A1-2',
-    tag: 'Maverick',
-    image: '/assets/branches/airsoft/members/jerome.jpg',
-    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=161569',
-    joinYear: 2018,
+    firstName: 'Jan',
+    title: 'stv. Teamleiter | W1-1',
+    tag: 'Jerky',
+    image: '/assets/branches/airsoft/members/jan.jpg',
+    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=100900',
+    joinYear: 2022,
     badges: []
-  },
-  {
-    firstName: 'Oliver',
-    title: 'Anwärter Betreuung',
-    tag: 'Brinick',
-    image: '/assets/branches/airsoft/members/oliver.jpg',
-    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=153898',
-    joinYear: 2018,
-    badges: [
-      airsoftBadges.DARK_EMERGENCY_10,
-      airsoftBadges.MISSION_24H,
-      airsoftBadges.OP
-    ]
   },
   {
     firstName: 'Simon',
@@ -45,15 +32,6 @@ export default [
     tag: null,
     image: '/assets/branches/airsoft/members/simon.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=151084',
-    joinYear: 2022,
-    badges: []
-  },
-  {
-    firstName: 'Jan',
-    title: 'Squadleader | W1-1',
-    tag: 'Jerky',
-    image: '/assets/branches/airsoft/members/jan.jpg',
-    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=100900',
     joinYear: 2022,
     badges: []
   },
@@ -87,6 +65,50 @@ export default [
     badges: [
       airsoftBadges.DARK_EMERGENCY_10
     ]
+  },
+  {
+    firstName: 'Leif',
+    title: 'Operator | W2-2',
+    tag: 'Blaubär',
+    image: '/assets/branches/airsoft/members/leif-blaubaer.jpg',
+    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=142265',
+    joinYear: 2018,
+    badges: [
+      airsoftBadges.DARK_EMERGENCY_10,
+      airsoftBadges.DARK_EMERGENCY_9,
+      airsoftBadges.FOUNDATION_MEMBER,
+    ]
+  },
+  {
+    firstName: 'Malte',
+    title: 'Operator | W2-3',
+    tag: null,
+    image: '/assets/branches/airsoft/members/malte.jpg',
+    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=68868',
+    joinYear: 2022,
+    badges: []
+  },
+  {
+    firstName: 'Oliver',
+    title: 'Operator',
+    tag: 'Brinick',
+    image: '/assets/branches/airsoft/members/oliver.jpg',
+    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=153898',
+    joinYear: 2018,
+    badges: [
+      airsoftBadges.DARK_EMERGENCY_10,
+      airsoftBadges.MISSION_24H,
+      airsoftBadges.OP
+    ]
+  },
+  {
+    firstName: 'Jerome',
+    title: 'Operator',
+    tag: 'Maverick',
+    image: '/assets/branches/airsoft/members/jerome.jpg',
+    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=161569',
+    joinYear: 2018,
+    badges: []
   },
   {
     firstName: 'Schahin',
@@ -201,23 +223,10 @@ export default [
     ]
   },
   {
-    firstName: 'Leif',
-    title: 'Operator',
-    tag: 'Blaubär',
-    image: '/assets/branches/airsoft/members/leif.jpg',
-    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=142265',
-    joinYear: 2018,
-    badges: [
-      airsoftBadges.DARK_EMERGENCY_10,
-      airsoftBadges.DARK_EMERGENCY_9,
-      airsoftBadges.FOUNDATION_MEMBER,
-    ]
-  },
-  {
     firstName: 'Janik',
     title: 'Operator',
     tag: null,
-    image: '/assets/branches/airsoft/members/janik.png',
+    image: '/assets/branches/airsoft/members/janik.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=143939',
     joinYear: 2020,
     badges: [
@@ -230,15 +239,6 @@ export default [
     tag: null,
     image: '/assets/branches/airsoft/members/jan-niklas.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=172653',
-    joinYear: 2022,
-    badges: []
-  },
-  {
-    firstName: 'Malte',
-    title: 'Operator',
-    tag: null,
-    image: '/assets/branches/airsoft/members/malte.jpg',
-    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=68868',
     joinYear: 2022,
     badges: []
   },
@@ -286,8 +286,8 @@ export default [
   {
     firstName: 'Niclas',
     title: 'Operator',
-    tag: null,
-    image: null,
+    tag: 'Fielmann',
+    image: '/assets/branches/airsoft/members/fielmann.jpg',
     link: null,
     joinYear: 2022,
     badges: []
@@ -302,12 +302,48 @@ export default [
     badges: []
   },
   {
+    firstName: 'Nico',
+    title: 'Operator',
+    tag: null,
+    image: null,
+    link: null,
+    joinYear: 2023,
+    badges: []
+  },
+  {
+    firstName: 'Niklas',
+    title: 'Operator',
+    tag: 'Harburg',
+    image: null,
+    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=180690',
+    joinYear: 2023,
+    badges: []
+  },
+  {
+    firstName: 'Thorben',
+    title: 'Operator',
+    tag: null,
+    image: null,
+    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=164256',
+    joinYear: 2023,
+    badges: []
+  },
+  {
     firstName: 'Philipp',
     title: 'Ehrenmitglied',
     tag: 'Krause',
     image: '/assets/branches/airsoft/members/krause.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=160857',
     joinYear: 2018,
+    badges: []
+  },
+  {
+    firstName: 'Jasmin',
+    title: 'Ehrenmitglied',
+    tag: 'XTLioness',
+    image: '/assets/branches/airsoft/members/jasmin.jpg',
+    link: null,
+    joinYear: 2023,
     badges: []
   },
 ];
