@@ -337,13 +337,4 @@ export default [
     joinYear: 2018,
     badges: []
   },
-  {
-    firstName: 'Jasmin',
-    title: 'Ehrenmitglied',
-    tag: 'XTLioness',
-    image: '/assets/branches/airsoft/members/jasmin.jpg',
-    link: null,
-    joinYear: 2023,
-    badges: []
-  },
 ];

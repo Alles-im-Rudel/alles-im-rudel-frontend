@@ -1,5 +1,5 @@
 <template>
-  <v-row class="player-gallery">
+  <v-row class="player-gallery justify-center">
     <v-col
       v-for="(entry, index) in entries"
       :key="index"
