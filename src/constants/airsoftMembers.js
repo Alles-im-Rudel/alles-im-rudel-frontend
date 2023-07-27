@@ -11,9 +11,11 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=113385',
     joinYear: 2018,
     badges: [
+      airsoftBadges.DARK_EMERGENCY_11,
       airsoftBadges.DARK_EMERGENCY_10,
       airsoftBadges.DARK_EMERGENCY_9,
       airsoftBadges.MISSION_24H,
+      airsoftBadges.OPERATION_SOURCE_LIGHTSIM,
       airsoftBadges.FOUNDATION_MEMBER,
     ]
   },
@@ -42,7 +44,9 @@ export default [
     image: '/assets/branches/airsoft/members/moritz.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=94617',
     joinYear: 2022,
-    badges: []
+    badges: [
+      airsoftBadges.DARK_EMERGENCY_11,
+    ]
   },
   {
     firstName: 'Philipp',
@@ -74,6 +78,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=142265',
     joinYear: 2018,
     badges: [
+      airsoftBadges.DARK_EMERGENCY_11,
       airsoftBadges.DARK_EMERGENCY_10,
       airsoftBadges.DARK_EMERGENCY_9,
       airsoftBadges.FOUNDATION_MEMBER,
@@ -86,7 +91,9 @@ export default [
     image: '/assets/branches/airsoft/members/malte.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=68868',
     joinYear: 2022,
-    badges: []
+    badges: [
+      airsoftBadges.OPERATION_SOURCE_LIGHTSIM,
+    ]
   },
   {
     firstName: 'Oliver',
@@ -96,6 +103,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=153898',
     joinYear: 2018,
     badges: [
+      airsoftBadges.DARK_EMERGENCY_11,
       airsoftBadges.DARK_EMERGENCY_10,
       airsoftBadges.MISSION_24H,
       airsoftBadges.OP
@@ -138,6 +146,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=173016',
     joinYear: 2022,
     badges: [
+      airsoftBadges.DARK_EMERGENCY_11,
       airsoftBadges.DARK_EMERGENCY_10,
       airsoftBadges.MISSION_24H,
       airsoftBadges.OP
@@ -147,7 +156,7 @@ export default [
     firstName: 'Nick',
     title: 'Operator',
     tag: null,
-    image: null,
+    image: '/assets/branches/airsoft/members/nick-desastermon.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=173262',
     joinYear: 2022,
     badges: []
@@ -159,7 +168,9 @@ export default [
     image: '/assets/branches/airsoft/members/eric-linau.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=173346',
     joinYear: 2022,
-    badges: []
+    badges: [
+      airsoftBadges.DARK_EMERGENCY_11,
+    ]
   },
   {
     firstName: 'Tamino',
@@ -205,6 +216,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=140892',
     joinYear: 2019,
     badges: [
+      airsoftBadges.DARK_EMERGENCY_11,
       airsoftBadges.DARK_EMERGENCY_10,
       airsoftBadges.DARK_EMERGENCY_9,
       airsoftBadges.FOUNDATION_MEMBER,
@@ -250,6 +262,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=141537',
     joinYear: 2019,
     badges: [
+      airsoftBadges.DARK_EMERGENCY_11,
       airsoftBadges.DARK_EMERGENCY_10,
       airsoftBadges.FOUNDATION_MEMBER,
     ]
@@ -261,7 +274,10 @@ export default [
     image: '/assets/branches/airsoft/members/thies.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=99801',
     joinYear: 2022,
-    badges: []
+    badges: [
+      airsoftBadges.DARK_EMERGENCY_11,
+      airsoftBadges.OPERATION_SOURCE_LIGHTSIM,
+    ]
   },
   {
     firstName: 'Stefan',
@@ -280,6 +296,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=177464',
     joinYear: 2022,
     badges: [
+      airsoftBadges.DARK_EMERGENCY_11,
       airsoftBadges.MISSION_24H
     ]
   },
@@ -290,7 +307,9 @@ export default [
     image: '/assets/branches/airsoft/members/fielmann.jpg',
     link: null,
     joinYear: 2022,
-    badges: []
+    badges: [
+      airsoftBadges.DARK_EMERGENCY_11,
+    ]
   },
   {
     firstName: 'Arne',
