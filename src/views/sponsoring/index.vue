@@ -128,19 +128,13 @@
                 </p>
                 <p>
                   Über das <a
-                    href="https://www.begadi.com/teamsponsoring/front/teamsponsoring"
+                    href="https://www.begadi.com/teamsponsoring/invitation/index/code/gTzwAqBGMQ99zO255/"
                     target="_blank"
                   >Begadi Teamsponsoring</a> dein Begadi-Konto zum Sponsoring freischalten, wozu du dich jedoch vorher einloggen musst.
                 </p>
                 <p>
-                  Danach trägst du folgende Daten unter „Mein Konto“ im Reiter „Teamsponsoring“ ein:
+                  Danach wirst du von deinem Teamleiter freigeschaltet!
                 </p>
-                <ul>
-                  <li>Name des Teams: Alles im Rudel e.V.</li>
-                  <li>Website des Teams: https://www.facebook.com/allesimrudel</li>
-                  <li>Verantwortliche Person: Nick Nickels</li>
-                  <li>Kontaktmöglichkeiten des Ansprechpartners: allesimrudel@gmail.com</li>
-                </ul>
               </v-col>
             </v-row>
           </v-expansion-panel-content>
