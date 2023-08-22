@@ -39,7 +39,7 @@ export default [
   },
   {
     firstName: 'Moritz',
-    title: 'Operator | W1-2',
+    title: 'Porter | W1-2',
     tag: 'MK',
     image: '/assets/branches/airsoft/members/moritz.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=94617',
@@ -72,7 +72,7 @@ export default [
   },
   {
     firstName: 'Leif',
-    title: 'Operator | W2-2',
+    title: 'Operator | W2-4',
     tag: 'Blaubär',
     image: '/assets/branches/airsoft/members/leif-blaubaer.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=142265',
@@ -86,7 +86,7 @@ export default [
   },
   {
     firstName: 'Malte',
-    title: 'Operator | W2-3',
+    title: 'Operator | W2-2',
     tag: null,
     image: '/assets/branches/airsoft/members/malte.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=68868',
