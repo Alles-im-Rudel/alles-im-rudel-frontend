@@ -39,8 +39,8 @@ export default [
   },
   {
     firstName: 'Moritz',
-    title: 'Porter | W1-2',
-    tag: 'MK',
+    title: 'Operator | W1-2',
+    tag: 'Porter',
     image: '/assets/branches/airsoft/members/moritz.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=94617',
     joinYear: 2022,
