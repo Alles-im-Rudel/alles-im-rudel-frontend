@@ -12,14 +12,13 @@ export default {
       linkedin: 'nick-nickels'
     }
   },
-  SILAS_BECKMANN: {
-    fullName: 'Silas Beckmann',
-    image: '/assets/leading/branches/silasGaming.png',
-    text: dayjs().diff('1998-04-20', 'years') + " Jahre alt\nSpartenleiter Gaming",
+  ELVAN_ELMAS: {
+    fullName: 'Elvan Elmas',
+    image: '/assets/leading/branches/elvanGaming.png',
+    text: dayjs().diff('1998.09.18', 'years') + " Jahre alt\nSpartenleiter Gaming",
     socials: {
-      instagram: 'silas098',
-      snapchat: 'silas098',
-      linkedin: 'silas-beckmann'
+      instagram: 'elvanelmas.98',
+      snapchat: 'd_alzenk',
     }
   }
 };

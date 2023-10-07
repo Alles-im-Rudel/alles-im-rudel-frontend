@@ -8,7 +8,6 @@ export default {
     text: dayjs().diff('1998-04-20', 'years') + ' Jahre alt',
     socials: {
       instagram: 'silas098',
-      snapchat: 'silas098',
       linkedin: 'silas-beckmann'
     }
   },

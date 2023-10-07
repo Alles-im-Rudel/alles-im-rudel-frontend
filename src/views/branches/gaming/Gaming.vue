@@ -62,7 +62,7 @@ export default {
   },
   data() {
     return {
-      leader: leaders.SILAS_BECKMANN,
+      leader: leaders.ELVAN_ELMAS,
       discordUrl: links.DISCORD
     };
   }
