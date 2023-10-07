@@ -15,7 +15,7 @@ export default {
   ELVAN_ELMAS: {
     fullName: 'Elvan Elmas',
     image: '/assets/leading/branches/elvanGaming.png',
-    text: dayjs().diff('1998.09.18', 'years') + " Jahre alt\nSpartenleiter Gaming",
+    text: dayjs().diff('1998.09.18', 'years') + " Jahre alt\nSpartenleiterin Gaming",
     socials: {
       instagram: 'elvanelmas.98',
       snapchat: 'd_alzenk',
