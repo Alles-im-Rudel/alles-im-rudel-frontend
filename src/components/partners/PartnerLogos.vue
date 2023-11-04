@@ -22,12 +22,21 @@
 
     <div
       v-if="showAirsoft"
-      class="banner bad-agency-banner mb-8"
+      class="d-sm-flex justify-center d-block"
     >
-      <img
-        src="/assets/sponsors/bad-agency/bad-agency.png"
-        alt="Bad-Agency-Banner"
-      >
+      <div class="banner bad-agency-banner mr-sm-8 mb-8 mb-sm-0 mx-auto mx-sm-0">
+        <img
+          src="/assets/sponsors/bad-agency/bad-agency.png"
+          alt="Bad-Agency-Banner"
+        >
+      </div>
+
+      <div class="banner laserpatch-banner mx-auto mx-sm-0">
+        <img
+          src="/assets/sponsors/laserpatch/laserpatch.jpg"
+          alt="Laserpatch"
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -35,21 +44,21 @@
 <script>
 export default {
   name: 'PartnerLogos',
-  props:{
-    showOnly:{
+  props: {
+    showOnly: {
       required: false,
       type: Array,
       default: () => ['general', 'airsoft', 'gaming'],
     }
   },
   computed: {
-    showGeneral(){
+    showGeneral() {
       return this.showOnly.includes('general');
     },
-    showAirsoft(){
+    showAirsoft() {
       return this.showOnly.includes('airsoft');
     },
-    showGaming(){
+    showGaming() {
       return this.showOnly.includes('gaming');
     },
   }
@@ -76,8 +85,11 @@ export default {
   }
 
   .bad-agency-banner {
-    margin: 0 auto;
     max-width: 300px;
+  }
+
+  .laserpatch-banner {
+    max-width: 265px;
   }
 }
 </style>
