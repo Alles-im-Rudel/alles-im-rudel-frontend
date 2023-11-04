@@ -49,15 +49,13 @@ export default [
     ]
   },
   {
-    firstName: 'Philipp',
+    firstName: 'Ullrich',
     title: 'Operator | W1-3',
-    tag: 'Jerry',
-    image: '/assets/branches/airsoft/members/philipp.jpg',
-    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=112370',
-    joinYear: 2018,
-    badges: [
-      airsoftBadges.FOUNDATION_MEMBER,
-    ]
+    tag: 'Ulli',
+    image: null,
+    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=190668',
+    joinYear: 2023,
+    badges: []
   },
   {
     firstName: 'Paul',
@@ -68,6 +66,28 @@ export default [
     joinYear: 2021,
     badges: [
       airsoftBadges.DARK_EMERGENCY_10
+    ]
+  },
+  {
+    firstName: 'Philipp',
+    title: 'Operator | W2-2',
+    tag: 'Jerry',
+    image: '/assets/branches/airsoft/members/philipp.jpg',
+    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=112370',
+    joinYear: 2018,
+    badges: [
+      airsoftBadges.FOUNDATION_MEMBER,
+    ]
+  },
+  {
+    firstName: 'Malte',
+    title: 'Operator | W2-3',
+    tag: null,
+    image: '/assets/branches/airsoft/members/malte.jpg',
+    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=68868',
+    joinYear: 2022,
+    badges: [
+      airsoftBadges.OPERATION_SOURCE_LIGHTSIM,
     ]
   },
   {
@@ -82,17 +102,6 @@ export default [
       airsoftBadges.DARK_EMERGENCY_10,
       airsoftBadges.DARK_EMERGENCY_9,
       airsoftBadges.FOUNDATION_MEMBER,
-    ]
-  },
-  {
-    firstName: 'Malte',
-    title: 'Operator | W2-2',
-    tag: null,
-    image: '/assets/branches/airsoft/members/malte.jpg',
-    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=68868',
-    joinYear: 2022,
-    badges: [
-      airsoftBadges.OPERATION_SOURCE_LIGHTSIM,
     ]
   },
   {
@@ -356,4 +365,40 @@ export default [
     joinYear: 2018,
     badges: []
   },
+  {
+    firstName: 'Tizio',
+    title: 'Operator',
+    tag: null,
+    image: null,
+    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=175929',
+    joinYear: 2023,
+    badges: []
+  },
+  {
+    firstName: 'Luca',
+    title: 'Operator',
+    tag: null,
+    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=187568',
+    joinYear: 2023,
+    image: null,
+    badges: []
+  },
+  {
+    firstName: 'Jan',
+    title: 'Operator',
+    tag: null,
+    image: null,
+    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=174947',
+    joinYear: 2023,
+    badges: []
+  },
+  {
+    firstName: 'Leon',
+    title: 'Operator',
+    tag: null,
+    image: null,
+    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=121666',
+    joinYear: 2023,
+    badges: []
+  }
 ];
