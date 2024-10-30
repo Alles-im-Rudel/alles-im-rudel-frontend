@@ -59,7 +59,7 @@ export default [
     firstName: 'Ullrich',
     title: 'Operator | W1-3',
     tag: 'DogByte',
-    image: null,
+    image: '/assets/branches/airsoft/members/dogbyte.png',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=190668',
     joinYear: 2023,
     badges: [
