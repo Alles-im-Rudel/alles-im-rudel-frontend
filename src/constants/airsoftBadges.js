@@ -1,4 +1,8 @@
 export default {
+  DARK_EMERGENCY_12: {
+    image: '/assets/branches/airsoft/badges/dark-emergency-12.png',
+    name: 'Dark Emergency 12'
+  },
   DARK_EMERGENCY_11: {
     image: '/assets/branches/airsoft/badges/dark-emergency-11.png',
     name: 'Dark Emergency 11'
@@ -14,6 +18,10 @@ export default {
   OPERATION_SOURCE_LIGHTSIM: {
     image: '/assets/branches/airsoft/badges/operation-source-lightsim.png',
     name: 'Operation Source LightSim'
+  },
+  OPERATION_RISENFALL_LIGHTSIM: {
+    image: '/assets/branches/airsoft/badges/operation-source-lightsim.png',
+    name: 'Operation Risen Fall - LightSim'
   },
   FOUNDATION_MEMBER: {
     image: '/assets/branches/airsoft/badges/foundation-member.png',
