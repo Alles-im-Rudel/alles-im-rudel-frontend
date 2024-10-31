@@ -11,6 +11,8 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=113385',
     joinYear: 2018,
     badges: [
+      airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
+      airsoftBadges.DARK_EMERGENCY_12,
       airsoftBadges.DARK_EMERGENCY_11,
       airsoftBadges.DARK_EMERGENCY_10,
       airsoftBadges.DARK_EMERGENCY_9,
@@ -26,7 +28,10 @@ export default [
     image: '/assets/branches/airsoft/members/jan.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=100900',
     joinYear: 2022,
-    badges: []
+    badges: [
+      airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
+      airsoftBadges.DARK_EMERGENCY_12,
+    ]
   },
   {
     firstName: 'Simon',
@@ -45,17 +50,22 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=94617',
     joinYear: 2022,
     badges: [
+      airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
+      airsoftBadges.DARK_EMERGENCY_12,
       airsoftBadges.DARK_EMERGENCY_11,
     ]
   },
   {
     firstName: 'Ullrich',
     title: 'Operator | W1-3',
-    tag: 'Ulli',
-    image: null,
+    tag: 'DogByte',
+    image: '/assets/branches/airsoft/members/dogbyte.png',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=190668',
     joinYear: 2023,
-    badges: []
+    badges: [
+      airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
+      airsoftBadges.DARK_EMERGENCY_12,
+    ]
   },
   {
     firstName: 'Paul',
@@ -65,6 +75,8 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=158334',
     joinYear: 2021,
     badges: [
+      airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
+      airsoftBadges.DARK_EMERGENCY_12,
       airsoftBadges.DARK_EMERGENCY_10
     ]
   },
@@ -87,6 +99,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=68868',
     joinYear: 2022,
     badges: [
+      airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
       airsoftBadges.OPERATION_SOURCE_LIGHTSIM,
     ]
   },
@@ -98,6 +111,8 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=142265',
     joinYear: 2018,
     badges: [
+      airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
+      airsoftBadges.DARK_EMERGENCY_12,
       airsoftBadges.DARK_EMERGENCY_11,
       airsoftBadges.DARK_EMERGENCY_10,
       airsoftBadges.DARK_EMERGENCY_9,
@@ -125,7 +140,9 @@ export default [
     image: '/assets/branches/airsoft/members/jerome.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=161569',
     joinYear: 2018,
-    badges: []
+    badges: [
+      airsoftBadges.DARK_EMERGENCY_12,
+    ]
   },
   {
     firstName: 'Schahin',
@@ -400,5 +417,34 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=121666',
     joinYear: 2023,
     badges: []
+  },
+  {
+    firstName: 'Benjamin',
+    title: 'Operator',
+    tag: 'Rhino',
+    image: null,
+    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=203287',
+    joinYear: 2024,
+    badges: []
+  },
+  {
+    firstName: 'Michael',
+    title: 'Operator',
+    tag: 'Hardstyle',
+    image: null,
+    link: null,
+    joinYear: 2024,
+    badges: [
+      airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
+    ]
+  },
+  {
+    firstName: 'Fabio',
+    title:'Operator',
+    tag:'SadBoy',
+    image: null,
+    link: null,
+    joinYear: 2024,
+    badges:[]
   }
 ];
