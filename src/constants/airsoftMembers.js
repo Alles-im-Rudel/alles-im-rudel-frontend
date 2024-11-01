@@ -278,7 +278,9 @@ export default [
     image: '/assets/branches/airsoft/members/jan-niklas.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=172653',
     joinYear: 2022,
-    badges: []
+    badges: [
+      airsoftBadges.DARK_EMERGENCY_12,
+    ]
   },
   {
     firstName: 'Willi',
@@ -362,7 +364,9 @@ export default [
     image: null,
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=164256',
     joinYear: 2023,
-    badges: []
+    badges: [
+      airsoftBadges.DARK_EMERGENCY_12,
+    ]
   },
   {
     firstName: 'Tizio',
@@ -413,7 +417,7 @@ export default [
     firstName: 'Michael',
     title: 'Operator',
     tag: 'Hardstyle',
-    image: '/assets/branches/airsoft/members/michael.jpg',
+    image: '/assets/branches/airsoft/members/michael.png',
     link: null,
     joinYear: 2024,
     badges: [
