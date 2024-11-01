@@ -431,7 +431,7 @@ export default [
     firstName: 'Michael',
     title: 'Operator',
     tag: 'Hardstyle',
-    image: null,
+    image: '/assets/branches/airsoft/members/michael.jpg',
     link: null,
     joinYear: 2024,
     badges: [
