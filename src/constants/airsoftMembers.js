@@ -435,7 +435,7 @@ export default [
   },
   {
     firstName: 'Christopher',
-    lastName: 'Operator | P1-3',
+    title: 'Operator | P1-3',
     tag: 'Bird',
     image: null,
     link: null,
@@ -445,7 +445,7 @@ export default [
   },
   {
     firstName: 'Niklas',
-    lastName: 'Operator',
+    title: 'Operator',
     tag: '',
     image: null,
     link: null,
@@ -453,7 +453,7 @@ export default [
   },
   {
     firstName: 'Niklas',
-    lastName: 'Operator',
+    title: 'Operator',
     tag: '',
     image: null,
     link: null,
@@ -461,7 +461,7 @@ export default [
   },
   {
     firstName: 'Philipp',
-    lastName: 'Operator',
+    title: 'Operator',
     tag: '',
     image: null,
     link: null,
@@ -469,7 +469,7 @@ export default [
   },
   {
     firstName: 'Philip',
-    lastName: 'Operator',
+    title: 'Operator',
     tag: '',
     image: null,
     link: null,
@@ -477,7 +477,7 @@ export default [
   },
   {
     firstName: 'Jonas',
-    lastName: 'Operator',
+    title: 'Operator',
     tag: '',
     image: null,
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=175928',
@@ -485,7 +485,7 @@ export default [
   },
   {
     firstName: 'Manuel',
-    lastName: 'Operator',
+    title: 'Operator',
     tag: '',
     image: null,
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=175928',
