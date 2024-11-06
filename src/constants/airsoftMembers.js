@@ -432,5 +432,63 @@ export default [
     link: null,
     joinYear: 2024,
     badges:[]
+  },
+  {
+    firstName: 'Christopher',
+    title: 'Operator | P1-3',
+    tag: 'Bird',
+    image: null,
+    link: null,
+    badges: [
+      airsoftBadges.DARK_EMERGENCY_12,
+    ]
+  },
+  {
+    firstName: 'Niklas',
+    title: 'Operator',
+    tag: '',
+    image: null,
+    link: null,
+    badges: []
+  },
+  {
+    firstName: 'Niklas',
+    title: 'Operator',
+    tag: '',
+    image: null,
+    link: null,
+    badges: []
+  },
+  {
+    firstName: 'Philipp',
+    title: 'Operator',
+    tag: '',
+    image: null,
+    link: null,
+    badges: []
+  },
+  {
+    firstName: 'Philip',
+    title: 'Operator',
+    tag: '',
+    image: null,
+    link: null,
+    badges: []
+  },
+  {
+    firstName: 'Jonas',
+    title: 'Operator',
+    tag: '',
+    image: null,
+    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=175928',
+    badges: []
+  },
+  {
+    firstName: 'Manuel',
+    title: 'Operator',
+    tag: '',
+    image: null,
+    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=175928',
+    badges: []
   }
 ];
