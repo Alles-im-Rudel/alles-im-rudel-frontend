@@ -70,7 +70,7 @@ export default [
   {
     firstName: 'Paul',
     title: 'Operator | W1-4',
-    tag: null,
+    tag: 'Aqua',
     image: '/assets/branches/airsoft/members/paul.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=158334',
     joinYear: 2021,
