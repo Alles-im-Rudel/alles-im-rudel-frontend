@@ -1,9 +1,5 @@
 export default [
   {
-    name: 'Shop',
-    href: 'https://www.teamstolz.de/vereinsshop/alles-im-rudel/'
-  },
-  {
     name: 'Airsoft',
     children: [
       {
