@@ -17,17 +17,14 @@
             Moin!
           </h2>
           <BaseParagraph class="mt-6 mt-sm-8">
-            Wir sind ein Team aus Gamern, das sich an allen möglichen Spielen versucht, wobei der Spaß immer an
-            erster Stelle steht. Dabei sind wir stets auf der Suche nach weiteren Spielern, die sowohl freundlich als
-            auch gesellig sind.<br><br>
-            Aktuell spielt die Mehrheit von uns vor allem Age of Empires, aber auch Spiele wie Minecraft, League of
-            Legends oder Hearts of Iron sind bei uns vertreten.<br><br>
-            Selbstverständlich ist aber auch jeder, der einfach nur so in seiner Freizeit ein wenig zocken möchte und
-            auf der Suche nach einem freundlichen Team ist, bei uns herzlich willkommen! Um noch mehr über uns zu
-            erfahren oder uns persönlich kennenzulernen, tretet gerne einfach unserem <a
+          Auch unter der ziemlich jungen Gamingsparte finden sich ein paar coole Leute, die sich aktuell hauptsächlich in den Welten von Rocket League und League of Legends austobten, jedoch würden nicht vor anderen Games zurückschrecken. Bei uns steht der Spaß immer an erster Stelle, egal ob wir entspannt zocken oder uns in der kompetitiven Szene beweisen wollen. Wir suchen immer nach neuen Mitspielern, die nicht nur freundlich, sondern auch super gesellig sind. 
+Natürlich sind aber auch alle herzlich willkommen, die einfach nur in ihrer Freizeit ein bisschen zocken wollen und auf der Suche nach coolen Mates sind. Wenn ihr mehr über uns erfahren oder uns persönlich kennenlernen wollt, dann schaut doch einfach mal auf unserem Discord-Server vorbei. Lasst uns gemeinsam die Gaming-Welt rocken!
+Was erwartet dich in der Gamingsparte?
+
+            Die Gamingsparte ist noch ziemlich jung und im Aufbau. Daher sind wir aktiv auf der Suche nach Leuten, die Interesse haben im Rahmen eines E-Sport Teams für Alles im Rudel kompetitiv solo oder im Team je nach Game zu beweisen. Ebenfalls finden gelegentlich diverse Events intern statt wie z.B. die  "Game Nights" für einen entspannten Abend gemeinsam auf <a
               :href="discordUrl"
               target="_blank"
-            >Discord-Server</a> bei.
+            >Discord</a> oder mehr kompetitive Events wie den "Alles im Rudel Beta Cup", in dieser sich die Vereinsmitglieder untereinander in League of Legends duellierten. Auch steht ein Projekt im Bereich Pen & Paper in Planung
           </BaseParagraph>
         </v-col>
 

@@ -142,7 +142,7 @@
         </v-expansion-panel>
       </v-expansion-panels>
 
-      <v-expansion-panels class="mt-6">
+      <v-expansion-panels class="mt-6" disabled>
         <v-expansion-panel>
           <v-expansion-panel-header>
             <v-row class="expansion-panel-logo-container">
