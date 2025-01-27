@@ -39,7 +39,7 @@
 
             <RadioGuideLine
               title="Midland G9 Pro"
-              text="Wenig Reichweite / längere Akkulaufzei"
+              text="Wenig Reichweite / längere Akkulaufzet"
             />
           </v-col>
         </v-row>
@@ -81,7 +81,7 @@
 
             <RadioGuideLine
               title="Midland G9 Pro"
-              text="Wenig Reichweite / längere Akkulaufzei"
+              text="Wenig Reichweite / längere Akkulaufzet"
             />
           </v-col>
 
