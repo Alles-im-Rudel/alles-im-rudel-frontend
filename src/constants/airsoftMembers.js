@@ -25,7 +25,7 @@ export default [
     firstName: 'Jan',
     title: 'stv. Teamleiter | W1-1',
     tag: 'Jerky',
-    image: '/assets/branches/airsoft/members/jan.jpg',
+    image: '/assets/branches/airsoft/members/jerky.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=100900',
     joinYear: 2022,
     badges: [
@@ -57,7 +57,7 @@ export default [
   },
   {
     firstName: 'Ullrich',
-    title: 'Operator | W1-3',
+    title: 'Operator',
     tag: 'DogByte',
     image: '/assets/branches/airsoft/members/dogbyte.png',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=190668',
@@ -273,7 +273,7 @@ export default [
   },
   {
     firstName: 'Jan-Niklas',
-    title: 'Operator | P1-2',
+    title: 'Operator | P1-3',
     tag: null,
     image: '/assets/branches/airsoft/members/jan-niklas.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=172653',
@@ -359,7 +359,7 @@ export default [
   },
   {
     firstName: 'Thorben',
-    title: 'Operator',
+    title: 'Operator | P1-4',
     tag: null,
     image: null,
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=164256',
@@ -435,9 +435,9 @@ export default [
   },
   {
     firstName: 'Christopher',
-    title: 'Operator | P1-3',
+    title: 'Operator | P1-2',
     tag: 'Bird',
-    image: null,
+    image: '/assets/branches/airsoft/members/christopher.jpg',
     link: null,
     badges: [
       airsoftBadges.DARK_EMERGENCY_12,
@@ -479,7 +479,7 @@ export default [
     firstName: 'Jonas',
     title: 'Operator',
     tag: '',
-    image: null,
+    image: '/assets/branches/airsoft/members/jonas.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=175928',
     badges: []
   },
