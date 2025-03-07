@@ -25,7 +25,7 @@ export default [
     firstName: 'Jan',
     title: 'stv. Teamleiter | W1-1',
     tag: 'Jerky',
-    image: '/assets/branches/airsoft/members/jerky.png',
+    image: '/assets/branches/airsoft/members/jerky.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=100900',
     joinYear: 2022,
     badges: [
