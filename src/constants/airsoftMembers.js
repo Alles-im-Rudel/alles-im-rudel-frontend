@@ -332,6 +332,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=177464',
     joinYear: 2022,
     badges: [
+      airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.DARK_EMERGENCY_11,
       airsoftBadges.MISSION_24H
     ]
@@ -403,7 +404,9 @@ export default [
     image: null,
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=174947',
     joinYear: 2023,
-    badges: []
+    badges: [
+      airsoftBadges.DARK_EMERGENCY_13
+    ]
   },
   {
     firstName: 'Leon',
@@ -412,7 +415,9 @@ export default [
     image: null,
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=121666',
     joinYear: 2023,
-    badges: []
+    badges: [
+      airsoftBadges.DARK_EMERGENCY_13
+    ]
   },
   {
     firstName: 'Benjamin',
@@ -493,7 +498,9 @@ export default [
     tag: '',
     image: '/assets/branches/airsoft/members/jonas.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=175928',
-    badges: []
+    badges: [
+      airsoftBadges.DARK_EMERGENCY_13
+    ]
   },
   {
     firstName: 'Manuel',
