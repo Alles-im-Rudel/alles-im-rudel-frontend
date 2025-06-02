@@ -1,4 +1,8 @@
 export default {
+  DARK_EMERGENCY_13: {
+    image: '/assets/branches/airsoft/badges/dark-emergency-13.png',
+    name: 'Dark Emergency 13'
+  },
   DARK_EMERGENCY_12: {
     image: '/assets/branches/airsoft/badges/dark-emergency-12.png',
     name: 'Dark Emergency 12'

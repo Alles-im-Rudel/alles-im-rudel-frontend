@@ -11,6 +11,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=113385',
     joinYear: 2018,
     badges: [
+      airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
       airsoftBadges.DARK_EMERGENCY_12,
       airsoftBadges.DARK_EMERGENCY_11,
@@ -29,6 +30,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=100900',
     joinYear: 2022,
     badges: [
+      airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
       airsoftBadges.DARK_EMERGENCY_12,
     ]
@@ -50,19 +52,21 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=94617',
     joinYear: 2022,
     badges: [
+      airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
       airsoftBadges.DARK_EMERGENCY_12,
       airsoftBadges.DARK_EMERGENCY_11,
     ]
   },
   {
-    firstName: 'Ullrich',
+    firstName: 'Ulli',
     title: 'Operator',
     tag: 'DogByte',
     image: '/assets/branches/airsoft/members/dogbyte.png',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=190668',
     joinYear: 2023,
     badges: [
+      airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
       airsoftBadges.DARK_EMERGENCY_12,
     ]
@@ -75,6 +79,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=158334',
     joinYear: 2021,
     badges: [
+      airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
       airsoftBadges.DARK_EMERGENCY_12,
       airsoftBadges.DARK_EMERGENCY_10
@@ -111,6 +116,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=142265',
     joinYear: 2018,
     badges: [
+      airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
       airsoftBadges.DARK_EMERGENCY_12,
       airsoftBadges.DARK_EMERGENCY_11,
@@ -127,6 +133,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=153898',
     joinYear: 2018,
     badges: [
+      airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.DARK_EMERGENCY_11,
       airsoftBadges.DARK_EMERGENCY_10,
       airsoftBadges.MISSION_24H,
@@ -161,6 +168,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=156296',
     joinYear: 2022,
     badges: [
+      airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.DARK_EMERGENCY_10
     ]
   },
@@ -375,7 +383,9 @@ export default [
     image: null,
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=175929',
     joinYear: 2023,
-    badges: []
+    badges: [
+      airsoftBadges.DARK_EMERGENCY_13
+    ]
   },
   {
     firstName: 'Luca',
@@ -421,7 +431,8 @@ export default [
     link: null,
     joinYear: 2024,
     badges: [
-      airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
+      airsoftBadges.DARK_EMERGENCY_13,
+      airsoftBadges.OPERATION_RISENFALL_LIGHTSIM
     ]
   },
   {
@@ -440,7 +451,8 @@ export default [
     image: '/assets/branches/airsoft/members/christopher.jpg',
     link: null,
     badges: [
-      airsoftBadges.DARK_EMERGENCY_12,
+      airsoftBadges.DARK_EMERGENCY_13,
+      airsoftBadges.DARK_EMERGENCY_12
     ]
   },
   {
