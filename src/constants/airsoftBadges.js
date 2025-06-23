@@ -35,6 +35,10 @@ export default {
     image: '/assets/branches/airsoft/badges/mission-24h.png',
     name: 'Mission 24H'
   },
+  MISSION_24H_2025: {
+    image: '/assets/branches/airsoft/badges/mission-24h_2025.png',
+    name: 'Mission 24H - 2025'
+  },
   OP: {
     image: '/assets/branches/airsoft/badges/op.png',
     name: 'OP'

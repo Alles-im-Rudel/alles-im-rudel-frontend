@@ -52,6 +52,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=94617',
     joinYear: 2022,
     badges: [
+      airsoftBadges.MISSION_24H_2025,
       airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
       airsoftBadges.DARK_EMERGENCY_12,
@@ -66,6 +67,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=190668',
     joinYear: 2023,
     badges: [
+      airsoftBadges.MISSION_24H_2025,
       airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
       airsoftBadges.DARK_EMERGENCY_12,
@@ -168,6 +170,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=156296',
     joinYear: 2022,
     badges: [
+      airsoftBadges.MISSION_24H_2025,
       airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.DARK_EMERGENCY_10
     ]
@@ -436,6 +439,7 @@ export default [
     link: null,
     joinYear: 2024,
     badges: [
+      airsoftBadges.MISSION_24H_2025,
       airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.OPERATION_RISENFALL_LIGHTSIM
     ]
@@ -478,6 +482,7 @@ export default [
     link: null,
     joinYear: 2024,
     badges: [
+      airsoftBadges.MISSION_24H_2025,
       airsoftBadges.OPERATION_RISENFALL_LIGHTSIM
     ]
   },
