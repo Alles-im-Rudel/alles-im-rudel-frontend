@@ -15,7 +15,7 @@ export default [
         route: 'airsoftGuides',
       },
       {
-        name: 'Spielfeld',
+        name: 'Spielfeld: MudTrack',
         external: 'https://mudtrack.allesimrudel.de/'
       }
     ]
