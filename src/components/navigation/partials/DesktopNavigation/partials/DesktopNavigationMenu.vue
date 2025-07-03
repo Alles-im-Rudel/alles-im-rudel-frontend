@@ -28,9 +28,22 @@
         v-for="(child, index) in item.children"
         :key="index"
         link
-        @click="pushRouteTo(child.route)"
+        @click="child.route ? pushRouteTo(child.route) : null"
       >
-        {{ child.name }}
+        <template v-if="child.external">
+          <a
+            :href="child.external"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="v-list-item__content"
+            style="text-decoration: none; color: inherit; width: 100%; display: block;"
+          >
+            {{ child.name }}
+          </a>
+        </template>
+        <template v-else>
+          {{ child.name }}
+        </template>
       </v-list-item>
     </v-list>
   </v-menu>
