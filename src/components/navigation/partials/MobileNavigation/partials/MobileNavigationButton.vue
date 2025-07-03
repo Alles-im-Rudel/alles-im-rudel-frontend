@@ -4,8 +4,6 @@
       v-if="item.href"
       :class="classes"
       :href="item.href"
-      target="_blank"
-      rel="noopener noreferrer"
     >
       <span class="mobile-navigation-button__name">
         {{ item.name }}
