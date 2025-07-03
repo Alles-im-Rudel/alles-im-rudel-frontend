@@ -16,7 +16,8 @@ export default [
       },
       {
         name: 'Spielfeld: MudTrack',
-        href: 'https://mudtrack.allesimrudel.de/'
+        href: 'https://mudtrack.allesimrudel.de/',
+        external: 'https://mudtrack.allesimrudel.de/',
       }
     ]
   },
