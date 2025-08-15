@@ -4,13 +4,14 @@ import airsoftBadges from '@/constants/airsoftBadges';
 
 export default [
   {
-    firstName: 'Nick',
+    firstName: 'Nick N.',
     title: 'Teamleiter | W2-1',
     tag: 'NJ',
     image: '/assets/branches/airsoft/members/nick-nickels.png',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=113385',
     joinYear: 2018,
     badges: [
+      airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
       airsoftBadges.DARK_EMERGENCY_12,
       airsoftBadges.DARK_EMERGENCY_11,
@@ -22,19 +23,20 @@ export default [
     ]
   },
   {
-    firstName: 'Jan',
+    firstName: 'Jan A.',
     title: 'stv. Teamleiter | W1-1',
     tag: 'Jerky',
-    image: '/assets/branches/airsoft/members/jan.jpg',
+    image: '/assets/branches/airsoft/members/jerky.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=100900',
     joinYear: 2022,
     badges: [
+      airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
       airsoftBadges.DARK_EMERGENCY_12,
     ]
   },
   {
-    firstName: 'Simon',
+    firstName: 'Simon B.',
     title: 'U18 Betreuer',
     tag: null,
     image: '/assets/branches/airsoft/members/simon.jpg',
@@ -43,45 +45,50 @@ export default [
     badges: []
   },
   {
-    firstName: 'Moritz',
+    firstName: 'Moritz K.',
     title: 'Operator | W1-2',
     tag: 'Porter',
     image: '/assets/branches/airsoft/members/moritz.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=94617',
     joinYear: 2022,
     badges: [
+      airsoftBadges.MISSION_24H_2025,
+      airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
       airsoftBadges.DARK_EMERGENCY_12,
       airsoftBadges.DARK_EMERGENCY_11,
     ]
   },
   {
-    firstName: 'Ullrich',
-    title: 'Operator | W1-3',
+    firstName: 'Ulli W.',
+    title: 'Spielfeldbeauftragter',
     tag: 'DogByte',
     image: '/assets/branches/airsoft/members/dogbyte.png',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=190668',
     joinYear: 2023,
     badges: [
+      airsoftBadges.MISSION_24H_2025,
+      airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
       airsoftBadges.DARK_EMERGENCY_12,
     ]
   },
   {
-    firstName: 'Paul',
+    firstName: 'Paul K.',
     title: 'Operator | W1-4',
-    tag: null,
+    tag: 'Aqua',
     image: '/assets/branches/airsoft/members/paul.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=158334',
     joinYear: 2021,
     badges: [
+      airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
       airsoftBadges.DARK_EMERGENCY_12,
       airsoftBadges.DARK_EMERGENCY_10
     ]
   },
   {
-    firstName: 'Philipp',
+    firstName: 'Philipp G.',
     title: 'Operator | W2-2',
     tag: 'Jerry',
     image: '/assets/branches/airsoft/members/philipp.jpg',
@@ -92,7 +99,7 @@ export default [
     ]
   },
   {
-    firstName: 'Malte',
+    firstName: 'Malte S.',
     title: 'Operator | W2-3',
     tag: null,
     image: '/assets/branches/airsoft/members/malte.jpg',
@@ -104,13 +111,14 @@ export default [
     ]
   },
   {
-    firstName: 'Leif',
+    firstName: 'Leif L.',
     title: 'Operator | W2-4',
     tag: 'Blaubär',
     image: '/assets/branches/airsoft/members/leif-blaubaer.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=142265',
     joinYear: 2018,
     badges: [
+      airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
       airsoftBadges.DARK_EMERGENCY_12,
       airsoftBadges.DARK_EMERGENCY_11,
@@ -120,13 +128,14 @@ export default [
     ]
   },
   {
-    firstName: 'Oliver',
+    firstName: 'Oliver W.',
     title: 'Operator',
     tag: 'Brinick',
     image: '/assets/branches/airsoft/members/oliver.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=153898',
     joinYear: 2018,
     badges: [
+      airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.DARK_EMERGENCY_11,
       airsoftBadges.DARK_EMERGENCY_10,
       airsoftBadges.MISSION_24H,
@@ -134,8 +143,8 @@ export default [
     ]
   },
   {
-    firstName: 'Jerome',
-    title: 'Operator',
+    firstName: 'Jerome G.',
+    title: 'Operator | P1-1',
     tag: 'Maverick',
     image: '/assets/branches/airsoft/members/jerome.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=161569',
@@ -145,7 +154,7 @@ export default [
     ]
   },
   {
-    firstName: 'Schahin',
+    firstName: 'Schahin A.',
     title: 'Operator',
     tag: null,
     image: '/assets/branches/airsoft/members/schahin.jpg',
@@ -154,18 +163,20 @@ export default [
     badges: []
   },
   {
-    firstName: 'Tim',
+    firstName: 'Tim M.',
     title: 'Operator',
     tag: null,
     image: '/assets/branches/airsoft/members/tim-maetzig.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=156296',
     joinYear: 2022,
     badges: [
+      airsoftBadges.MISSION_24H_2025,
+      airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.DARK_EMERGENCY_10
     ]
   },
   {
-    firstName: 'Sercan',
+    firstName: 'Sercan C.',
     title: 'Operator',
     tag: 'Doc',
     image: '/assets/branches/airsoft/members/sercan.jpg',
@@ -179,7 +190,7 @@ export default [
     ]
   },
   {
-    firstName: 'Nick',
+    firstName: 'Nick P.',
     title: 'Operator',
     tag: null,
     image: '/assets/branches/airsoft/members/nick-desastermon.jpg',
@@ -188,7 +199,7 @@ export default [
     badges: []
   },
   {
-    firstName: 'Eric',
+    firstName: 'Eric L.',
     title: 'Operator',
     tag: null,
     image: '/assets/branches/airsoft/members/eric-linau.jpg',
@@ -199,7 +210,7 @@ export default [
     ]
   },
   {
-    firstName: 'Tamino',
+    firstName: 'Tamino L.',
     title: 'Operator',
     tag: null,
     image: '/assets/branches/airsoft/members/tamino.png',
@@ -208,7 +219,7 @@ export default [
     badges: []
   },
   {
-    firstName: 'Niklas',
+    firstName: 'Niklas S.',
     title: 'Operator',
     tag: null,
     image: null,
@@ -217,7 +228,7 @@ export default [
     badges: []
   },
   {
-    firstName: 'Björn',
+    firstName: 'Björn T.',
     title: 'Operator',
     tag: null,
     image: null,
@@ -226,7 +237,7 @@ export default [
     badges: []
   },
   {
-    firstName: 'Marten',
+    firstName: 'Marten W.',
     title: 'Operator',
     tag: null,
     image: null,
@@ -235,7 +246,7 @@ export default [
     badges: []
   },
   {
-    firstName: 'Richard',
+    firstName: 'Richard S.',
     title: 'Operator',
     tag: null,
     image: '/assets/branches/airsoft/members/richard.jpg',
@@ -249,7 +260,7 @@ export default [
     ]
   },
   {
-    firstName: 'Garvin',
+    firstName: 'Garvin H.',
     title: 'Operator',
     tag: 'Winny',
     image: '/assets/branches/airsoft/members/garvin.jpg',
@@ -261,7 +272,7 @@ export default [
     ]
   },
   {
-    firstName: 'Janik',
+    firstName: 'Janik B.',
     title: 'Operator',
     tag: null,
     image: '/assets/branches/airsoft/members/janik.jpg',
@@ -272,16 +283,18 @@ export default [
     ]
   },
   {
-    firstName: 'Jan-Niklas',
-    title: 'Operator',
+    firstName: 'Jan-Niklas R.',
+    title: 'Operator | P1-3',
     tag: null,
     image: '/assets/branches/airsoft/members/jan-niklas.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=172653',
     joinYear: 2022,
-    badges: []
+    badges: [
+      airsoftBadges.DARK_EMERGENCY_12,
+    ]
   },
   {
-    firstName: 'Willi',
+    firstName: 'Willi H.',
     title: 'Operator',
     tag: null,
     image: null,
@@ -294,7 +307,7 @@ export default [
     ]
   },
   {
-    firstName: 'Thies',
+    firstName: 'Thies G.',
     title: 'Operator',
     tag: null,
     image: '/assets/branches/airsoft/members/thies.jpg',
@@ -306,7 +319,7 @@ export default [
     ]
   },
   {
-    firstName: 'Stefan',
+    firstName: 'Stefan B.',
     title: 'Operator',
     tag: null,
     image: '/assets/branches/airsoft/members/stefan.jpg',
@@ -315,19 +328,20 @@ export default [
     badges: []
   },
   {
-    firstName: 'Leon',
+    firstName: 'Leon G.',
     title: 'Operator',
     tag: null,
     image: '/assets/branches/airsoft/members/leon.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=177464',
     joinYear: 2022,
     badges: [
+      airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.DARK_EMERGENCY_11,
       airsoftBadges.MISSION_24H
     ]
   },
   {
-    firstName: 'Niclas',
+    firstName: 'Niclas N.',
     title: 'Operator',
     tag: 'Fielmann',
     image: '/assets/branches/airsoft/members/fielmann.jpg',
@@ -338,16 +352,7 @@ export default [
     ]
   },
   {
-    firstName: 'Arne',
-    title: 'Operator',
-    tag: null,
-    image: null,
-    link: null,
-    joinYear: 2022,
-    badges: []
-  },
-  {
-    firstName: 'Nico',
+    firstName: 'Nico D.',
     title: 'Operator',
     tag: null,
     image: null,
@@ -356,7 +361,7 @@ export default [
     badges: []
   },
   {
-    firstName: 'Niklas',
+    firstName: 'Niklas H.',
     title: 'Operator',
     tag: 'Harburg',
     image: null,
@@ -365,34 +370,29 @@ export default [
     badges: []
   },
   {
-    firstName: 'Thorben',
-    title: 'Operator',
+    firstName: 'Thorben S.',
+    title: 'Operator | P1-4',
     tag: null,
     image: null,
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=164256',
     joinYear: 2023,
-    badges: []
+    badges: [
+      airsoftBadges.DARK_EMERGENCY_12,
+    ]
   },
   {
-    firstName: 'Philipp',
-    title: 'Ehrenmitglied',
-    tag: 'Krause',
-    image: '/assets/branches/airsoft/members/krause.jpg',
-    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=160857',
-    joinYear: 2018,
-    badges: []
-  },
-  {
-    firstName: 'Tizio',
+    firstName: 'Tizio C.',
     title: 'Operator',
     tag: null,
-    image: null,
+    image: '/assets/branches/airsoft/members/tizio.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=175929',
     joinYear: 2023,
-    badges: []
+    badges: [
+      airsoftBadges.DARK_EMERGENCY_13
+    ]
   },
   {
-    firstName: 'Luca',
+    firstName: 'Luca S.',
     title: 'Operator',
     tag: null,
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=187568',
@@ -401,25 +401,29 @@ export default [
     badges: []
   },
   {
-    firstName: 'Jan',
+    firstName: 'Jan L.',
     title: 'Operator',
     tag: null,
     image: null,
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=174947',
     joinYear: 2023,
-    badges: []
+    badges: [
+      airsoftBadges.DARK_EMERGENCY_13
+    ]
   },
   {
-    firstName: 'Leon',
+    firstName: 'Leon V.',
     title: 'Operator',
     tag: null,
     image: null,
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=121666',
     joinYear: 2023,
-    badges: []
+    badges: [
+      airsoftBadges.DARK_EMERGENCY_13
+    ]
   },
   {
-    firstName: 'Benjamin',
+    firstName: 'Benjamin G.',
     title: 'Operator',
     tag: 'Rhino',
     image: null,
@@ -428,23 +432,165 @@ export default [
     badges: []
   },
   {
-    firstName: 'Michael',
-    title: 'Operator',
+    firstName: 'Michael K.',
+    title: 'Stellv. Spielfeldbeauftragter',
     tag: 'Hardstyle',
-    image: null,
+    image: '/assets/branches/airsoft/members/michael.png',
     link: null,
     joinYear: 2024,
     badges: [
-      airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
+      airsoftBadges.MISSION_24H_2025,
+      airsoftBadges.DARK_EMERGENCY_13,
+      airsoftBadges.OPERATION_RISENFALL_LIGHTSIM
     ]
   },
   {
-    firstName: 'Fabio',
+    firstName: 'Fabio M.',
     title:'Operator',
     tag:'SadBoy',
     image: null,
     link: null,
     joinYear: 2024,
     badges:[]
+  },
+  {
+    firstName: 'Christopher V.',
+    title: 'Social Media | P1-2',
+    tag: 'Bird',
+    image: '/assets/branches/airsoft/members/christopher.jpg',
+    link: null,
+    joinYear: 2024,
+    badges: [
+      airsoftBadges.DARK_EMERGENCY_13,
+      airsoftBadges.DARK_EMERGENCY_12
+    ]
+  },
+  {
+    firstName: 'Niklas R.',
+    title: 'Operator',
+    tag: 'Student',
+    image: null,
+    link: null,
+    joinYear: 2024,
+    badges: []
+  },
+  {
+    firstName: 'Niklas M.',
+    title: 'Operator',
+    tag: 'Sillo',
+    image: '/assets/branches/airsoft/members/sillo.jpg',
+    link: null,
+    joinYear: 2024,
+    badges: [
+      airsoftBadges.MISSION_24H_2025,
+      airsoftBadges.OPERATION_RISENFALL_LIGHTSIM
+    ]
+  },
+  {
+    firstName: 'Philipp K.',
+    title: 'Operator',
+    tag: '',
+    image: null,
+    link: null,
+    joinYear: 2024,
+    badges: []
+  },
+  {
+    firstName: 'Philip S.',
+    title: 'Operator',
+    tag: '',
+    image: null,
+    link: null,
+    joinYear: 2024,
+    badges: []
+  },
+  {
+    firstName: 'Jonas W.',
+    title: 'Operator',
+    tag: '',
+    image: '/assets/branches/airsoft/members/jonas.jpg',
+    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=175928',
+    joinYear: 2024,
+    badges: [
+      airsoftBadges.DARK_EMERGENCY_13
+    ]
+  },
+  {
+    firstName: 'Manuel A.',
+    title: 'Operator',
+    tag: '',
+    image: null,
+    link: null,
+    joinYear: 2024,
+    badges: []
+  },
+  {
+    firstName: 'Ole C.',
+    title: 'Operator',
+    tag: '',
+    image: null,
+    link: null,
+    joinYear: 2024,
+    badges: [
+      airsoftBadges.DARK_EMERGENCY_13
+    ]
+  },
+  {
+    firstName: 'Cedrik R.',
+    title: 'Operator',
+    tag: '',
+    image: null,
+    link: null,
+    joinYear: 2024,
+    badges: [
+      airsoftBadges.DARK_EMERGENCY_13
+    ]
+  },
+  {
+    firstName: 'Julian E.',
+    title: 'Operator',
+    tag: '',
+    image: null,
+    link: null,
+    joinYear: 2024,
+    badges: []
+  },
+  {
+    firstName: 'Andreas R.',
+    title: 'Operator',
+    tag: '',
+    image: null,
+    link: null,
+    joinYear: 2024,
+    badges: []
+  },
+  {
+    firstName: 'Marvin S.',
+    title: 'Operator',
+    tag: '',
+    image: null,
+    link: null,
+    joinYear: 2024,
+    badges: []
+  },
+  {
+    firstName: 'Leon F.',
+    title: 'Operator',
+    tag: '',
+    image: null,
+    link: null,
+    joinYear: 2024,
+    badges: [
+      airsoftBadges.DARK_EMERGENCY_13
+    ]
+  },
+  {
+    firstName: 'Mike S.',
+    title: 'Operator',
+    tag: '',
+    image: null,
+    link: null,
+    joinYear: 2024,
+    badges: []
   }
 ];

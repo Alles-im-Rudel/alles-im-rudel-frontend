@@ -1,9 +1,5 @@
 export default [
   {
-    name: 'Shop',
-    href: 'https://www.teamstolz.de/vereinsshop/alles-im-rudel/'
-  },
-  {
     name: 'Airsoft',
     children: [
       {
@@ -18,6 +14,11 @@ export default [
         name: 'Guides',
         route: 'airsoftGuides',
       },
+      {
+        name: 'Spielfeld: MudTrack',
+        href: 'https://mudtrack.allesimrudel.de/',
+        external: 'https://mudtrack.allesimrudel.de/',
+      }
     ]
   },
   {
