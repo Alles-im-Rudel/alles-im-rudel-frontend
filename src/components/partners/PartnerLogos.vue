@@ -22,12 +22,19 @@
 
     <div
       v-if="showAirsoft"
-      class="d-sm-flex justify-center d-block"
+      class="d-sm-flex align-center justify-center d-block"
     >
-      <div class="banner bad-agency-banner mr-sm-8 mb-8 mb-sm-0 mx-auto mx-sm-0">
+      <div class="banner bad-agency-banner mr-sm-4 mb-8 mb-sm-0 mx-auto mx-sm-0">
         <img
           src="/assets/sponsors/bad-agency/bad-agency.png"
           alt="Bad-Agency-Banner"
+        >
+      </div>
+
+      <div class="banner pyrolager-banner mr-sm-12 mb-8 mx-auto mx-sm-0">
+        <img
+          src="/assets/sponsors/pyrolager/pyrolager.png"
+          alt="Pyrolager"
         >
       </div>
 
@@ -89,7 +96,7 @@ export default {
   }
 
   .laserpatch-banner {
-    max-width: 265px;
+    max-width: 220px;
   }
 }
 </style>
