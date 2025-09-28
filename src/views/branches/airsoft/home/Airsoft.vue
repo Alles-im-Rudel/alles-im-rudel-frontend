@@ -118,7 +118,7 @@ export default {
   },
   data() {
     return {
-      leader: leaders.NICK_NICKELS,
+      leader: leaders.JAN_ALDAG,
       airsoftUrl: links.AIRSOFT_VERZEICHNIS,
       sliderImages: [
         '/assets/branches/airsoft/slider/airsoft-1.jpg',
