@@ -580,7 +580,9 @@ export default [
     image: null,
     link: null,
     joinYear: 2024,
-    badges: []
+    badges: [
+      airsoftBadges.OPERATION_TITAN_LIGHTSIM,
+    ]
   },
   {
     firstName: 'Leon F.',
