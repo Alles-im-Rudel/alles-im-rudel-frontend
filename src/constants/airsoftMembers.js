@@ -5,7 +5,7 @@ import airsoftBadges from '@/constants/airsoftBadges';
 export default [
   {
     firstName: 'Nick N.',
-    title: 'Teamleiter | W2-1',
+    title: 'W2-1',
     tag: 'NJ',
     image: '/assets/branches/airsoft/members/nick-nickels.png',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=113385',
@@ -24,12 +24,13 @@ export default [
   },
   {
     firstName: 'Jan A.',
-    title: 'stv. Teamleiter | W1-1',
+    title: 'Teamleiter | W1-1',
     tag: 'Jerky',
     image: '/assets/branches/airsoft/members/jerky.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=100900',
     joinYear: 2022,
     badges: [
+      airsoftBadges.OPERATION_TITAN_LIGHTSIM,
       airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
       airsoftBadges.DARK_EMERGENCY_12,
@@ -61,12 +62,13 @@ export default [
   },
   {
     firstName: 'Ulli W.',
-    title: 'Spielfeldbeauftragter',
+    title: 'Spielfeldbeauftragter | Stv. Teamleiter',
     tag: 'DogByte',
     image: '/assets/branches/airsoft/members/dogbyte.png',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=190668',
     joinYear: 2023,
     badges: [
+      airsoftBadges.OPERATION_TITAN_LIGHTSIM,
       airsoftBadges.MISSION_24H_2025,
       airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
@@ -170,6 +172,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=156296',
     joinYear: 2022,
     badges: [
+      airsoftBadges.OPERATION_TITAN_LIGHTSIM,
       airsoftBadges.MISSION_24H_2025,
       airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.DARK_EMERGENCY_10
@@ -388,6 +391,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=175929',
     joinYear: 2023,
     badges: [
+      airsoftBadges.OPERATION_TITAN_LIGHTSIM,
       airsoftBadges.DARK_EMERGENCY_13
     ]
   },
@@ -429,7 +433,9 @@ export default [
     image: null,
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=203287',
     joinYear: 2024,
-    badges: []
+    badges: [
+      airsoftBadges.OPERATION_TITAN_LIGHTSIM,      
+    ]
   },
   {
     firstName: 'Michael K.',
@@ -439,6 +445,7 @@ export default [
     link: null,
     joinYear: 2024,
     badges: [
+      airsoftBadges.OPERATION_TITAN_LIGHTSIM,
       airsoftBadges.MISSION_24H_2025,
       airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.OPERATION_RISENFALL_LIGHTSIM
@@ -482,6 +489,7 @@ export default [
     link: null,
     joinYear: 2024,
     badges: [
+      airsoftBadges.OPERATION_TITAN_LIGHTSIM,
       airsoftBadges.MISSION_24H_2025,
       airsoftBadges.OPERATION_RISENFALL_LIGHTSIM
     ]
@@ -512,6 +520,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=175928',
     joinYear: 2024,
     badges: [
+      airsoftBadges.OPERATION_TITAN_LIGHTSIM,
       airsoftBadges.DARK_EMERGENCY_13
     ]
   },
