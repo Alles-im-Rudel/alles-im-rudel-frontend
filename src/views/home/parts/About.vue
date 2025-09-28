@@ -47,9 +47,9 @@ export default {
   data() {
     return {
       leaders: [
-        leaders.SILAS_BECKMANN,
-        leaders.TIMM_VOLLBORN,
-        leaders.NICK_NICKELS
+        leaders.NICK_NICKELS,
+        leaders.ULLRICH_WEICHERT,
+        leaders.TIMM_VOLLBORN
       ]
     };
   },
