@@ -27,6 +27,10 @@ export default {
     image: '/assets/branches/airsoft/badges/operation-source-lightsim.png',
     name: 'Operation Risen Fall - LightSim'
   },
+  OPERATION_TITAN_LIGHTSIM: {
+    image: '/assets/branches/airsoft/badges/operation-titan-lightsim.png',
+    name: 'Operation Titans Stand - LightSim'
+  },
   FOUNDATION_MEMBER: {
     image: '/assets/branches/airsoft/badges/foundation-member.png',
     name: 'Gründungsmitglied'
