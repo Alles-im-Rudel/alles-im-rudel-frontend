@@ -516,7 +516,7 @@ export default [
     firstName: 'Jonas W.',
     title: 'Operator',
     tag: '',
-    image: '/assets/branches/airsoft/members/jonas.jpg',
+    image: '/assets/branches/airsoft/members/jonas.png',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=175928',
     joinYear: 2024,
     badges: [
