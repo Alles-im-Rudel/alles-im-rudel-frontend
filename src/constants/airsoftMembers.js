@@ -167,7 +167,7 @@ export default [
   {
     firstName: 'Tim M.',
     title: 'Operator',
-    tag: null,
+    tag: 'Kolibri',
     image: '/assets/branches/airsoft/members/tim-maetzig.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=156296',
     joinYear: 2022,
