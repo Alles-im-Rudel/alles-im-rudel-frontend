@@ -168,7 +168,7 @@ export default [
     firstName: 'Tim M.',
     title: 'Operator',
     tag: 'Kolibri',
-    image: '/assets/branches/airsoft/members/tim-maetzig.jpg',
+    image: '/assets/branches/airsoft/members/tim-maetzig.png',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=156296',
     joinYear: 2022,
     badges: [
