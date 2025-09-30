@@ -174,6 +174,7 @@ export default [
     badges: [
       airsoftBadges.OPERATION_TITAN_LIGHTSIM,
       airsoftBadges.MISSION_24H_2025,
+      airsoftBadges.STORMTIDE_2025,
       airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.DARK_EMERGENCY_10
     ]
