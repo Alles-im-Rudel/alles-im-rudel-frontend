@@ -1,4 +1,8 @@
 export default {
+  STORMTIDE_2025: {
+    image: '/assets/branches/airsoft/badges/stormtide_chapterone.png',
+    name: 'Storm Tide: Chapter One - 2025'
+  },
   DARK_EMERGENCY_13: {
     image: '/assets/branches/airsoft/badges/dark-emergency-13.png',
     name: 'Dark Emergency 13'

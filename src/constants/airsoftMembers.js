@@ -167,13 +167,14 @@ export default [
   {
     firstName: 'Tim M.',
     title: 'Operator',
-    tag: null,
+    tag: 'Kolibri',
     image: '/assets/branches/airsoft/members/tim-maetzig.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=156296',
     joinYear: 2022,
     badges: [
       airsoftBadges.OPERATION_TITAN_LIGHTSIM,
       airsoftBadges.MISSION_24H_2025,
+      airsoftBadges.STORMTIDE_2025,
       airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.DARK_EMERGENCY_10
     ]
