@@ -38,7 +38,7 @@ export default [
   },
   {
     firstName: 'Simon B.',
-    title: 'U18 Betreuer',
+    title: 'Operator',
     tag: null,
     image: '/assets/branches/airsoft/members/simon.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=151084',
@@ -92,7 +92,7 @@ export default [
   {
     firstName: 'Philipp G.',
     title: 'Operator | W2-2',
-    tag: 'Jerry',
+    tag: 'Flipper',
     image: '/assets/branches/airsoft/members/philipp.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=112370',
     joinYear: 2018,
@@ -215,7 +215,7 @@ export default [
   },
   {
     firstName: 'Tamino L.',
-    title: 'Operator',
+    title: 'U18 Betreuer',
     tag: null,
     image: '/assets/branches/airsoft/members/tamino.png',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=173634',
@@ -476,7 +476,7 @@ export default [
   {
     firstName: 'Niklas R.',
     title: 'Operator',
-    tag: 'Student',
+    tag: 'Bert',
     image: null,
     link: null,
     joinYear: 2024,
@@ -526,7 +526,7 @@ export default [
     ]
   },
   {
-    firstName: 'Manuel A.',
+    firstName: 'Manuel J.',
     title: 'Operator',
     tag: '',
     image: null,
@@ -548,7 +548,7 @@ export default [
   {
     firstName: 'Cedrik R.',
     title: 'Operator',
-    tag: '',
+    tag: 'Ernie',
     image: null,
     link: null,
     joinYear: 2024,
@@ -603,6 +603,60 @@ export default [
     image: null,
     link: null,
     joinYear: 2024,
+    badges: []
+  },
+  {
+    firstName: 'Niklas J.',
+    title: 'Operator',
+    tag: '',
+    image: null,
+    link: null,
+    joinYear: 2025,
+    badges: []
+  },
+  {
+    firstName: 'Robert H.',
+    title: 'Operator',
+    tag: '',
+    image: null,
+    link: null,
+    joinYear: 2025,
+    badges: []
+  },
+  {
+    firstName: 'Marius S.',
+    title: 'Operator',
+    tag: '',
+    image: null,
+    link: null,
+    joinYear: 2025,
+    badges: []
+  },
+  {
+    firstName: 'Sascha R.',
+    title: 'Operator',
+    tag: '',
+    image: null,
+    link: null,
+    joinYear: 2025,
+    badges: []
+  },
+  {
+    firstName: 'Timo B.',
+    title: 'Operator',
+    tag: 'Böcky',
+    image: null,
+    link: null,
+    joinYear: 2025,
+    badges: []
+  },
+  {
+    firstName: 'Wolfgang de B.',
+    title: 'Operator',
+    tag: 'Bozzi',
+    image: null,
+    link: null,
+    joinYear: 2025,
     badges: []
   }
 ];
