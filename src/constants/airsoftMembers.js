@@ -156,15 +156,6 @@ export default [
     ]
   },
   {
-    firstName: 'Schahin A.',
-    title: 'Operator',
-    tag: null,
-    image: '/assets/branches/airsoft/members/schahin.jpg',
-    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=175608',
-    joinYear: 2022,
-    badges: []
-  },
-  {
     firstName: 'Tim M.',
     title: 'Operator',
     tag: 'Kolibri',
@@ -172,6 +163,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=156296',
     joinYear: 2022,
     badges: [
+      airsoftBadges.TCHERNO_2025,
       airsoftBadges.OPERATION_TITAN_LIGHTSIM,
       airsoftBadges.MISSION_24H_2025,
       airsoftBadges.STORMTIDE_2025,
