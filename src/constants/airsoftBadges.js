@@ -1,4 +1,8 @@
 export default {
+  TCHERNO_2025: {
+    image: '/assets/branches/airsoft/badges/op_tcherno_2025.png',
+    name: 'OP Tschernobyl: Life in Danger — Blowout'
+  },
   STORMTIDE_2025: {
     image: '/assets/branches/airsoft/badges/stormtide_chapterone.png',
     name: 'Storm Tide: Chapter One - 2025'
