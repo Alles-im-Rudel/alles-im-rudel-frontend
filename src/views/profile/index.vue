@@ -34,8 +34,8 @@
       >
         Falls du anderweitige Profilanpassungswünsche hast, melde dich bitte per Mail bei uns unter <a
           style="color: white"
-          href="mailto:allesimrudel@gmail.com"
-        >allesimrudel@gmail.com</a>.
+          href="mailto:anfragen@allesimrudel.de"
+        >anfragen@allesimrudel.de</a>.
       </v-alert>
       <v-divider class="mt-10 mb-6" />
       <ProfileBranches
