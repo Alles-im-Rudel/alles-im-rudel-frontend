@@ -337,17 +337,6 @@ export default [
     ]
   },
   {
-    firstName: 'Niclas N.',
-    title: 'Operator',
-    tag: 'Fielmann',
-    image: '/assets/branches/airsoft/members/fielmann.jpg',
-    link: null,
-    joinYear: 2022,
-    badges: [
-      airsoftBadges.DARK_EMERGENCY_11,
-    ]
-  },
-  {
     firstName: 'Nico D.',
     title: 'Operator',
     tag: null,
