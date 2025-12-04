@@ -10,7 +10,8 @@
       </h3>
       <p :class="textClasses">
         Alles im Rudel e.V.<br>
-        Norderstraße 23<br>
+        z.Hd. Nick Nickels<br>
+        Catharinenstraße 15<br>
         25335 Elmshorn<br>
         Deutschland
       </p>
