@@ -58,7 +58,7 @@ export default {
       '@type': 'Organization',
       'name': 'Alles im Rudel e.V.',
       'description': 'Alles im Rudel ist ein Verein in Elmshorn, der 2021 gegründet wurde und mehrere Sparten hat, wie z.B. Airsoft oder Gaming',
-      'telephone': '+49 176 55234699',
+      'telephone': '+49 179 1498576',
       'email': 'allesimrudel@gmail.com',
       'logo': 'https://www.allesimrudel.de/assets/logos/logo-slim.png',
       'url': 'https://www.allesimrudel.de',

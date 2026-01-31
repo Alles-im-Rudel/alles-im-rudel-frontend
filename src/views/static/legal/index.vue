@@ -28,7 +28,7 @@
         Kontakt
       </h3>
       <p :class="textClasses">
-        Telefon: +49 176 55234699<br>
+        Telefon: +49 179 1498576<br>
         E-Mail: allesimrudel@gmail.com
       </p>
 

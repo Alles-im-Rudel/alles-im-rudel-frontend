@@ -21,7 +21,7 @@
         25335 Elmshorn<br>
         Deutschland<br>
         <br>
-        Telefon: +49 176 55234699<br>
+        Telefon: +49 179 1498576<br>
         E-Mail: allesimrudel@gmail.com
       </p>
       <p :class="textClasses">
