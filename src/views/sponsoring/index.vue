@@ -349,7 +349,7 @@
                     Kaufe über diesen Link:
                     <br>
                     <a href="https://www.pyrolager.de/?sPartner=allesimrudel">
-                      todo
+                      Pyrolager - Shop
                     </a>
                   </li>
                 </ul>
