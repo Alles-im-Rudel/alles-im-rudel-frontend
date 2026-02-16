@@ -348,8 +348,8 @@
                   <li>
                     Kaufe über diesen Link:
                     <br>
-                    <a href="todo">
-                      todo
+                    <a href="https://www.pyrolager.de/?sPartner=allesimrudel">
+                      Pyrolager - Shop
                     </a>
                   </li>
                 </ul>
