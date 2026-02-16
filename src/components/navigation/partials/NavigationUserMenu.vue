@@ -65,7 +65,7 @@
         <v-list-item @click="pushRouteTo('documents')">
           <v-list-item-icon class="mr-2">
             <v-icon small>
-              fa-gem
+              fa-file-lines
             </v-icon>
           </v-list-item-icon>
 
