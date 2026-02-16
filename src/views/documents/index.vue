@@ -7,11 +7,7 @@
     <BaseContainer class="mt-14 mb-14">
       <BaseParagraph class="mb-12">
         <strong>Alle internen Vereinsdokumente im Überblick.</strong><br />
-        Auf dieser Seite finden Vereinsmitglieder alle wichtigen internen Dokumente an einem zentralen Ort.
-        Von internen Richtlinien über Komitee-Konzeptionen bis hin zu Protokollen – alle Unterlagen stehen hier zum Download bereit. Während einige Dokumente wie die Satzung öffentlich einsehbar sind, sind die hier bereitgestellten Dateien ausschließlich für Mitglieder zugänglich. So behalten wir Transparenz innerhalb des Vereins und stellen gleichzeitig sicher, dass sensible Informationen geschützt bleiben.
-        Während Themen wie die Satzung nach außen hin verfügbar sein müssen, so sind die hier zu findenden Dokumente
-        erst einmal nur Intern verfügbar.
-
+        Während einige Unterlagen wie die Satzung öffentlich sind, stehen die hier bereitgestellten Dateien ausschließlich Vereinsmitgliedern intern zur Verfügung.
       </BaseParagraph>
 
       <div class="download-card">
