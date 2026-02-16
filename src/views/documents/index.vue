@@ -7,11 +7,11 @@
     <BaseContainer class="mt-14 mb-14">
       <BaseParagraph class="mb-12">
         <strong>Alle internen Vereinsdokumente im Überblick.</strong><br />
+        Auf dieser Seite finden Vereinsmitglieder alle wichtigen internen Dokumente an einem zentralen Ort.
+        Von internen Richtlinien über Komitee-Konzeptionen bis hin zu Protokollen – alle Unterlagen stehen hier zum Download bereit. Während einige Dokumente wie die Satzung öffentlich einsehbar sind, sind die hier bereitgestellten Dateien ausschließlich für Mitglieder zugänglich. So behalten wir Transparenz innerhalb des Vereins und stellen gleichzeitig sicher, dass sensible Informationen geschützt bleiben.
         Während Themen wie die Satzung nach außen hin verfügbar sein müssen, so sind die hier zu findenden Dokumente
         erst einmal nur Intern verfügbar.
-      </BaseParagraph>
-      <BaseParagraph>
-        <strong>Umgang mit dem Husky</strong>
+
       </BaseParagraph>
 
       <div class="download-card">
@@ -19,14 +19,14 @@
         <div class="download-content">
           <h1>Husky Regelbetrieb</h1>
           <BaseParagraph>
-            Hier könnte Ihre Beschreibung stehen.
+            Das Dokument beschreibt Aufgaben und Verantwortlichkeiten des Husky-Komitees sowie Regelungen für Einsatz, Fahrtauglichkeit und Umgang mit Verstößen während des Spielbetriebs.
           </BaseParagraph>
         </div>
 
         <!-- Rechte Seite -->
         <div class="download-action">
           <a 
-            href="/downloads/regelbetrieb_husky.pdf" 
+            href="/assets/documents/airsoft/konzept_regelbetrieb_husky.pdf" 
             download
             class="download-button"
           >
