@@ -142,92 +142,6 @@
         </v-expansion-panel>
       </v-expansion-panels>
 
-      <v-expansion-panels class="mt-6" disabled>
-        <v-expansion-panel>
-          <v-expansion-panel-header>
-            <v-row class="expansion-panel-logo-container">
-              <v-col
-                cols="9"
-                sm="3"
-                lg="2"
-              >
-                <img
-                  src="/assets/sponsors/bad-agency/bad-agency.png"
-                  alt="Bad Agency"
-                >
-              </v-col>
-              <v-col
-                cols="12"
-                sm="9"
-                lg="10"
-                class="d-flex align-center"
-              >
-                <div>
-                  <h2>Bad Agency</h2>
-                  <SponsoringAvailableLabel
-                    :available="hasAirsoft"
-                    :loading="isLoading"
-                    branch="Airsoft"
-                  />
-                </div>
-              </v-col>
-            </v-row>
-          </v-expansion-panel-header>
-          <v-expansion-panel-content>
-            <v-row class="pt-4 pb-2">
-              <v-col cols="12">
-                <p>
-                  <b>Welche Vorteile hab ich?</b>
-                </p>
-                <ul>
-                  <li>
-                    5% bis 10% Rabatt auf ausgewählte Produkte
-                  </li>
-                  <li>
-                    Support Patches
-                  </li>
-                  <li>
-                    Teamarmbänder
-                  </li>
-                  <li>
-                    Supporter T-Shirts mit Klettflächen für Patches
-                  </li>
-                </ul>
-              </v-col>
-              <v-col
-                v-if="hasAirsoft"
-                cols="12"
-                class="mt-1"
-              >
-                <p>
-                  <b>Wie komme ich an die Vorteile?</b>
-                </p>
-                <p>
-                  Um dein Konto für die Rabatte freizuschalten, musst du folgende Schritte berücksichtigen:
-                </p>
-                <ol>
-                  <li>
-                    Falls noch nicht geschehen, Kundenkonto anlegen
-                  </li>
-                  <li>
-                    Über die <a
-                      href="https://www.badagency.de/teamanmeldung"
-                      target="_blank"
-                    >
-                      Bad Agency Teamanmeldung
-                    </a> anmelden
-                  </li>
-                </ol>
-                <p class="mt-4">
-                  Anschließend wird deine Teamanmeldungen mit der Mitgliederliste abgeglichen und manuell
-                  freigeschaltet.
-                </p>
-              </v-col>
-            </v-row>
-          </v-expansion-panel-content>
-        </v-expansion-panel>
-      </v-expansion-panels>
-
       <v-expansion-panels class="mt-6">
         <v-expansion-panel>
           <v-expansion-panel-header>
@@ -358,6 +272,75 @@
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
+
+      <v-expansion-panels class="mt-6">
+        <v-expansion-panel>
+          <v-expansion-panel-header>
+            <v-row class="expansion-panel-logo-container">
+              <v-col
+                cols="9"
+                sm="3"
+                lg="2"
+              >
+                <img
+                  src="/assets/sponsors/asmoc/armyshopLogoklein3.jpg"
+                  alt="Armyshop Lübeck"
+                >
+              </v-col>
+              <v-col
+                cols="12"
+                sm="9"
+                lg="10"
+                class="d-flex align-center"
+              >
+                <div>
+                  <h2>Pyrolager</h2>
+                  <SponsoringAvailableLabel
+                    :available="hasAirsoft"
+                    :loading="isLoading"
+                    branch="Airsoft"
+                  />
+                </div>
+              </v-col>
+            </v-row>
+          </v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <v-row class="pt-4 pb-2">
+              <v-col cols="12">
+                <p>
+                  <b>Welche Vorteile hab ich?</b>
+                </p>
+                <ul>
+                  <li>
+                    15 % Rabatt auf das gesamte Sortiment
+                  </li>
+                </ul>
+              </v-col>
+              <v-col
+                v-if="hasAirsoft"
+                cols="12"
+                class="mt-1"
+              >
+                <p>
+                  <b>Wie komme ich an die Vorteile?</b>
+                </p>
+                <ul>
+                  <li>
+                    Kaufe vor Ort im Armyshop-Lübeck ein und erhalte 15 % Rabatt auf das gesamte Stortiment.
+                    Weitere Informationen zum Shop erhaltet Ihr hier:
+                    <br>
+                    <a href="https://www.amocs.de/">
+                      Armyshop-Lübeck
+                    </a>
+                  </li>
+                </ul>
+              </v-col>
+            </v-row>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+      </v-expansion-panels>
+
+
     </BaseContainer>
   </div>
 </template>
