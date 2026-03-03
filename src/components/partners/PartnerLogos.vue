@@ -22,16 +22,19 @@
 
     <div
       v-if="showAirsoft"
+      class="banner asmoc-banner mb-8"
+    >
+      <img
+        src="/assets/sponsors/asmoc/armyshopLogoklein3.jpg"
+        alt="Armyshop Lübeck - Banner"
+      >
+    </div>
+
+    <div
+      v-if="showAirsoft"
       class="d-sm-flex align-center justify-center d-block"
     >
-      <div class="banner bad-agency-banner mr-sm-4 mb-8 mb-sm-0 mx-auto mx-sm-0">
-        <img
-          src="/assets/sponsors/bad-agency/bad-agency.png"
-          alt="Bad-Agency-Banner"
-        >
-      </div>
-
-      <div class="banner pyrolager-banner mr-sm-12 mb-8 mx-auto mx-sm-0">
+      <div class="banner pyrolager-banner mx-auto mx-sm-0">
         <img
           src="/assets/sponsors/pyrolager/pyrolager.png"
           alt="Pyrolager"
@@ -91,8 +94,13 @@ export default {
     max-width: 650px;
   }
 
-  .bad-agency-banner {
-    max-width: 300px;
+  .asmoc-banner {
+    margin:0 auto;
+    max-width:650px
+  }
+
+  .pyrolager-banner {
+    max-width: 220px;
   }
 
   .laserpatch-banner {
