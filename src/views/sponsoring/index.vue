@@ -294,7 +294,7 @@
                 class="d-flex align-center"
               >
                 <div>
-                  <h2>Pyrolager</h2>
+                  <h2>Armyshop Lübeck</h2>
                   <SponsoringAvailableLabel
                     :available="hasAirsoft"
                     :loading="isLoading"
