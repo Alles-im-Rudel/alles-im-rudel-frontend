@@ -416,7 +416,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=203287',
     joinYear: 2024,
     badges: [
-      airsoftBadges.OPERATION_TITAN_LIGHTSIM,      
+      airsoftBadges.OPERATION_TITAN_LIGHTSIM,
     ]
   },
   {
@@ -435,12 +435,12 @@ export default [
   },
   {
     firstName: 'Fabio M.',
-    title:'Operator',
-    tag:'SadBoy',
+    title: 'Operator',
+    tag: 'SadBoy',
     image: null,
     link: null,
     joinYear: 2024,
-    badges:[]
+    badges: []
   },
   {
     firstName: 'Christopher V.',
@@ -616,9 +616,9 @@ export default [
   {
     firstName: 'Sascha R.',
     title: 'Operator',
-    tag: '',
-    image: null,
-    link: null,
+    tag: 'Samapari',
+    image: '/assets/branches/airsoft/members/sascha.jpg',
+    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=214170',
     joinYear: 2025,
     badges: []
   },
@@ -627,7 +627,7 @@ export default [
     title: 'Operator',
     tag: 'Böcky',
     image: null,
-    link: null,
+    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=214744',
     joinYear: 2025,
     badges: []
   },

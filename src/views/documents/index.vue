@@ -31,6 +31,32 @@
           </a>
         </div>
       </div>
+
+      <div class="download-card">
+        <!-- Linke Seite -->
+        <div class="download-content">
+          <h1>Mahngebühren-Regelung</h1>
+          <BaseParagraph>
+            Mahngebühren werden fällig, wenn ein Vereinsmitglied sein persönliches Bankkonto zum Zeitpunkt des SEPA-Lastschrifteinzugs der Mitglieds- & Spartenbeiträge jeweils zum Monatsanfang nicht gedeckt hat, sodass die Vereinsbeiträge des Mitglieds nicht eingezogen werden können. Diese Mahngebühren werden erhoben, da einerseits Zusatzkosten durch die Bank anfallen und andererseits ein administrativer Mehraufwand durch den Schatzmeister entsteht.
+          </BaseParagraph>
+          <BaseParagraph>
+            Die Höhe der Mahngebühren setzt sich dabei grundsätzlich wie folgt zusammen:
+            <ul>
+              <li>Ursprünglicher Mitglieds- & Spartenbeitrag</li>
+              <li>Mahngebühr á 25 % auf den Ursprungswert</li>
+              <li>Zusatzkosten durch die Bank</li>
+            </ul>
+          </BaseParagraph>
+          <BaseParagraph>
+            Sollten drei Mal innerhalb eines zeitlich eng zusammenliegenden Zeitraums die Mitglieds- & Spartenbeiträge nicht eingezogen werden können, behält sich der Vorstand das Recht vor, das Vereinsmitglied aus dem Verein auszuschließen.
+          </BaseParagraph>
+        </div>
+
+        <!-- Rechte Seite -->
+        <div class="download-action">
+        </div>
+      </div>
+
     </BaseContainer>
   </div>
 </template>
