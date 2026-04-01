@@ -34,7 +34,7 @@
 
       <BaseParagraph class="mb-12">
       </BaseParagraph>
-
+    
       <div class="download-card">
         <!-- Linke Seite -->
         <div class="download-content">
