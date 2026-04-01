@@ -626,7 +626,7 @@ export default [
     firstName: 'Timo B.',
     title: 'Operator',
     tag: 'Böcky',
-    image: null,
+    image: '/assets/branches/airsoft/members/boecki.jpg',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=214744',
     joinYear: 2025,
     badges: []
