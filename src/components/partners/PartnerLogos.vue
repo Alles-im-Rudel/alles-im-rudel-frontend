@@ -41,6 +41,13 @@
         >
       </div>
 
+      <div class="banner ao-banner mx-auto mx-sm-0">
+        <img
+          src="/assets/sponsors/airsoftoperations/ao.png"
+          alt="Airsoft Operations"
+        >
+      </div>
+
       <div class="banner laserpatch-banner mx-auto mx-sm-0">
         <img
           src="/assets/sponsors/laserpatch/laserpatch.jpg"
@@ -106,5 +113,8 @@ export default {
   .laserpatch-banner {
     max-width: 220px;
   }
-}
+
+  .ao-banner {
+    max-width: 220px;
+  }}
 </style>
