@@ -116,6 +116,5 @@ export default {
 
   .ao-banner {
     max-width: 210px;
-    mx-sm-10;
   }}
 </style>
