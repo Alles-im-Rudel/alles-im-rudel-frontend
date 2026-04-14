@@ -111,19 +111,19 @@ export default {
         },
         {
           '@type': 'Organization',
-          'name': 'B.A.D. Agency Airsoft GmbH',
-          'description': 'Herzlich Willkommen auf dem Online-Shop der B.A.D. Agency Airsoft GmbH. Wir freuen uns sehr, dass Du den Weg zu uns gefunden hast.',
-          'email': 'hq@badagency.de',
-          'logo': 'https://badagency.de/media/image/ba/ea/5b/badagency-shop-logo-main.png',
-          'url': 'https://badagency.de//',
-        },
-        {
-          '@type': 'Organization',
           'name': 'Autoreparatur Henry Krohn GmbH',
           'description': 'Vereinbaren Sie jetzt einen Werkstatt-Termin bei fachmännischem Kfz-Service für alle Fahrzeug-Marken! Bei uns finden Sie alles, was Ihr Auto braucht',
           'email': 'Henry@HenryKrohn.de',
           'logo': 'https://www.autoreparatur-krohn.de/fileadmin/img/MH_Logo_4C_rgb.png',
           'url': 'https://www.autoreparatur-krohn.de/',
+        },
+        {
+          '@type': 'Organization',
+          'name': 'Airsoft Operations',
+          'description': 'Vereinbaren Sie jetzt einen Werkstatt-Termin bei fachmännischem Kfz-Service für alle Fahrzeug-Marken! Bei uns finden Sie alles, was Ihr Auto braucht',
+          'email': 'info@airsoftoperations.eu',
+          'logo': 'https://airsoftoperations.eu/images/AO/Logo/ms-icon-310x310.png',
+          'url': 'https://airsoftoperations.eu/',
         },
       ]
     };

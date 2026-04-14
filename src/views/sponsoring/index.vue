@@ -340,6 +340,77 @@
         </v-expansion-panel>
       </v-expansion-panels>
 
+      <v-expansion-panels class="mt-6">
+        <v-expansion-panel>
+          <v-expansion-panel-header>
+            <v-row class="expansion-panel-logo-container">
+              <v-col
+                cols="9"
+                sm="3"
+                lg="2"
+              >
+                <img
+                  src="/assets/sponsors/airsoftoperations/ao.png"
+                  alt="Airsoft Operations"
+                >
+              </v-col>
+              <v-col
+                cols="12"
+                sm="9"
+                lg="10"
+                class="d-flex align-center"
+              >
+                <div>
+                  <h2>Pyrolager</h2>
+                  <SponsoringAvailableLabel
+                    :available="hasAirsoft"
+                    :loading="isLoading"
+                    branch="Airsoft"
+                  />
+                </div>
+              </v-col>
+            </v-row>
+          </v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <v-row class="pt-4 pb-2">
+              <v-col cols="12">
+                <p>
+                  <b>Welche Vorteile hab ich?</b>
+                </p>
+                <ul>
+                  <li>
+                    10% Rabatt auf alle Tickets. Special Gamedays, Classic Gameday und Events.
+                  </li>
+                </ul>
+              </v-col>
+              <v-col
+                v-if="hasAirsoft"
+                cols="12"
+                class="mt-1"
+              >
+                <p>
+                  <b>Wie komme ich an die Vorteile?</b>
+                </p>
+                <ul>
+                  <li>
+                    Benutze bei deiner Bestellung den nachfolgenden Rabatt Code. Dieser ist nur für Vereinsmitglieder.
+                    <br>
+                    Code:
+                    <div class="hint">I am a hint</div>
+                    <br>
+                    <a href="https://airsoftoperations.eu/index.php/events">
+                      Airsoft Operations - Events
+                    </a>
+                    <br>
+                    Die Nutzung dieser Rabattcodes wird in Zusammenarbeit mit Airsoft Operations ausgewertet und geprüft. Weiter sollte<br>
+                    dieser Code nicht mit anderen geteilt und nur für Bestellungen von Mitgliedern verwendet werden.
+                  </li>
+                </ul>
+              </v-col>
+            </v-row>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+      </v-expansion-panels>
 
     </BaseContainer>
   </div>
@@ -389,5 +460,27 @@ export default {
   img {
     width: 100%;
   }
+}
+
+.hint {
+  background-color: #ddd;
+  display: inline-block; /* you could do this as a full-width block instead */
+  padding: 8px 12px;
+  position: relative; /* needed for placeholder positioning */
+}
+
+.hint:not(:active) {
+  background-color: #eee; /* these two colors must be equivalent A */
+  color: #eee; /* these two colors must be equivalent B */
+  min-width: 96px; /* 72px if box-sizing is border-box; ensures the placeholder is fully visible if the text is smaller than the placeholder text */
+  user-select: none; /* if you want it to be copyable, may highlight spoiler text when they click */
+}
+
+.hint:not(:active)::before {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  content: 'Click\a0to\a0reveal'; /* non-breaking spaces probably necessary */
+  color: #999;
 }
 </style>
