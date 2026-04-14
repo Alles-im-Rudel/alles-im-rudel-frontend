@@ -107,14 +107,15 @@ export default {
   }
 
   .pyrolager-banner {
-    max-width: 220px;
+    max-width: 210px;
   }
 
   .laserpatch-banner {
-    max-width: 220px;
+    max-width: 210px;
   }
 
   .ao-banner {
-    max-width: 220px;
+    margin: 0 10px 0 10px
+    max-width: 210px;
   }}
 </style>

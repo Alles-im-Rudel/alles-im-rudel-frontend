@@ -396,7 +396,7 @@
                     Benutze bei deiner Bestellung den nachfolgenden Rabatt Code. Dieser ist nur für Vereinsmitglieder.
                     <br>
                     Code:
-                    <div class="hint">I am a hint</div>
+                    <div class="hint">AIR10</div>
                     <br>
                     <a href="https://airsoftoperations.eu/index.php/events">
                       Airsoft Operations - Events
@@ -480,7 +480,7 @@ export default {
   position: absolute;
   top: 8px;
   left: 12px;
-  content: 'Click\a0to\a0reveal'; /* non-breaking spaces probably necessary */
+  content: 'Click\a0me'; /* non-breaking spaces probably necessary */
   color: #999;
 }
 </style>
