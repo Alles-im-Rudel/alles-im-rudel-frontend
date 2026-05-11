@@ -258,6 +258,11 @@
                 <p>
                   <b>Wie komme ich an die Vorteile?</b>
                 </p>
+                <p>
+                  Deine Bestellung wird über eine Provision zugunsten des Vereins abgewickelt. Bitte melde dich dafür 
+                  vorab bei deiner Spartenleitung oder beim Vorstand und gib die entsprechenden Bestellinformationen weiter. 
+                  Sobald die Provision beim Verein eingegangen ist, wird der Betrag an dich zurücküberwiesen.
+                </p>
                 <ul>
                   <li>
                     Kaufe über diesen Link:
