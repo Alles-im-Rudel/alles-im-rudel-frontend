@@ -485,6 +485,7 @@ export default {
   position: absolute;
   top: 8px;
   left: 12px;
+  content: 'Click\a0to\a0reveal'; /* non-breaking spaces probably necessary */
   color: #999;
 }
 </style>

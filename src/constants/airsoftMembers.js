@@ -632,11 +632,11 @@ export default [
     badges: []
   },
   {
-    firstName: 'Wolfgang de B.',
+    firstName: 'Robert T.',
     title: 'Operator',
-    tag: 'Bozzi',
-    image: null,
-    link: null,
+    tag: 'El Flame',
+    image: '/assets/branches/airsoft/members/robert.png',
+    link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=220436',
     joinYear: 2025,
     badges: []
   }
