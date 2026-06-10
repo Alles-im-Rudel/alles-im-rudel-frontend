@@ -258,6 +258,11 @@
                 <p>
                   <b>Wie komme ich an die Vorteile?</b>
                 </p>
+                <p>
+                  Deine Bestellung wird über eine Provision zugunsten des Vereins abgewickelt. Bitte melde dich dafür 
+                  vorab bei deiner Spartenleitung oder beim Vorstand und gib die entsprechenden Bestellinformationen weiter. 
+                  Sobald die Provision beim Verein eingegangen ist, wird der Betrag an dich zurücküberwiesen.
+                </p>
                 <ul>
                   <li>
                     Kaufe über diesen Link:
@@ -361,7 +366,7 @@
                 class="d-flex align-center"
               >
                 <div>
-                  <h2>Pyrolager</h2>
+                  <h2>Airsoft Operations</h2>
                   <SponsoringAvailableLabel
                     :available="hasAirsoft"
                     :loading="isLoading"
@@ -395,15 +400,16 @@
                   <li>
                     Benutze bei deiner Bestellung den nachfolgenden Rabatt Code. Dieser ist nur für Vereinsmitglieder.
                     <br>
-                    Code:
-                    <div class="hint">I am a hint</div>
+                    <b>Code:</b>
+                    <div class="hint">AIR10</div>
                     <br>
-                    <a href="https://airsoftoperations.eu/index.php/events">
+                    Alle Events der AO findest du hier: <a href="https://airsoftoperations.eu/index.php/events">
                       Airsoft Operations - Events
                     </a>
                     <br>
-                    Die Nutzung dieser Rabattcodes wird in Zusammenarbeit mit Airsoft Operations ausgewertet und geprüft. Weiter sollte<br>
-                    dieser Code nicht mit anderen geteilt und nur für Bestellungen von Mitgliedern verwendet werden.
+                    <br>
+                    Die Nutzung dieses Rabattcodes wird in Zusammenarbeit mit Airsoft Operations ausgewertet und geprüft. Weiter sollte<br>
+                    dieser Code nicht mit Anderen (vereinsfremden) geteilt und nur für Bestellungen von Mitgliedern verwendet werden.
                   </li>
                 </ul>
               </v-col>
@@ -472,7 +478,6 @@ export default {
 .hint:not(:active) {
   background-color: #eee; /* these two colors must be equivalent A */
   color: #eee; /* these two colors must be equivalent B */
-  min-width: 96px; /* 72px if box-sizing is border-box; ensures the placeholder is fully visible if the text is smaller than the placeholder text */
   user-select: none; /* if you want it to be copyable, may highlight spoiler text when they click */
 }
 
