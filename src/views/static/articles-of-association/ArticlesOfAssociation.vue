@@ -304,7 +304,12 @@ Folgemonats wirksam.
         </ListItem>
       </div>
 
+      <h3 :class="headlineClasses">
+        § 11 Salvatorische Klausel
+      </h3>
+
       <div class="articles-of-association-list">
+
         <ListItem label="1">
           Sollten einzelne Bestimmungen dieser Satzung unwirksam oder undurchführbar sein oder werden, bleibt die
           Wirksamkeit der übrigen Bestimmungen unberührt. Anstelle der unwirksamen oder undurchführbaren Bestimmung
