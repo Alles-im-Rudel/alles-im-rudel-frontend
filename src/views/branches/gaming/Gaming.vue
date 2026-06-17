@@ -72,6 +72,7 @@
               <a
                 href="https://www.primeleague.gg/de/leagues/teams/164679-alles-im-rudel-e-v"
                 target="_blank"
+                class="d-flex align-center"
               >
                 <v-img
                   src="/assets/branches/gaming/lol-icon.png"
