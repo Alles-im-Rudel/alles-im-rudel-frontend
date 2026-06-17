@@ -17,33 +17,73 @@
             Moin!
           </h2>
           <BaseParagraph class="mt-6 mt-sm-8">
-          Auch unter der ziemlich jungen Gamingsparte finden sich ein paar coole Leute, 
-          die sich aktuell hauptsächlich in den Welten von Rocket League und League of Legends 
-          austobten, jedoch würden nicht vor anderen Games zurückschrecken. 
-          Bei uns steht der Spaß immer an erster Stelle, egal ob wir entspannt zocken oder uns 
-          in der kompetitiven Szene beweisen wollen. Wir suchen immer nach neuen Mitspielern, 
-          die nicht nur freundlich, sondern auch super gesellig sind. </BaseParagraph>
-          <BaseParagraph class="mt-6 mt-sm-8">
-          Natürlich sind aber auch alle herzlich willkommen, die einfach nur in ihrer Freizeit 
-          ein bisschen zocken wollen und auf der Suche nach coolen Mates sind. Wenn ihr mehr 
-          über uns erfahren oder uns persönlich kennenlernen wollt, dann schaut doch einfach 
-          mal auf unserem Discord-Server vorbei. Lasst uns gemeinsam die Gaming-Welt rocken!</BaseParagraph>
-          <BaseParagraph class="mt-6 mt-sm-8">
-          Was erwartet dich in der Gamingsparte?
+          Wir sind ein Haufen Gamer, die Bock auf die perfekte Mischung aus Tryhard und entspannten
+          Feierabend-Runden haben. Bei uns läuft alles ziemlich unkompliziert, ohne Drama oder
+          unnötige Regeln – wir sind einfach eine entspannte Gaming-Community.
           </BaseParagraph>
-          <BaseParagraph class="mt-6 mt-sm-8">Die Gamingsparte ist noch ziemlich jung und im Aufbau. Daher sind wir aktiv auf 
-          der Suche nach Leuten, die Interesse haben im Rahmen eines E-Sport Teams für Alles 
-          im Rudel kompetitiv solo oder im Team je nach Game zu beweisen. Ebenfalls finden 
-          gelegentlich diverse Events intern statt wie z.B. die  "Game Nights" für einen 
-          entspannten Abend gemeinsam auf <a
-              :href="discordUrl"
-              target="_blank"
-            >Discord</a> oder mehr
-            kompetitive Events wie den "Alles im Rudel Beta Cup", in dieser sich die Vereinsmitglieder 
-            untereinander in League of Legends duellierten. </BaseParagraph>
-            <BaseParagraph class="mt-6 mt-sm-8">
-            Auch steht ein Projekt im Bereich Pen & Paper in Planung.
+          <h3 class="text-h4 mt-md-4">
+            Was bei uns gezockt wird?
+          </h3>
+          <BaseParagraph class="mt-6 mt-sm-8">
+            <ul>
+              <li><strong>League of Legends:</strong> Das ist unser E-Sport-Kern. Wir haben ein festes
+                Team für die Prime League und spielen an Trainingsabenden aktiv zu fünft in der
+                Flex-Queue. Natürlich zocken wir hin und wieder aber auch einfach entspannt ein paar
+                Normals / ARAMs, um vom kompetitiven Alltag abzuschalten. Egal ob Tryhard oder relaxed – wenn
+                du League zockst, bist du hier richtig!
+              </li>
+              <li>
+                <strong>Minecraft-Server:</strong> Neben League of Legends zocken wir auch gemeinsam auf
+                unserem eigenen Minecraft-Server. Der Server läuft dauerhaft – einfach draufgehen, bauen,
+                farmen und im Discord quatschen.
+              </li>
+              <li>
+                <strong>Andere Projekte:</strong> Uns wird nicht langweilig! Wenn genug Leute Bock haben,
+                werfen wir spontan eigene Server an. Egal ob Survival in SCUM oder Taktik-Runden in ARMA –
+                wir zocken das, worauf wir als Gaming-Community gerade Lust haben.
+              </li>
+            </ul>
           </BaseParagraph>
+          <h3 class="text-h4 mt-md-4">
+            Passt du zu uns?
+          </h3>
+          <BaseParagraph class="mt-6 mt-sm-8">
+          Wenn du cool bist, keinen Bock auf Toxizität hast und entweder ein festes League-Team oder einfach
+          nur korrekte Leute zum Zocken für verschiedene Games suchst, bist du hier richtig. Alter und
+          Skill-Level sind erst mal zweitrangig, solange das Zwischenmenschliche passt.
+          </BaseParagraph>
+          <h3 class="text-h4 mt-md-4">
+            Klingt gut?
+          </h3>
+          <BaseParagraph class="mt-6 mt-sm-8">
+          Schau am besten direkt bei uns auf dem <a :href="discordUrl" target="_blank">Discord</a> vorbei,
+          stell dich kurz vor und zock eine Runde mit uns!
+          </BaseParagraph>
+
+          <h4 class="text-h5 mt-md-2">
+            Weitere Links
+          </h4>
+          <BaseParagraph class="mt-2 mt-sm-3">
+            Hier kommt Ihr zu unserem Premiereleague Profil.
+          </BaseParagraph>
+
+          <v-row class="mt-8">
+            <v-col cols="12">
+              <a
+                href="https://www.primeleague.gg/de/leagues/teams/164679-alles-im-rudel-e-v"
+                target="_blank"
+                class="d-flex align-center"
+              >
+                <v-img
+                  src="/assets/branches/gaming/lol-icon.png"
+                  max-width="24"
+                  contain
+                  class="mr-2"
+                />
+                <span>Prime League</span>
+              </a>
+            </v-col>
+          </v-row>
         </v-col>
 
         <v-col
