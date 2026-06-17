@@ -11,11 +11,11 @@ export default {
     }
   },
   ELVAN_ELMAS: {
-    fullName: 'Elvan Elmas',
-    image: '/assets/leading/branches/elvanGaming.png',
-    text: dayjs().diff('1998-09-18', 'years') + " Jahre alt\nSpartenleiterin Gaming",
+    fullName: 'Unbesetzt',
+    image: '/assets/leading/branches/avatar_blank.svg',
+    text: dayjs().diff('1970-01-01', 'years') + " Jahre alt\nSpartenleiter Gaming",
     socials: {
-      instagram: 'elvanelmas.98'
+      instagram: ''
     }
   }
 };
