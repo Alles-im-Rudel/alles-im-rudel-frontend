@@ -22,7 +22,7 @@
           unnötige Regeln – wir sind einfach eine entspannte Gaming-Community.
           </BaseParagraph>
           <h3 class="text-h4 mt-md-4">
-            Was bei uns gezockt wird:
+            Was bei uns gezockt wird?
           </h3>
           <BaseParagraph class="mt-6 mt-sm-8">
             <ul>
@@ -60,12 +60,17 @@
           stell dich kurz vor und zock eine Runde mit uns!
           </BaseParagraph>
 
+          <h4 class="text-h5 mt-md-2">
+            Weitere Links
+          </h4>
+          <BaseParagraph class "mt-2 mt-sm-3">
+          </BaseParagraph>
+
           <v-row class="mt-8">
             <v-col cols="12">
               <a
                 href="https://www.primeleague.gg/de/leagues/teams/164679-alles-im-rudel-e-v"
                 target="_blank"
-                class="d-flex align-center text-decoration-none"
               >
                 <v-img
                   src="/assets/branches/gaming/lol-icon.png"
