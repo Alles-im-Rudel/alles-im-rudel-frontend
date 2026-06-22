@@ -11,6 +11,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=113385',
     joinYear: 2018,
     badges: [
+      airsoftBadges.THUNDERSTRIKE3,
       airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
       airsoftBadges.DARK_EMERGENCY_12,
@@ -30,6 +31,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=100900',
     joinYear: 2022,
     badges: [
+      airsoftBadges.THUNDERSTRIKE3,
       airsoftBadges.OPERATION_TITAN_LIGHTSIM,
       airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
@@ -53,6 +55,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=94617',
     joinYear: 2022,
     badges: [
+      airsoftBadges.THUNDERSTRIKE3,
       airsoftBadges.MISSION_24H_2025,
       airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
@@ -68,6 +71,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=190668',
     joinYear: 2023,
     badges: [
+      airsoftBadges.THUNDERSTRIKE3,
       airsoftBadges.OPERATION_TITAN_LIGHTSIM,
       airsoftBadges.MISSION_24H_2025,
       airsoftBadges.DARK_EMERGENCY_13,
@@ -120,6 +124,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=142265',
     joinYear: 2018,
     badges: [
+      airsoftBadges.THUNDERSTRIKE3,
       airsoftBadges.DARK_EMERGENCY_13,
       airsoftBadges.OPERATION_RISENFALL_LIGHTSIM,
       airsoftBadges.DARK_EMERGENCY_12,
@@ -212,7 +217,9 @@ export default [
     image: '/assets/branches/airsoft/members/tamino.png',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=173634',
     joinYear: 2022,
-    badges: []
+    badges: [
+      airsoftBadges.THUNDERSTRIKE3,
+    ]
   },
   {
     firstName: 'Niklas S.',
@@ -394,6 +401,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=174947',
     joinYear: 2023,
     badges: [
+      airsoftBadges.THUNDERSTRIKE3,
       airsoftBadges.DARK_EMERGENCY_13
     ]
   },
@@ -427,6 +435,7 @@ export default [
     link: null,
     joinYear: 2024,
     badges: [
+      airsoftBadges.THUNDERSTRIKE3,
       airsoftBadges.OPERATION_TITAN_LIGHTSIM,
       airsoftBadges.MISSION_24H_2025,
       airsoftBadges.DARK_EMERGENCY_13,
@@ -502,6 +511,7 @@ export default [
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=175928',
     joinYear: 2024,
     badges: [
+      airsoftBadges.THUNDERSTRIKE3,
       airsoftBadges.OPERATION_TITAN_LIGHTSIM,
       airsoftBadges.DARK_EMERGENCY_13
     ]
