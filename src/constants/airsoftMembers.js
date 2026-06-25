@@ -627,7 +627,7 @@ export default [
     firstName: 'Sascha R.',
     title: 'Operator',
     tag: 'Samapari',
-    image: '/assets/branches/airsoft/members/sascha.jpg',
+    image: '/assets/branches/airsoft/members/sascha.png',
     link: 'https://www.airsoft-verzeichnis.de/index.php?status=mitglied&nummer=214170',
     joinYear: 2025,
     badges: []
