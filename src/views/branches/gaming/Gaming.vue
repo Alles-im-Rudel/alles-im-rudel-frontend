@@ -70,7 +70,7 @@
           <div class="branch-leader-container">
             <BaseLeaderCard :leader="leader" />
           </div>
-          <div>
+          <div class="branch-leader-container">
             <v-row class="mt-8">
               <v-col cols="12">
                 <a
