@@ -60,13 +60,6 @@
           stell dich kurz vor und zock eine Runde mit uns!
           </BaseParagraph>
 
-          <h4 class="text-h5 mt-md-2">
-            Weitere Links
-          </h4>
-          <BaseParagraph class="mt-2 mt-sm-3">
-            Hier kommt Ihr zu unserem Premiereleague Profil.
-          </BaseParagraph>
-
           <v-row class="mt-8">
             <v-col cols="12">
               <a

@@ -13,7 +13,7 @@ export default {
   ELVAN_ELMAS: {
     fullName: 'Unbesetzt',
     image: '/assets/leading/branches/avatar_blank.svg',
-    text: dayjs().diff('1970-01-01', 'years') + " Jahre alt\nSpartenleiter Gaming",
+    /* text: dayjs().diff('1970-01-01', 'years') + " Jahre alt\nSpartenleiter Gaming", */
     socials: {
       instagram: ''
     }
