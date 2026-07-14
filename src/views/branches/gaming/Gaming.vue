@@ -60,23 +60,6 @@
           stell dich kurz vor und zock eine Runde mit uns!
           </BaseParagraph>
 
-          <v-row class="mt-8">
-            <v-col cols="12">
-              <a
-                href="https://www.primeleague.gg/de/leagues/teams/164679-alles-im-rudel-e-v"
-                target="_blank"
-                class="d-flex align-center"
-              >
-                <v-img
-                  src="/assets/branches/gaming/lol-icon.png"
-                  max-width="24"
-                  contain
-                  class="mr-2"
-                />
-                <span>Prime League</span>
-              </a>
-            </v-col>
-          </v-row>
         </v-col>
 
         <v-col
@@ -86,6 +69,25 @@
         >
           <div class="branch-leader-container">
             <BaseLeaderCard :leader="leader" />
+          </div>
+          <div>
+            <v-row class="mt-8">
+              <v-col cols="12">
+                <a
+                  href="https://www.primeleague.gg/de/leagues/teams/164679-alles-im-rudel-e-v"
+                  target="_blank"
+                  class="d-flex align-center"
+                >
+                  <v-img
+                    src="/assets/branches/gaming/lol-icon.png"
+                    max-width="64"
+                    contain
+                    class="mr-2"
+                  />
+                  <span>Prime League</span>
+                </a>
+              </v-col>
+            </v-row>
           </div>
         </v-col>
       </v-row>
