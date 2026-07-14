@@ -6,7 +6,7 @@
 
     <BaseContainer class="mt-6 mb-16">
       <h3 :class="headlineClasses">
-        Angaben gem&auml;&szlig; &sect; 5 TMG
+        Angaben gem&auml;&szlig; &sect; 5 DDG
       </h3>
       <p :class="textClasses">
         Alles im Rudel e.V.<br>
@@ -14,6 +14,15 @@
         Catharinenstraße 15<br>
         25335 Elmshorn<br>
         Deutschland
+      </p>
+      <p>
+        <strong>
+          Vertreten durch den Vorstand nach § 26 BGB:
+        </strong>
+        <ol>
+          <li>Nick Nickels (Vorstandsvorsitzender)</li>
+          <li>Timm Vollborn (Schatzmeister)</li>
+        </ol>
       </p>
 
       <h3 :class="headlineClasses">
