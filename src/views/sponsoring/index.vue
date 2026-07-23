@@ -78,10 +78,16 @@
                 sm="3"
                 lg="2"
               >
-                <img
-                  src="/assets/sponsors/begadi/begadi.png"
-                  alt="Begadi"
+                <a
+                  href="https://www.begadi.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
+                  <img
+                    src="/assets/sponsors/begadi/begadi.png"
+                    alt="Begadi"
+                  >
+                </a>
               </v-col>
               <v-col
                 cols="12"

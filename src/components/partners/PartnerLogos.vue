@@ -14,10 +14,16 @@
       v-if="showAirsoft"
       class="banner begadi-banner mb-8"
     >
-      <img
-        src="/assets/sponsors/begadi/begadi_horizontal.jpg"
-        alt="Begadi-Banner"
+      <a
+        href="https://www.begadi.com/"
+        target="_blank"
+        rel="noopener noreferrer"
       >
+        <img
+          src="/assets/sponsors/begadi/begadi_horizontal.jpg"
+          alt="Begadi-Banner"
+        >
+      </a>
     </div>
 
     <div
