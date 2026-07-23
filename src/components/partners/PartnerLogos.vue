@@ -22,16 +22,6 @@
 
     <div
       v-if="showAirsoft"
-      class="banner asmoc-banner mb-8"
-    >
-      <img
-        src="/assets/sponsors/asmoc/armyshopLogoklein3.jpg"
-        alt="Armyshop Lübeck - Banner"
-      >
-    </div>
-
-    <div
-      v-if="showAirsoft"
       class="d-sm-flex align-center justify-center d-block"
     >
       <div class="banner pyrolager-banner mx-auto mx-sm-0">
